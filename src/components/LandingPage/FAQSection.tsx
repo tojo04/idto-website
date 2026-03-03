@@ -1,0 +1,163 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { createFadeInUp, viewportOnce } from "../../utils/animations";
+
+const questionMarkImage = "https://www.figma.com/api/mcp/asset/9253280f-66fa-4e28-a810-74c1743e6b21";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQ[] = [
+  {
+    question: "Can we customize workflows without heavy engineering?",
+    answer:
+      "Yes.\nUse pre-built industry templates or configure workflows via dashboard.\nFor advanced use cases, our API supports full rule-based customization.",
+  },
+  {
+    question: "What if we are not satisfied or idto isn't the right fit?",
+    answer:
+      "No lock-in, no long-term contracts. We believe in earning your business every month. If it's not working, you're free to move — we'll even help with the transition.",
+  },
+  {
+    question: "How is idto different from other verification vendors?",
+    answer:
+      "We're not just an API provider. idto acts as your identity consultant — designing the right verification stack, managing multi-partner orchestration, and optimizing for cost, success rates, and compliance.",
+  },
+  {
+    question: "How do you ensure DPDP compliance?",
+    answer:
+      "All data processing follows DPDP guidelines. We offer consent management, data minimization, purpose limitation, and full audit trails. Your data is encrypted with 256-bit TLS and never stored beyond what's needed.",
+  },
+  {
+    question: "How are you offering enterprise pricing to startups?",
+    answer:
+      "By aggregating volume across our client base and leveraging multi-partner pricing. You get enterprise-grade rates from day one — no minimums or prepaid wallet requirements.",
+  },
+  {
+    question: "Does using multiple partners increase cost?",
+    answer:
+      "No. Our intelligent routing finds the best-cost partner for each verification. In most cases, multi-partner orchestration actually reduces your per-verification cost.",
+  },
+  {
+    question: "How long does it take to go live?",
+    answer:
+      "Most teams go live in under a week. Our pre-built workflows, SDKs, and sandbox environment make it fast. Enterprise deployments with custom rules typically take 2-3 weeks.",
+  },
+  {
+    question: "Can we keep our existing verification partners?",
+    answer:
+      "Absolutely. Bring your own partners and rates — we'll integrate them into your workflow alongside our partner network. One dashboard, unified reporting, zero disruption.",
+  },
+  {
+    question: "What kind of support do you provide?",
+    answer:
+      "Dedicated support with direct access to identity experts. Priority Slack/email channels, integration guidance, and continuous optimization recommendations.",
+  },
+  {
+    question: "Do you support global verification?",
+    answer:
+      "Yes. We cover 190+ countries with document verification, biometric checks, and global AML screening. All through a single integration.",
+  },
+  {
+    question: "What happens during partner downtime?",
+    answer:
+      "Our intelligent fallback system automatically switches to an alternate partner in real-time. You get zero downtime and consistent success rates regardless of individual partner issues.",
+  },
+  {
+    question: "Are you just an aggregator?",
+    answer:
+      "No. We build proprietary orchestration, fallback logic, compliance layers, and workflow automation on top of partner APIs. We're a platform, not a proxy.",
+  },
+];
+
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  return (
+    <section className="px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-[100px] lg:rounded-[150px] bg-gray-bg relative overflow-hidden">
+      <div className="max-w-[1620px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-[90px] items-start">
+        {/* Left - Heading */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={createFadeInUp()}
+          className="lg:flex-1 flex flex-col gap-6"
+        >
+          <h2 className="font-heading text-[40px] lg:text-[48px] leading-[1.3] text-black">
+            Got Questions?
+            <br />
+            We've Got <span className="text-primary">Answers</span>
+          </h2>
+          <p className="text-xl text-black/60 leading-[1.5] max-w-[530px]">
+            From onboarding to verification – here's what you need to know.
+          </p>
+
+          {/* Question mark illustration */}
+          <div className="hidden lg:block relative mt-8">
+            {/* Glow effect */}
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[385px] h-[114px] opacity-80 blur-[60px] -rotate-[14deg]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(89deg, rgb(0, 130, 238) 1%, rgb(0, 51, 209) 49%, rgb(75, 146, 253) 103%)",
+              }}
+            />
+            <img
+              src={questionMarkImage}
+              alt="Question Mark"
+              className="relative w-[400px] h-auto"
+            />
+          </div>
+        </motion.div>
+
+        {/* Right - FAQ Accordion */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={createFadeInUp(0.15)}
+          className="w-full lg:w-[55%] max-h-[798px] overflow-y-auto flex flex-col gap-3 pr-2"
+          style={{ scrollbarWidth: "thin" }}
+        >
+          {faqs.map((faq, i) => (
+            <div
+              key={faq.question}
+              className="bg-white border-[1.66px] border-black/10 rounded-[27px] overflow-hidden"
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
+                className="w-full flex items-center justify-between p-8 lg:p-10 text-left cursor-pointer"
+              >
+                <h3 className="font-heading text-xl lg:text-[28px] leading-[1.5] tracking-[-0.56px] text-black pr-4">
+                  {faq.question}
+                </h3>
+                <span className="text-3xl shrink-0 text-black/40">
+                  {openIndex === i ? "−" : "+"}
+                </span>
+              </button>
+
+              <AnimatePresence initial={false}>
+                {openIndex === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="px-8 lg:px-10 pb-8 lg:pb-10 text-xl text-black/60 leading-[1.5] tracking-[-0.4px] whitespace-pre-line">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
