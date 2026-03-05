@@ -26,6 +26,11 @@
   100% { transform: translateX(-33.333%); }
 }
 
+@keyframes marquee-why {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
 @keyframes marquee-tags {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

@@ -26,8 +26,8 @@ export default function LandingPage() {
       <main>
         <HeroSection bookDemo={bookDemo} />
         <ProblemsSection />
-        <WorkflowsSection />
         <WhyChooseSection />
+        <WorkflowsSection />
         <IndustriesSection />
         <BlogSection />
         <FAQSection />

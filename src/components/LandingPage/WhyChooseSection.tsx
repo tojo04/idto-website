@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
@@ -57,22 +57,60 @@ const whyCards: WhyCard[] = [
 
 export default function WhyChooseSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
 
+  // Auto-cycle active card every 3s (synced with marquee feel)
   useEffect(() => {
-    if (scrollRef.current) {
-      const cards = scrollRef.current.children;
-      if (cards[activeIndex]) {
-        const card = cards[activeIndex] as HTMLElement;
-        const container = scrollRef.current;
-        const scrollLeft =
-          card.offsetLeft -
-          container.offsetWidth / 2 +
-          card.offsetWidth / 2;
-        container.scrollTo({ left: scrollLeft, behavior: "smooth" });
-      }
-    }
-  }, [activeIndex]);
+    if (paused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % whyCards.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [paused]);
+
+  const handleCardClick = useCallback((i: number) => {
+    setActiveIndex(i % whyCards.length);
+    setPaused(true);
+    // Resume auto-cycling after 5s
+    setTimeout(() => setPaused(false), 5000);
+  }, []);
+
+  // Render a single card
+  const renderCard = (card: WhyCard, i: number, keyPrefix: string) => {
+    const realIndex = i % whyCards.length;
+    const isActive = activeIndex === realIndex;
+    return (
+      <div
+        key={`${keyPrefix}-${i}`}
+        onClick={() => handleCardClick(i)}
+        className={`shrink-0 cursor-pointer rounded-[32px] border border-[#536bc9] p-8 lg:p-10 flex flex-col gap-8 transition-all duration-300 ${
+          isActive
+            ? "w-[480px] lg:w-[529px] min-h-[394px] bg-[rgba(55,87,200,0.43)] opacity-100"
+            : "w-[420px] lg:w-[481px] min-h-[358px] bg-[rgba(55,87,200,0.43)] opacity-60"
+        }`}
+      >
+        <h3
+          className={`capitalize font-semibold text-white ${
+            isActive ? "text-[30px]" : "text-[28px]"
+          }`}
+        >
+          {card.title}
+        </h3>
+        <div className="w-16 h-[2px] bg-white/40 rounded" />
+        <p
+          className={`text-white leading-[1.5] tracking-[-0.4px] whitespace-pre-line ${
+            isActive ? "text-[22px]" : "text-xl opacity-60"
+          }`}
+        >
+          {card.description}
+        </p>
+      </div>
+    );
+  };
+
+  // Triple the cards for seamless looping
+  const tripled = [...whyCards, ...whyCards, ...whyCards];
 
   return (
     <section className="bg-blue-section px-6 lg:px-[150px] py-20 lg:py-[150px] overflow-hidden">
@@ -112,48 +150,25 @@ export default function WhyChooseSection() {
           ))}
         </motion.div>
 
-        {/* Scrollable Cards */}
+        {/* Marquee Cards */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="w-full"
+          className="w-full overflow-hidden"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
         >
           <div
-            ref={scrollRef}
-            className="flex gap-8 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            ref={marqueeRef}
+            className="flex gap-8 w-max"
+            style={{
+              animation: `marquee-why 40s linear infinite`,
+              animationPlayState: paused ? "paused" : "running",
+            }}
           >
-            {whyCards.map((card, i) => (
-              <div
-                key={card.title}
-                onClick={() => setActiveIndex(i)}
-                className={`snap-center shrink-0 cursor-pointer rounded-[32px] border border-[#536bc9] p-8 lg:p-10 flex flex-col gap-8 transition-all duration-300 ${
-                  activeIndex === i
-                    ? "w-[480px] lg:w-[529px] min-h-[394px] bg-[rgba(55,87,200,0.43)] opacity-100"
-                    : "w-[420px] lg:w-[481px] min-h-[358px] bg-[rgba(55,87,200,0.43)] opacity-60"
-                }`}
-              >
-                <h3
-                  className={`capitalize font-semibold text-white ${
-                    activeIndex === i ? "text-[30px]" : "text-[28px]"
-                  }`}
-                >
-                  {card.title}
-                </h3>
-                <div className="w-16 h-[2px] bg-white/40 rounded" />
-                <p
-                  className={`text-white leading-[1.5] tracking-[-0.4px] whitespace-pre-line ${
-                    activeIndex === i
-                      ? "text-[22px]"
-                      : "text-xl opacity-60"
-                  }`}
-                >
-                  {card.description}
-                </p>
-              </div>
-            ))}
+            {tripled.map((card, i) => renderCard(card, i, "marquee"))}
           </div>
         </motion.div>
       </div>

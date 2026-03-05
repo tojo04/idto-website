@@ -192,9 +192,12 @@ export default function WorkflowsSection() {
           </div>
 
           {/* Tags Right Panel — outer box */}
-          <div className="w-full lg:w-[45%] bg-gray-bg rounded-[24px] p-8 lg:p-10 flex items-center justify-center overflow-hidden">
-            {/* Inner box */}
-            <div className="w-full h-full bg-black/[0.004] rounded-2xl flex items-center justify-center p-6 lg:p-8 overflow-hidden">
+          <div className="w-full lg:w-[45%] bg-gray-bg rounded-[24px] p-6 lg:p-10 flex items-center justify-center">
+            {/* Inner box — border only, clips marquee content */}
+            <div className="relative w-full border border-white rounded-2xl overflow-hidden">
+              {/* Inner bg layer */}
+              <div className="absolute inset-0 bg-black/[0.004] pointer-events-none" />
+              <div className="relative py-6 lg:py-8 flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -202,7 +205,7 @@ export default function WorkflowsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
-                className="flex flex-col items-center gap-[15px] overflow-hidden w-full"
+                className="flex flex-col items-center gap-[15px] w-full"
               >
                 {workflows[activeIndex].tagRows.map((row, rowIdx) => {
                   return (
@@ -215,7 +218,7 @@ export default function WorkflowsSection() {
                         {row.map((tag, colIdx) => (
                           <div
                             key={tag}
-                            className={`px-5 py-2.5 rounded-md text-[20px] capitalize leading-[1.5] whitespace-nowrap shrink-0 transition-colors duration-500 ${
+                            className={`flex items-center justify-center px-5 h-[50px] rounded-md text-[20px] capitalize leading-[1.5] whitespace-nowrap shrink-0 transition-colors duration-500 ${
                               rowIdx === highlight[0] && colIdx === highlight[1]
                                 ? "bg-blue-section text-white font-semibold"
                                 : "bg-white text-black"
@@ -228,7 +231,7 @@ export default function WorkflowsSection() {
                         {row.map((tag, colIdx) => (
                           <div
                             key={`dup-${tag}`}
-                            className={`px-5 py-2.5 rounded-md text-[20px] capitalize leading-[1.5] whitespace-nowrap shrink-0 transition-colors duration-500 ${
+                            className={`flex items-center justify-center px-5 h-[50px] rounded-md text-[20px] capitalize leading-[1.5] whitespace-nowrap shrink-0 transition-colors duration-500 ${
                               rowIdx === highlight[0] && colIdx === highlight[1]
                                 ? "bg-blue-section text-white font-semibold"
                                 : "bg-white text-black"
@@ -255,6 +258,7 @@ export default function WorkflowsSection() {
                 )}
               </motion.div>
             </AnimatePresence>
+              </div>
             </div>
           </div>
         </motion.div>
