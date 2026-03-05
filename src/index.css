@@ -16,6 +16,31 @@
   --font-heading: 'Hedvig Letters Serif', serif;
   --font-body: 'DM Sans', sans-serif;
   --font-inter: 'Inter', sans-serif;
+
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee-tags: marquee-tags 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes marquee-tags {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Marquee row for workflow tags */
+.marquee-row {
+  overflow: hidden;
+}
+.marquee-track {
+  animation: marquee-tags 25s linear infinite;
+  width: max-content;
+}
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
 }
 
 /* Tailwind v4 preflight already handles box-sizing and margin/padding resets
