@@ -34,71 +34,71 @@ const industries: Industry[] = [
     name: "Lending & Financial Services",
     title: "Lending & Financial Services",
     description:
-      "End-to-end borrower verification with real-time data enrichment and credit signals.",
+      "Regulation-ready onboarding. Built for speed and scale.",
     bullets: [
-      "Bureau pull + income verification in one flow",
-      "CKYC + PAN + Aadhaar integrated",
-      "Employment & salary verification",
-      "Bank statement analysis",
-      "Pre-approved offer generation",
+      "Full KYC stack with intelligent fallbacks",
+      "CKYC Suite + India Stack integrations",
+      "Credit, income & alternate data signals",
+      "Fraud detection + ongoing AML monitoring",
+      "Auto-switching partner orchestration",
     ],
-    footer: "Reduce onboarding time and boost conversion with smart verification.",
+    footer: "Improve approvals. Reduce fraud. Go live faster.",
   },
   {
     name: "E-Commerce & Gig Economy",
-    title: "E-Commerce & Gig Economy",
+    title: "E-commerce & Gig Economy",
     description:
-      "Quick seller/driver onboarding with document verification and risk checks.",
+      "High-volume, low-friction onboarding.",
     bullets: [
-      "Identity verification for sellers & drivers",
-      "Address verification suite",
-      "Criminal background checks",
-      "Vehicle & license verification",
-      "Face match and liveness detection",
+      "Instant KYC + face match",
+      "Driving licence & RC verification",
+      "Bank account validation",
+      "Mobile profile insights",
+      "Fraud & duplicate identity detection",
     ],
-    footer: "Onboard vendors, sellers, and gig workers in minutes, not days.",
+    footer: "Onboard fast. Prevent misuse. Reduce ops overhead.",
   },
   {
     name: "Marketplaces & Platforms",
     title: "Marketplaces & Platforms",
     description:
-      "Trust and safety infrastructure for two-sided marketplaces.",
+      "Pre-configured seller & merchant onboarding flows.",
     bullets: [
-      "Buyer and seller KYC",
-      "Business verification for merchants",
-      "Risk scoring for transactions",
-      "Real-time AML screening",
-      "Dispute identity verification",
+      "KYB + UBO identification",
+      "Director & PAN validation",
+      "GST, MCA, AML screening",
+      "Auto-switching verification partners",
+      "Risk scoring before activation",
     ],
-    footer: "Build trust on your platform with seamless verification flows.",
+    footer: "Reduce fraud. Activate sellers faster.",
   },
   {
     name: "Crypto & Digital Assets",
     title: "Crypto & Digital Assets",
     description:
-      "Regulatory-compliant onboarding for crypto exchanges and digital asset platforms.",
+      "Compliance-first onboarding for high-risk environments.",
     bullets: [
-      "Global KYC with 190+ country coverage",
-      "AML & PEP screening",
-      "Wallet risk analysis",
-      "Enhanced due diligence workflows",
-      "Travel rule compliance",
+      "Global ID verification",
+      "AML & sanction monitoring",
+      "Device & behavioral risk signals",
+      "Ongoing transaction monitoring",
+      "Region-wise orchestration logic",
     ],
-    footer: "Stay compliant while scaling your crypto platform globally.",
+    footer: "Stay compliant without slowing growth.",
   },
   {
     name: "SaaS & Global Platforms",
     title: "SaaS & Global Platforms",
     description:
-      "Flexible verification APIs for global SaaS products and platforms.",
+      "Lightweight global identity stack.",
     bullets: [
-      "Multi-country identity verification",
-      "Document OCR with global coverage",
-      "Biometric authentication",
-      "Enterprise SSO integration",
-      "Custom workflow builder",
+      "Global KYC & document OCR",
+      "Tax ID / VAT validation",
+      "Mobile & device intelligence",
+      "Region-based verification logic",
+      "Unified output across partners",
     ],
-    footer: "One integration. Global coverage. Built for scale.",
+    footer: "Scale across regions without rebuilding infra.",
   },
 ];
 
@@ -152,7 +152,7 @@ export default function IndustriesSection() {
             className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] items-center w-full"
           >
             {/* Text */}
-            <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 min-h-[394px]">
+            <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 h-[394px]">
               <h3 className="font-heading text-2xl lg:text-[28px] leading-[1.5] tracking-[-0.56px] text-black">
                 {industries[activeIndex].title}
               </h3>

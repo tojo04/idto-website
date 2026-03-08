@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
@@ -56,52 +56,33 @@ const whyCards: WhyCard[] = [
 ];
 
 export default function WhyChooseSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
 
-  // Auto-cycle active card every 3s (synced with marquee feel)
-  useEffect(() => {
-    if (paused) return;
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % whyCards.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [paused]);
-
-  const handleCardClick = useCallback((i: number) => {
-    setActiveIndex(i % whyCards.length);
-    setPaused(true);
-    // Resume auto-cycling after 5s
-    setTimeout(() => setPaused(false), 5000);
-  }, []);
-
   // Render a single card
   const renderCard = (card: WhyCard, i: number, keyPrefix: string) => {
-    const realIndex = i % whyCards.length;
-    const isActive = activeIndex === realIndex;
     return (
       <div
         key={`${keyPrefix}-${i}`}
-        onClick={() => handleCardClick(i)}
-        className={`shrink-0 cursor-pointer rounded-[32px] border border-[#536bc9] p-8 lg:p-10 flex flex-col gap-8 transition-all duration-300 ${
-          isActive
-            ? "w-[480px] lg:w-[529px] min-h-[394px] bg-[rgba(55,87,200,0.43)] opacity-100"
-            : "w-[420px] lg:w-[481px] min-h-[358px] bg-[rgba(55,87,200,0.43)] opacity-60"
-        }`}
+        className="group shrink-0 cursor-pointer border border-[#536bc9] flex flex-col transition-all duration-300 ease-out
+          bg-[rgba(55,87,200,0.43)]
+          w-[420px] lg:w-[481px] h-[358px] rounded-[32px] opacity-60 p-[31px_41px]
+          hover:w-[480px] hover:lg:w-[529px] hover:h-[394px] hover:rounded-[35px] hover:opacity-100 hover:p-[40px_45px]"
       >
         <h3
-          className={`capitalize font-semibold text-white ${
-            isActive ? "text-[30px]" : "text-[28px]"
-          }`}
+          className="capitalize font-semibold text-white leading-[36px] transition-all duration-300
+            text-[28px] group-hover:text-[30px] group-hover:leading-[39px]"
         >
           {card.title}
         </h3>
-        <div className="w-16 h-[2px] bg-white/40 rounded" />
+        <div
+          className="w-[65px] h-0 mt-9 transition-colors duration-300
+            border-t-[1.62px] border-[#DBDFE3] group-hover:border-white group-hover:border-t-[1.78px]"
+        />
         <p
-          className={`text-white leading-[1.5] tracking-[-0.4px] whitespace-pre-line ${
-            isActive ? "text-[22px]" : "text-xl opacity-60"
-          }`}
+          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-9 transition-all duration-300
+            text-[20px] opacity-60 group-hover:text-[22px] group-hover:opacity-100"
         >
           {card.description}
         </p>
@@ -144,7 +125,7 @@ export default function WhyChooseSection() {
               key={card.tag}
               label={card.tag}
               active={activeIndex === i}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => setActiveIndex(activeIndex === i ? null : i)}
               variant="dark"
             />
           ))}

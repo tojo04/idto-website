@@ -3,6 +3,7 @@ import Header from "../components/LandingPage/Header";
 import HeroSection from "../components/LandingPage/HeroSection";
 import ProblemsSection from "../components/LandingPage/ProblemsSection";
 import WorkflowsSection from "../components/LandingPage/WorkflowsSection";
+import SingleApiSection from "../components/LandingPage/SingleApiSection";
 import WhyChooseSection from "../components/LandingPage/WhyChooseSection";
 import IndustriesSection from "../components/LandingPage/IndustriesSection";
 import BlogSection from "../components/LandingPage/BlogSection";
@@ -28,6 +29,7 @@ export default function LandingPage() {
         <ProblemsSection />
         <WhyChooseSection />
         <WorkflowsSection />
+        <SingleApiSection />
         <IndustriesSection />
         <BlogSection />
         <FAQSection />

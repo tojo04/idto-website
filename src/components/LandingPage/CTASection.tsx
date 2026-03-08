@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
 
-const earthGlobe = "https://www.figma.com/api/mcp/asset/c1ab3249-f182-4eb9-84fd-ef9367f96bf3";
+const earthGlobe = "https://www.figma.com/api/mcp/asset/9061a709-785f-4e7f-b587-173b3988c5cd";
 
 interface CTASectionProps {
   bookDemo: () => void;
@@ -18,8 +18,8 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
         variants={createFadeInUp()}
         className="max-w-[1620px] mx-auto bg-white rounded-[40px] lg:rounded-[60px] overflow-hidden relative"
       >
-        {/* Background Globe */}
-        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[600px] lg:w-[1000px] h-[600px] lg:h-[1000px] opacity-30 pointer-events-none">
+        {/* Background Globe — only ~1/4 visible, cropped right */}
+        <div className="absolute right-[-65%] lg:right-[-55%] top-1/2 -translate-y-1/2 w-[700px] lg:w-[1200px] h-[700px] lg:h-[1200px] opacity-40 pointer-events-none">
           <img
             src={earthGlobe}
             alt=""
