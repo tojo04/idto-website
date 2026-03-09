@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, staggerContainer, fadeItem, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
-
-const blogPost1Image = "https://www.figma.com/api/mcp/asset/06bda7d6-3b98-493a-b409-1f60e4a09b97";
-const blogPost2Image = "https://www.figma.com/api/mcp/asset/910a1c38-0ccd-46ac-a2e7-b2a5fcdac102";
-const blogPost3Image = "https://www.figma.com/api/mcp/asset/bf30107e-9c9e-4188-b878-16d4642f1f6d";
+import blogPost1Image from "../../assets/blog_post_1.jpg";
+import blogPost2Image from "../../assets/blog_post_2.png";
+import blogPost3Image from "../../assets/blog_post_3.png";
 
 interface BlogPost {
   title: string;
@@ -37,8 +36,8 @@ const blogPosts: BlogPost[] = [
 
 export default function BlogSection() {
   return (
-    <section className="bg-white px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-[100px] lg:rounded-[150px]">
-      <div className="max-w-[1620px] mx-auto flex flex-col gap-16 lg:gap-[90px]">
+    <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col gap-16 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -66,7 +65,7 @@ export default function BlogSection() {
               className="bg-white border-[1.5px] border-black/10 rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow"
             >
               {/* Image */}
-              <div className="h-[300px] lg:h-[392px] overflow-hidden bg-[#fbf8f9]">
+              <div className="h-75 lg:h-98 overflow-hidden bg-[#fbf8f9]">
                 <img
                   src={post.image}
                   alt={post.title}
@@ -79,7 +78,7 @@ export default function BlogSection() {
                 <h3 className="font-heading text-xl lg:text-2xl text-[#212529] leading-[1.3] tracking-tight">
                   {post.title}
                 </h3>
-                <p className="text-base text-[#495057] leading-[1.5]">
+                <p className="text-base text-[#495057] leading-normal">
                   {post.description}
                 </p>
                 <a

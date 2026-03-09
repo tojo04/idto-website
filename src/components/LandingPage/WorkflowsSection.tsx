@@ -108,19 +108,19 @@ export default function WorkflowsSection() {
   );
 
   useEffect(() => {
-    setHighlight(getRandomHighlight(activeIndex));
+    const instant = setTimeout(() => setHighlight(getRandomHighlight(activeIndex)), 0);
     const interval = setInterval(() => {
       setHighlight(getRandomHighlight(activeIndex));
     }, 2000);
-    return () => clearInterval(interval);
+    return () => { clearTimeout(instant); clearInterval(interval); };
   }, [activeIndex, getRandomHighlight]);
 
   return (
     <section
       id="workflows"
-      className="bg-white px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-[100px] lg:rounded-[150px]"
+      className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]"
     >
-      <div className="max-w-[1620px] mx-auto flex flex-col items-center gap-16 lg:gap-[90px]">
+      <div className="max-w-405 mx-auto flex flex-col items-center gap-16 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -141,10 +141,10 @@ export default function WorkflowsSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.15)}
-          className="flex flex-col lg:flex-row gap-8 lg:gap-[80px] items-center w-full"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-center w-full"
         >
           {/* Accordion Left */}
-          <div className="flex flex-col gap-[11px] w-full lg:w-[55%]">
+          <div className="flex flex-col gap-2.75 w-full lg:w-[55%]">
             {workflows.map((wf, i) => (
               <div
                 key={wf.title}
@@ -157,7 +157,7 @@ export default function WorkflowsSection() {
               >
                 <div className="flex items-center justify-between">
                   <h3
-                    className={`font-heading text-2xl lg:text-[28px] leading-[1.5] tracking-[-0.02em] ${
+                    className={`font-heading text-2xl lg:text-[28px] leading-normal tracking-[-0.02em] ${
                       activeIndex === i ? "text-white" : "text-black"
                     }`}
                   >
@@ -181,7 +181,7 @@ export default function WorkflowsSection() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-5 text-[20px] text-white/60 leading-[1.5] tracking-[-0.02em]">
+                      <p className="pt-5 text-[20px] text-white/60 leading-normal tracking-[-0.02em]">
                         {wf.description}
                       </p>
                     </motion.div>
@@ -192,7 +192,7 @@ export default function WorkflowsSection() {
           </div>
 
           {/* Tags Right Panel — outer box */}
-          <div className="w-full lg:w-[45%] bg-gray-bg rounded-[24px] p-6 lg:p-10 flex items-center justify-center">
+          <div className="w-full lg:w-[45%] bg-gray-bg rounded-3xl p-6 lg:p-10 flex items-center justify-center">
             {/* Inner box — border only, clips marquee content */}
             <div className="relative w-full border border-white rounded-2xl overflow-hidden">
               {/* Inner bg layer */}
@@ -200,25 +200,25 @@ export default function WorkflowsSection() {
               <div className="relative py-6 lg:py-8 flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeIndex}
+                key={activeIndex ?? -1}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
-                className="flex flex-col items-center gap-[15px] w-full"
+                className="flex flex-col items-center gap-3.75 w-full"
               >
-                {workflows[activeIndex].tagRows.map((row, rowIdx) => {
+                {activeIndex !== null && workflows[activeIndex].tagRows.map((row, rowIdx) => {
                   return (
                     <div
                       key={rowIdx}
                       className="marquee-row overflow-hidden w-full"
                     >
-                      <div className="marquee-track flex flex-row items-center gap-[15px] whitespace-nowrap">
+                      <div className="marquee-track flex flex-row items-center gap-3.75 whitespace-nowrap">
                         {/* Original set */}
                         {row.map((tag, colIdx) => (
                           <div
                             key={tag}
-                            className={`flex items-center justify-center px-5 h-[50px] rounded-md text-[20px] capitalize leading-[1.5] whitespace-nowrap shrink-0 transition-colors duration-500 ${
+                            className={`flex items-center justify-center px-5 h-12.5 rounded-md text-[20px] capitalize leading-normal whitespace-nowrap shrink-0 transition-colors duration-500 ${
                               rowIdx === highlight[0] && colIdx === highlight[1]
                                 ? "bg-blue-section text-white font-semibold"
                                 : "bg-white text-black"
@@ -231,7 +231,7 @@ export default function WorkflowsSection() {
                         {row.map((tag, colIdx) => (
                           <div
                             key={`dup-${tag}`}
-                            className={`flex items-center justify-center px-5 h-[50px] rounded-md text-[20px] capitalize leading-[1.5] whitespace-nowrap shrink-0 transition-colors duration-500 ${
+                            className={`flex items-center justify-center px-5 h-12.5 rounded-md text-[20px] capitalize leading-normal whitespace-nowrap shrink-0 transition-colors duration-500 ${
                               rowIdx === highlight[0] && colIdx === highlight[1]
                                 ? "bg-blue-section text-white font-semibold"
                                 : "bg-white text-black"
@@ -244,12 +244,12 @@ export default function WorkflowsSection() {
                     </div>
                   );
                 })}
-                {workflows[activeIndex].footnote && (
+                {activeIndex !== null && workflows[activeIndex].footnote && (
                   <div className="flex flex-col items-center gap-1 mt-2">
                     {workflows[activeIndex].footnote!.map((line) => (
                       <span
                         key={line}
-                        className="text-[20px] leading-[1.5] text-black/60"
+                        className="text-[20px] leading-normal text-black/60"
                       >
                         {line}
                       </span>

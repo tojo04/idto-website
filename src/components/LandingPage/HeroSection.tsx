@@ -1,11 +1,16 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 
+// Globe animation frames
+import globe1 from "../../assets/globe/globe=1.svg";
+import globe2 from "../../assets/globe/globe=2.svg";
+import globe3 from "../../assets/globe/globe=3.svg";
+import globe4 from "../../assets/globe/globe=4.svg";
+
+const globeFrames = [globe1, globe2, globe3, globe4];
+
 // Globe assets
-const earthGlobe = "https://www.figma.com/api/mcp/asset/3e47cb91-b4cb-4660-927e-2441f5a99b15";
-const ellipse1 = "https://www.figma.com/api/mcp/asset/23ff7d56-c53c-497f-9f03-655ae0de9113";
-const ellipse2 = "https://www.figma.com/api/mcp/asset/56264dfa-2191-42e4-986c-8e09d1c3646e";
-const ellipse3 = "https://www.figma.com/api/mcp/asset/92d2393e-c049-442b-89fc-d68c8bdc057f";
 const circleDecoration = "https://www.figma.com/api/mcp/asset/926ce96f-0fdb-441a-8a32-5159367393d9";
 
 // Partner logos
@@ -21,6 +26,15 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ bookDemo }: HeroSectionProps) {
+  const [globeFrame, setGlobeFrame] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGlobeFrame((prev) => (prev + 1) % globeFrames.length);
+    }, 200);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     // Section: 1920×869, white bg, border-radius 0 0 150 150
     <section className="relative bg-white rounded-b-[100px] lg:rounded-b-[150px] overflow-hidden min-h-[520px] lg:min-h-[869px]">
@@ -36,18 +50,21 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           height: 700,
         }}
       >
-        {/* Ellipse 1: rotate(-15deg) */}
-        <img src={ellipse1} alt="" className="absolute inset-0 w-full h-full object-contain" style={{ transform: "rotate(-15deg)" }} />
-        {/* Ellipse 2: rotate(45deg) */}
-        <img src={ellipse2} alt="" className="absolute inset-0 w-full h-full object-contain" style={{ transform: "rotate(45deg)" }} />
-        {/* Ellipse 3: rotate(120deg) */}
-        <img src={ellipse3} alt="" className="absolute inset-0 w-full h-full object-contain" style={{ transform: "rotate(120deg)" }} />
-        {/* Globe: top 17.18%, left 14.27%, right 14.55%, bottom 18.13% → w≈453px h≈453px offset left≈91px top≈120px */}
+        {/* Globe - hard-cut frame switching for smooth orbit animation */}
         <div
-          className="absolute rounded-full overflow-hidden"
-          style={{ top: "17.18%", left: "14.27%", right: "14.55%", bottom: "18.13%" }}
+          className="absolute inset-0"
         >
-          <img src={earthGlobe} alt="Earth Globe" className="w-full h-full object-cover" />
+          {globeFrames.map((frame, i) => (
+            <img
+              key={i}
+              src={frame}
+              alt="Earth Globe"
+              className="absolute inset-0 w-full h-full object-contain"
+              style={{
+                opacity: i === globeFrame ? 1 : 0,
+              }}
+            />
+          ))}
         </div>
       </div>
 

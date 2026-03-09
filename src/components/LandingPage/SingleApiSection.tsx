@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
@@ -116,12 +117,27 @@ const tabs: TabContent[] = [
 
 export default function SingleApiSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % tabs.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [paused]);
+
+  const handlePillClick = useCallback((i: number) => {
+    setActiveIndex(i);
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  }, []);
 
   const current = tabs[activeIndex];
 
   return (
-    <section className="bg-white px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-[100px] lg:rounded-[150px]">
-      <div className="max-w-[1620px] mx-auto flex flex-col items-center gap-12 lg:gap-[90px]">
+    <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col items-center gap-12 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -135,7 +151,7 @@ export default function SingleApiSection() {
             <br />
             <span className="text-primary">Seamless</span> Integration.
           </SectionHeading>
-          <p className="text-xl text-black/60 leading-[1.5] tracking-[-0.4px] text-center max-w-[700px]">
+          <p className="text-xl text-black/60 leading-normal tracking-[-0.4px] text-center max-w-175">
             One integration layer powering KYC, KYB, fraud intelligence, and
             compliance across 400+ APIs globally.
           </p>
@@ -147,14 +163,14 @@ export default function SingleApiSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="flex flex-wrap gap-4 justify-center max-w-[1092px]"
+          className="flex flex-wrap gap-4 justify-center max-w-273"
         >
           {tabs.map((tab, i) => (
             <PillTag
               key={tab.name}
               label={tab.name}
               active={activeIndex === i}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => handlePillClick(i)}
               variant="light"
             />
           ))}
@@ -168,15 +184,15 @@ export default function SingleApiSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] items-stretch w-full"
+            className="flex flex-col lg:flex-row gap-8 lg:gap-15 items-stretch w-full"
           >
             {/* Left column: Text card + CTA buttons */}
             <div className="w-full lg:w-1/2 flex flex-col gap-8">
               <div className="bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 flex-1">
-                <h3 className="font-heading text-2xl lg:text-[28px] leading-[1.5] tracking-[-0.56px] text-black">
+                <h3 className="font-heading text-2xl lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
                   {current.title}
                 </h3>
-                <p className="text-lg text-black/60 leading-[1.5] tracking-[-0.36px]">
+                <p className="text-lg text-black/60 leading-normal tracking-[-0.36px]">
                   {current.description}
                 </p>
                 <ul className="list-disc ml-7 text-lg text-black/60 leading-[1.7] tracking-[-0.36px] space-y-1">
@@ -185,7 +201,7 @@ export default function SingleApiSection() {
                   ))}
                 </ul>
                 {current.footer && (
-                  <p className="text-lg text-black/60 leading-[1.5] tracking-[-0.36px] mt-auto">
+                  <p className="text-lg text-black/60 leading-normal tracking-[-0.36px] mt-auto">
                     {current.footer}
                   </p>
                 )}
@@ -210,7 +226,7 @@ export default function SingleApiSection() {
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-md text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
                 >
                   <span className="underline underline-offset-4">Explore Documentation</span>
-                  <span className="inline-block w-3.5 border-t-2 border-primary" />
+                  <ArrowRight size={20} strokeWidth={2.5} />
                 </a>
                 <a
                   href="https://dashboard.idto.ai"
@@ -219,13 +235,13 @@ export default function SingleApiSection() {
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-md text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
                 >
                   <span className="underline underline-offset-4">View Demo Workflow</span>
-                  <span className="inline-block w-3.5 border-t-2 border-primary" />
+                  <ArrowRight size={20} strokeWidth={2.5} />
                 </a>
               </div>
             </div>
 
             {/* Image — stretches full height of left column */}
-            <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden h-[300px] lg:h-auto">
+            <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden h-75 lg:h-auto">
               <img
                 src={tabImages[current.name]}
                 alt={current.title}

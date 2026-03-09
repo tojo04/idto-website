@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
-
-const logoIcon = "https://www.figma.com/api/mcp/asset/ac7598ed-cdd4-43ac-aeea-b254b67f1e6f";
-const logoText = "https://www.figma.com/api/mcp/asset/e5ea6c41-aa64-412c-b3c2-13e36fd20a57";
-const awsLogo = "https://www.figma.com/api/mcp/asset/8d741ca5-a092-4173-b40d-cd4cb3f01d45";
-const isoLogo = "https://www.figma.com/api/mcp/asset/7621d378-4a1b-4b32-a8b4-e0a91e5b95b9";
-const certLogo3 = "https://www.figma.com/api/mcp/asset/922bab18-f2dc-4f57-8156-36b257f68910";
-const digilockerLogo = "https://www.figma.com/api/mcp/asset/baa45a74-76b1-4737-a522-b9951d7de783";
+import logoIcon from "../../assets/logo_icon.svg";
+import logoText from "../../assets/logo_text.svg";
+import awsLogo from "../../assets/aws.png";
+import isoLogo from "../../assets/iso.png";
+import certLogo3 from "../../assets/certLogo.png";
+import digilockerLogo from "../../assets/digilocker.png";
 
 const productLinks = [
   { label: "User Verification (KYC)", href: "#" },
@@ -35,8 +35,8 @@ interface FooterSectionProps {
 
 export default function FooterSection({ bookDemo }: FooterSectionProps) {
   return (
-    <footer className="bg-blue-section px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-t-[100px] lg:rounded-t-[150px]">
-      <div className="max-w-[1620px] mx-auto flex flex-col gap-16 lg:gap-[90px]">
+    <footer className="bg-blue-section px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-t-[100px] lg:rounded-t-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col gap-16 lg:gap-22.5">
         {/* Main Footer Content - Gradient Border Container */}
         <div
           className="rounded-3xl p-1.5 pt-4"
@@ -45,11 +45,11 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               "linear-gradient(250deg, #0019ff 18%, #4edfc3 31%, #54eebe 49%, #4edfc3 64%, #0019ff 115%)",
           }}
         >
-          <div className="bg-blue-section rounded-[21px] px-8 lg:px-[60px] py-10 lg:py-12 overflow-hidden">
+          <div className="bg-blue-section rounded-[21px] px-8 lg:px-15 py-10 lg:py-12 overflow-hidden">
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 items-start">
               {/* Logo & Tagline */}
               <div className="flex flex-col gap-7 w-full lg:w-[498px] shrink-0">
-                <div className="relative w-[82px] h-[44px]">
+                <div className="relative w-20.5 h-11">
                   <img
                     src={logoIcon}
                     alt=""
@@ -62,7 +62,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-4">
-                  <p className="font-heading text-[26px] text-white leading-[1.5] tracking-[-0.52px]">
+                  <p className="font-heading text-[26px] text-white leading-normal tracking-[-0.52px]">
                     Your partner for onboarding,
                     <br />
                     verification & trust.
@@ -159,17 +159,17 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
           variants={createFadeInUp()}
           className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
         >
-          <p className="text-xl text-white leading-[1.5] tracking-[-0.42px] max-w-[700px] font-medium">
+          <p className="text-xl text-white leading-normal tracking-[-0.42px] max-w-175 font-medium">
             Payvriz Technologies Private Limited is compliant with the Digital
             Personal Data Protection Act, 2023 and committed to safeguarding your
             information. All data is transmitted using 256-bit TLS encryption for
             maximum security.
           </p>
-          <div className="flex items-center gap-5 flex-wrap">
-            <img src={awsLogo} alt="AWS" className="h-10 w-auto" />
-            <img src={isoLogo} alt="ISO" className="h-16 w-auto" />
-            <img src={certLogo3} alt="Certification" className="h-11 w-auto" />
-            <img src={digilockerLogo} alt="DigiLocker" className="h-9 w-auto" />
+          <div className="flex flex-col items-end gap-5">
+            <img src={awsLogo} alt="AWS" className="h-10 max-w-45 object-contain" />
+            <img src={isoLogo} alt="ISO" className="h-20 max-w-20 object-contain" />
+            <img src={certLogo3} alt="Certification" className="h-11 max-w-35 object-contain" />
+            <img src={digilockerLogo} alt="DigiLocker" className="h-12.5 max-w-45 object-contain" />
           </div>
         </motion.div>
 
@@ -185,15 +185,15 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
             </p>
           </div>
           <div className="flex gap-12 text-right">
-            <a href="/privacy" className="hover:text-white/80 transition-colors">
+            <Link to="/privacy" className="hover:text-white/80 transition-colors">
               Privacy
-            </a>
-            <a
-              href="/terms"
+            </Link>
+            <Link
+              to="/terms"
               className="hover:text-white/80 transition-colors"
             >
               Terms & Conditions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

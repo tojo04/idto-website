@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
 
-const industryImage = "https://www.figma.com/api/mcp/asset/b387b2b3-7abf-4fb3-9276-7fd3ef06df4d";
+// TODO: Add a local industry image to src/assets/ and update this path
+const industryImage = "/placeholder-industry.png";
 
 interface Industry {
   name: string;
@@ -104,10 +105,25 @@ const industries: Industry[] = [
 
 export default function IndustriesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % industries.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [paused]);
+
+  const handlePillClick = useCallback((i: number) => {
+    setActiveIndex(i);
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  }, []);
 
   return (
-    <section className="bg-gray-bg px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-[100px] lg:rounded-[150px]">
-      <div className="max-w-[1620px] mx-auto flex flex-col items-center gap-12 lg:gap-[90px]">
+    <section className="bg-gray-bg px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col items-center gap-12 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -128,14 +144,14 @@ export default function IndustriesSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="flex flex-wrap gap-4 justify-center max-w-[1092px]"
+          className="flex flex-wrap gap-4 justify-center max-w-273"
         >
           {industries.map((ind, i) => (
             <PillTag
               key={ind.name}
               label={ind.name}
               active={activeIndex === i}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => handlePillClick(i)}
               variant="light"
             />
           ))}
@@ -149,28 +165,28 @@ export default function IndustriesSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col lg:flex-row gap-8 lg:gap-[60px] items-center w-full"
+            className="flex flex-col lg:flex-row gap-8 lg:gap-15 items-center w-full"
           >
             {/* Text */}
-            <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 h-[394px]">
-              <h3 className="font-heading text-2xl lg:text-[28px] leading-[1.5] tracking-[-0.56px] text-black">
+            <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 min-h-98.5">
+              <h3 className="font-heading text-2xl lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
                 {industries[activeIndex].title}
               </h3>
-              <p className="text-xl text-black/60 leading-[1.5] tracking-[-0.4px]">
+              <p className="text-xl text-black/60 leading-normal tracking-[-0.4px]">
                 {industries[activeIndex].description}
               </p>
-              <ul className="list-disc ml-7 text-xl text-black/60 leading-[1.5] tracking-[-0.4px] space-y-1">
+              <ul className="list-disc ml-7 text-xl text-black/60 leading-normal tracking-[-0.4px] space-y-1">
                 {industries[activeIndex].bullets.map((b) => (
                   <li key={b}>{b}</li>
                 ))}
               </ul>
-              <p className="text-xl text-black/60 leading-[1.5] tracking-[-0.4px] mt-auto">
+              <p className="text-xl text-black/60 leading-normal tracking-[-0.4px] mt-auto">
                 {industries[activeIndex].footer}
               </p>
             </div>
 
             {/* Image */}
-            <div className="w-full lg:w-1/2 bg-white rounded-2xl overflow-hidden h-[300px] lg:h-[394px]">
+            <div className="w-full lg:w-1/2 bg-white rounded-2xl overflow-hidden h-75 lg:min-h-98.5">
               <img
                 src={industryImage}
                 alt={industries[activeIndex].title}
@@ -186,7 +202,7 @@ export default function IndustriesSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="text-xl text-black/60 text-center leading-[1.5]"
+          className="text-xl text-black/60 text-center leading-normal"
         >
           Pre-configured workflows. Alternate data integrated. Production-ready
           from day one.

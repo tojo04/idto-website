@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { createFadeInDown } from "../../utils/animations";
 import Button from "../UI/Button";
-
-const logoIcon = "https://www.figma.com/api/mcp/asset/60be1c1b-fe42-423a-a8fa-3544be002292";
-const logoText = "https://www.figma.com/api/mcp/asset/27a0d4e1-dbd1-458b-8876-28b812423a03";
+import logoIcon from "../../assets/logo_icon.svg";
+import logoText from "../../assets/logo_text.svg";
 
 const navItems = [
   { label: "Home", href: "#" },
@@ -14,16 +13,16 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="bg-white px-8 lg:px-[150px] py-9 sticky top-0 z-50">
+    <header className="bg-white px-8 lg:px-37.5 py-9 sticky top-0 z-50">
       <motion.div
         initial="hidden"
         animate="show"
         variants={createFadeInDown(0.05)}
       >
-        <div className="max-w-[1920px] mx-auto flex items-center justify-between">
+        <div className="max-w-480 mx-auto flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-1 shrink-0">
-            <div className="relative w-[82px] h-[44px]">
+            <div className="relative w-20.5 h-11">
               <img
                 src={logoIcon}
                 alt=""

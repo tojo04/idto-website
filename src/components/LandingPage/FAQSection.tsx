@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
-
-const questionMarkImage =
-  "https://www.figma.com/api/mcp/asset/afc510e8-5935-42bc-aacc-2a5789d3ad73";
+import questionMarkImage from "../../assets/question_mark.png";
 
 interface FAQ {
   question: string;
@@ -77,8 +75,8 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="px-6 lg:px-[150px] py-20 lg:py-[150px] rounded-[100px] lg:rounded-[150px] bg-gray-bg relative overflow-hidden">
-      <div className="max-w-[1620px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-[90px] lg:items-stretch relative">
+    <section className="px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px] bg-gray-bg relative overflow-hidden">
+      <div className="max-w-405 mx-auto flex flex-col lg:flex-row gap-12 lg:gap-22.5 lg:items-stretch relative">
         {/* Left — Header Container */}
         <motion.div
           initial="hidden"
@@ -95,7 +93,7 @@ export default function FAQSection() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-xl text-black/60 leading-[1.5] max-w-[530px]">
+          <p className="text-xl text-black/60 leading-normal max-w-132.5">
             From onboarding to verification – here's what you need to know.
           </p>
 
@@ -121,7 +119,7 @@ export default function FAQSection() {
             <img
               src={questionMarkImage}
               alt=""
-              className="absolute left-[-22%] bottom-[-7%] w-[140%] h-auto object-contain -rotate-[0.26deg]"
+              className="absolute left-[-22%] bottom-[15%] w-[140%] h-auto object-contain -rotate-[0.26deg]"
             />
           </div>
         </motion.div>
@@ -132,7 +130,7 @@ export default function FAQSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.15)}
-          className="w-full lg:flex-1 lg:max-w-[847px] h-auto lg:h-[798px] overflow-y-auto flex flex-col gap-[11px]"
+          className="w-full lg:flex-1 lg:max-w-211.75 h-auto lg:h-199.5 overflow-y-auto flex flex-col gap-2.75"
           style={{
             scrollbarWidth: "thin",
             scrollbarColor: "rgba(0,0,0,0.15) transparent",
@@ -147,7 +145,7 @@ export default function FAQSection() {
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                 className="w-full flex items-center justify-between px-10 py-10 text-left cursor-pointer gap-5"
               >
-                <h3 className="font-heading text-xl lg:text-[28px] leading-[1.5] tracking-[-0.02em] text-black">
+                <h3 className="font-heading text-xl lg:text-[28px] leading-normal tracking-[-0.02em] text-black">
                   {faq.question}
                 </h3>
                 <span className="w-10 h-10 shrink-0 flex items-center justify-center text-2xl text-black select-none">
@@ -164,7 +162,7 @@ export default function FAQSection() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-10 pb-10 text-xl text-black/60 leading-[1.5] tracking-[-0.02em] whitespace-pre-line">
+                    <p className="px-10 pb-10 text-xl text-black/60 leading-normal tracking-[-0.02em] whitespace-pre-line">
                       {faq.answer}
                     </p>
                   </motion.div>

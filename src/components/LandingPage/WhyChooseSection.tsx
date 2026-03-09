@@ -65,24 +65,23 @@ export default function WhyChooseSection() {
     return (
       <div
         key={`${keyPrefix}-${i}`}
-        className="group shrink-0 cursor-pointer border border-[#536bc9] flex flex-col transition-all duration-300 ease-out
+        className="group shrink-0 cursor-pointer border border-[#536bc9] flex flex-col
           bg-[rgba(55,87,200,0.43)]
-          w-[420px] lg:w-[481px] h-[358px] rounded-[32px] opacity-60 p-[31px_41px]
-          hover:w-[480px] hover:lg:w-[529px] hover:h-[394px] hover:rounded-[35px] hover:opacity-100 hover:p-[40px_45px]"
+          w-120.25 h-89.5 rounded-4xl opacity-60 p-[31px_41px]"
       >
         <h3
-          className="capitalize font-semibold text-white leading-[36px] transition-all duration-300
-            text-[28px] group-hover:text-[30px] group-hover:leading-[39px]"
+          className="capitalize font-semibold text-white leading-9
+            text-[28px]"
         >
           {card.title}
         </h3>
         <div
-          className="w-[65px] h-0 mt-9 transition-colors duration-300
-            border-t-[1.62px] border-[#DBDFE3] group-hover:border-white group-hover:border-t-[1.78px]"
+          className="w-16.25 h-0 mt-9
+            border-t-[1.62px] border-[#DBDFE3]"
         />
         <p
-          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-9 transition-all duration-300
-            text-[20px] opacity-60 group-hover:text-[22px] group-hover:opacity-100"
+          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-9
+            text-[20px] opacity-60"
         >
           {card.description}
         </p>
@@ -94,8 +93,8 @@ export default function WhyChooseSection() {
   const tripled = [...whyCards, ...whyCards, ...whyCards];
 
   return (
-    <section className="bg-blue-section px-6 lg:px-[150px] py-20 lg:py-[150px] overflow-hidden">
-      <div className="max-w-[1920px] mx-auto flex flex-col items-center gap-12 lg:gap-[89px]">
+    <section className="bg-blue-section px-6 lg:px-37.5 py-20 lg:py-37.5 overflow-hidden">
+      <div className="max-w-480 mx-auto flex flex-col items-center gap-12 lg:gap-22.25">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -107,7 +106,7 @@ export default function WhyChooseSection() {
             Why business choose{" "}
             <span className="relative">
               idto
-              <span className="absolute bottom-0 left-0 w-full h-[3px] bg-green rounded-full" />
+              <span className="absolute bottom-0 left-0 w-full h-0.75 bg-green rounded-full" />
             </span>
           </SectionHeading>
         </motion.div>
@@ -118,7 +117,7 @@ export default function WhyChooseSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="flex flex-wrap gap-4 justify-center max-w-[950px]"
+          className="flex flex-wrap gap-4 justify-center max-w-237.5"
         >
           {whyCards.map((card, i) => (
             <PillTag
