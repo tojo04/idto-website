@@ -136,8 +136,8 @@ export default function SingleApiSection() {
   const current = tabs[activeIndex];
 
   return (
-    <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]">
-      <div className="max-w-405 mx-auto flex flex-col items-center gap-12 lg:gap-22.5">
+    <section className="bg-white px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col items-center gap-8 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -151,7 +151,7 @@ export default function SingleApiSection() {
             <br />
             <span className="text-primary">Seamless</span> Integration.
           </SectionHeading>
-          <p className="text-xl text-black/60 leading-normal tracking-[-0.4px] text-center max-w-175">
+          <p className="text-base lg:text-xl text-black/60 leading-normal tracking-[-0.4px] text-center max-w-175">
             One integration layer powering KYC, KYB, fraud intelligence, and
             compliance across 400+ APIs globally.
           </p>
@@ -163,7 +163,7 @@ export default function SingleApiSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="flex flex-wrap gap-4 justify-center max-w-273"
+          className="flex gap-3 lg:gap-4 lg:flex-wrap lg:justify-center max-w-full lg:max-w-273 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide"
         >
           {tabs.map((tab, i) => (
             <PillTag
@@ -184,24 +184,24 @@ export default function SingleApiSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col lg:flex-row gap-8 lg:gap-15 items-stretch w-full"
+            className="flex flex-col lg:flex-row gap-6 lg:gap-15 items-stretch w-full"
           >
             {/* Left column: Text card + CTA buttons */}
             <div className="w-full lg:w-1/2 flex flex-col gap-8">
-              <div className="bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 flex-1">
-                <h3 className="font-heading text-2xl lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
+              <div className="bg-white border border-black/10 rounded-[20px] lg:rounded-[27px] p-5 lg:p-10 flex flex-col gap-4 lg:gap-5 flex-1">
+                <h3 className="font-heading text-lg lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
                   {current.title}
                 </h3>
-                <p className="text-lg text-black/60 leading-normal tracking-[-0.36px]">
+                <p className="text-sm lg:text-lg text-black/60 leading-normal tracking-[-0.36px]">
                   {current.description}
                 </p>
-                <ul className="list-disc ml-7 text-lg text-black/60 leading-[1.7] tracking-[-0.36px] space-y-1">
+                <ul className="list-disc ml-5 lg:ml-7 text-sm lg:text-lg text-black/60 leading-[1.7] tracking-[-0.36px] space-y-1">
                   {current.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
                 {current.footer && (
-                  <p className="text-lg text-black/60 leading-normal tracking-[-0.36px] mt-auto">
+                  <p className="text-base lg:text-lg text-black/60 leading-normal tracking-[-0.36px] mt-auto">
                     {current.footer}
                   </p>
                 )}
@@ -210,7 +210,7 @@ export default function SingleApiSection() {
                     href={current.footerLink.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary underline text-lg mt-auto"
+                    className="text-primary underline text-base lg:text-lg mt-auto"
                   >
                     {current.footerLink.text}
                   </a>
@@ -218,24 +218,26 @@ export default function SingleApiSection() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-10">
+              <div className="flex flex-col lg:flex-row flex-wrap gap-3 lg:gap-10">
                 <a
                   href="https://docs.idto.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-md text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
+                  className="inline-flex items-center gap-2 px-0 lg:px-5 py-2 lg:py-2.5 rounded-md text-sm lg:text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
                 >
                   <span className="underline underline-offset-4">Explore Documentation</span>
-                  <ArrowRight size={20} strokeWidth={2.5} />
+                  <ArrowRight size={16} className="lg:hidden" strokeWidth={2.5} />
+                  <ArrowRight size={20} className="hidden lg:block" strokeWidth={2.5} />
                 </a>
                 <a
                   href="https://dashboard.idto.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-md text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
+                  className="inline-flex items-center gap-2 px-0 lg:px-5 py-2 lg:py-2.5 rounded-md text-sm lg:text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
                 >
                   <span className="underline underline-offset-4">View Demo Workflow</span>
-                  <ArrowRight size={20} strokeWidth={2.5} />
+                  <ArrowRight size={16} className="lg:hidden" strokeWidth={2.5} />
+                  <ArrowRight size={20} className="hidden lg:block" strokeWidth={2.5} />
                 </a>
               </div>
             </div>

@@ -122,8 +122,8 @@ export default function IndustriesSection() {
   }, []);
 
   return (
-    <section className="bg-gray-bg px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]">
-      <div className="max-w-405 mx-auto flex flex-col items-center gap-12 lg:gap-22.5">
+    <section className="bg-gray-bg px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col items-center gap-8 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -144,7 +144,7 @@ export default function IndustriesSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="flex flex-wrap gap-4 justify-center max-w-273"
+          className="flex gap-3 lg:gap-4 lg:flex-wrap lg:justify-center max-w-full lg:max-w-273 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide"
         >
           {industries.map((ind, i) => (
             <PillTag
@@ -165,28 +165,28 @@ export default function IndustriesSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col lg:flex-row gap-8 lg:gap-15 items-center w-full"
+            className="flex flex-col lg:flex-row gap-6 lg:gap-15 items-center w-full"
           >
             {/* Text */}
-            <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[27px] p-8 lg:p-10 flex flex-col gap-5 min-h-98.5">
-              <h3 className="font-heading text-2xl lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
+            <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[20px] lg:rounded-[27px] p-5 lg:p-10 flex flex-col gap-4 lg:gap-5 min-h-0 lg:min-h-98.5">
+              <h3 className="font-heading text-lg lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
                 {industries[activeIndex].title}
               </h3>
-              <p className="text-xl text-black/60 leading-normal tracking-[-0.4px]">
+              <p className="text-sm lg:text-xl text-black/60 leading-normal tracking-[-0.4px]">
                 {industries[activeIndex].description}
               </p>
-              <ul className="list-disc ml-7 text-xl text-black/60 leading-normal tracking-[-0.4px] space-y-1">
+              <ul className="list-disc ml-5 lg:ml-7 text-sm lg:text-xl text-black/60 leading-normal tracking-[-0.4px] space-y-1">
                 {industries[activeIndex].bullets.map((b) => (
                   <li key={b}>{b}</li>
                 ))}
               </ul>
-              <p className="text-xl text-black/60 leading-normal tracking-[-0.4px] mt-auto">
+              <p className="text-sm lg:text-xl text-black/60 leading-normal tracking-[-0.4px] mt-auto">
                 {industries[activeIndex].footer}
               </p>
             </div>
 
             {/* Image */}
-            <div className="w-full lg:w-1/2 bg-white rounded-2xl overflow-hidden h-75 lg:min-h-98.5">
+            <div className="w-full lg:w-1/2 bg-white rounded-2xl overflow-hidden h-52 lg:min-h-98.5">
               <img
                 src={industryImage}
                 alt={industries[activeIndex].title}
@@ -202,7 +202,7 @@ export default function IndustriesSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="text-xl text-black/60 text-center leading-normal"
+          className="text-base lg:text-xl text-black/60 text-center leading-normal"
         >
           Pre-configured workflows. Alternate data integrated. Production-ready
           from day one.

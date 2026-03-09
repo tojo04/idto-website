@@ -37,10 +37,9 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
   return (
     // Section: 1920×869, white bg, border-radius 0 0 150 150
-    <section className="relative bg-white rounded-b-[100px] lg:rounded-b-[150px] overflow-hidden min-h-[520px] lg:min-h-[869px]">
+    <section className="relative bg-white rounded-b-[40px] lg:rounded-b-[150px] overflow-hidden min-h-[520px] lg:min-h-[869px]">
 
-      {/* ── Earth globe: left calc(50%+189px), top 38px ── */}
-      {/* At 1920: center of earth = 960+507.5 = 1467.5px → left = 1149px */}
+      {/* ── Desktop Earth globe: left calc(50%+189px), top 38px ── */}
       <div
         className="hidden lg:block absolute pointer-events-none"
         style={{
@@ -50,10 +49,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           height: 700,
         }}
       >
-        {/* Globe - hard-cut frame switching for smooth orbit animation */}
-        <div
-          className="absolute inset-0"
-        >
+        <div className="absolute inset-0">
           {globeFrames.map((frame, i) => (
             <img
               key={i}
@@ -71,16 +67,16 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
       {/* ── Content column: left 150px, starts at top 149px ── */}
       <div
         className="relative z-10 max-w-[1920px] mx-auto"
-        style={{ paddingLeft: "clamp(24px, 7.8125%, 150px)", paddingRight: "clamp(24px, 7.8125%, 150px)" }}
+        style={{ paddingLeft: "clamp(21px, 7.8125%, 150px)", paddingRight: "clamp(21px, 7.8125%, 150px)" }}
       >
-        {/* Heading: top 149px, width 971px, 60px Hedvig, 130% leading, -0.02em */}
+        {/* Heading */}
         <motion.h1
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="font-heading text-[36px] lg:text-[60px] leading-[130%] tracking-[-0.02em] text-black max-w-[971px]"
-          style={{ marginTop: "clamp(48px, 7.77%, 149px)" }}
+          className="font-heading text-[20px] lg:text-[60px] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] text-center lg:text-left"
+          style={{ marginTop: "clamp(20px, 7.77%, 149px)" }}
         >
           The{" "}
           <span
@@ -105,59 +101,49 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           identity and onboarding platform your business needs.
         </motion.h1>
 
-        {/* Subtitle: top 327px → 178px below heading top (heading is ~156px tall), so mt ≈ 22px */}
+        {/* Subtitle */}
         <motion.p
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="text-[16px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px]"
-          style={{ marginTop: "clamp(12px, 1.15%, 22px)" }}
+          className="text-[12px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] text-center lg:text-left"
+          style={{ marginTop: "clamp(10px, 1.15%, 22px)" }}
         >
           Verify users, businesses, employees, and prevent fraud{" "}
           <span className="font-semibold text-primary">globally</span>{" "}
           using a single integration without the complexity.
         </motion.p>
 
-        {/* Buttons: top 449px → ~62px below subtitle bottom (327+60=387, 449-387=62) */}
+        {/* Buttons */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="flex flex-wrap items-center gap-[18px]"
-          style={{ marginTop: "clamp(28px, 3.22%, 62px)" }}
+          className="flex flex-wrap items-center justify-center lg:justify-start gap-[15px]"
+          style={{ marginTop: "clamp(20px, 3.22%, 62px)" }}
         >
-          {/* Sign-up: 217×72, bg #0019FF, border 1.5px white/50, radius 157.5px, 21px 600 */}
           <a
             href="https://dashboard.idto.ai/signup/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center font-body font-semibold text-white bg-primary rounded-full transition-opacity hover:opacity-90"
+            className="flex items-center justify-center font-body font-medium lg:font-semibold text-white bg-primary rounded-full transition-opacity hover:opacity-90 w-[108px] h-[34px] text-[12px] lg:w-[217px] lg:h-[72px] lg:text-[21px]"
             style={{
-              width: "clamp(160px, 11.3%, 217px)",
-              height: 72,
-              fontSize: "clamp(17px, 1.09%, 21px)",
-              letterSpacing: "-0.02em",
+              letterSpacing: "0.36px",
               border: "1.5px solid rgba(255,255,255,0.5)",
-              padding: "18px 36px",
             }}
           >
             Sign-up
           </a>
 
-          {/* Book a demo: 217×72, border 1.5px #0019FF, radius 157.5px, 24px 600, opacity 0.8 */}
           <button
             onClick={bookDemo}
-            className="flex items-center justify-center font-body font-semibold rounded-full transition-opacity hover:opacity-70"
+            className="flex items-center justify-center font-body font-medium lg:font-semibold rounded-full transition-opacity hover:opacity-70 w-[130px] h-[34px] text-[12px] lg:w-[217px] lg:h-[72px] lg:text-[24px]"
             style={{
-              width: "clamp(160px, 11.3%, 217px)",
-              height: 72,
-              fontSize: "clamp(17px, 1.25%, 24px)",
-              letterSpacing: "-0.02em",
+              letterSpacing: "0.36px",
               border: "1.5px solid #0019FF",
               color: "rgba(0, 25, 255, 0.8)",
-              padding: "0 36px",
               background: "transparent",
             }}
           >
@@ -165,31 +151,52 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           </button>
         </motion.div>
 
-        {/* Trusted partners: top 559px → ~38px below buttons bottom (449+72=521, 559-521=38) */}
+        {/* ── Mobile Globe ── */}
+        <div className="lg:hidden flex justify-center mt-5">
+          <img
+            src={globe1}
+            alt="Earth Globe"
+            width={272}
+            height={299}
+            className="block w-[272px] h-[299px] object-contain"
+          />
+        </div>
+
+        {/* Trusted partners */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.3)}
-          className="flex flex-col gap-5 max-w-[680px] pb-12 lg:pb-0"
-          style={{ marginTop: "clamp(24px, 1.98%, 38px)", marginBottom: "clamp(48px, 0%, 0px)" }}
+          className="flex flex-col gap-2.5 lg:gap-5 max-w-[680px] pb-6 lg:pb-0 items-center lg:items-start"
+          style={{ marginTop: "clamp(10px, 1.98%, 38px)" }}
         >
-          {/* Section bottom is at 869px, partners start at 559px, height ~97px → bottom padding ≈ 213px */}
           <p
-            className="font-body text-[14px] lg:text-[16px] leading-[150%] tracking-[-0.02em]"
+            className="font-body text-[12px] lg:text-[16px] leading-[150%] tracking-[-0.02em] text-center lg:text-left"
             style={{ color: "#666666" }}
           >
             Trusted by{" "}
             <span className="font-semibold text-black">100+</span>{" "}
             startups and enterprises building onboarding in India and beyond.
           </p>
-          <div className="flex flex-wrap items-center gap-5 lg:hidden" style={{ minHeight: 53 }}>
-            <img src={partner1} alt="Partner" style={{ height: 45 }} className="w-auto object-contain" />
-            <img src={partner2} alt="Partner" style={{ height: 28 }} className="w-auto object-contain" />
-            <img src={partner3} alt="Partner" style={{ height: 29 }} className="w-auto object-contain" />
-            <img src={partner4} alt="Partner" style={{ height: 53 }} className="w-auto object-contain" />
-            <img src={partner5} alt="Partner" style={{ height: 53 }} className="w-auto object-contain" />
-            <img src={partner6} alt="Partner" style={{ height: 34 }} className="w-auto object-contain" />
+
+          {/* Mobile: infinite scrolling marquee */}
+          <div className="lg:hidden overflow-hidden w-full" style={{ minHeight: 20 }}>
+            <div
+              className="flex items-center gap-6 w-max"
+              style={{ animation: "marquee 15s linear infinite" }}
+            >
+              {[...Array(4)].map((_, setIdx) => (
+                <div key={setIdx} className="flex items-center gap-6 shrink-0">
+                  <img src={partner1} alt="Partner" className="h-[18px] w-auto object-contain" />
+                  <img src={partner2} alt="Partner" className="h-[14px] w-auto object-contain" />
+                  <img src={partner3} alt="Partner" className="h-[12px] w-auto object-contain" />
+                  <img src={partner4} alt="Partner" className="h-[18px] w-auto object-contain" />
+                  <img src={partner5} alt="Partner" className="h-[16px] w-auto object-contain" />
+                  <img src={partner6} alt="Partner" className="h-[10px] w-auto object-contain" />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Desktop: infinite scrolling marquee */}

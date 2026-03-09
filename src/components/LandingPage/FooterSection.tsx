@@ -35,8 +35,8 @@ interface FooterSectionProps {
 
 export default function FooterSection({ bookDemo }: FooterSectionProps) {
   return (
-    <footer className="bg-blue-section px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-t-[100px] lg:rounded-t-[150px]">
-      <div className="max-w-405 mx-auto flex flex-col gap-16 lg:gap-22.5">
+    <footer className="bg-blue-section px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-t-[40px] lg:rounded-t-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col gap-10 lg:gap-22.5">
         {/* Main Footer Content - Gradient Border Container */}
         <div
           className="rounded-3xl p-1.5 pt-4"
@@ -45,8 +45,8 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               "linear-gradient(250deg, #0019ff 18%, #4edfc3 31%, #54eebe 49%, #4edfc3 64%, #0019ff 115%)",
           }}
         >
-          <div className="bg-blue-section rounded-[21px] px-8 lg:px-15 py-10 lg:py-12 overflow-hidden">
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 items-start">
+          <div className="bg-blue-section rounded-[21px] px-5 lg:px-15 py-8 lg:py-12 overflow-hidden">
+            <div className="flex flex-col gap-8 lg:gap-0 lg:flex-row items-start">
               {/* Logo & Tagline */}
               <div className="flex flex-col gap-7 w-full lg:w-[498px] shrink-0">
                 <div className="relative w-20.5 h-11">
@@ -62,21 +62,21 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-4">
-                  <p className="font-heading text-[26px] text-white leading-normal tracking-[-0.52px]">
+                  <p className="font-heading text-lg lg:text-[26px] text-white leading-normal tracking-[-0.52px]">
                     Your partner for onboarding,
                     <br />
                     verification & trust.
                   </p>
-                  <p className="text-sm text-white font-light leading-[1.4]">
+                  <p className="text-xs lg:text-sm text-white font-light leading-[1.4]">
                     We handle the complexity so you can focus on growth.
                   </p>
                 </div>
               </div>
 
               {/* Links Columns */}
-              <div className="flex flex-1 flex-wrap gap-8 lg:gap-0">
+              <div className="flex flex-1 flex-col lg:flex-row gap-6 lg:gap-0">
                 {/* Company */}
-                <div className="flex flex-col gap-9 w-[152px]">
+                <div className="flex flex-col gap-5 lg:gap-9 w-full lg:w-[152px]">
                   <p className="text-[15px] font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Company
                   </p>
@@ -85,16 +85,16 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                       <a
                         key={link.label}
                         href={link.href}
-                        className="text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
+                      className="text-sm lg:text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
                 </div>
 
                 {/* Products */}
-                <div className="flex flex-col gap-9 w-[356px]">
+                <div className="flex flex-col gap-5 lg:gap-9 w-full lg:w-[356px]">
                   <p className="text-[15px] font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Products
                   </p>
@@ -103,7 +103,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                       <a
                         key={link.label}
                         href={link.href}
-                        className="text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        className="text-sm lg:text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                       >
                         {link.label}
                       </a>
@@ -112,7 +112,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                 </div>
 
                 {/* Resources */}
-                <div className="flex flex-col gap-9 flex-1">
+                <div className="flex flex-col gap-5 lg:gap-9 flex-1">
                   <p className="text-[15px] font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Resources
                   </p>
@@ -123,7 +123,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        className="text-sm lg:text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                       >
                         {link.label}
                       </a>
@@ -133,7 +133,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col gap-4 shrink-0">
+              <div className="flex flex-row lg:flex-col gap-[15px] lg:gap-4 shrink-0">
                 <Button
                   title="Sign-up"
                   href="https://dashboard.idto.ai/signup/"
@@ -159,7 +159,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
           variants={createFadeInUp()}
           className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
         >
-          <p className="text-xl text-white leading-normal tracking-[-0.42px] max-w-175 font-medium">
+          <p className="text-sm lg:text-xl text-white leading-normal tracking-[-0.42px] max-w-175 font-medium">
             Payvriz Technologies Private Limited is compliant with the Digital
             Personal Data Protection Act, 2023 and committed to safeguarding your
             information. All data is transmitted using 256-bit TLS encryption for
@@ -174,7 +174,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-start justify-between gap-8 text-white text-lg font-inter leading-[1.4]">
+        <div className="flex flex-col lg:flex-row items-start lg:items-start justify-between gap-6 lg:gap-8 text-white text-xs lg:text-lg font-inter leading-[1.4]">
           <div className="space-y-1">
             <p>© Payvriz India, 2024-2025. All rights reserved.</p>
             <p>CIN : U70200HR2024PTC120930</p>

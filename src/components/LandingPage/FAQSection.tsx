@@ -75,8 +75,8 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px] bg-gray-bg relative overflow-hidden">
-      <div className="max-w-405 mx-auto flex flex-col lg:flex-row gap-12 lg:gap-22.5 lg:items-stretch relative">
+    <section className="px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px] bg-gray-bg relative overflow-hidden">
+      <div className="max-w-405 mx-auto flex flex-col lg:flex-row gap-8 lg:gap-22.5 lg:items-stretch relative">
         {/* Left — Header Container */}
         <motion.div
           initial="hidden"
@@ -86,19 +86,19 @@ export default function FAQSection() {
           className="lg:flex-1 flex flex-col gap-6 relative"
         >
           {/* Title */}
-          <h2 className="font-heading text-[40px] lg:text-[48px] leading-[1.3] text-black">
+          <h2 className="font-heading text-[28px] lg:text-[48px] leading-[1.3] text-black">
             Got Questions?
             <br />
             We've Got <span className="text-primary">Answers</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-xl text-black/60 leading-normal max-w-132.5">
+          <p className="text-base lg:text-xl text-black/60 leading-normal max-w-132.5">
             From onboarding to verification – here's what you need to know.
           </p>
 
-          {/* Question mark illustration — fills remaining space */}
-          <div className="hidden lg:flex flex-1 relative overflow-visible pointer-events-none">
+          {/* Question mark illustration — visible on mobile too */}
+          <div className="flex lg:flex-1 relative overflow-visible pointer-events-none h-[238px] lg:h-auto">
             {/* Right fade gradient */}
             <div
               className="absolute right-0 bottom-[12%] w-[58%] h-[47%]"
@@ -139,16 +139,16 @@ export default function FAQSection() {
           {faqs.map((faq, i) => (
             <div
               key={faq.question}
-              className="bg-white border-[1.66px] border-black/10 rounded-[27px] shrink-0"
+              className="bg-white border-[1.66px] border-black/10 rounded-[20px] lg:rounded-[27px] shrink-0"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                className="w-full flex items-center justify-between px-10 py-10 text-left cursor-pointer gap-5"
+                className="w-full flex items-center justify-between px-4 py-4 lg:px-10 lg:py-10 text-left cursor-pointer gap-4 lg:gap-5"
               >
-                <h3 className="font-heading text-xl lg:text-[28px] leading-normal tracking-[-0.02em] text-black">
+                <h3 className="font-heading text-sm lg:text-[28px] leading-normal tracking-[-0.02em] text-black">
                   {faq.question}
                 </h3>
-                <span className="w-10 h-10 shrink-0 flex items-center justify-center text-2xl text-black select-none">
+                <span className="w-5 h-5 lg:w-10 lg:h-10 shrink-0 flex items-center justify-center text-base lg:text-2xl text-black select-none">
                   {openIndex === i ? "−" : "+"}
                 </span>
               </button>
@@ -162,7 +162,7 @@ export default function FAQSection() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-10 pb-10 text-xl text-black/60 leading-normal tracking-[-0.02em] whitespace-pre-line">
+                    <p className="px-4 pb-4 lg:px-10 lg:pb-10 text-xs lg:text-xl text-black/60 leading-normal tracking-[-0.02em] whitespace-pre-line">
                       {faq.answer}
                     </p>
                   </motion.div>

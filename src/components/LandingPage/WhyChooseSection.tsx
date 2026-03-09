@@ -67,21 +67,21 @@ export default function WhyChooseSection() {
         key={`${keyPrefix}-${i}`}
         className="group shrink-0 cursor-pointer border border-[#536bc9] flex flex-col
           bg-[rgba(55,87,200,0.43)]
-          w-120.25 h-89.5 rounded-4xl opacity-60 p-[31px_41px]"
+          w-[260px] h-[215px] lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl opacity-60 p-[20px_24px] lg:p-[31px_41px]"
       >
         <h3
-          className="capitalize font-semibold text-white leading-9
-            text-[28px]"
+          className="capitalize font-semibold text-white leading-7 lg:leading-9
+            text-xl lg:text-[28px]"
         >
           {card.title}
         </h3>
         <div
-          className="w-16.25 h-0 mt-9
+          className="w-16.25 h-0 mt-5 lg:mt-9
             border-t-[1.62px] border-[#DBDFE3]"
         />
         <p
-          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-9
-            text-[20px] opacity-60"
+          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-5 lg:mt-9
+            text-sm lg:text-[20px] opacity-60"
         >
           {card.description}
         </p>
@@ -93,8 +93,8 @@ export default function WhyChooseSection() {
   const tripled = [...whyCards, ...whyCards, ...whyCards];
 
   return (
-    <section className="bg-blue-section px-6 lg:px-37.5 py-20 lg:py-37.5 overflow-hidden">
-      <div className="max-w-480 mx-auto flex flex-col items-center gap-12 lg:gap-22.25">
+    <section className="bg-blue-section px-5 lg:px-37.5 py-12 lg:py-37.5 overflow-hidden">
+      <div className="max-w-480 mx-auto flex flex-col items-center gap-8 lg:gap-22.25">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -117,7 +117,7 @@ export default function WhyChooseSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="flex flex-wrap gap-4 justify-center max-w-237.5"
+          className="flex gap-2.5 lg:gap-4 overflow-x-auto lg:flex-wrap lg:justify-center max-w-full lg:max-w-237.5 pb-2 lg:pb-0 scrollbar-hide"
         >
           {whyCards.map((card, i) => (
             <PillTag
@@ -142,7 +142,7 @@ export default function WhyChooseSection() {
         >
           <div
             ref={marqueeRef}
-            className="flex gap-8 w-max"
+            className="flex gap-5 lg:gap-8 w-max"
             style={{
               animation: `marquee-why 40s linear infinite`,
               animationPlayState: paused ? "paused" : "running",

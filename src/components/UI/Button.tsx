@@ -19,9 +19,9 @@ export default function Button({
     "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer whitespace-nowrap tracking-tight";
 
   const sizeStyles = {
-    sm: "px-6 py-2.5 text-base",
-    md: "px-9 py-4 text-lg",
-    lg: "px-9 py-5 text-xl",
+    sm: "px-4 py-2 text-sm lg:px-6 lg:py-2.5 lg:text-base",
+    md: "w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:px-9 lg:py-4 lg:text-lg",
+    lg: "w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:px-9 lg:py-5 lg:text-xl",
   };
 
   const variantStyles = {
