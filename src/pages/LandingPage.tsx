@@ -22,7 +22,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
-      <Header bookDemo={bookDemo} />
+      <Header />
 
       <main>
         <HeroSection bookDemo={bookDemo} />
