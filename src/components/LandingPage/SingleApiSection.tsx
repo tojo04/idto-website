@@ -5,20 +5,20 @@ import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
 
-/* placeholder images — replace with real assets later */
+import singleApiImg1 from "../../assets/singleAPIsection_images/ChatGPT Image 1.png";
+import singleApiImg2 from "../../assets/singleAPIsection_images/ChatGPT Image 2.png";
+import singleApiImg3 from "../../assets/singleAPIsection_images/ChatGPT Image 3.png";
+import singleApiImg4 from "../../assets/singleAPIsection_images/ChatGPT Image 4.png";
+import singleApiImg5 from "../../assets/singleAPIsection_images/ChatGPT Image 5.png";
+import singleApiImg6 from "../../assets/singleAPIsection_images/ChatGPT Image 6.png";
+
 const tabImages: Record<string, string> = {
-  "Powerful REST API":
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-  "AI Workflow Builder":
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-  "No Code Verification":
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-  "Fraud & Intelligence Suite":
-    "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-  "Global Verification Stack With Built-In Orchestration":
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-  "CKYC & India Stack":
-    "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+  "Powerful REST API": singleApiImg1,
+  "AI Workflow Builder": singleApiImg2,
+  "No Code Verification": singleApiImg3,
+  "Fraud & Intelligence Suite": singleApiImg4,
+  "Global Verification Stack With Built-In Orchestration": singleApiImg5,
+  "CKYC & India Stack": singleApiImg6,
 };
 
 interface TabContent {

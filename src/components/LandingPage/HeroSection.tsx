@@ -7,19 +7,16 @@ import globe1 from "../../assets/globe/globe=1.svg";
 import globe2 from "../../assets/globe/globe=2.svg";
 import globe3 from "../../assets/globe/globe=3.svg";
 import globe4 from "../../assets/globe/globe=4.svg";
-
+import circleDecoration from "../../assets/circleDecoration.svg";
 const globeFrames = [globe1, globe2, globe3, globe4];
 
-// Globe assets
-const circleDecoration = "https://www.figma.com/api/mcp/asset/926ce96f-0fdb-441a-8a32-5159367393d9";
-
 // Partner logos
-const partner1 = "https://www.figma.com/api/mcp/asset/a6fab1ae-eeb4-4007-881d-d5f18b814555";
-const partner2 = "https://www.figma.com/api/mcp/asset/7c9a916d-157b-4eee-acd5-267d990c0002";
-const partner3 = "https://www.figma.com/api/mcp/asset/0aca35e4-b827-4b21-a3a5-f4ead6295474";
-const partner4 = "https://www.figma.com/api/mcp/asset/d46b2099-d59e-4811-83e4-9a918ff0c1bb";
-const partner5 = "https://www.figma.com/api/mcp/asset/a065a8b6-163f-49d9-a621-86d3d086dac4";
-const partner6 = "https://www.figma.com/api/mcp/asset/10ed48c5-49f7-4317-9be5-3bd470ffc5fc";
+import partner1 from "../../assets/partner1 (1).png";
+import partner2 from "../../assets/partner2 (2).png";
+import partner3 from "../../assets/partner3 (3).png";
+import partner4 from "../../assets/partner4(4).png";
+import partner5 from "../../assets/partner5 (5).png";
+import partner6 from "../../assets/partner6(6).png";
 
 interface HeroSectionProps {
   bookDemo: () => void;
@@ -200,7 +197,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           </div>
 
           {/* Desktop: infinite scrolling marquee */}
-          <div className="hidden lg:block overflow-hidden" style={{ minHeight: 53 }}>
+          <div className="hidden lg:block overflow-hidden max-w-[680px]" style={{ minHeight: 53 }}>
             <div className="flex items-center gap-16 animate-marquee w-max">
               {[...Array(3)].map((_, setIdx) => (
                 <div key={setIdx} className="flex items-center gap-16 shrink-0">

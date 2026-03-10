@@ -83,17 +83,17 @@ export default function FAQSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp()}
-          className="lg:flex-1 flex flex-col gap-6 relative"
+          className="lg:flex-1 flex flex-col gap-6 relative items-center lg:items-start"
         >
           {/* Title */}
-          <h2 className="font-heading text-[28px] lg:text-[48px] leading-[1.3] text-black">
+          <h2 className="font-heading text-[28px] lg:text-[48px] leading-[1.3] text-black text-center lg:text-left">
             Got Questions?
             <br />
             We've Got <span className="text-primary">Answers</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-base lg:text-xl text-black/60 leading-normal max-w-132.5">
+          <p className="text-base lg:text-xl text-black/60 leading-normal max-w-132.5 text-center lg:text-left">
             From onboarding to verification – here's what you need to know.
           </p>
 

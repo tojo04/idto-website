@@ -45,10 +45,10 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               "linear-gradient(250deg, #0019ff 18%, #4edfc3 31%, #54eebe 49%, #4edfc3 64%, #0019ff 115%)",
           }}
         >
-          <div className="bg-blue-section rounded-[21px] px-5 lg:px-15 py-8 lg:py-12 overflow-hidden">
-            <div className="flex flex-col gap-8 lg:gap-0 lg:flex-row items-start">
+          <div className="bg-blue-section rounded-[21px] px-5 lg:px-10 py-8 lg:py-10 overflow-hidden">
+            <div className="flex flex-col gap-8 lg:gap-8 lg:flex-row items-start">
               {/* Logo & Tagline */}
-              <div className="flex flex-col gap-7 w-full lg:w-[498px] shrink-0">
+              <div className="flex flex-col gap-5 w-full lg:w-[260px] shrink-0">
                 <div className="relative w-20.5 h-11">
                   <img
                     src={logoIcon}
@@ -62,7 +62,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-4">
-                  <p className="font-heading text-lg lg:text-[26px] text-white leading-normal tracking-[-0.52px]">
+                  <p className="font-heading text-lg lg:text-xl text-white leading-normal tracking-[-0.52px]">
                     Your partner for onboarding,
                     <br />
                     verification & trust.
@@ -74,18 +74,18 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               </div>
 
               {/* Links Columns */}
-              <div className="flex flex-1 flex-col lg:flex-row gap-6 lg:gap-0">
+              <div className="flex flex-1 flex-col lg:flex-row gap-6 lg:gap-8 min-w-0">
                 {/* Company */}
-                <div className="flex flex-col gap-5 lg:gap-9 w-full lg:w-[152px]">
-                  <p className="text-[15px] font-semibold text-white/50 uppercase tracking-[0.6px]">
+                <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-auto lg:min-w-[100px]">
+                  <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Company
                   </p>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     {companyLinks.map((link) => (
                       <a
                         key={link.label}
                         href={link.href}
-                      className="text-sm lg:text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                      className="text-sm lg:text-[15px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                     >
                       {link.label}
                     </a>
@@ -94,16 +94,16 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                 </div>
 
                 {/* Products */}
-                <div className="flex flex-col gap-5 lg:gap-9 w-full lg:w-[356px]">
-                  <p className="text-[15px] font-semibold text-white/50 uppercase tracking-[0.6px]">
+                <div className="flex flex-col gap-4 lg:gap-6 w-full lg:flex-1">
+                  <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Products
                   </p>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     {productLinks.map((link) => (
                       <a
                         key={link.label}
                         href={link.href}
-                        className="text-sm lg:text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        className="text-sm lg:text-[15px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                       >
                         {link.label}
                       </a>
@@ -112,18 +112,18 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                 </div>
 
                 {/* Resources */}
-                <div className="flex flex-col gap-5 lg:gap-9 flex-1">
-                  <p className="text-[15px] font-semibold text-white/50 uppercase tracking-[0.6px]">
+                <div className="flex flex-col gap-4 lg:gap-6 flex-1">
+                  <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Resources
                   </p>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     {resourceLinks.map((link) => (
                       <a
                         key={link.label}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm lg:text-xl text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        className="text-sm lg:text-[15px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                       >
                         {link.label}
                       </a>
@@ -133,7 +133,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-row lg:flex-col gap-[15px] lg:gap-4 shrink-0">
+              <div className="flex flex-row lg:flex-col gap-[15px] lg:gap-4 shrink-0 lg:ml-auto">
                 <Button
                   title="Sign-up"
                   href="https://dashboard.idto.ai/signup/"
@@ -165,7 +165,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
             information. All data is transmitted using 256-bit TLS encryption for
             maximum security.
           </p>
-          <div className="flex flex-col items-end gap-5">
+          <div className="flex flex-row flex-wrap items-center gap-5">
             <img src={awsLogo} alt="AWS" className="h-10 max-w-45 object-contain" />
             <img src={isoLogo} alt="ISO" className="h-20 max-w-20 object-contain" />
             <img src={certLogo3} alt="Certification" className="h-11 max-w-35 object-contain" />

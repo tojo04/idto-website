@@ -4,8 +4,14 @@ import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
 
-// TODO: Add a local industry image to src/assets/ and update this path
-const industryImage = "/placeholder-industry.png";
+import industryImg0 from "../../assets/industriesSection_images/Image 0.png";
+import industryImg1 from "../../assets/industriesSection_images/Image 1.png";
+import industryImg2 from "../../assets/industriesSection_images/Image 2.png";
+import industryImg3 from "../../assets/industriesSection_images/Image 3.png";
+import industryImg4 from "../../assets/industriesSection_images/Image 4.png";
+import industryImg5 from "../../assets/industriesSection_images/Image 5.png";
+
+const industryImages = [industryImg0, industryImg1, industryImg2, industryImg3, industryImg4, industryImg5];
 
 interface Industry {
   name: string;
@@ -188,7 +194,7 @@ export default function IndustriesSection() {
             {/* Image */}
             <div className="w-full lg:w-1/2 bg-white rounded-2xl overflow-hidden h-52 lg:min-h-98.5">
               <img
-                src={industryImage}
+                src={industryImages[activeIndex]}
                 alt={industries[activeIndex].title}
                 className="w-full h-full object-cover"
               />
