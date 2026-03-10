@@ -98,7 +98,7 @@ export default function FAQSection() {
           </p>
 
           {/* Question mark illustration — visible on mobile too */}
-          <div className="flex lg:flex-1 relative overflow-visible pointer-events-none h-[238px] lg:h-auto">
+          <div className="flex lg:flex-1 relative overflow-visible pointer-events-none h-[280px] lg:h-auto justify-center items-center">
             {/* Right fade gradient */}
             <div
               className="absolute right-0 bottom-[12%] w-[58%] h-[47%]"
@@ -109,7 +109,7 @@ export default function FAQSection() {
             />
             {/* Blue glow effect */}
             <div
-              className="absolute left-[29%] bottom-[22%] w-[52%] h-[18%] opacity-[0.78] blur-[62px] -rotate-[14.25deg]"
+              className="absolute left-1/2 -translate-x-1/2 bottom-[15%] w-[60%] h-[18%] lg:left-[29%] lg:translate-x-0 lg:bottom-[22%] lg:w-[52%] opacity-[0.78] blur-[62px] -rotate-[14.25deg]"
               style={{
                 backgroundImage:
                   "linear-gradient(88.7deg, #0082EE 0.62%, #0033D1 48.86%, #4B92FD 103.16%)",
@@ -119,7 +119,7 @@ export default function FAQSection() {
             <img
               src={questionMarkImage}
               alt=""
-              className="absolute left-[-22%] bottom-[15%] w-[140%] h-auto object-contain -rotate-[0.26deg]"
+              className="relative lg:absolute lg:left-[-22%] lg:bottom-[15%] w-[85%] lg:w-[140%] h-auto object-contain -rotate-[0.26deg]"
             />
           </div>
         </motion.div>
