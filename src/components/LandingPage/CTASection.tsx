@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
-import earthGlobe from "../../assets/earthglobe.png";
+import globeBackground from "../../assets/Background Images.png";
 
 interface CTASectionProps {
   bookDemo: () => void;
@@ -15,19 +15,19 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
         whileInView="show"
         viewport={viewportOnce}
         variants={createFadeInUp()}
-        className="max-w-405 mx-auto bg-white rounded-[28px] lg:rounded-[60px] overflow-hidden relative"
+        className="max-w-405 mx-auto bg-white rounded-[28px] lg:rounded-[40px] overflow-hidden relative min-h-75 lg:min-h-107.5"
       >
-        {/* Background Globe — only ~1/4 visible, cropped right */}
-        <div className="absolute right-[-75%] lg:right-[-55%] top-1/2 -translate-y-1/2 w-[350px] lg:w-300 h-[350px] lg:h-300 opacity-40 pointer-events-none">
+        {/* Use pre-cropped Figma background image for reliable alignment */}
+        <div className="absolute right-0 bottom-0 w-[76%] lg:w-[62%] h-full pointer-events-none">
           <img
-            src={earthGlobe}
+            src={globeBackground}
             alt=""
-            className="w-full h-full object-contain rotate-[-21deg]"
+            className="w-full h-full object-cover object-bottom-right"
           />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 p-6 lg:p-22.5">
+        <div className="relative z-10 p-6 lg:px-22.5 lg:py-16">
             <div className="flex flex-col gap-8 lg:gap-15 max-w-150">
             <div className="flex flex-col gap-6">
               <h2 className="font-heading text-[22px] lg:text-[48px] leading-[1.1] tracking-[-0.96px] text-black">
@@ -39,7 +39,7 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-[15px] lg:gap-4">
+            <div className="flex flex-wrap gap-3.75 lg:gap-4">
               <Button
                 title="Sign-up"
                 href="https://dashboard.idto.ai/signup/"

@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
-import logoIcon from "../../assets/logo_icon.svg";
-import logoText from "../../assets/logo_text.svg";
+import footerLogo from "../../assets/Footer_Logo.png";
 import awsLogo from "../../assets/aws.png";
 import isoLogo from "../../assets/iso.png";
 import certLogo3 from "../../assets/certLogo.png";
@@ -49,18 +48,11 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
             <div className="flex flex-col gap-8 lg:gap-8 lg:flex-row items-start">
               {/* Logo & Tagline */}
               <div className="flex flex-col gap-5 w-full lg:w-[260px] shrink-0">
-                <div className="relative w-20.5 h-11">
-                  <img
-                    src={logoIcon}
-                    alt=""
-                    className="absolute top-[14%] left-[8%] w-[23%] h-[71%] object-contain"
-                  />
-                  <img
-                    src={logoText}
-                    alt="idto"
-                    className="absolute top-[29%] left-[39%] w-[54%] h-[43%] object-contain"
-                  />
-                </div>
+                <img
+                  src={footerLogo}
+                  alt="idto"
+                  className="h-11 w-auto object-contain object-left"
+                />
                 <div className="flex flex-col gap-4">
                   <p className="font-heading text-lg lg:text-xl text-white leading-normal tracking-[-0.52px]">
                     Your partner for onboarding,

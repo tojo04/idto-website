@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, staggerContainer, fadeItem, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
+import hardUnderline from "../../assets/lines-01 -hard.svg";
 import hourglassIcon from "../../assets/boxicons_hourglass.png";
 import dollarIcon from "../../assets/pepicons-pop_dollar.png";
 import updatesIcon from "../../assets/stash_last-updates.png";
@@ -60,7 +61,18 @@ export default function ProblemsSection() {
         >
           <SectionHeading>
             Identity onboarding{" "}
-            <span className="text-primary">shouldn't be this hard.</span>
+            <span className="text-primary">
+              shouldn't be this{" "}
+              <span className="relative inline-block">
+                hard.
+                <img
+                  aria-hidden="true"
+                  src={hardUnderline}
+                  className="absolute left-0 w-full pointer-events-none select-none"
+                  style={{ top: "100%", marginTop: "2px" }}
+                />
+              </span>
+            </span>
           </SectionHeading>
         </motion.div>
 

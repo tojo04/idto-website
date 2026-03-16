@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
+import idtoUnderline from "../../assets/lines-01-idto.svg";
 
 interface WhyCard {
   tag: string;
@@ -56,18 +57,33 @@ const whyCards: WhyCard[] = [
 ];
 
 export default function WhyChooseSection() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [centeredRenderIndex, setCenteredRenderIndex] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const marqueeViewportRef = useRef<HTMLDivElement>(null);
 
   // Render a single card
-  const renderCard = (card: WhyCard, i: number, keyPrefix: string) => {
+  const renderCard = (
+    card: WhyCard,
+    i: number,
+    keyPrefix: string,
+    isMiddle: boolean,
+    realIndex: number,
+  ) => {
     return (
       <div
         key={`${keyPrefix}-${i}`}
-        className="group shrink-0 cursor-pointer border border-[#536bc9] flex flex-col
+        data-marquee-index={i}
+        data-real-index={realIndex}
+        className={`group shrink-0 border border-[#536bc9] flex flex-col
           bg-[rgba(55,87,200,0.43)]
-          w-[260px] h-[215px] lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl opacity-60 p-[20px_24px] lg:p-[31px_41px]"
+          w-[260px] h-53.75 lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl p-[20px_24px] lg:p-[31px_41px]
+          transition-all duration-500 ${
+            isMiddle
+              ? "opacity-100 scale-[1.05]"
+              : "opacity-55 scale-100 lg:hover:opacity-70"
+          }`}
       >
         <h3
           className="capitalize font-semibold text-white leading-7 lg:leading-9
@@ -89,8 +105,51 @@ export default function WhyChooseSection() {
     );
   };
 
-  // Triple the cards for seamless looping
+  // Triple cards for seamless looping marquee.
   const tripled = [...whyCards, ...whyCards, ...whyCards];
+
+  useEffect(() => {
+    const track = marqueeRef.current;
+    const viewport = marqueeViewportRef.current;
+    if (!track || !viewport) return;
+
+    const detectCenteredCard = () => {
+      const viewportRect = viewport.getBoundingClientRect();
+      const viewportCenter = viewportRect.left + viewportRect.width / 2;
+      const cards = Array.from(track.querySelectorAll<HTMLElement>("[data-marquee-index]"));
+
+      if (cards.length === 0) return;
+
+      let nearestCardIndex = -1;
+      let smallestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((cardEl, index) => {
+        const rect = cardEl.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          nearestCardIndex = index;
+        }
+      });
+
+      if (nearestCardIndex < 0) return;
+
+      const nearestCard = cards[nearestCardIndex];
+
+      const renderIndex = Number(nearestCard.dataset.marqueeIndex ?? "0");
+      const realIndex = Number(nearestCard.dataset.realIndex ?? "0");
+
+      setCenteredRenderIndex((prev) => (prev === renderIndex ? prev : renderIndex));
+      setActiveIndex((prev) => (prev === realIndex ? prev : realIndex));
+    };
+
+    detectCenteredCard();
+    const timer = window.setInterval(detectCenteredCard, 120);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <section className="bg-blue-section px-5 lg:px-37.5 py-12 lg:py-37.5 overflow-hidden">
@@ -104,9 +163,14 @@ export default function WhyChooseSection() {
         >
           <SectionHeading className="text-white">
             Why business choose{" "}
-            <span className="relative">
+            <span className="relative inline-block">
               idto
-              <span className="absolute bottom-0 left-0 w-full h-0.75 bg-green rounded-full" />
+              <img
+                aria-hidden="true"
+                src={idtoUnderline}
+                className="absolute left-0 w-full pointer-events-none select-none"
+                style={{ top: "100%", marginTop: "2px" }}
+              />
             </span>
           </SectionHeading>
         </motion.div>
@@ -124,7 +188,6 @@ export default function WhyChooseSection() {
               key={card.tag}
               label={card.tag}
               active={activeIndex === i}
-              onClick={() => setActiveIndex(activeIndex === i ? null : i)}
               variant="dark"
             />
           ))}
@@ -136,19 +199,28 @@ export default function WhyChooseSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="w-full overflow-hidden"
+          className="w-full overflow-x-hidden overflow-y-visible py-2 lg:py-3"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          ref={marqueeViewportRef}
         >
           <div
             ref={marqueeRef}
             className="flex gap-5 lg:gap-8 w-max"
             style={{
-              animation: `marquee-why 40s linear infinite`,
+              animation: "marquee-why 40s linear infinite",
               animationPlayState: paused ? "paused" : "running",
             }}
           >
-            {tripled.map((card, i) => renderCard(card, i, "marquee"))}
+            {tripled.map((card, i) =>
+              renderCard(
+                card,
+                i,
+                "marquee",
+                centeredRenderIndex === i,
+                i % whyCards.length,
+              ),
+            )}
           </div>
         </motion.div>
       </div>

@@ -83,15 +83,16 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
             }}
           >
             only
-            <span
+            <img
               aria-hidden="true"
-              className="absolute inset-0 pointer-events-none"
+              src={circleDecoration}
+              className="absolute pointer-events-none select-none"
               style={{
-                backgroundImage: `url(${circleDecoration})`,
-                backgroundSize: "80% 90%",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                transform: "scaleX(-1) scale(1.35, 1.3)",
+                top: "55%",
+                left: "50%",
+                transform: "translate(-50%, -50%) scaleX(-1)",
+                width: "140%",
+                height: "130%",
               }}
             />
           </span>{" "}
