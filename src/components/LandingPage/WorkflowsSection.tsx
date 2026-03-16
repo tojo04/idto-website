@@ -164,11 +164,17 @@ export default function WorkflowsSection() {
                     {wf.title}
                   </h3>
                   <span
-                    className={`w-6 h-6 lg:w-10 lg:h-10 flex items-center justify-center text-[22px] lg:text-[40px] leading-none shrink-0 ml-4 ${
+                    className={`relative w-6 h-6 lg:w-10 lg:h-10 shrink-0 ml-4 flex items-center justify-center ${
                       activeIndex === i ? "text-white" : "text-black"
                     }`}
+                    aria-hidden="true"
                   >
-                    {activeIndex === i ? "−" : "+"}
+                    <span className="absolute h-[1.2px] w-4 lg:h-[1.6px] lg:w-6 rounded-full bg-current" />
+                    <span
+                      className={`absolute w-[1.2px] h-4 lg:w-[1.6px] lg:h-6 rounded-full bg-current transition-opacity duration-200 ${
+                        activeIndex === i ? "opacity-0" : "opacity-100"
+                      }`}
+                    />
                   </span>
                 </div>
 
@@ -184,6 +190,54 @@ export default function WorkflowsSection() {
                       <p className="pt-2 lg:pt-5 text-xs lg:text-[20px] text-white/60 leading-normal tracking-[-0.02em]">
                         {wf.description}
                       </p>
+
+                      {/* Mobile-only inline tags panel — same marquee as desktop */}
+                      <div className="lg:hidden mt-3 bg-gray-bg rounded-xl p-2.5">
+                        <div className="relative w-full border border-white rounded-xl overflow-hidden">
+                          <div className="absolute inset-0 bg-black/[0.004] pointer-events-none" />
+                          <div className="relative py-4 flex flex-col items-center gap-3">
+                            {wf.tagRows.map((row, rowIdx) => (
+                              <div key={rowIdx} className="marquee-row overflow-hidden w-full">
+                                <div className="marquee-track flex flex-row items-center gap-3 whitespace-nowrap">
+                                  {row.map((tag, colIdx) => (
+                                    <div
+                                      key={tag}
+                                      className={`flex items-center justify-center px-3 h-9 rounded-md text-xs capitalize leading-normal whitespace-nowrap shrink-0 transition-colors duration-500 ${
+                                        rowIdx === highlight[0] && colIdx === highlight[1]
+                                          ? "bg-blue-section text-white font-semibold"
+                                          : "bg-white text-black"
+                                      }`}
+                                    >
+                                      {tag}
+                                    </div>
+                                  ))}
+                                  {row.map((tag, colIdx) => (
+                                    <div
+                                      key={`dup-${tag}`}
+                                      className={`flex items-center justify-center px-3 h-9 rounded-md text-xs capitalize leading-normal whitespace-nowrap shrink-0 transition-colors duration-500 ${
+                                        rowIdx === highlight[0] && colIdx === highlight[1]
+                                          ? "bg-blue-section text-white font-semibold"
+                                          : "bg-white text-black"
+                                      }`}
+                                    >
+                                      {tag}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                            {wf.footnote && (
+                              <div className="flex flex-col items-center gap-1 mt-1">
+                                {wf.footnote.map((line) => (
+                                  <span key={line} className="text-xs leading-normal text-black/60">
+                                    {line}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -191,8 +245,8 @@ export default function WorkflowsSection() {
             ))}
           </div>
 
-          {/* Tags Right Panel — outer box */}
-          <div className="w-full lg:w-[45%] bg-gray-bg rounded-2xl lg:rounded-3xl p-3 lg:p-10 flex items-center justify-center">
+          {/* Tags Right Panel — desktop only */}
+          <div className="hidden lg:flex w-full lg:w-[45%] bg-gray-bg rounded-2xl lg:rounded-3xl p-3 lg:p-10 items-center justify-center">
             {/* Inner box — border only, clips marquee content */}
             <div className="relative w-full border border-white rounded-2xl overflow-hidden">
               {/* Inner bg layer */}

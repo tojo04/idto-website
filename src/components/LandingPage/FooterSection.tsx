@@ -151,7 +151,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
           variants={createFadeInUp()}
           className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
         >
-          <p className="text-sm lg:text-xl text-white leading-normal tracking-[-0.42px] max-w-175 font-medium">
+          <p className="text-sm lg:text-xl text-white leading-normal tracking-[-0.42px] max-w-175 font-normal">
             Payvriz Technologies Private Limited is compliant with the Digital
             Personal Data Protection Act, 2023 and committed to safeguarding your
             information. All data is transmitted using 256-bit TLS encryption for

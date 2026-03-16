@@ -45,7 +45,7 @@ export default function BlogSection() {
           viewport={viewportOnce}
           variants={createFadeInUp()}
         >
-          <SectionHeading align="left">
+          <SectionHeading align="center" className="lg:text-left">
             Our Recent <span className="text-primary">Social Post</span>
           </SectionHeading>
         </motion.div>
@@ -56,16 +56,16 @@ export default function BlogSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="flex gap-5 lg:gap-9 overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 lg:grid lg:grid-cols-3 scrollbar-hide"
+          className="flex gap-5 lg:gap-9 overflow-x-auto overflow-y-visible lg:overflow-visible snap-x snap-mandatory pb-4 lg:pb-0 lg:grid lg:grid-cols-3 scrollbar-hide"
         >
           {blogPosts.map((post) => (
             <motion.div
               key={post.title}
               variants={fadeItem}
-              className="bg-white border-[1.5px] border-black/10 rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow min-w-[309px] w-[309px] lg:w-auto lg:min-w-0 snap-start shrink-0"
+              className="bg-white border-[1.5px] border-black/10 rounded-2xl lg:rounded-3xl overflow-visible isolate flex flex-col group hover:shadow-lg transition-shadow min-w-77.25 w-77.25 lg:w-auto lg:min-w-0 snap-start shrink-0"
             >
               {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden bg-[#fbf8f9]">
+              <div className="aspect-4/3 overflow-hidden bg-[#fbf8f9] rounded-t-2xl lg:rounded-t-3xl">
                 <img
                   src={post.image}
                   alt={post.title}

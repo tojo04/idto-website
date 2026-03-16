@@ -25,7 +25,7 @@ export default function Header() {
         <div className="max-w-480 mx-auto flex items-center justify-between lg:border-0 border-[0.4px] border-[#10dda8] rounded-full lg:rounded-none h-[40px] lg:h-auto px-3 lg:px-0">
           {/* Logo */}
           <a href="/" className="flex items-center gap-1 shrink-0">
-            <div className="relative w-[43px] h-[23px] lg:w-20.5 lg:h-11">
+            <div className="relative w-13 h-7 lg:w-20.5 lg:h-11">
               <img
                 src={logoIcon}
                 alt=""
@@ -74,12 +74,13 @@ export default function Header() {
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+            className="lg:hidden relative flex h-9 w-9 items-center justify-center cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
-            <span className={`w-5 h-0.5 bg-black rounded transition-transform duration-200 ${mobileOpen ? "rotate-45 translate-y-[4px]" : ""}`} />
-            <span className={`w-5 h-0.5 bg-black rounded transition-opacity duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`w-5 h-0.5 bg-black rounded transition-transform duration-200 ${mobileOpen ? "-rotate-45 -translate-y-[4px]" : ""}`} />
+            <span className={`absolute w-5 h-0.5 bg-black rounded transition-transform duration-200 ${mobileOpen ? "rotate-45" : "-translate-y-1.5"}`} />
+            <span className={`absolute w-5 h-0.5 bg-black rounded transition-opacity duration-200 ${mobileOpen ? "opacity-0" : "opacity-100"}`} />
+            <span className={`absolute w-5 h-0.5 bg-black rounded transition-transform duration-200 ${mobileOpen ? "-rotate-45" : "translate-y-1.5"}`} />
           </button>
         </div>
 

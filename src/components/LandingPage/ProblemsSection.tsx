@@ -88,7 +88,7 @@ export default function ProblemsSection() {
             <motion.div
               key={card.title}
               variants={fadeItem}
-              className="group relative bg-white rounded-2xl shadow-[8.1px_16.2px_24.32px_rgba(0,0,0,0.03)] filter-[drop-shadow(3px_4px_6.3px_#C9D5EE)] px-3.5 lg:px-6.5 py-5 lg:py-7.75 flex items-center gap-4 lg:gap-5 border border-transparent hover:border-red-accent transition-colors duration-200"
+              className="group relative bg-white rounded-2xl shadow-[8.1px_16.2px_24.32px_rgba(0,0,0,0.03)] filter-[drop-shadow(3px_4px_6.3px_#C9D5EE)] px-3.5 lg:px-6.5 py-5 lg:py-7.75 flex items-center gap-4 lg:gap-5 border border-transparent hover:border-red-accent active:border-red-accent transition-colors duration-200"
             >
               <div
                 className={`${card.iconBg} w-[60px] h-[61px] lg:w-18.25 lg:h-18.5 rounded-full flex items-center justify-center shrink-0`}
@@ -99,7 +99,7 @@ export default function ProblemsSection() {
                 <h3 className="font-semibold text-[16px] lg:text-[28px] leading-[1.2] lg:leading-9 text-black capitalize">
                   {card.title}
                 </h3>
-                <div className="w-16.25 border-t-[1.62px] border-[#CED4DA] group-hover:border-red-accent transition-colors duration-200" />
+                <div className="w-16.25 border-t-[1.62px] border-[#CED4DA] group-hover:border-red-accent group-active:border-red-accent transition-colors duration-200" />
                 <p className="text-[14px] lg:text-[20px] leading-[150%] text-black/60 tracking-[-0.02em]">
                   {card.description}
                 </p>
