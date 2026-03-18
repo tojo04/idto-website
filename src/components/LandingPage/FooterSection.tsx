@@ -162,8 +162,8 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                             /(<svg[^>]*width="137"[^>]*>[\s\S]*?<\/svg>)/,
                             (digiLockerSvg) =>
                               digiLockerSvg
-                                .replace(/fill="white"/g, 'fill="#6662B8"')
-                                .replace(/fill="#676767"/g, 'fill="#7A7A7A"')
+                                .replace(/fill="white"/g, 'fill="#6334FA"')
+                                .replace(/fill="#676767"/g, 'fill="#868383"')
                           ),
                         }}
                       />
