@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 
 // Globe assets
-import globeVideo from "../../assets/GIF.webm";
+import globeVideoMp4 from "../../assets/globe-hq.mp4";
 import globeGif from "../../assets/GIF.gif";
 import globe1 from "../../assets/globe/globe=1.svg";
 import circleDecoration from "../../assets/circleDecoration.svg";
@@ -29,8 +29,8 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
     const video = mobileVideoRef.current;
     if (!video) return;
 
-    // Some mobile browsers (notably iOS Safari) do not reliably autoplay WebM.
-    if (video.canPlayType("video/webm") === "") {
+    // If MP4 playback isn't supported, fall back to GIF.
+    if (video.canPlayType("video/mp4") === "") {
       setShowMobileVideo(false);
       return;
     }
@@ -71,9 +71,8 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           preload="metadata"
           poster={globe1}
           aria-label="Earth Globe animation"
-          style={{ transform: "scale(1.01)" }}
         >
-          <source src={globeVideo} type="video/webm" />
+          <source src={globeVideoMp4} type="video/mp4" />
         </video>
       </div>
 
@@ -215,7 +214,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
               poster={globe1}
               aria-label="Earth Globe animation"
             >
-              <source src={globeVideo} type="video/webm" />
+              <source src={globeVideoMp4} type="video/mp4" />
             </video>
           ) : (
             <img
