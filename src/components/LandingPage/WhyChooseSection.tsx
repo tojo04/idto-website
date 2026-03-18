@@ -84,7 +84,7 @@ export default function WhyChooseSection() {
         data-real-index={realIndex}
         className={`group shrink-0 border border-[#536bc9] flex flex-col
           bg-[rgba(55,87,200,0.43)]
-          w-[260px] h-53.75 lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl p-[20px_24px] lg:p-[31px_41px]
+          w-[260px] h-auto min-h-53.75 lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl p-[20px_24px] lg:p-[31px_41px]
           transition-all duration-500 ${
             isMiddle
               ? "opacity-100 scale-[1.08]"
