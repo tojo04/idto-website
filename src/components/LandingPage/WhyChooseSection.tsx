@@ -60,8 +60,14 @@ export default function WhyChooseSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [centeredRenderIndex, setCenteredRenderIndex] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
+  const [manualSelection, setManualSelection] = useState<number | null>(null);
+  const [marqueeDelaySeconds, setMarqueeDelaySeconds] = useState(0);
+  const [manualTrackPosition, setManualTrackPosition] = useState<
+    { x: number; animate: boolean } | null
+  >(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeViewportRef = useRef<HTMLDivElement>(null);
+  const manualSelectionTimerRef = useRef<number | null>(null);
 
   // Render a single card
   const renderCard = (
@@ -81,7 +87,7 @@ export default function WhyChooseSection() {
           w-[260px] h-53.75 lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl p-[20px_24px] lg:p-[31px_41px]
           transition-all duration-500 ${
             isMiddle
-              ? "opacity-100 scale-[1.05]"
+              ? "opacity-100 scale-[1.08]"
               : "opacity-55 scale-100 lg:hover:opacity-70"
           }`}
       >
@@ -108,12 +114,87 @@ export default function WhyChooseSection() {
   // Triple cards for seamless looping marquee.
   const tripled = [...whyCards, ...whyCards, ...whyCards];
 
+  const getCurrentTrackX = (track: HTMLDivElement) => {
+    const computedTransform = window.getComputedStyle(track).transform;
+    return computedTransform && computedTransform !== "none"
+      ? new DOMMatrixReadOnly(computedTransform).m41
+      : 0;
+  };
+
+  const getCenteredXForIndex = (realIndex: number, trackX: number) => {
+    const track = marqueeRef.current;
+    const viewport = marqueeViewportRef.current;
+    if (!track || !viewport) return null;
+
+    const selectedRenderIndex = whyCards.length + realIndex;
+    const selectedCard = track.querySelector<HTMLElement>(
+      `[data-marquee-index="${selectedRenderIndex}"]`,
+    );
+
+    if (!selectedCard) return null;
+
+    const viewportRect = viewport.getBoundingClientRect();
+    const cardRect = selectedCard.getBoundingClientRect();
+    const viewportCenter = viewportRect.left + viewportRect.width / 2;
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const deltaToCenter = viewportCenter - cardCenter;
+
+    return trackX + deltaToCenter;
+  };
+
+  const getDelayFromTrackX = (trackX: number, track: HTMLDivElement) => {
+    const cycleDistance = track.scrollWidth / 3;
+    if (!cycleDistance) return 0;
+
+    const normalizedDistance = ((-trackX % cycleDistance) + cycleDistance) % cycleDistance;
+    const progress = normalizedDistance / cycleDistance;
+
+    return -progress * 40;
+  };
+
+  const handlePillSelect = (index: number) => {
+    const track = marqueeRef.current;
+    if (!track) return;
+
+    const currentX = getCurrentTrackX(track);
+    const targetX = getCenteredXForIndex(index, currentX);
+    if (targetX === null) return;
+
+    setActiveIndex(index);
+    setCenteredRenderIndex(whyCards.length + index);
+    setManualSelection(index);
+    setPaused(true);
+    // Freeze current position, then animate to selected card.
+    setManualTrackPosition({ x: currentX, animate: false });
+    window.requestAnimationFrame(() => {
+      setManualTrackPosition({ x: targetX, animate: true });
+    });
+
+    if (manualSelectionTimerRef.current !== null) {
+      window.clearTimeout(manualSelectionTimerRef.current);
+    }
+
+    // Hold the selected pill briefly, then resume marquee from this exact position.
+    manualSelectionTimerRef.current = window.setTimeout(() => {
+      const resumedTrack = marqueeRef.current;
+      if (!resumedTrack) return;
+
+      setMarqueeDelaySeconds(getDelayFromTrackX(targetX, resumedTrack));
+      setManualTrackPosition(null);
+      setManualSelection(null);
+      setPaused(false);
+      manualSelectionTimerRef.current = null;
+    }, 4000);
+  };
+
   useEffect(() => {
     const track = marqueeRef.current;
     const viewport = marqueeViewportRef.current;
     if (!track || !viewport) return;
 
     const detectCenteredCard = () => {
+      if (manualSelection !== null) return;
+
       const viewportRect = viewport.getBoundingClientRect();
       const viewportCenter = viewportRect.left + viewportRect.width / 2;
       const cards = Array.from(track.querySelectorAll<HTMLElement>("[data-marquee-index]"));
@@ -149,6 +230,14 @@ export default function WhyChooseSection() {
     const timer = window.setInterval(detectCenteredCard, 120);
 
     return () => window.clearInterval(timer);
+  }, [manualSelection]);
+
+  useEffect(() => {
+    return () => {
+      if (manualSelectionTimerRef.current !== null) {
+        window.clearTimeout(manualSelectionTimerRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -189,6 +278,7 @@ export default function WhyChooseSection() {
               label={card.tag}
               active={activeIndex === i}
               variant="dark"
+              onClick={() => handlePillSelect(i)}
             />
           ))}
         </motion.div>
@@ -199,18 +289,32 @@ export default function WhyChooseSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="w-full overflow-x-hidden overflow-y-visible py-2 lg:py-3"
+          className="w-full overflow-hidden py-4 lg:py-6"
           onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
+          onMouseLeave={() => {
+            if (manualSelection === null) {
+              setPaused(false);
+            }
+          }}
           ref={marqueeViewportRef}
         >
           <div
             ref={marqueeRef}
-            className="flex gap-5 lg:gap-8 w-max"
-            style={{
-              animation: "marquee-why 40s linear infinite",
-              animationPlayState: paused ? "paused" : "running",
-            }}
+            className="flex gap-7 lg:gap-10 w-max"
+            style={
+              manualTrackPosition
+                ? {
+                    transform: `translateX(${manualTrackPosition.x}px)`,
+                    transition: manualTrackPosition.animate
+                      ? "transform 650ms cubic-bezier(0.22, 1, 0.36, 1)"
+                      : "none",
+                  }
+                : {
+                    animation: "marquee-why 40s linear infinite",
+                    animationDelay: `${marqueeDelaySeconds}s`,
+                    animationPlayState: paused ? "paused" : "running",
+                  }
+            }
           >
             {tripled.map((card, i) =>
               renderCard(

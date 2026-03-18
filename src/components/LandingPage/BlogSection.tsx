@@ -36,8 +36,8 @@ const blogPosts: BlogPost[] = [
 
 export default function BlogSection() {
   return (
-    <section className="bg-white px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px]">
-      <div className="max-w-405 mx-auto flex flex-col gap-10 lg:gap-22.5">
+    <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[100px] lg:rounded-[150px]">
+      <div className="max-w-405 mx-auto flex flex-col gap-16 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -45,7 +45,7 @@ export default function BlogSection() {
           viewport={viewportOnce}
           variants={createFadeInUp()}
         >
-          <SectionHeading align="center" className="lg:text-left">
+          <SectionHeading align="center">
             Our Recent <span className="text-primary">Social Post</span>
           </SectionHeading>
         </motion.div>
@@ -56,16 +56,16 @@ export default function BlogSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="flex gap-5 lg:gap-9 overflow-x-auto overflow-y-visible lg:overflow-visible snap-x snap-mandatory pb-4 lg:pb-0 lg:grid lg:grid-cols-3 scrollbar-hide"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9"
         >
           {blogPosts.map((post) => (
             <motion.div
               key={post.title}
               variants={fadeItem}
-              className="bg-white border-[1.5px] border-black/10 rounded-2xl lg:rounded-3xl overflow-visible isolate flex flex-col group hover:shadow-lg transition-shadow min-w-77.25 w-77.25 lg:w-auto lg:min-w-0 snap-start shrink-0"
+              className="bg-white border-[1.5px] border-black/10 rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow"
             >
               {/* Image */}
-              <div className="aspect-4/3 overflow-hidden bg-[#fbf8f9] rounded-t-2xl lg:rounded-t-3xl">
+              <div className="aspect-[4/3] overflow-hidden bg-[#fbf8f9]">
                 <img
                   src={post.image}
                   alt={post.title}
@@ -74,11 +74,11 @@ export default function BlogSection() {
               </div>
 
               {/* Content */}
-              <div className="p-4 lg:p-8 flex flex-col gap-2 lg:gap-3 flex-1">
-                <h3 className="font-heading text-base lg:text-2xl text-[#212529] leading-[1.3] tracking-tight">
+              <div className="p-6 lg:p-8 flex flex-col gap-3 flex-1">
+                <h3 className="font-heading text-xl lg:text-2xl text-[#212529] leading-[1.3] tracking-tight">
                   {post.title}
                 </h3>
-                <p className="text-sm lg:text-base text-[#495057] leading-normal">
+                <p className="text-base text-[#495057] leading-normal">
                   {post.description}
                 </p>
                 <a
