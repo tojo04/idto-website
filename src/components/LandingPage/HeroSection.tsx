@@ -1,8 +1,10 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 
 // Globe assets
 import globeVideo from "../../assets/GIF.webm";
+import globeGif from "../../assets/GIF.gif";
 import globe1 from "../../assets/globe/globe=1.svg";
 import circleDecoration from "../../assets/circleDecoration.svg";
 
@@ -20,6 +22,30 @@ interface HeroSectionProps {
 
 export default function HeroSection({ bookDemo }: HeroSectionProps) {
   const desktopGlobeWidth = "clamp(430px, 32vw, 636px)";
+  const mobileVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [showMobileVideo, setShowMobileVideo] = useState(true);
+
+  useEffect(() => {
+    const video = mobileVideoRef.current;
+    if (!video) return;
+
+    // Some mobile browsers (notably iOS Safari) do not reliably autoplay WebM.
+    if (video.canPlayType("video/webm") === "") {
+      setShowMobileVideo(false);
+      return;
+    }
+
+    const handleError = () => setShowMobileVideo(false);
+    video.addEventListener("error", handleError);
+
+    void video.play().catch(() => {
+      setShowMobileVideo(false);
+    });
+
+    return () => {
+      video.removeEventListener("error", handleError);
+    };
+  }, []);
 
   return (
     // Section: 1920×869, white bg, border-radius 0 0 150 150
@@ -175,20 +201,32 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
         {/* ── Mobile Globe ── */}
         <div className="lg:hidden flex justify-center mt-5">
-          <video
-            width={272}
-            height={299}
-            className="block w-[272px] h-[299px] object-contain"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={globe1}
-            aria-label="Earth Globe animation"
-          >
-            <source src={globeVideo} type="video/webm" />
-          </video>
+          {showMobileVideo ? (
+            <video
+              ref={mobileVideoRef}
+              width={272}
+              height={299}
+              className="block w-[272px] h-[299px] object-contain"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={globe1}
+              aria-label="Earth Globe animation"
+            >
+              <source src={globeVideo} type="video/webm" />
+            </video>
+          ) : (
+            <img
+              src={globeGif}
+              alt="Earth Globe animation"
+              width={272}
+              height={299}
+              className="block w-[272px] h-[299px] object-contain"
+              loading="eager"
+            />
+          )}
         </div>
 
         {/* Trusted partners */}
