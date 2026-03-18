@@ -65,6 +65,8 @@ export default function WhyChooseSection() {
   const [manualTrackPosition, setManualTrackPosition] = useState<
     { x: number; animate: boolean } | null
   >(null);
+  const pillsContainerRef = useRef<HTMLDivElement | null>(null);
+  const pillRefs = useRef<Array<HTMLDivElement | null>>([]);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeViewportRef = useRef<HTMLDivElement>(null);
   const manualSelectionTimerRef = useRef<number | null>(null);
@@ -240,6 +242,31 @@ export default function WhyChooseSection() {
     };
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return;
+
+    const container = pillsContainerRef.current;
+    const pill = pillRefs.current[activeIndex];
+    if (!container || !pill) return;
+
+    const pillStart = pill.offsetLeft;
+    const pillEnd = pillStart + pill.offsetWidth;
+    const visibleStart = container.scrollLeft;
+    const visibleEnd = visibleStart + container.clientWidth;
+    const isFullyVisible = pillStart >= visibleStart && pillEnd <= visibleEnd;
+
+    if (isFullyVisible) return;
+
+    const targetLeft = pillStart - (container.clientWidth - pill.offsetWidth) / 2;
+    const maxLeft = container.scrollWidth - container.clientWidth;
+    const clampedLeft = Math.max(0, Math.min(targetLeft, maxLeft));
+
+    container.scrollTo({
+      left: clampedLeft,
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
   return (
     <section className="bg-blue-section px-5 lg:px-37.5 py-12 lg:py-37.5 overflow-hidden">
       <div className="max-w-480 mx-auto flex flex-col items-center gap-8 lg:gap-22.25">
@@ -270,16 +297,18 @@ export default function WhyChooseSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
+          ref={pillsContainerRef}
           className="flex gap-2.5 lg:gap-4 overflow-x-auto lg:flex-wrap lg:justify-center max-w-full lg:max-w-237.5 pb-2 lg:pb-0 scrollbar-hide"
         >
           {whyCards.map((card, i) => (
-            <PillTag
-              key={card.tag}
-              label={card.tag}
-              active={activeIndex === i}
-              variant="dark"
-              onClick={() => handlePillSelect(i)}
-            />
+            <div key={card.tag} ref={(el) => { pillRefs.current[i] = el; }}>
+              <PillTag
+                label={card.tag}
+                active={activeIndex === i}
+                variant="dark"
+                onClick={() => handlePillSelect(i)}
+              />
+            </div>
           ))}
         </motion.div>
 
