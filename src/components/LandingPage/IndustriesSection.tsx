@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
@@ -111,20 +111,38 @@ const industries: Industry[] = [
 
 export default function IndustriesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClickPaused, setIsClickPaused] = useState(false);
+  const clickPauseTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (paused) return;
+    if (isHovered || isClickPaused) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % industries.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [paused]);
+  }, [isHovered, isClickPaused]);
 
   const handlePillClick = useCallback((i: number) => {
     setActiveIndex(i);
-    setPaused(true);
-    setTimeout(() => setPaused(false), 5000);
+    setIsClickPaused(true);
+
+    if (clickPauseTimerRef.current !== null) {
+      window.clearTimeout(clickPauseTimerRef.current);
+    }
+
+    clickPauseTimerRef.current = window.setTimeout(() => {
+      setIsClickPaused(false);
+      clickPauseTimerRef.current = null;
+    }, 5000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (clickPauseTimerRef.current !== null) {
+        window.clearTimeout(clickPauseTimerRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -164,15 +182,20 @@ export default function IndustriesSection() {
         </motion.div>
 
         {/* Content Card */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
-            className="flex flex-col lg:flex-row gap-6 lg:gap-15 items-center w-full"
-          >
+        <div
+          className="w-full"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col lg:flex-row gap-6 lg:gap-15 items-center w-full"
+            >
             {/* Text */}
             <div className="w-full lg:w-1/2 bg-white border border-black/10 rounded-[20px] lg:rounded-[27px] p-5 lg:p-10 flex flex-col gap-4 lg:gap-5 min-h-0 lg:min-h-98.5">
               <h3 className="font-heading text-lg lg:text-[28px] leading-normal tracking-[-0.56px] text-black">
@@ -199,8 +222,9 @@ export default function IndustriesSection() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
         {/* Footer text */}
         <motion.p

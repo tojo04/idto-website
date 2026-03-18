@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
@@ -117,20 +117,38 @@ const tabs: TabContent[] = [
 
 export default function SingleApiSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClickPaused, setIsClickPaused] = useState(false);
+  const clickPauseTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (paused) return;
+    if (isHovered || isClickPaused) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % tabs.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [paused]);
+  }, [isHovered, isClickPaused]);
 
   const handlePillClick = useCallback((i: number) => {
     setActiveIndex(i);
-    setPaused(true);
-    setTimeout(() => setPaused(false), 5000);
+    setIsClickPaused(true);
+
+    if (clickPauseTimerRef.current !== null) {
+      window.clearTimeout(clickPauseTimerRef.current);
+    }
+
+    clickPauseTimerRef.current = window.setTimeout(() => {
+      setIsClickPaused(false);
+      clickPauseTimerRef.current = null;
+    }, 5000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (clickPauseTimerRef.current !== null) {
+        window.clearTimeout(clickPauseTimerRef.current);
+      }
+    };
   }, []);
 
   const current = tabs[activeIndex];
@@ -185,6 +203,8 @@ export default function SingleApiSection() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
             className="flex flex-col lg:flex-row gap-6 lg:gap-15 items-stretch w-full"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             {/* Left column: Text card + CTA buttons */}
             <div className="w-full lg:w-1/2 flex flex-col gap-8">
@@ -220,7 +240,7 @@ export default function SingleApiSection() {
               {/* CTA Buttons */}
               <div className="flex flex-row flex-wrap gap-3 lg:gap-10">
                 <a
-                  href="https://docs.idto.ai"
+                  href="https://idtoai.readme.io/reference/idtoai-verification-apis"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-0 lg:px-5 py-2 lg:py-2.5 rounded-md text-sm lg:text-[21px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"

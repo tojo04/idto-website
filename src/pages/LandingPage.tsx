@@ -3,8 +3,8 @@ import Header from "../components/LandingPage/Header";
 import HeroSection from "../components/LandingPage/HeroSection";
 import ProblemsSection from "../components/LandingPage/ProblemsSection";
 import WorkflowsSection from "../components/LandingPage/WorkflowsSection";
-import SingleApiSection from "../components/LandingPage/SingleApiSection";
 import WhyChooseSection from "../components/LandingPage/WhyChooseSection";
+import SingleApiSection from "../components/LandingPage/SingleApiSection";
 import IndustriesSection from "../components/LandingPage/IndustriesSection";
 import BlogSection from "../components/LandingPage/BlogSection";
 import FAQSection from "../components/LandingPage/FAQSection";
@@ -27,8 +27,8 @@ export default function LandingPage() {
       <main>
         <HeroSection bookDemo={bookDemo} />
         <ProblemsSection />
-        <WhyChooseSection />
         <WorkflowsSection />
+        <WhyChooseSection />
         <SingleApiSection />
         <IndustriesSection />
         <BlogSection />

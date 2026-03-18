@@ -175,13 +175,20 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
         {/* ── Mobile Globe ── */}
         <div className="lg:hidden flex justify-center mt-5">
-          <img
-            src={globe1}
-            alt="Earth Globe"
+          <video
             width={272}
             height={299}
             className="block w-[272px] h-[299px] object-contain"
-          />
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={globe1}
+            aria-label="Earth Globe animation"
+          >
+            <source src={globeVideo} type="video/webm" />
+          </video>
         </div>
 
         {/* Trusted partners */}
