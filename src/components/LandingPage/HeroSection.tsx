@@ -85,7 +85,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
               style={{
                 top: "55%",
                 left: "50%",
-                transform: "translate(-50%, -50%) scaleX(-1)",
+                transform: "translate(-50%, -50%) scaleX(-1) rotate(22deg)",
                 width: "140%",
                 height: "130%",
               }}
@@ -109,7 +109,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
                 style={{
                   top: "55%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) scaleX(-1)",
+                  transform: "translate(-50%, -50%) scaleX(-1) rotate(8deg)",
                   width: "140%",
                   height: "130%",
                 }}
