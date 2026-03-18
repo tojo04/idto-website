@@ -1,14 +1,10 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 
-// Globe animation frames
+// Globe assets
+import globeVideo from "../../assets/GIF.webm";
 import globe1 from "../../assets/globe/globe=1.svg";
-import globe2 from "../../assets/globe/globe=2.svg";
-import globe3 from "../../assets/globe/globe=3.svg";
-import globe4 from "../../assets/globe/globe=4.svg";
 import circleDecoration from "../../assets/circleDecoration.svg";
-const globeFrames = [globe1, globe2, globe3, globe4];
 
 // Partner logos
 import partner1 from "../../assets/partner1 (1).png";
@@ -23,15 +19,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ bookDemo }: HeroSectionProps) {
-  const [globeFrame, setGlobeFrame] = useState(0);
   const desktopGlobeWidth = "clamp(430px, 32vw, 636px)";
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGlobeFrame((prev) => (prev + 1) % globeFrames.length);
-    }, 200);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     // Section: 1920×869, white bg, border-radius 0 0 150 150
@@ -39,7 +27,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
       {/* ── Desktop Earth globe: left calc(50%+189px), top 38px ── */}
       <div
-        className="hidden lg:block absolute pointer-events-none"
+        className="hidden lg:block absolute pointer-events-none overflow-hidden"
         style={{
           right: "clamp(28px, 5vw, 120px)",
           top: "clamp(40px, 4vw, 90px)",
@@ -48,19 +36,19 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           aspectRatio: "636 / 700",
         }}
       >
-        <div className="absolute inset-0">
-          {globeFrames.map((frame, i) => (
-            <img
-              key={i}
-              src={frame}
-              alt="Earth Globe"
-              className="absolute inset-0 w-full h-full object-contain"
-              style={{
-                opacity: i === globeFrame ? 1 : 0,
-              }}
-            />
-          ))}
-        </div>
+        <video
+          className="absolute inset-0 w-full h-full object-contain"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={globe1}
+          aria-label="Earth Globe animation"
+          style={{ transform: "scale(1.01)" }}
+        >
+          <source src={globeVideo} type="video/webm" />
+        </video>
       </div>
 
       {/* ── Content column: left 150px, starts at top 149px ── */}
