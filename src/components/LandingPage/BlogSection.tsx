@@ -56,13 +56,13 @@ export default function BlogSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9"
+          className="flex overflow-x-auto scrollbar-hide gap-5 pb-2 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-9 md:overflow-visible md:pb-0 md:snap-none"
         >
           {blogPosts.map((post) => (
             <motion.div
               key={post.title}
               variants={fadeItem}
-              className="bg-white border-[1.5px] border-black/10 rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow"
+              className="w-[86%] min-w-[86%] sm:w-[75%] sm:min-w-[75%] snap-start md:w-auto md:min-w-0 bg-white border-[1.5px] border-black/10 rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow"
             >
               {/* Image */}
               <div className="aspect-[4/3] overflow-hidden bg-[#fbf8f9]">

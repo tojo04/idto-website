@@ -146,7 +146,7 @@ export default function FAQSection() {
                 className="w-full flex items-center justify-between px-4 py-4 lg:px-10 lg:py-10 text-left cursor-pointer gap-4 lg:gap-5"
                 aria-expanded={openIndex === i}
               >
-                <h3 className="font-heading text-[24px] leading-normal tracking-[-0.02em] text-black">
+                <h3 className="font-heading text-[18px] lg:text-[24px] leading-normal tracking-[-0.02em] text-black">
                   {faq.question}
                 </h3>
                 <span className="relative w-6 h-6 lg:w-12 lg:h-12 shrink-0 flex items-center justify-center text-black select-none" aria-hidden="true">

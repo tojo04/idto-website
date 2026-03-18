@@ -114,6 +114,8 @@ export default function IndustriesSection() {
   const [isHovered, setIsHovered] = useState(false);
   const [isClickPaused, setIsClickPaused] = useState(false);
   const clickPauseTimerRef = useRef<number | null>(null);
+  const pillsContainerRef = useRef<HTMLDivElement | null>(null);
+  const pillRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
     if (isHovered || isClickPaused) return;
@@ -145,6 +147,22 @@ export default function IndustriesSection() {
     };
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return;
+    const container = pillsContainerRef.current;
+    const pill = pillRefs.current[activeIndex];
+    if (!container || !pill) return;
+
+    const targetLeft = pill.offsetLeft - (container.clientWidth - pill.offsetWidth) / 2;
+    const maxLeft = container.scrollWidth - container.clientWidth;
+    const clampedLeft = Math.max(0, Math.min(targetLeft, maxLeft));
+
+    container.scrollTo({
+      left: clampedLeft,
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
   return (
     <section className="bg-gray-bg px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px]">
       <div className="max-w-405 mx-auto flex flex-col items-center gap-8 lg:gap-22.5">
@@ -168,16 +186,18 @@ export default function IndustriesSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
+          ref={pillsContainerRef}
           className="flex gap-3 lg:gap-4 lg:flex-wrap lg:justify-center max-w-full lg:max-w-273 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide"
         >
           {industries.map((ind, i) => (
-            <PillTag
-              key={ind.name}
-              label={ind.name}
-              active={activeIndex === i}
-              onClick={() => handlePillClick(i)}
-              variant="light"
-            />
+            <div key={ind.name} ref={(el) => { pillRefs.current[i] = el; }}>
+              <PillTag
+                label={ind.name}
+                active={activeIndex === i}
+                onClick={() => handlePillClick(i)}
+                variant="light"
+              />
+            </div>
           ))}
         </motion.div>
 
