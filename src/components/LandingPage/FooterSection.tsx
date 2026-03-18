@@ -155,7 +155,18 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
             information. All data is transmitted using 256-bit TLS encryption for
             maximum security.
           </p>
-                      <div className="flex md:space-x-4 items-center gap-4 md:gap-1 md:justify-normal justify-between w-full md:w-auto flex-wrap" dangerouslySetInnerHTML={{ __html: certificationBadgesSvgMarkup }} />
+                      <div
+                        className="flex md:space-x-4 items-center gap-4 md:gap-1 md:justify-normal justify-between w-full md:w-auto flex-wrap"
+                        dangerouslySetInnerHTML={{
+                          __html: certificationBadgesSvgMarkup.replace(
+                            /(<svg[^>]*width="137"[^>]*>[\s\S]*?<\/svg>)/,
+                            (digiLockerSvg) =>
+                              digiLockerSvg
+                                .replace(/fill="white"/g, 'fill="#6662B8"')
+                                .replace(/fill="#676767"/g, 'fill="#7A7A7A"')
+                          ),
+                        }}
+                      />
         </motion.div>
 
         {/* Bottom Bar */}

@@ -3,7 +3,7 @@ import FooterSection from "../components/LandingPage/FooterSection";
 
 export default function TermsAndConditions() {
   const bookDemo = () => {
-    window.open("https://calendly.com/idto", "_blank");
+    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 
   return (

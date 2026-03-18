@@ -17,7 +17,7 @@ export default function LandingPage() {
   const bookDemo = () => {
     // For now, open Calendly or toggle a modal
     setDemoOpen(true);
-    window.open("https://calendly.com/idto", "_blank");
+    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 
   return (

@@ -186,6 +186,9 @@ export default function IndustriesSection() {
           className="w-full"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+          onTouchCancel={() => setIsHovered(false)}
         >
           <AnimatePresence mode="wait">
             <motion.div

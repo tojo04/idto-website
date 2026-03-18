@@ -205,6 +205,9 @@ export default function SingleApiSection() {
             className="flex flex-col lg:flex-row gap-6 lg:gap-15 items-stretch w-full"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={() => setIsHovered(true)}
+            onTouchEnd={() => setIsHovered(false)}
+            onTouchCancel={() => setIsHovered(false)}
           >
             {/* Left column: Text card + CTA buttons */}
             <div className="w-full lg:w-1/2 flex flex-col gap-8">
