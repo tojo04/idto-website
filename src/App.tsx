@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import LandingPage from "./pages/LandingPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Demo from "./pages/Demo";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/demo" element={<Demo />} />
       </Routes>
     </BrowserRouter>
   );
