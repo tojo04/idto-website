@@ -71,7 +71,7 @@ export default function GoLiveSection() {
           {goLiveCards.map((card) => (
             <div
               key={card.title}
-              className="group bg-white rounded-2xl p-5 flex flex-col gap-4 w-[295px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] border border-[#e5e7eb] hover:border-[#1a9948] active:border-[#1a9948] transition-colors duration-200 h-[181px]"
+              className="group bg-white rounded-2xl p-5 pb-6 flex flex-col gap-4 w-[295px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] border border-[#e5e7eb] hover:border-[#1a9948] active:border-[#1a9948] transition-colors duration-200"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#e9fbf0] flex items-center justify-center shrink-0">
                 <img src={card.icon} alt="" className="w-[26px] h-[26px]" />
