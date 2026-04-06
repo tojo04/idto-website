@@ -52,7 +52,7 @@ export default function HeroSection() {
             whileInView="show"
             viewport={viewportOnce}
             variants={createFadeInUp(0.08)}
-            className="order-2 w-full max-w-[284px] mx-auto mt-5 lg:mt-0 lg:max-w-[501px] lg:absolute lg:right-0 lg:top-[40px] lg:w-[40%]"
+            className="order-2 w-full max-w-[284px] mx-auto mt-5 lg:mt-0 lg:max-w-[501px] lg:absolute lg:right-0 lg:top-[40px] lg:w-[40%] lg:pointer-events-none"
           >
             <img
               src={heroVisual}
@@ -94,7 +94,7 @@ export default function HeroSection() {
         </div>
 
         {/* Partner strip */}
-        <div className="mt-8 lg:mt-[30px] flex flex-col gap-[30px] items-center w-full">
+        <div className="relative z-10 mt-8 lg:mt-[30px] flex flex-col gap-[30px] items-center w-full">
           <div className="flex flex-col gap-[10px] items-center w-full">
             <p className="text-xs uppercase tracking-[1.2px] text-[#666] text-center leading-4">
               Backed by trusted partners
