@@ -51,7 +51,7 @@ const problemCards = [
 export default function ProblemsSection() {
   return (
     <section className="bg-gray-bg px-5 lg:px-37.5 py-10 lg:py-37.5">
-      <div className="max-w-369.5 mx-auto flex flex-col items-center gap-10 lg:gap-22.5">
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-10 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"

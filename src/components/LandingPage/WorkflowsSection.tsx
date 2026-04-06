@@ -120,7 +120,7 @@ export default function WorkflowsSection() {
       id="workflows"
       className="bg-white px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px]"
     >
-      <div className="max-w-405 mx-auto flex flex-col items-center gap-10 lg:gap-22.5">
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-10 lg:gap-22.5">
         {/* Heading */}
         <motion.div
           initial="hidden"

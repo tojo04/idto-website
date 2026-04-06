@@ -76,7 +76,7 @@ export default function FAQSection() {
 
   return (
     <section className="px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-[40px] lg:rounded-[150px] bg-gray-bg relative overflow-hidden">
-      <div className="max-w-405 mx-auto flex flex-col lg:flex-row gap-8 lg:gap-22.5 lg:items-stretch relative">
+      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-22.5 lg:items-stretch relative">
         {/* Left — Header Container */}
         <motion.div
           initial="hidden"

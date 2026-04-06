@@ -22,7 +22,7 @@ export default function Header() {
         animate="show"
         variants={createFadeInDown(0.05)}
       >
-        <div className="max-w-480 mx-auto flex items-center justify-between lg:border-0 border-[0.4px] border-[#10dda8] rounded-full lg:rounded-none h-[40px] lg:h-auto px-3 lg:px-0">
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between lg:border-0 border-[0.4px] border-[#10dda8] rounded-full lg:rounded-none h-[40px] lg:h-auto px-3 lg:px-0">
           {/* Logo */}
           <a href="/" className="flex items-center gap-1 shrink-0">
             <div className="relative w-13 h-7 lg:w-20.5 lg:h-11">
