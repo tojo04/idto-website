@@ -18,7 +18,7 @@ export default function HeroSection() {
             variants={createFadeInUp(0)}
             className="order-1 relative z-10 lg:mt-16 lg:max-w-[772px]"
           >
-            <h1 className="font-heading text-[32px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[-0.02em] text-black text-center lg:text-left">
+            <h1 className="font-heading text-[32px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[-0.02em] text-black text-center lg:text-left lg:whitespace-nowrap">
               The most compliant and fastest
               <br className="hidden lg:block" /> way to verify your users with
               <br className="hidden lg:block" />{" "}
@@ -27,7 +27,7 @@ export default function HeroSection() {
 
             <p className="mt-[18px] text-[15px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] text-black/60 max-w-[764px] text-center lg:text-left">
               Move to a compliant DigiLocker flow in under 5 minutes and improve
-              onboarding conversion by 15-20%.
+              <br className="hidden lg:block" /> onboarding conversion by 15-20%.
             </p>
           </motion.div>
 

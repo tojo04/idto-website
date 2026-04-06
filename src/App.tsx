@@ -5,6 +5,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Demo from "./pages/Demo";
 import DigiLockerProductPage from "./pages/DigiLockerProductPage";
+import CKYCProductPage from "./pages/CKYCProductPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/products/digilocker-3.0" element={<DigiLockerProductPage />} />
+        <Route path="/products/CKYC" element={<CKYCProductPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/demo" element={<Demo />} />
