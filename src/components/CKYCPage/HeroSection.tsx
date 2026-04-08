@@ -38,7 +38,7 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            <p className="mt-[18px] lg:mt-[36px] text-[12px] lg:text-[18px] leading-[1.5] tracking-[-0.24px] lg:tracking-[-0.36px] text-black/60 max-w-[329px] lg:max-w-[764px] mx-auto lg:mx-0 text-center lg:text-left">
+            <p className="mt-[18px] lg:mt-[36px] text-[12px] lg:text-[18px] leading-[1.5] tracking-[-0.24px] lg:tracking-[-0.36px] text-black/60 max-w-[329px] lg:max-w-[640px] mx-auto lg:mx-0 text-center lg:text-left">
               Search, Download, Create, and Update CKYC records through{" "}
               <span className="font-medium text-primary">one integration</span>. Go live
               faster with compliant onboarding flows and hands-on support from
