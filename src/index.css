@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-lg: 1280px;
+
   --color-primary: #0019ff;
   --color-primary-dark: #000b6b;
   --color-blue-section: #1f44be;

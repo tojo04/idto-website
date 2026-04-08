@@ -16,7 +16,7 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
         whileInView="show"
         viewport={viewportOnce}
         variants={createFadeInUp()}
-        className="max-w-405 mx-auto bg-white rounded-[40px] overflow-hidden relative min-h-[493px] lg:min-h-107.5"
+        className="max-w-[1440px] mx-auto bg-white rounded-[40px] overflow-hidden relative min-h-[493px] lg:min-h-107.5"
       >
         {/* Mobile uses the original oversized Figma asset with fixed offsets */}
         <div className="absolute left-[-100%] top-[10px] w-[225.2%] max-w-none pointer-events-none lg:hidden">

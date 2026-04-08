@@ -56,7 +56,7 @@ export default function BlogSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="flex overflow-x-auto scrollbar-hide gap-5 pb-2 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-9 md:overflow-visible md:pb-0 md:snap-none"
+          className="flex overflow-x-auto scrollbar-hide gap-5 pb-2 snap-x snap-mandatory md:grid grid-cols-2 md:gap-9 md:overflow-visible md:pb-0 md:snap-none lg:grid-cols-3"
         >
           {blogPosts.map((post) => (
             <motion.div

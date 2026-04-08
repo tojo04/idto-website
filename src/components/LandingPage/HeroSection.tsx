@@ -84,7 +84,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="font-heading text-[20px] lg:text-[clamp(44px,3.2vw,60px)] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
+          className="font-heading text-[20px] lg:text-[clamp(44px,3.2vw,60px)] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(20px, 7.77%, 149px)",
           }}
@@ -144,7 +144,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="text-[12px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
+          className="text-[12px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] mx-auto lg:mx-0 lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(10px, 1.15%, 22px)",
           }}
@@ -228,7 +228,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.3)}
-          className="flex flex-col gap-2.5 lg:gap-5 max-w-[680px] pb-6 lg:pb-0 items-center lg:items-start lg:mr-[clamp(120px,30%,520px)]"
+          className="flex flex-col gap-2.5 lg:gap-5 max-w-[680px] mx-auto lg:mx-0 pb-6 lg:pb-0 items-center lg:items-start lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(10px, 1.98%, 38px)",
           }}
