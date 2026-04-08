@@ -211,7 +211,7 @@ export default function Header() {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex flex-col gap-2 pl-4 pt-2">
+                            <div className="flex flex-col gap-3 pt-4">
                               {productItems.map((product) => (
                                 <Link
                                   key={product.href}
@@ -220,11 +220,11 @@ export default function Header() {
                                     setMobileOpen(false);
                                     setMobileProductsOpen(false);
                                   }}
-                                  className="flex items-center gap-3 py-2"
+                                  className="flex items-center justify-between bg-[#F6F6F0] rounded-2xl px-5 py-4"
                                 >
-                                  <span className="text-sm font-semibold text-[#353535]">{product.label}</span>
-                                  <svg width="12" height="11" viewBox="0 0 15 14" fill="none" className="shrink-0">
-                                    <path d="M1 7H14M14 7L8 1M14 7L8 13" stroke="#1D68F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <span className="text-base font-medium text-[#353535]">{product.label}</span>
+                                  <svg width="15" height="14" viewBox="0 0 15 14" fill="none" className="shrink-0">
+                                    <path d="M1 7H14M14 7L8 1M14 7L8 13" stroke="#5B5FC7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                   </svg>
                                 </Link>
                               ))}
