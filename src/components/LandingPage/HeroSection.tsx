@@ -144,7 +144,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="text-[12px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
+          className="text-[12px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(10px, 1.15%, 22px)",
           }}
