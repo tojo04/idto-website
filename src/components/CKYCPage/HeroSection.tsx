@@ -22,13 +22,13 @@ export default function HeroSection() {
               <span className="text-primary">CKYC</span>, without the{" "}
               <span
                 className="relative inline-block"
-                style={{ padding: "0.05em 0.15em" }}
+                style={{ padding: "0.05em 0.4em 0.05em 0.15em" }}
               >
                 complexity.
                 <img
                   aria-hidden="true"
                   src={complexityVector}
-                  className="absolute pointer-events-none select-none w-[210%] h-[160%] lg:w-[260%] lg:h-[160%]"
+                  className="absolute pointer-events-none select-none w-[260%] h-[160%] lg:w-[310%] lg:h-[160%]"
                   style={{
                     top: "65%",
                     left: "50%",
