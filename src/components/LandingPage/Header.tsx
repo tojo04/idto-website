@@ -78,7 +78,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => setProductsOpen(!productsOpen)}
-                      className="px-9 py-3 text-xl text-black/70 hover:text-black transition-colors rounded-full cursor-pointer flex items-center gap-1"
+                      className="px-9 py-3 text-[18px] text-black/70 hover:text-black transition-colors rounded-full cursor-pointer flex items-center gap-1"
                     >
                       {item.label}
                       <svg
@@ -120,7 +120,7 @@ export default function Header() {
                                 onClick={() => setProductsOpen(false)}
                                 className="flex items-center gap-[30px] px-[20px] py-[15px] rounded-[10px] hover:bg-black/5 transition-colors"
                               >
-                                <span className="text-[18px] font-semibold text-[#353535] tracking-[-0.01em] leading-[23px] whitespace-nowrap">
+                                <span className="text-[16px] font-semibold text-[#353535] tracking-[-0.01em] leading-[23px] whitespace-nowrap">
                                   {product.label}
                                 </span>
                                 <svg width="15" height="14" viewBox="0 0 15 14" fill="none" className="shrink-0">
@@ -139,7 +139,7 @@ export default function Header() {
                     href={item.href}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
-                    className="px-9 py-3 text-xl text-black/70 hover:text-black transition-colors rounded-full"
+                    className="px-9 py-3 text-[18px] text-black/70 hover:text-black transition-colors rounded-full"
                   >
                     {item.label}
                   </a>

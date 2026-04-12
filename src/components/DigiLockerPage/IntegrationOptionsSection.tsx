@@ -25,7 +25,7 @@ export default function IntegrationOptionsSection() {
   const scrollRef = useAutoScroll(290, 20);
 
   return (
-    <section className="px-5 lg:px-12 py-[120px]">
+    <section className="px-5 lg:px-12 py-10 lg:py-[120px]">
       <div className="max-w-[924px] mx-auto flex flex-col gap-10 items-center">
         <div className="text-center max-w-[772px]">
           <h2 className="font-heading text-[32px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[-1.12px] text-black">

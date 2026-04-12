@@ -49,7 +49,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
   return (
     // Section: 1920×869, white bg, border-radius 0 0 150 150
-    <section className="relative bg-white px-5 lg:px-37.5 rounded-b-[40px] lg:rounded-b-[150px] overflow-hidden min-h-[520px] lg:min-h-[clamp(720px,45vw,869px)]">
+    <section className="relative bg-white px-5 lg:px-37.5 rounded-b-[40px] lg:rounded-b-[112px] overflow-hidden min-h-[520px] lg:min-h-[clamp(720px,45vw,869px)]">
 
       {/* ── Desktop Earth globe: left calc(50%+189px), top 38px ── */}
       <div
@@ -84,7 +84,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="font-heading text-[20px] lg:text-[clamp(44px,3.2vw,60px)] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
+          className="font-heading text-[20px] lg:text-[56px] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(20px, 7.77%, 149px)",
           }}
@@ -144,7 +144,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="text-[12px] lg:text-[20px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] mx-auto lg:mx-0 lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
+          className="text-[12px] lg:text-[18px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] mx-auto lg:mx-0 lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(10px, 1.15%, 22px)",
           }}
@@ -169,10 +169,10 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
             href="https://dashboard.idto.ai/signup/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center font-body font-medium lg:font-semibold text-white bg-primary rounded-full transition-opacity hover:opacity-90 w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[clamp(18px,1.2vw,21px)] whitespace-nowrap"
+            className="flex items-center justify-center font-body font-medium lg:font-semibold text-white bg-primary rounded-full transition-opacity hover:opacity-90 w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[16px] whitespace-nowrap"
             style={{
               letterSpacing: "0.36px",
-              border: "1.5px solid rgba(255,255,255,0.5)",
+              border: "1.125px solid rgba(255,255,255,0.5)",
             }}
           >
             Sign-up
@@ -180,10 +180,10 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
           <button
             onClick={bookDemo}
-            className="flex items-center justify-center font-body font-medium lg:font-semibold rounded-full transition-opacity hover:opacity-70 w-[130px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[clamp(19px,1.35vw,24px)] whitespace-nowrap"
+            className="flex items-center justify-center font-body font-medium lg:font-semibold rounded-full transition-opacity hover:opacity-70 w-[130px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[16px] whitespace-nowrap"
             style={{
               letterSpacing: "0.36px",
-              border: "1.5px solid #0019FF",
+              border: "1.125px solid #0019FF",
               color: "rgba(0, 25, 255, 0.8)",
               background: "transparent",
             }}
@@ -234,7 +234,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           }}
         >
           <p
-            className="font-body text-[12px] lg:text-[16px] leading-[150%] tracking-[-0.02em] text-center lg:text-left"
+            className="font-body text-[12px] lg:text-[12px] leading-[150%] tracking-[-0.02em] text-center lg:text-left"
             style={{ color: "#666666" }}
           >
             Trusted by{" "}

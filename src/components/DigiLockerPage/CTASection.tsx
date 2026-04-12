@@ -4,27 +4,27 @@ import partner3 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_p
 
 export default function CTASection() {
   return (
-    <section className="px-5 lg:px-12 py-[112.5px]">
-      <div className="max-w-[1215px] mx-auto bg-white rounded-[45px] p-10 md:p-12 lg:p-[67.5px] overflow-hidden">
+    <section className="px-5 lg:px-12 py-10 lg:py-[112.5px]">
+      <div className="max-w-[1215px] mx-auto bg-white rounded-[40px] lg:rounded-[45px] px-[25px] py-10 md:p-12 lg:p-[67.5px] overflow-hidden">
         <div className="max-w-[1072px] mx-auto flex flex-col gap-[50px] items-center">
           {/* Text and buttons */}
           <div className="flex flex-col gap-[45px] items-center justify-center w-full">
             <div className="flex flex-col gap-[18px] items-center text-center text-black">
-              <h2 className="font-heading text-[32px] md:text-[42px] lg:text-[56px] leading-[1.1] tracking-[-1.12px]">
+              <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-1.12px]">
                 DigiLocker onboarding, without the{" "}
                 <span className="text-blue-section">complexity.</span>
               </h2>
-              <p className="text-[18px] leading-[1.5] text-black/60">
+              <p className="text-[12px] lg:text-[18px] leading-[1.5] text-black/60">
                 Build on idto and focus on your product, not identity overhead.
               </p>
             </div>
 
-            <div className="flex gap-[13.5px] items-center justify-center">
+            <div className="flex flex-wrap gap-[13.5px] items-center justify-center">
               <a
                 href="https://cal.com/adityaskx-idto/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white px-[27px] py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to sales
               </a>
@@ -32,7 +32,7 @@ export default function CTASection() {
                 href="https://dashboard.idto.ai/signup/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary px-[27px] py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary/5 transition-colors w-[144px]"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-medium lg:font-semibold tracking-[0.36px] lg:tracking-[-0.32px] hover:bg-primary/5 transition-colors whitespace-nowrap"
               >
                 Sign-up
               </a>
@@ -49,8 +49,8 @@ export default function CTASection() {
             </div>
             <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-[80px] flex-wrap">
               <img src={partner1} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" />
-              <img src={partner2} alt="Partner" className="h-[38px] sm:h-[48px] w-auto object-contain" />
-              <img src={partner3} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" />
+              <img src={partner2} alt="Partner" className="h-[48px] sm:h-[60px] w-auto object-contain" />
+              <img src={partner3} alt="Partner" className="h-[28px] sm:h-[38px] w-auto object-contain" />
             </div>
           </div>
         </div>

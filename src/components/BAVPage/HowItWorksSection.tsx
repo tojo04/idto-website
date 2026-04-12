@@ -251,7 +251,7 @@ export default function HowItWorksSection() {
         </motion.div>
 
         {/* Step cards */}
-        <div className="w-full flex gap-5 overflow-x-auto snap-x snap-mandatory sm:snap-none sm:flex-wrap sm:justify-center pb-3 sm:pb-0 [scrollbar-width:none] [-ms-overflow-style:none]">
+        <div className="w-full flex gap-6 overflow-x-auto snap-x snap-mandatory sm:snap-none sm:flex-wrap lg:flex-nowrap sm:justify-center pb-3 sm:pb-0 [scrollbar-width:none] [-ms-overflow-style:none]">
           {steps.map((step) => (
             <motion.div
               key={step.number}
@@ -259,7 +259,7 @@ export default function HowItWorksSection() {
               whileInView="show"
               viewport={viewportOnce}
               variants={createFadeInUp(0.05)}
-              className="bg-white rounded-2xl p-5 lg:p-[25px] flex flex-col gap-4 w-[238px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] border border-[#e5e7eb]"
+              className="bg-white rounded-[12px] p-5 lg:pt-[25px] lg:px-[25px] lg:pb-[65px] flex flex-col gap-[15px] w-[238px] snap-start sm:w-[calc(50%-12px)] lg:w-[238px] lg:flex-1 lg:h-[250px] border border-[#e5e7eb] shrink-0 lg:shrink"
             >
               <div className="flex items-center justify-between">
                 <div className="w-[53px] h-[53px] rounded-full bg-[#e9eefc] flex items-center justify-center shrink-0">
@@ -269,7 +269,7 @@ export default function HowItWorksSection() {
                     className="w-[26px] h-[26px]"
                   />
                 </div>
-                <span className="font-heading text-[32px] lg:text-[36px] text-[#1d212b]/10 leading-[40px]">
+                <span className="font-heading text-[32px] lg:text-[36px] text-[#1d212b] leading-[40px] font-normal">
                   {step.number}
                 </span>
               </div>

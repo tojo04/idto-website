@@ -22,7 +22,7 @@ export default function PillTag({
   return (
     <button
       onClick={onClick}
-      className={`capitalize px-3 py-2 lg:px-4 lg:py-2.5 rounded-full text-sm lg:text-xl font-medium leading-[27px] border transition-all cursor-pointer whitespace-nowrap ${
+      className={`capitalize px-3 py-2 lg:px-4 lg:py-2.5 rounded-full text-sm lg:text-[14px] font-medium leading-[20.25px] border transition-all cursor-pointer whitespace-nowrap ${
         variant === "light" ? lightStyles : darkStyles
       }`}
     >

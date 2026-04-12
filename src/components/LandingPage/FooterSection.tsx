@@ -32,7 +32,7 @@ interface FooterSectionProps {
 
 export default function FooterSection({ bookDemo }: FooterSectionProps) {
   return (
-    <footer className="bg-blue-section px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-t-[40px] lg:rounded-t-[150px]">
+    <footer className="bg-blue-section px-5 lg:px-37.5 py-12 lg:py-37.5 rounded-t-[40px] lg:rounded-t-[112px]">
       <div className="max-w-405 mx-auto flex flex-col gap-10 lg:gap-22.5">
         {/* Main Footer Content - Gradient Border Container */}
         <div

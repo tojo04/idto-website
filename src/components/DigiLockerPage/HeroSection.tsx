@@ -25,7 +25,7 @@ export default function HeroSection() {
               <span className="text-primary">DigiLocker 3.0</span>
             </h1>
 
-            <p className="mt-[18px] text-[15px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] text-black/60 max-w-[764px] text-center lg:text-left">
+            <p className="mt-[18px] text-[15px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] text-black/60 max-w-[764px] mx-auto lg:mx-0 text-center lg:text-left">
               Move to a compliant DigiLocker flow in under 5 minutes and improve
               <br className="hidden lg:block" /> onboarding conversion by 15-20%.
             </p>
@@ -37,7 +37,7 @@ export default function HeroSection() {
             whileInView="show"
             viewport={viewportOnce}
             variants={createFadeInUp(0.08)}
-            className="order-2 w-full max-w-[500px] mx-auto mt-6 lg:mt-0 lg:max-w-[770px] lg:absolute lg:right-0 lg:top-0 lg:w-[62%]"
+            className="order-2 w-full max-w-[500px] mx-auto -ml-8 sm:ml-auto mt-6 lg:mt-0 lg:max-w-[770px] lg:absolute lg:right-0 lg:top-0 lg:w-[62%] lg:ml-0"
           >
             <img
               src={heroVisual}
@@ -88,8 +88,8 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-[80px] flex-wrap">
             <img src={partner1} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" />
-            <img src={partner2} alt="Partner" className="h-[38px] sm:h-[48px] w-auto object-contain" />
-            <img src={partner3} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" />
+            <img src={partner2} alt="Partner" className="h-[48px] sm:h-[60px] w-auto object-contain" />
+            <img src={partner3} alt="Partner" className="h-[28px] sm:h-[38px] w-auto object-contain" />
           </div>
         </div>
       </div>

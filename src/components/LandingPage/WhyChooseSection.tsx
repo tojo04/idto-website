@@ -86,7 +86,7 @@ export default function WhyChooseSection() {
         data-real-index={realIndex}
         className={`group shrink-0 border border-[#536bc9] flex flex-col
           bg-[rgba(55,87,200,0.43)]
-          w-[260px] h-auto min-h-53.75 lg:w-120.25 lg:h-89.5 rounded-2xl lg:rounded-4xl p-[20px_24px] lg:p-[31px_41px]
+          w-[260px] h-auto min-h-53.75 lg:w-[360.75px] lg:h-[268.5px] rounded-2xl lg:rounded-[24px] p-[20px_24px] lg:p-[23.25px_30.75px]
           transition-all duration-500 ${
             isMiddle
               ? "opacity-100 scale-[1.08]"
@@ -94,18 +94,18 @@ export default function WhyChooseSection() {
           }`}
       >
         <h3
-          className="capitalize font-semibold text-white leading-7 lg:leading-9
-            text-xl lg:text-[28px]"
+          className="capitalize font-semibold text-white leading-7 lg:leading-normal
+            text-xl lg:text-[16px]"
         >
           {card.title}
         </h3>
         <div
-          className="w-16.25 h-0 mt-5 lg:mt-9
-            border-t-[1.62px] border-[#DBDFE3]"
+          className="w-[65px] h-px mt-5 lg:mt-[27px]
+            bg-[#DBDFE3]"
         />
         <p
-          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-5 lg:mt-9
-            text-sm lg:text-[20px] opacity-60"
+          className="text-white leading-[150%] tracking-[-0.02em] whitespace-pre-line mt-5 lg:mt-[27px]
+            text-sm lg:text-[14px] opacity-60"
         >
           {card.description}
         </p>
@@ -298,7 +298,7 @@ export default function WhyChooseSection() {
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
           ref={pillsContainerRef}
-          className="flex gap-2.5 lg:gap-4 overflow-x-auto lg:flex-wrap lg:justify-center max-w-full lg:max-w-237.5 pb-2 lg:pb-0 scrollbar-hide"
+          className="flex gap-2.5 lg:gap-[11.25px] overflow-x-auto lg:flex-wrap lg:justify-center max-w-full lg:max-w-[698px] pb-2 lg:pb-0 scrollbar-hide"
         >
           {whyCards.map((card, i) => (
             <div key={card.tag} ref={(el) => { pillRefs.current[i] = el; }}>

@@ -20,19 +20,19 @@ export default function Button({
 
   const sizeStyles = {
     sm: "px-4 py-2 text-sm lg:px-6 lg:py-2.5 lg:text-base",
-    md: "w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:px-9 lg:py-4 lg:text-lg",
-    lg: "w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:px-9 lg:py-5 lg:text-xl",
+    md: "w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] lg:text-[16px]",
+    lg: "w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] lg:text-[16px]",
   };
 
   const variantStyles = {
     primary:
-      "bg-primary text-white border-[1.5px] border-white/50 hover:bg-primary-dark",
+      "bg-primary text-white border-[1.125px] border-white/50 hover:bg-primary-dark",
     outline:
-      "bg-transparent text-primary border-[1.5px] border-primary hover:bg-primary/5",
+      "bg-transparent text-primary border-[1.125px] border-primary hover:bg-primary/5",
     white:
-      "bg-white text-primary border-[1.5px] border-white/50 hover:bg-gray-50",
+      "bg-white text-primary border-[1.125px] border-white/50 hover:bg-gray-50",
     "outline-white":
-      "bg-transparent text-white border-[1.5px] border-white hover:bg-white/10",
+      "bg-transparent text-white border-[1.125px] border-white hover:bg-white/10",
   };
 
   const classes = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

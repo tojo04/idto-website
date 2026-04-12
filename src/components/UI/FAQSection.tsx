@@ -32,14 +32,14 @@ export default function FAQSection({
           className="lg:flex-1 flex flex-col gap-6 relative items-center lg:items-start lg:h-199.5 lg:justify-center"
         >
           {/* Title */}
-          <h2 className="font-heading text-[28px] lg:text-[48px] leading-[1.3] text-black text-center lg:text-left">
+          <h2 className="font-heading text-[28px] lg:text-[56px] leading-[1.3] text-black text-center lg:text-left">
             Got Questions?
             <br />
             We've Got <span className="text-primary">Answers</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-base lg:text-xl text-black/60 leading-normal max-w-132.5 text-center lg:text-left">
+          <p className="text-base lg:text-[18px] text-black/60 leading-normal max-w-132.5 text-center lg:text-left">
             {subtitle}
           </p>
 
@@ -65,7 +65,7 @@ export default function FAQSection({
             <img
               src={questionMarkImage}
               alt=""
-              className="relative w-[85%] lg:w-[150%] lg:max-w-[900px] h-auto object-contain -rotate-[0.26deg] lg:-translate-y-[50px]"
+              className="relative w-[85%] lg:w-[135%] lg:max-w-[850px] h-auto object-contain -rotate-[0.26deg] lg:-translate-y-[50px]"
             />
           </div>
         </motion.div>
@@ -85,24 +85,24 @@ export default function FAQSection({
           {faqs.map((faq, i) => (
             <div
               key={faq.question}
-              className="bg-white border-[1.66px] border-black/10 rounded-[20px] lg:rounded-[27px] shrink-0"
+              className="bg-white border-[1.25px] border-black/10 rounded-[20px] lg:rounded-[20px] shrink-0"
             >
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                className="w-full flex items-center justify-between px-4 py-4 lg:px-10 lg:py-10 text-left cursor-pointer gap-4 lg:gap-5"
+                className="w-full flex items-center justify-between px-4 py-4 lg:px-[30px] lg:py-[30px] text-left cursor-pointer gap-4 lg:gap-5"
                 aria-expanded={openIndex === i}
               >
-                <h3 className="font-heading text-[18px] lg:text-[24px] leading-normal tracking-[-0.02em] text-black">
+                <h3 className="font-heading text-[18px] lg:text-[16px] leading-normal tracking-[-0.02em] text-black">
                   {faq.question}
                 </h3>
                 <span
-                  className="relative w-6 h-6 lg:w-12 lg:h-12 shrink-0 flex items-center justify-center text-black select-none"
+                  className="relative w-6 h-6 lg:w-[36px] lg:h-[36px] shrink-0 flex items-center justify-center text-black select-none"
                   aria-hidden="true"
                 >
-                  <span className="absolute h-[1.2px] w-4 lg:h-[1.6px] lg:w-7 rounded-full bg-current" />
+                  <span className="absolute h-[1.2px] w-4 lg:h-[1.2px] lg:w-[21px] rounded-full bg-current" />
                   <span
-                    className={`absolute w-[1.2px] h-4 lg:w-[1.6px] lg:h-7 rounded-full bg-current transition-opacity duration-200 ${
+                    className={`absolute w-[1.2px] h-4 lg:w-[1.2px] lg:h-[21px] rounded-full bg-current transition-opacity duration-200 ${
                       openIndex === i ? "opacity-0" : "opacity-100"
                     }`}
                   />
@@ -118,7 +118,7 @@ export default function FAQSection({
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-4 pb-4 lg:px-10 lg:pb-10 text-xs lg:text-xl text-black/60 leading-normal tracking-[-0.02em] whitespace-pre-line">
+                    <p className="px-4 pb-4 lg:px-[30px] lg:pb-[30px] text-xs lg:text-[14px] text-black/60 leading-normal tracking-[-0.02em] whitespace-pre-line">
                       {faq.answer}
                     </p>
                   </motion.div>

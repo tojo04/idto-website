@@ -23,7 +23,7 @@ export default function CTASection() {
                 href="https://dashboard.idto.ai/signup/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Start Testing
               </a>
@@ -31,7 +31,7 @@ export default function CTASection() {
                 href="https://docs.idto.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary w-[110px] h-[36px] lg:w-[144px] lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-medium lg:font-semibold tracking-[0.36px] lg:tracking-[-0.32px] hover:bg-primary/5 transition-colors"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-medium lg:font-semibold tracking-[0.36px] lg:tracking-[-0.32px] hover:bg-primary/5 transition-colors whitespace-nowrap"
               >
                 View API Docs
               </a>
@@ -54,12 +54,12 @@ export default function CTASection() {
               <img
                 src={partner2}
                 alt="Partner"
-                className="h-[38px] sm:h-[48px] w-auto object-contain"
+                className="h-[48px] sm:h-[60px] w-auto object-contain"
               />
               <img
                 src={partner3}
                 alt="Partner"
-                className="h-[35px] sm:h-[45px] w-auto object-contain"
+                className="h-[28px] sm:h-[38px] w-auto object-contain"
               />
             </div>
           </div>

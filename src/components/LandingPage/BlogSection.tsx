@@ -36,7 +36,7 @@ const blogPosts: BlogPost[] = [
 
 export default function BlogSection() {
   return (
-    <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[40px] lg:rounded-[150px]">
+    <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[40px] lg:rounded-[112px]">
       <div className="max-w-[1440px] mx-auto flex flex-col gap-16 lg:gap-22.5">
         {/* Heading */}
         <motion.div
