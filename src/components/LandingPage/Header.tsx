@@ -15,6 +15,10 @@ const productItems = [
     label: "DigiLocker",
     href: "/products/digilocker-3.0",
   },
+  {
+    label: "BAV",
+    href: "/products/BAV",
+  },
 ];
 
 const navItems = [
@@ -108,7 +112,7 @@ export default function Header() {
                             />
                           </div>
                           {/* Dropdown body */}
-                          <div className="w-[443px] bg-[#F6F6F6] rounded-[25px] px-[31px] py-[17px] flex items-start gap-[59px]">
+                          <div className="w-auto bg-[#F6F6F6] rounded-[25px] px-[31px] py-[17px] flex items-start gap-[30px]">
                             {productItems.map((product) => (
                               <Link
                                 key={product.href}
@@ -220,7 +224,7 @@ export default function Header() {
                                     setMobileOpen(false);
                                     setMobileProductsOpen(false);
                                   }}
-                                  className="flex items-center justify-between bg-[#F6F6F0] rounded-2xl px-5 py-4"
+                                  className="flex items-center justify-between active:bg-[#F6F6F0] rounded-2xl px-5 py-4 transition-colors"
                                 >
                                   <span className="text-base font-medium text-[#353535]">{product.label}</span>
                                   <svg width="15" height="14" viewBox="0 0 15 14" fill="none" className="shrink-0">

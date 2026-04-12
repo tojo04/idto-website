@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 
@@ -11,8 +12,8 @@ import monitorIcon from "../../assets/product_pages/BAV/sections/how_it_works/ca
 import idtoLogo from "../../assets/product_pages/BAV/sections/how_it_works/idto_Logo.svg";
 import aiImage from "../../assets/product_pages/BAV/sections/how_it_works/AI_image.png";
 import horizontalArrow from "../../assets/product_pages/BAV/sections/how_it_works/Horizontal_arrow.svg";
-import orchestrationAgent1 from "../../assets/product_pages/BAV/sections/how_it_works/orchestration_agent_1.png";
-import orchestrationAgent2 from "../../assets/product_pages/BAV/sections/how_it_works/orchestration_agent_2.png";
+import connectorLine from "../../assets/product_pages/BAV/sections/how_it_works/Connector line.svg";
+import orchestrationAgentSprite from "../../assets/product_pages/BAV/sections/how_it_works/orchestration_agent_1.png";
 import bankVerified from "../../assets/product_pages/BAV/sections/how_it_works/bank_account_verfication.png";
 
 // Partner logos
@@ -28,18 +29,22 @@ import cashfree from "../../assets/product_pages/BAV/sections/how_it_works/cashf
 import yesBank from "../../assets/product_pages/BAV/sections/how_it_works/yes_bank.png";
 import setu from "../../assets/product_pages/BAV/sections/how_it_works/setu.png";
 
+/* Figma canvas = 1333 × 460 px (inner area of the illustration card) */
+const CW = 1333;
+const CH = 460;
+
 const partnerLogos = [
-  { src: kotak, alt: "Kotak" },
-  { src: razorpay, alt: "Razorpay" },
-  { src: easebuzz, alt: "Easebuzz" },
-  { src: nsdl, alt: "NSDL" },
-  { src: axis, alt: "Axis" },
-  { src: paysprint, alt: "Paysprint" },
-  { src: idfc, alt: "IDFC" },
-  { src: rblBank, alt: "RBL Bank" },
-  { src: cashfree, alt: "Cashfree" },
-  { src: yesBank, alt: "YES Bank" },
-  { src: setu, alt: "SETU" },
+  { src: kotak, alt: "Kotak", h: 122, mw: 60 },
+  { src: razorpay, alt: "Razorpay", h: 14, mw: 60 },
+  { src: easebuzz, alt: "Easebuzz", h: 10, mw: 58 },
+  { src: nsdl, alt: "NSDL", h: 144, mw: 40 },
+  { src: axis, alt: "Axis", h: 30, mw: 45 },
+  { src: paysprint, alt: "Paysprint", h: 30, mw: 35 },
+  { src: idfc, alt: "IDFC", h: 25, mw: 60 },
+  { src: rblBank, alt: "RBL Bank", h: 25, mw: 35 },
+  { src: cashfree, alt: "Cashfree", h: 16, mw: 55 },
+  { src: yesBank, alt: "YES Bank", h: 50, mw: 40 },
+  { src: setu, alt: "SETU", h: 30, mw: 30 },
 ];
 
 const steps = [
@@ -73,97 +78,70 @@ const steps = [
   },
 ];
 
-function PartnerLogoPill({ src, alt }: { src: string; alt: string }) {
+function PartnerLogoPill({ src, alt, h, mw }: { src: string; alt: string; h: number; mw: number }) {
   return (
-    <div className="bg-white border border-[rgba(224,228,235,0.6)] rounded-full px-[9px] py-[5px] flex items-center justify-center shadow-[0px_0.72px_1.44px_0px_rgba(0,0,0,0.05)] h-[27px]">
-      <img src={src} alt={alt} className="h-[14px] max-w-[55px] object-contain" />
+    <div className="bg-white border border-[rgba(224,228,235,0.6)] rounded-full flex items-center justify-center shadow-[0px_0.72px_1.44px_0px_rgba(0,0,0,0.05)]" style={{ height: 27, paddingInline: 9, paddingBlock: 5, width: 78, overflow: "hidden" }}>
+      <img src={src} alt={alt} className="object-contain" style={{ height: h, maxWidth: mw }} />
     </div>
   );
 }
 
 function AcmeFormCard() {
   return (
-    <div className="bg-white border border-[rgba(224,228,235,0.6)] rounded-xl p-[18px] flex flex-col gap-[11px] w-[187px] relative shadow-[0px_14px_18px_-3.6px_rgba(0,0,0,0.1),0px_5.7px_7.2px_-4.3px_rgba(0,0,0,0.1)]">
-      {/* ACME Logo */}
-      <p className="font-black italic text-[#e53935] text-[14px] tracking-tight leading-none">
+    <div className="bg-white border border-[rgba(224,228,235,0.6)] rounded-[11.5px] flex flex-col relative shadow-[0px_14px_18px_-3.6px_rgba(0,0,0,0.1),0px_5.7px_7.2px_-4.3px_rgba(0,0,0,0.1)]" style={{ width: 187, padding: 18, gap: 11.5 }}>
+      <p className="font-black italic text-[#e53935] leading-none" style={{ fontSize: 14 }}>
         ACME
       </p>
-      {/* Form heading */}
-      <p className="font-semibold text-[10px] text-[#0a1729] leading-[14px]">
+      <p className="font-semibold text-[#0a1729]" style={{ fontSize: 10, lineHeight: "14px" }}>
         Enter Bank Details
       </p>
-      {/* Input fields */}
-      <div className="flex flex-col gap-[8.6px]">
-        <div className="flex flex-col gap-[2.9px]">
-          <span className="text-[7.2px] text-[#8f97a3] leading-[10.8px]">
+      <div className="flex flex-col" style={{ gap: 8.6 }}>
+        <div className="flex flex-col" style={{ gap: 2.9 }}>
+          <span className="text-[#8f97a3]" style={{ fontSize: 7.2, lineHeight: "10.8px" }}>
             Enter your bank account number
           </span>
-          <div className="bg-[#f6f7f9] border border-[#e0e4eb] rounded-lg px-[9px] py-[6.5px]">
-            <span className="text-[8.6px] text-[#627084] leading-[11.5px]">
+          <div className="bg-[#f6f7f9] border border-[#e0e4eb]" style={{ borderRadius: 6, padding: "4px 7px" }}>
+            <span className="text-[#627084]" style={{ fontSize: 8.6, lineHeight: "11.5px" }}>
               00650047401
             </span>
           </div>
         </div>
-        <div className="flex flex-col gap-[2.9px]">
-          <span className="text-[7.2px] text-[#8f97a3] leading-[10.8px]">
+        <div className="flex flex-col" style={{ gap: 2.9 }}>
+          <span className="text-[#8f97a3]" style={{ fontSize: 7.2, lineHeight: "10.8px" }}>
             Enter your IFSC Code
           </span>
-          <div className="bg-[#f6f7f9] border border-[#e0e4eb] rounded-lg px-[9px] py-[6.5px]">
-            <span className="text-[8.6px] text-[#627084] leading-[11.5px]">
+          <div className="bg-[#f6f7f9] border border-[#e0e4eb]" style={{ borderRadius: 6, padding: "4px 7px" }}>
+            <span className="text-[#627084]" style={{ fontSize: 8.6, lineHeight: "11.5px" }}>
               ICIC0000068
             </span>
           </div>
         </div>
       </div>
-      {/* Continue button */}
-      <div className="bg-gradient-to-r from-[#ef4444] to-[#dc2626] rounded-lg py-[7.2px] flex items-center justify-center gap-[2.9px]">
-        <span className="text-white text-[8.6px] font-semibold leading-[11.5px]">
+      <div className="flex items-center justify-center" style={{ background: "linear-gradient(to right, #ef4444, #dc2626)", borderRadius: 8.6, padding: "7.2px 0", gap: 2.9 }}>
+        <span className="text-white font-semibold" style={{ fontSize: 8.6, lineHeight: "11.5px" }}>
           Continue
         </span>
-        <svg
-          width="9"
-          height="9"
-          viewBox="0 0 9 9"
-          fill="none"
-          className="shrink-0"
-        >
-          <path
-            d="M3.5 2.5L6 4.5L3.5 6.5"
-            stroke="white"
-            strokeWidth="1"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="shrink-0">
+          <path d="M3.5 2.5L6 4.5L3.5 6.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>
   );
 }
 
-function OrchestrationAgentCard({
-  image,
-  alt,
-}: {
-  image: string;
-  alt: string;
-}) {
+function OrchestrationAgentCard({ clipLeft }: { clipLeft: number }) {
   return (
-    <div className="bg-white border border-[#e1e4e7] rounded-xl p-[21.6px] flex flex-col items-center gap-[36px] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.12)]">
-      <div className="w-[74px] h-[70px] rounded-[15px] overflow-hidden">
+    <div className="bg-white border border-[#e1e4e7] flex flex-col items-center shadow-[0px_4px_8px_0px_rgba(0,0,0,0.12)]" style={{ borderRadius: 11.5, padding: 21.6, gap: 36, width: "100%" }}>
+      <div className="overflow-hidden relative" style={{ width: 74, height: 70, borderRadius: 15 }}>
         <img
-          src={image}
-          alt={alt}
-          className="w-full h-full object-contain"
+          src={orchestrationAgentSprite}
+          alt=""
+          className="absolute max-w-none"
+          style={{ width: "474.76%", height: "332.65%", left: `${clipLeft}%`, top: "-104%" }}
         />
       </div>
-      <div
-        className="rounded-[4.4px] px-[8.2px] py-[7.1px] overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(117deg, rgb(76, 218, 196) 48.37%, rgb(1, 26, 255) 97.48%)",
-        }}
-      >
-        <span className="text-white text-[13px] font-medium leading-[1.5] tracking-[-0.29px] whitespace-nowrap">
+      <div className="overflow-hidden" style={{ borderRadius: 4.4, padding: "7.1px 8.2px", backgroundImage: "linear-gradient(117deg, rgb(76, 218, 196) 48.37%, rgb(1, 26, 255) 97.48%)" }}>
+        <span className="text-white font-medium whitespace-nowrap" style={{ fontSize: 13, lineHeight: 1.5, letterSpacing: -0.29 }}>
           Orchestration Agent
         </span>
       </div>
@@ -172,111 +150,77 @@ function OrchestrationAgentCard({
 }
 
 function FlowIllustration() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver((entries) => {
+      setScale(entries[0].contentRect.width / CW);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <div className="w-full rounded-[24px] bg-white border border-[#e5e7eb] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] overflow-hidden">
-      <div className="relative w-full" style={{ aspectRatio: "1335 / 462" }}>
-        {/* idto card — top left area */}
-        <div className="absolute flex flex-col items-center" style={{ left: "12%", top: "6.7%", width: "9%" }}>
-          <div className="bg-white border border-[rgba(0,199,146,0.2)] rounded-xl p-3 flex flex-col items-center shadow-[0px_7.2px_10.8px_-2.16px_rgba(0,0,0,0.1),0px_2.88px_4.32px_-2.88px_rgba(0,0,0,0.1)]">
-            <div className="bg-[#e0f3f0] rounded-lg px-[11.5px] py-[5.8px]">
-              <img src={idtoLogo} alt="idto" className="h-[31px] w-auto" />
+    <div
+      ref={ref}
+      className="w-full rounded-[24px] bg-white border border-[#e5e7eb] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] overflow-hidden"
+      style={{ aspectRatio: `${CW} / ${CH}` }}
+    >
+      <div
+        className="relative"
+        style={{ width: CW, height: CH, transform: `scale(${scale})`, transformOrigin: "top left" }}
+      >
+        {/* ── idto card ── */}
+        <div className="absolute flex flex-col items-center" style={{ left: 161, top: 31, width: 120 }}>
+          <div className="bg-white border border-[rgba(0,199,146,0.2)] flex flex-col items-center shadow-[0px_7.2px_10.8px_-2.16px_rgba(0,0,0,0.1),0px_2.88px_4.32px_-2.88px_rgba(0,0,0,0.1)]" style={{ borderRadius: 11.5, padding: 12.2 }}>
+            <div className="bg-[#e0f3f0] flex items-center" style={{ borderRadius: 8.6, padding: "5.76px 11.5px" }}>
+              <img src={idtoLogo} alt="idto" style={{ height: 31 }} />
             </div>
-            <span className="text-[#00c792] text-[6.5px] font-bold tracking-[0.65px] uppercase mt-[5.8px] whitespace-nowrap">
+            <span className="text-[#00c792] font-bold uppercase whitespace-nowrap" style={{ fontSize: 6.5, letterSpacing: 0.65, marginTop: 5.76, lineHeight: "9.7px" }}>
               In-House Integrations
             </span>
           </div>
-          {/* Dotted line connecting to partner grid */}
-          <div className="border-l-[1.5px] border-dashed border-[#00c792]/40 h-[20px]" />
+          <img src={connectorLine} alt="" style={{ width: 15, height: 90 }} />
         </div>
 
-        {/* Partner logos grid — left side */}
-        <div
-          className="absolute grid grid-cols-2 gap-[5.8px]"
-          style={{ left: "1.6%", top: "38.2%", width: "12.2%" }}
-        >
+        {/* ── Partner logos grid ── */}
+        <div className="absolute grid grid-cols-2" style={{ left: 21, top: 176, width: 161, gap: 5.76 }}>
           {partnerLogos.map((p) => (
-            <PartnerLogoPill key={p.alt} src={p.src} alt={p.alt} />
+            <PartnerLogoPill key={p.alt} src={p.src} alt={p.alt} h={p.h} mw={p.mw} />
           ))}
         </div>
 
-        {/* Arrow 1 — partners to AI */}
-        <img
-          src={horizontalArrow}
-          alt=""
-          className="absolute"
-          style={{ left: "14.2%", top: "50.9%", width: "4.6%", transform: "translateY(-50%)" }}
-        />
+        {/* ── Arrow 1: Logos → AI ── */}
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 190, top: 234, width: 61, height: 24 }} />
 
-        {/* AI Image — center left */}
-        <div
-          className="absolute"
-          style={{ left: "19.2%", top: "41%", width: "18.3%", height: "25.2%" }}
-        >
-          <img
-            src={aiImage}
-            alt="AI Orchestration"
-            className="w-full h-full object-contain"
-          />
-        </div>
+        {/* ── AI Image ── */}
+        <img src={aiImage} alt="AI Orchestration" className="absolute object-contain" style={{ left: 220, top: 140, width: 320, height: 200 }} />
 
-        {/* Arrow 2 — AI to ACME form */}
-        <img
-          src={horizontalArrow}
-          alt=""
-          className="absolute"
-          style={{ left: "37.9%", top: "50.9%", width: "4.6%", transform: "translateY(-50%)" }}
-        />
+        {/* ── Arrow 2: AI → ACME ── */}
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 506, top: 234, width: 61, height: 24 }} />
 
-        {/* ACME Form Card — center */}
-        <div
-          className="absolute"
-          style={{ left: "43%", top: "29.6%" }}
-        >
+        {/* ── ACME Form Card ── */}
+        <div className="absolute" style={{ left: 574, top: 137 }}>
           <AcmeFormCard />
         </div>
 
-        {/* Arrow 3 — ACME to orchestration agents */}
-        <img
-          src={horizontalArrow}
-          alt=""
-          className="absolute"
-          style={{ left: "57.4%", top: "50.9%", width: "4.6%", transform: "translateY(-50%)" }}
-        />
+        {/* ── Arrow 3: ACME → Orchestration ── */}
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 766, top: 234, width: 61, height: 24 }} />
 
-        {/* Orchestration Agent Cards — right of center */}
-        <div
-          className="absolute flex flex-col gap-[22px]"
-          style={{ left: "62.5%", top: "9.2%", width: "15%" }}
-        >
-          <OrchestrationAgentCard
-            image={orchestrationAgent1}
-            alt="AI Orchestration Agent"
-          />
-          <OrchestrationAgentCard
-            image={orchestrationAgent2}
-            alt="Processing Orchestration Agent"
-          />
+        {/* ── Orchestration Agent Cards ── */}
+        <div className="absolute flex flex-col" style={{ left: 834, top: 43, width: 200, gap: 22 }}>
+          <OrchestrationAgentCard clipLeft={-91.26} />
+          <OrchestrationAgentCard clipLeft={-280.13} />
         </div>
 
-        {/* Arrow 4 — orchestration to verified */}
-        <img
-          src={horizontalArrow}
-          alt=""
-          className="absolute"
-          style={{ left: "77.9%", top: "50.9%", width: "4.6%", transform: "translateY(-50%)" }}
-        />
+        {/* ── Arrow 4: Orchestration → Verified ── */}
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 1038, top: 234, width: 61, height: 24 }} />
 
-        {/* Bank Account Verified — far right */}
-        <div
-          className="absolute"
-          style={{ left: "82.9%", top: "26.8%", width: "15.5%" }}
-        >
-          <img
-            src={bankVerified}
-            alt="Bank Account Verified"
-            className="w-full h-auto object-contain"
-          />
-        </div>
+        {/* ── Bank Account Verified ── */}
+        <img src={bankVerified} alt="Bank Account Verified" className="absolute object-contain" style={{ left: 1050, top: 50, width: 280, height: 360 }} />
       </div>
     </div>
   );
