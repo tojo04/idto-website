@@ -35,7 +35,7 @@ export default function HeroSection() {
             whileInView="show"
             viewport={viewportOnce}
             variants={createFadeInUp(0.08)}
-            className="order-2 w-full max-w-[284px] mx-auto mt-5 lg:mt-0 lg:max-w-[669px] lg:absolute lg:right-0 lg:top-[0px] lg:w-[54%] lg:pointer-events-none"
+            className="order-2 w-full max-w-[310px] mx-auto mt-5 lg:mt-0 lg:max-w-[669px] lg:absolute lg:right-0 lg:top-[0px] lg:w-[54%] lg:pointer-events-none"
           >
             <img
               src={heroVisual}

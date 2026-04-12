@@ -220,7 +220,7 @@ function FlowIllustration() {
         <img src={horizontalArrow} alt="" className="absolute" style={{ left: 1038, top: 234, width: 61, height: 24 }} />
 
         {/* ── Bank Account Verified ── */}
-        <img src={bankVerified} alt="Bank Account Verified" className="absolute object-contain" style={{ left: 1050, top: 50, width: 280, height: 360 }} />
+        <img src={bankVerified} alt="Bank Account Verified" className="absolute object-contain" style={{ left: 930, top: 1, width: 560, height: 420, maskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, black 20%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, black 20%, transparent 80%)" }} />
       </div>
     </div>
   );
@@ -239,13 +239,13 @@ export default function HowItWorksSection() {
           </p>
         </div>
 
-        {/* How it works flow illustration */}
+        {/* How it works flow illustration – hidden on mobile */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.05)}
-          className="w-full max-w-[1335px]"
+          className="hidden lg:block w-full max-w-[1335px]"
         >
           <FlowIllustration />
         </motion.div>

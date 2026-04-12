@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
+import { useAutoScroll } from "../../hooks/useAutoScroll";
 import lendingIcon from "../../assets/product_pages/BAV/sections/high_impact/lending.svg";
 import payrollIcon from "../../assets/product_pages/BAV/sections/high_impact/payroll.svg";
 import vendorIcon from "../../assets/product_pages/BAV/sections/high_impact/vendor.svg";
@@ -21,6 +22,8 @@ const useCases = [
 ];
 
 export default function HighImpactSection() {
+  const scrollRef = useAutoScroll(177, 20);
+
   return (
     <section className="px-5 lg:px-12 py-10 lg:py-[120px] overflow-hidden">
       <div className="max-w-[924px] mx-auto flex flex-col gap-5 lg:gap-10 items-center">
@@ -30,7 +33,10 @@ export default function HighImpactSection() {
             use-cases
           </h2>
         </div>
-        <div className="w-full flex flex-wrap justify-center gap-5">
+        <div
+          ref={scrollRef}
+          className="w-full flex gap-5 overflow-x-auto snap-x snap-mandatory sm:snap-none sm:flex-wrap sm:justify-center pb-3 sm:pb-0 [scrollbar-width:none] [-ms-overflow-style:none]"
+        >
           {useCases.map((item) => (
             <motion.div
               key={item.title}
@@ -38,7 +44,7 @@ export default function HighImpactSection() {
               whileInView="show"
               viewport={viewportOnce}
               variants={createFadeInUp(0.05)}
-              className="bg-white rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-center w-[calc(50%-10px)] sm:w-[calc(25%-15px)] min-h-[167px] border border-[#e5e7eb]"
+              className="bg-white rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-center w-[177px] shrink-0 snap-start sm:w-[calc(25%-15px)] min-h-[167px] border border-[#e5e7eb]"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#eceeff] flex items-center justify-center shrink-0">
                 <img src={item.icon} alt="" className="w-[26px] h-[26px]" />
