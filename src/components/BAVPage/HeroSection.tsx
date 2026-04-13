@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import heroVisual from "../../assets/product_pages/BAV/Hero_image.png";
+import heroVisualDesktop from "../../assets/product_pages/BAV/bav_hero_desktop.png";
 
 
 export default function HeroSection() {
@@ -33,12 +34,17 @@ export default function HeroSection() {
             whileInView="show"
             viewport={viewportOnce}
             variants={createFadeInUp(0.08)}
-            className="order-2 w-full max-w-[310px] mx-auto mt-5 lg:mt-0 lg:max-w-[780px] lg:absolute lg:right-0 lg:top-[0px] lg:w-[63%] lg:pointer-events-none"
+            className="order-2 w-full max-w-[310px] mx-auto mt-5 lg:mt-0 lg:max-w-[580px] lg:absolute lg:right-0 lg:top-[40px] lg:w-[46%] lg:pointer-events-none"
           >
             <img
               src={heroVisual}
               alt="Bank Account Verification product interface"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover lg:hidden"
+            />
+            <img
+              src={heroVisualDesktop}
+              alt="Bank Account Verification product interface"
+              className="hidden lg:block w-full h-auto object-cover"
             />
           </motion.div>
 
