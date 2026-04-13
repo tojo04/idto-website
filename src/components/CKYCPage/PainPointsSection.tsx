@@ -45,7 +45,7 @@ export default function PainPointsSection() {
     <section className="px-5 lg:px-12 py-10 lg:py-[120px] overflow-hidden">
       <div className="max-w-[1326px] mx-auto flex flex-col gap-5 lg:gap-10 items-center">
         <div className="text-center max-w-full">
-          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[0.6px] lg:tracking-normal text-black">
+          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-normal text-black">
             CKYC should speed up onboarding.
             <br />
             <span className="text-primary">Not slow teams down.</span>
@@ -56,7 +56,7 @@ export default function PainPointsSection() {
           </p>
         </div>
 
-        <div className="w-full max-w-[890px] flex flex-wrap justify-center gap-5">
+        <div className="w-full max-w-[890px] grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-5">
           {painPoints.map((item) => (
             <motion.div
               key={item.title}
@@ -64,7 +64,7 @@ export default function PainPointsSection() {
               whileInView="show"
               viewport={viewportOnce}
               variants={createFadeInUp(0.05)}
-              className="group bg-white rounded-2xl p-5 flex gap-4 items-center w-full sm:w-[calc(50%-10px)] border border-[#e5e7eb] hover:border-[#dc2828] active:border-[#dc2828] transition-colors duration-200 shadow-[8px_16px_24px_0px_rgba(0,0,0,0.03)] lg:shadow-none"
+              className="group bg-white rounded-2xl p-5 flex gap-4 items-center border border-[#e5e7eb] hover:border-[#dc2828] active:border-[#dc2828] transition-colors duration-200 shadow-[8px_16px_24px_0px_rgba(0,0,0,0.03)] lg:shadow-none"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#fceded] flex items-center justify-center shrink-0">
                 <img src={item.icon} alt="" className="w-[26px] h-[26px]" />

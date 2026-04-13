@@ -1,6 +1,3 @@
-import partner1 from "../../assets/product_pages/BAV/partner_logos/hero_partner_1.png";
-import partner2 from "../../assets/product_pages/BAV/partner_logos/hero_partner_2.png";
-import partner3 from "../../assets/product_pages/BAV/partner_logos/hero_partner_3.png";
 
 export default function CTASection() {
   return (
@@ -9,7 +6,7 @@ export default function CTASection() {
         <div className="max-w-[1072px] mx-auto flex flex-col gap-[50px] items-center">
           <div className="flex flex-col gap-[45px] items-center justify-center w-full">
             <div className="flex flex-col gap-[18px] items-center text-center text-black">
-              <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-1.12px]">
+              <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-1.12px]">
                 Bank Account Verification, without the{" "}
                 <span className="text-blue-section">complexity.</span>
               </h2>
@@ -37,32 +34,7 @@ export default function CTASection() {
               </a>
             </div>
           </div>
-          {/* Partner strip */}
-          <div className="flex flex-col gap-[30px] items-center w-full">
-            <div className="flex flex-col gap-[10px] items-center w-full">
-              <p className="text-xs uppercase tracking-[1.2px] text-[#666] text-center leading-4">
-                Backed by trusted partners
-              </p>
-              <div className="w-full h-px bg-black/10" />
-            </div>
-            <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-[80px] flex-wrap">
-              <img
-                src={partner1}
-                alt="Partner"
-                className="h-[35px] sm:h-[45px] w-auto object-contain"
-              />
-              <img
-                src={partner2}
-                alt="Partner"
-                className="h-[48px] sm:h-[60px] w-auto object-contain"
-              />
-              <img
-                src={partner3}
-                alt="Partner"
-                className="h-[28px] sm:h-[38px] w-auto object-contain"
-              />
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

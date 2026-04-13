@@ -52,7 +52,7 @@ export default function ImpactMetricsSection() {
     <section className="bg-blue-section px-5 lg:px-12 py-10 lg:py-[120px] overflow-hidden">
       <div className="max-w-[925px] mx-auto flex flex-col gap-5 lg:gap-10 items-center">
         <div className="text-center">
-          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] text-white">
+          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] text-white">
             Real impact on payouts,
             <br />
             onboarding, and disbursals
@@ -65,17 +65,17 @@ export default function ImpactMetricsSection() {
           {impactMetrics.map((metric) => (
             <div
               key={metric.label}
-              className="bg-[rgba(55,87,200,0.43)] border border-[#536bc9] rounded-xl p-5 flex flex-col gap-4 items-start w-[295px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-h-[219px]"
+              className="bg-[rgba(55,87,200,0.43)] border border-[#536bc9] rounded-xl p-5 flex flex-col gap-4 items-center justify-center text-center w-[295px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-h-[219px]"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#2747b8] border border-[#536bc9] flex items-center justify-center shrink-0">
                 <img src={metric.icon} alt="" className="w-[26px] h-[26px]" />
               </div>
-              <div className="flex flex-col gap-1 text-white">
+              <div className="flex flex-col gap-1 items-center text-white">
                 <p className="text-[24px] lg:text-[32px] font-bold leading-tight">
                   {metric.value}
                 </p>
-                <p className="text-base leading-5">{metric.label}</p>
-                <p className="text-sm leading-5 text-white/70">
+                <p className="text-[14px] leading-5">{metric.label}</p>
+                <p className="text-[14px] leading-5 text-white/70">
                   {metric.description}
                 </p>
               </div>

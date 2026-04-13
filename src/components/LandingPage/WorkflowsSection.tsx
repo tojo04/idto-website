@@ -164,17 +164,25 @@ export default function WorkflowsSection() {
                     {wf.title}
                   </h3>
                   <span
-                    className={`relative w-6 h-6 lg:w-[26px] lg:h-[26px] shrink-0 ml-4 flex items-center justify-center ${
+                    className={`shrink-0 w-6 h-6 lg:w-[36px] lg:h-[36px] ml-4 flex items-center justify-center ${
                       activeIndex === i ? "text-white" : "text-black"
                     }`}
                     aria-hidden="true"
                   >
-                    <span className="absolute h-[1.2px] w-4 lg:h-[1.2px] lg:w-[13px] rounded-full bg-current" />
-                    <span
-                      className={`absolute w-[1.2px] h-4 lg:w-[1.2px] lg:h-[13px] rounded-full bg-current transition-opacity duration-200 ${
-                        activeIndex === i ? "opacity-0" : "opacity-100"
-                      }`}
-                    />
+                    <svg
+                      className="w-4 h-4 lg:w-[21px] lg:h-[21px]"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <line x1="0" y1="10.5" x2="21" y2="10.5" stroke="currentColor" strokeWidth="1" />
+                      <line
+                        x1="10.5" y1="0" x2="10.5" y2="21"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        className={`transition-opacity duration-200 ${activeIndex === i ? "opacity-0" : "opacity-100"}`}
+                      />
+                    </svg>
                   </span>
                 </div>
 

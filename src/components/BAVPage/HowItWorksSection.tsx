@@ -231,7 +231,7 @@ export default function HowItWorksSection() {
     <section className="px-5 lg:px-12 py-10 lg:py-[120px] overflow-hidden">
       <div className="max-w-[1335px] mx-auto flex flex-col gap-5 lg:gap-10 items-center">
         <div className="text-center max-w-[772px]">
-          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[0.6px] lg:tracking-[-1.12px] text-black">
+          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-1.12px] text-black">
             How it <span className="text-primary">works</span>
           </h2>
           <p className="mt-[10px] lg:mt-[18px] text-[#666] lg:text-black/60 text-[12px] lg:text-[18px] leading-[1.5] tracking-[0.36px] lg:tracking-[-0.36px] max-w-[350px] lg:max-w-[614px] mx-auto">

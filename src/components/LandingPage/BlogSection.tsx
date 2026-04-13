@@ -75,17 +75,17 @@ export default function BlogSection() {
 
               {/* Content */}
               <div className="p-6 lg:p-8 flex flex-col gap-3 flex-1">
-                <h3 className="font-heading text-xl lg:text-2xl text-[#212529] leading-[1.3] tracking-tight">
+                <h3 className="font-heading text-[16px] text-[#212529] leading-[1.3] tracking-tight">
                   {post.title}
                 </h3>
-                <p className="text-base text-[#495057] leading-normal">
+                <p className="text-[14px] text-[#495057] leading-normal">
                   {post.description}
                 </p>
                 <a
                   href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto flex items-center gap-2 text-base font-medium text-[#212529] hover:text-primary transition-colors pt-4"
+                  className="mt-auto flex items-center gap-2 text-[16px] font-medium text-[#212529] hover:text-primary transition-colors pt-4"
                 >
                   Read more
                   <span className="text-lg">→</span>

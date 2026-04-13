@@ -18,14 +18,14 @@ export default function HeroSection() {
             variants={createFadeInUp(0)}
             className="order-1 relative z-10 lg:mt-16 lg:max-w-[772px]"
           >
-            <h1 className="font-heading text-[32px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[-0.02em] text-black text-center lg:text-left lg:whitespace-nowrap">
+            <h1 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[-0.02em] text-black text-center lg:text-left lg:whitespace-nowrap">
               The most compliant and fastest
               <br className="hidden lg:block" /> way to verify your users with
               <br className="hidden lg:block" />{" "}
               <span className="text-primary">DigiLocker 3.0</span>
             </h1>
 
-            <p className="mt-[18px] text-[15px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] text-black/60 max-w-[764px] mx-auto lg:mx-0 text-center lg:text-left">
+            <p className="mt-[18px] text-[12px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] text-black/60 max-w-[764px] mx-auto lg:mx-0 text-center lg:text-left">
               Move to a compliant DigiLocker flow in under 5 minutes and improve
               <br className="hidden lg:block" /> onboarding conversion by 15-20%.
             </p>
@@ -59,7 +59,7 @@ export default function HeroSection() {
                 href="https://cal.com/adityaskx-idto/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white px-[27px] py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white px-[27px] py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to sales
               </a>
@@ -67,7 +67,7 @@ export default function HeroSection() {
                 href="https://dashboard.idto.ai/signup/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary px-[27px] py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary/5 transition-colors w-[144px]"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary px-[27px] py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary/5 transition-colors w-[144px]"
               >
                 Sign-up
               </a>

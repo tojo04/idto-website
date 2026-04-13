@@ -18,7 +18,7 @@ export default function HeroSection() {
             variants={createFadeInUp(0)}
             className="order-1 relative z-10 lg:mt-16 lg:max-w-[772px]"
           >
-            <h1 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.02em] text-black text-center lg:text-left lg:whitespace-nowrap">
+            <h1 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.02em] text-black text-center lg:text-left lg:whitespace-nowrap">
               <span className="text-primary">CKYC</span>, without the{" "}
               <span
                 className="relative inline-block"
@@ -74,7 +74,7 @@ export default function HeroSection() {
                 href="https://cal.com/adityaskx-idto/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to sales
               </a>

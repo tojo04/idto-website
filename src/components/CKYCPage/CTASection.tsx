@@ -9,7 +9,7 @@ export default function CTASection() {
           {/* Text and buttons */}
           <div className="flex flex-col gap-[45px] items-center justify-center w-full">
             <div className="flex flex-col gap-[18px] items-center text-center text-black">
-              <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-1.12px]">
+              <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-1.12px]">
                 CKYC onboarding, without the{" "}
                 <span className="text-blue-section">complexity.</span>
               </h2>
@@ -23,7 +23,7 @@ export default function CTASection() {
                 href="https://cal.com/adityaskx-idto/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to sales
               </a>

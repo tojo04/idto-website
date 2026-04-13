@@ -84,7 +84,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="font-heading text-[20px] lg:text-[56px] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
+          className="font-heading text-[20px] lg:text-[42px] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
           style={{
             marginTop: "clamp(20px, 7.77%, 149px)",
           }}
@@ -151,7 +151,9 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
         >
           Verify users, businesses, employees, and prevent fraud{" "}
           <span className="font-semibold text-primary">globally</span>{" "}
-          using a single integration without the complexity.
+          using a single
+          <br className="hidden lg:inline" />
+          integration without the complexity.
         </motion.p>
 
         {/* Buttons */}

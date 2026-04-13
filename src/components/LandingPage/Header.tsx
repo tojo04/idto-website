@@ -16,7 +16,7 @@ const productItems = [
     href: "/products/digilocker-3.0",
   },
   {
-    label: "BAV",
+    label: "Bank Account Verification",
     href: "/products/BAV",
   },
 ];
@@ -112,13 +112,13 @@ export default function Header() {
                             />
                           </div>
                           {/* Dropdown body */}
-                          <div className="w-auto bg-[#F6F6F6] rounded-[25px] px-[31px] py-[17px] flex items-start gap-[30px]">
+                          <div className="w-auto bg-[#F6F6F6] rounded-[25px] px-[31px] py-[17px] flex flex-col gap-[10px]">
                             {productItems.map((product) => (
                               <Link
                                 key={product.href}
                                 to={product.href}
                                 onClick={() => setProductsOpen(false)}
-                                className="flex items-center gap-[30px] px-[20px] py-[15px] rounded-[10px] hover:bg-black/5 transition-colors"
+                                className="flex items-center justify-between gap-[30px] px-[20px] py-[15px] rounded-[10px] hover:bg-black/5 transition-colors"
                               >
                                 <span className="text-[16px] font-semibold text-[#353535] tracking-[-0.01em] leading-[23px] whitespace-nowrap">
                                   {product.label}

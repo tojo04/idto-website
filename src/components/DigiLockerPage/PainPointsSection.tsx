@@ -51,7 +51,7 @@ export default function PainPointsSection() {
     <section className="px-5 lg:px-12 py-10 lg:py-[120px] overflow-hidden">
       <div className="max-w-[1326px] mx-auto flex flex-col gap-10 items-center">
         <div className="text-center max-w-full">
-          <h2 className="font-heading text-[32px] md:text-[42px] lg:text-[56px] leading-[1.3] text-black">
+          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] text-black">
             DigiLocker should improve onboarding.
             <br />
             <span className="text-primary">Not increase drop-offs.</span>

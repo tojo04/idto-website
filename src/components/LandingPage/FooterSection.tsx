@@ -57,7 +57,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                     <br />
                     verification & trust.
                   </p>
-                  <p className="text-xs lg:text-sm text-white font-light leading-[1.4]">
+                  <p className="text-[12px] text-white font-light leading-[1.4]">
                     We handle the complexity so you can focus on growth.
                   </p>
                 </div>
@@ -75,7 +75,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                       <a
                         key={link.label}
                         href={link.href}
-                      className="text-sm lg:text-[15px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                      className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                     >
                       {link.label}
                     </a>
@@ -93,7 +93,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                       <a
                         key={link.label}
                         href={link.href}
-                        className="text-sm lg:text-[15px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                       >
                         {link.label}
                       </a>
@@ -113,7 +113,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm lg:text-[15px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
                       >
                         {link.label}
                       </a>
@@ -149,7 +149,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
           variants={createFadeInUp()}
           className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
         >
-          <p className="text-sm lg:text-xl text-white leading-normal tracking-[-0.42px] max-w-175 font-normal">
+          <p className="text-[12px] lg:text-[16px] text-white leading-normal tracking-[-0.42px] max-w-175 font-normal">
             Payvriz Technologies Private Limited is compliant with the Digital
             Personal Data Protection Act, 2023 and committed to safeguarding your
             information. All data is transmitted using 256-bit TLS encryption for
@@ -170,7 +170,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-start justify-between gap-6 lg:gap-8 text-white text-xs lg:text-lg font-inter leading-[1.4]">
+        <div className="flex flex-col lg:flex-row items-start lg:items-start justify-between gap-6 lg:gap-8 text-white text-[14px] font-body leading-[1.4]">
           <div className="space-y-1">
             <p>© Payvriz India, 2024-2025. All rights reserved.</p>
             <p>CIN : U70200HR2024PTC120930</p>

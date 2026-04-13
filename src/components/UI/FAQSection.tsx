@@ -32,7 +32,7 @@ export default function FAQSection({
           className="lg:flex-1 flex flex-col gap-6 relative items-center lg:items-start lg:h-199.5 lg:justify-center"
         >
           {/* Title */}
-          <h2 className="font-heading text-[28px] lg:text-[56px] leading-[1.3] text-black text-center lg:text-left">
+          <h2 className="font-heading text-[20px] lg:text-[42px] leading-[1.3] text-black text-center lg:text-left">
             Got Questions?
             <br />
             We've Got <span className="text-primary">Answers</span>
@@ -93,19 +93,27 @@ export default function FAQSection({
                 className="w-full flex items-center justify-between px-4 py-4 lg:px-[30px] lg:py-[30px] text-left cursor-pointer gap-4 lg:gap-5"
                 aria-expanded={openIndex === i}
               >
-                <h3 className="font-heading text-[18px] lg:text-[16px] leading-normal tracking-[-0.02em] text-black">
+                <h3 className="font-heading text-[16px] lg:text-[16px] leading-normal tracking-[-0.02em] text-black">
                   {faq.question}
                 </h3>
                 <span
-                  className="relative w-6 h-6 lg:w-[36px] lg:h-[36px] shrink-0 flex items-center justify-center text-black select-none"
+                  className="shrink-0 w-6 h-6 lg:w-[36px] lg:h-[36px] flex items-center justify-center"
                   aria-hidden="true"
                 >
-                  <span className="absolute h-[1.2px] w-4 lg:h-[1.2px] lg:w-[21px] rounded-full bg-current" />
-                  <span
-                    className={`absolute w-[1.2px] h-4 lg:w-[1.2px] lg:h-[21px] rounded-full bg-current transition-opacity duration-200 ${
-                      openIndex === i ? "opacity-0" : "opacity-100"
-                    }`}
-                  />
+                  <svg
+                    className="w-4 h-4 lg:w-[21px] lg:h-[21px]"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line x1="0" y1="10.5" x2="21" y2="10.5" stroke="currentColor" strokeWidth="1" />
+                    <line
+                      x1="10.5" y1="0" x2="10.5" y2="21"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className={`transition-opacity duration-200 ${openIndex === i ? "opacity-0" : "opacity-100"}`}
+                    />
+                  </svg>
                 </span>
               </button>
 

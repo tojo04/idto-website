@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import heroVisual from "../../assets/product_pages/BAV/Hero_image.png";
-import partner1 from "../../assets/product_pages/BAV/partner_logos/hero_partner_1.png";
-import partner2 from "../../assets/product_pages/BAV/partner_logos/hero_partner_2.png";
-import partner3 from "../../assets/product_pages/BAV/partner_logos/hero_partner_3.png";
+
 
 export default function HeroSection() {
   return (
@@ -18,9 +16,9 @@ export default function HeroSection() {
             variants={createFadeInUp(0)}
             className="order-1 relative z-10 lg:mt-16 lg:max-w-[699px]"
           >
-            <h1 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.02em] text-black text-center lg:text-left">
+            <h1 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.02em] text-black text-center lg:text-left">
               <span className="text-primary">Bank Account Verification</span>
-              {" —Smarter. Faster. Built for Scale."}
+              {" \u2011 Smarter. Faster. Built for Scale."}
             </h1>
             <p className="mt-[18px] lg:mt-[36px] text-[12px] lg:text-[18px] leading-[1.5] tracking-[-0.24px] lg:tracking-[-0.36px] text-black/60 max-w-[329px] lg:max-w-[594px] mx-auto lg:mx-0 text-center lg:text-left">
               One intelligent verification layer for payouts, onboarding, and
@@ -35,7 +33,7 @@ export default function HeroSection() {
             whileInView="show"
             viewport={viewportOnce}
             variants={createFadeInUp(0.08)}
-            className="order-2 w-full max-w-[310px] mx-auto mt-5 lg:mt-0 lg:max-w-[669px] lg:absolute lg:right-0 lg:top-[0px] lg:w-[54%] lg:pointer-events-none"
+            className="order-2 w-full max-w-[310px] mx-auto mt-5 lg:mt-0 lg:max-w-[780px] lg:absolute lg:right-0 lg:top-[0px] lg:w-[63%] lg:pointer-events-none"
           >
             <img
               src={heroVisual}
@@ -57,7 +55,7 @@ export default function HeroSection() {
                 href="https://dashboard.idto.ai/signup/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Start Testing
               </a>
@@ -77,32 +75,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Partner strip */}
-        <div className="relative z-10 mt-8 lg:mt-[30px] flex flex-col gap-[30px] items-center w-full">
-          <div className="flex flex-col gap-[10px] items-center w-full">
-            <p className="text-xs uppercase tracking-[1.2px] text-[#666] text-center leading-4">
-              Backed by trusted partners
-            </p>
-            <div className="w-full h-px bg-black/10" />
-          </div>
-          <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-[80px] flex-wrap">
-            <img
-              src={partner1}
-              alt="Partner"
-              className="h-[35px] sm:h-[45px] w-auto object-contain"
-            />
-            <img
-              src={partner2}
-              alt="Partner"
-              className="h-[48px] sm:h-[60px] w-auto object-contain"
-            />
-            <img
-              src={partner3}
-              alt="Partner"
-              className="h-[28px] sm:h-[38px] w-auto object-contain"
-            />
-          </div>
-        </div>
+
       </div>
     </section>
   );

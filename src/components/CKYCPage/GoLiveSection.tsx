@@ -47,7 +47,7 @@ export default function GoLiveSection() {
     <section className="bg-white rounded-[40px] lg:rounded-[112px] px-5 py-10 sm:px-10 sm:py-10 md:px-16 md:py-16 lg:px-[120px] lg:py-[120px] overflow-hidden">
       <div className="max-w-[924px] mx-auto flex flex-col gap-5 lg:gap-10 items-center">
         <div className="text-center max-w-[772px]">
-          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] tracking-[0.6px] lg:tracking-[-1.12px] text-black">
+          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-1.12px] text-black">
             <span className="text-primary">Go live</span> with CKYC faster, with{" "}
             <span className="relative inline-block">
               idto.ai

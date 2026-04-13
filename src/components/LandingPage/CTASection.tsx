@@ -47,7 +47,7 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
         <div className="relative z-10 px-7 pt-10 pb-[214px] lg:px-22.5 lg:py-[clamp(40px,3.5vw,64px)] lg:pr-[clamp(360px,38vw,640px)]">
           <div className="flex flex-col gap-5 lg:gap-15 max-w-[342px] lg:max-w-[clamp(430px,35vw,600px)]">
             <div className="flex flex-col gap-2.5 lg:gap-6">
-              <h2 className="font-heading text-[20px] lg:text-[56px] leading-[1.1] tracking-[-0.02em] lg:tracking-[-0.96px] text-black">
+              <h2 className="font-heading text-[20px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] lg:tracking-[-0.96px] text-black">
                 Identity onboarding, without the{" "}
                 <span className="text-primary">complexity.</span>
               </h2>

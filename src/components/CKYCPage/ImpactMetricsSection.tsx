@@ -54,7 +54,7 @@ export default function ImpactMetricsSection() {
       <div className="max-w-[925px] mx-auto flex flex-col gap-5 lg:gap-10 items-center">
         {/* Title with decorative underline */}
         <div className="relative inline-block text-center">
-          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[56px] leading-[1.3] text-white whitespace-nowrap">
+          <h2 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] text-white whitespace-nowrap">
             Real impact on your{" "}
             <span className="relative inline-block">
               onboarding
@@ -82,8 +82,8 @@ export default function ImpactMetricsSection() {
               </div>
               <div className="flex flex-col gap-1 items-center text-white">
                 <p className="text-2xl font-bold leading-8">{metric.value}</p>
-                <p className="text-base capitalize leading-5">{metric.label}</p>
-                <p className="text-sm leading-4">{metric.description}</p>
+                <p className="text-[14px] capitalize leading-5">{metric.label}</p>
+                <p className="text-[14px] leading-4 text-white/70">{metric.description}</p>
               </div>
             </div>
           ))}
