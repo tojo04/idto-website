@@ -56,9 +56,8 @@ export default function CompliantJourneysSection() {
               Built for compliant{" "}
               <span className="text-primary">DigiLocker journeys</span>
             </h2>
-            <p className="mt-[18px] text-black/60 text-[15px] lg:text-[18px] leading-[1.5] tracking-[-0.36px]">
-              A lower-friction DigiLocker suite built for better conversion,
-              smoother journeys, and faster go-live.
+            <p className="mt-[18px] text-black/60 text-[15px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] whitespace-nowrap">
+              A lower-friction DigiLocker suite built for better conversion, smoother journeys, and faster go-live.
             </p>
           </div>
 
