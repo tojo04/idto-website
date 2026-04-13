@@ -21,7 +21,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ bookDemo }: HeroSectionProps) {
-  const desktopGlobeWidth = "clamp(430px, 32vw, 636px)";
+  const desktopGlobeWidth = "clamp(320px, 32vw, 560px)";
   const mobileVideoRef = useRef<HTMLVideoElement | null>(null);
   const [showMobileVideo, setShowMobileVideo] = useState(true);
 
@@ -49,47 +49,46 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
   return (
     // Section: 1920×869, white bg, border-radius 0 0 150 150
-    <section className="relative bg-white px-5 lg:px-37.5 rounded-b-[40px] lg:rounded-b-[112px] overflow-hidden min-h-[520px] lg:min-h-[clamp(720px,45vw,869px)]">
-
-      {/* ── Desktop Earth globe: left calc(50%+189px), top 38px ── */}
-      <div
-        className="hidden lg:block absolute pointer-events-none overflow-hidden"
-        style={{
-          right: "clamp(28px, 5vw, 120px)",
-          top: "clamp(40px, 4vw, 90px)",
-          width: desktopGlobeWidth,
-          height: "auto",
-          aspectRatio: "636 / 700",
-        }}
-      >
-        <video
-          className="absolute inset-0 w-full h-full object-contain"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={globe1}
-          aria-label="Earth Globe animation"
-        >
-          <source src={globeVideoMp4} type="video/mp4" />
-        </video>
-      </div>
+    <section className="bg-white px-5 lg:px-37.5 rounded-b-[40px] lg:rounded-b-[112px] overflow-hidden min-h-[520px] lg:min-h-[clamp(720px,45vw,869px)]">
 
       {/* ── Content column: left 150px, starts at top 149px ── */}
       <div className="relative z-10 max-w-[1440px] mx-auto">
+        {/* ── Desktop Earth globe ── */}
+        <div
+          className="hidden lg:block absolute pointer-events-none overflow-hidden"
+          style={{
+            right: 0,
+            top: -80,
+            width: desktopGlobeWidth,
+            height: "auto",
+            aspectRatio: "636 / 700",
+          }}
+        >
+          <video
+            className="absolute inset-0 w-full h-full object-contain"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={globe1}
+            aria-label="Earth Globe animation"
+          >
+            <source src={globeVideoMp4} type="video/mp4" />
+          </video>
+        </div>
         {/* Heading */}
         <motion.h1
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="font-heading text-[20px] lg:text-[42px] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(120px,30%,520px)]"
+          className="font-heading text-[20px] lg:text-[42px] leading-[130%] tracking-[0.6px] lg:tracking-[-0.02em] text-black max-w-[971px] mx-auto lg:mx-0 text-center lg:text-left lg:max-w-[860px] lg:mr-[clamp(350px,34vw,600px)]"
           style={{
             marginTop: "clamp(20px, 7.77%, 149px)",
           }}
         >
-          <span className="hidden lg:block whitespace-nowrap">The{" "}
+          <span className="hidden lg:inline">The{" "}
           <span
             className="relative inline-block text-primary"
             style={{
@@ -110,8 +109,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
               }}
             />
           </span>{" "}
-          identity and onboarding</span>
-          <span className="hidden lg:block whitespace-nowrap">platform your business needs.</span>
+          identity and onboarding platform your business needs.</span>
 
           <span className="lg:hidden">The{" "}
             <span
@@ -144,16 +142,14 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.1)}
-          className="text-[12px] lg:text-[18px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] mx-auto lg:mx-0 lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(120px,30%,520px)]"
+          className="text-[12px] lg:text-[18px] leading-[150%] tracking-[-0.02em] text-black/60 max-w-[897px] mx-auto lg:mx-0 lg:max-w-[780px] text-center lg:text-left lg:mr-[clamp(350px,34vw,600px)]"
           style={{
             marginTop: "clamp(10px, 1.15%, 22px)",
           }}
         >
           Verify users, businesses, employees, and prevent fraud{" "}
           <span className="font-semibold text-primary">globally</span>{" "}
-          using a single
-          <br className="hidden lg:inline" />
-          integration without the complexity.
+          using a single integration without the complexity.
         </motion.p>
 
         {/* Buttons */}
@@ -162,7 +158,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.2)}
-          className="flex flex-wrap items-center justify-center lg:justify-start gap-[15px] lg:mr-[clamp(120px,30%,520px)]"
+          className="flex flex-wrap items-center justify-center lg:justify-start gap-[15px] lg:mr-[clamp(350px,34vw,600px)]"
           style={{
             marginTop: "clamp(20px, 3.22%, 62px)",
           }}
@@ -195,7 +191,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
         </motion.div>
 
         {/* ── Mobile Globe ── */}
-        <div className="lg:hidden flex justify-center mt-5">
+        <div className="lg:hidden flex justify-center mt-5 overflow-hidden">
           {showMobileVideo ? (
             <video
               ref={mobileVideoRef}
@@ -230,7 +226,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.3)}
-          className="flex flex-col gap-2.5 lg:gap-5 max-w-[680px] mx-auto lg:mx-0 pb-6 lg:pb-0 items-center lg:items-start lg:mr-[clamp(120px,30%,520px)]"
+          className="flex flex-col gap-2.5 lg:gap-5 max-w-[680px] mx-auto lg:mx-0 pb-6 lg:pb-0 items-center lg:items-start lg:mr-[clamp(350px,34vw,600px)]"
           style={{
             marginTop: "clamp(10px, 1.98%, 38px)",
           }}

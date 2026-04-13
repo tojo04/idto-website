@@ -82,7 +82,7 @@ export default function ProblemsSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-full max-w-[1000px]"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-[15px] w-full max-w-[1000px]"
         >
           {problemCards.map((card) => (
             <motion.div
