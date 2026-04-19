@@ -12,12 +12,16 @@ const productItems = [
     href: "/products/CKYC",
   },
   {
+    label: "Bank Account Verification",
+    href: "/products/BAV",
+  },
+  {
     label: "DigiLocker",
     href: "/products/digilocker-3.0",
   },
   {
-    label: "Bank Account Verification",
-    href: "/products/BAV",
+    label: "Mobile Intelligence",
+    href: "/products/mobile-intelligence",
   },
 ];
 
@@ -107,27 +111,44 @@ export default function Header() {
                               style={{
                                 borderLeft: "18px solid transparent",
                                 borderRight: "18px solid transparent",
-                                borderBottom: "17.7px solid #F6F6F6",
+                                borderBottom: "17.7px solid white",
                               }}
                             />
                           </div>
                           {/* Dropdown body */}
-                          <div className="w-auto bg-[#F6F6F6] rounded-[25px] px-[31px] py-[17px] flex flex-col gap-[10px]">
-                            {productItems.map((product) => (
-                              <Link
-                                key={product.href}
-                                to={product.href}
-                                onClick={() => setProductsOpen(false)}
-                                className="flex items-center justify-between gap-[30px] px-[20px] py-[15px] rounded-[10px] hover:bg-black/5 transition-colors"
-                              >
-                                <span className="text-[16px] font-semibold text-[#353535] tracking-[-0.01em] leading-[23px] whitespace-nowrap">
-                                  {product.label}
-                                </span>
-                                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" className="shrink-0">
-                                  <path d="M1 7H14M14 7L8 1M14 7L8 13" stroke="#1D68F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                              </Link>
-                            ))}
+                          <div className="bg-white rounded-[12px] p-[30px] shadow-[0px_8px_32px_rgba(0,0,0,0.12)] w-[702px]">
+                            <div className="grid grid-cols-2 gap-x-[30px] gap-y-[30px]">
+                              {productItems.map((product) => (
+                                <Link
+                                  key={product.href}
+                                  to={product.href}
+                                  onClick={() => setProductsOpen(false)}
+                                  className="group flex items-center gap-[12px]"
+                                >
+                                  <div className="w-[4px] h-[42px] rounded-r-[6px] bg-transparent group-hover:bg-[#1d68f4] transition-colors duration-200 shrink-0" />
+                                  <div className="flex items-center justify-between flex-1 min-w-0">
+                                    <span className="text-[16px] font-semibold text-[#353535] tracking-[-0.16px] whitespace-nowrap">
+                                      {product.label}
+                                    </span>
+                                    <svg
+                                      width="15"
+                                      height="14"
+                                      viewBox="0 0 15 14"
+                                      fill="none"
+                                      className="shrink-0 ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                    >
+                                      <path
+                                        d="M1 7H14M14 7L8 1M14 7L8 13"
+                                        stroke="#1D68F4"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
                           </div>
                         </motion.div>
                       )}
