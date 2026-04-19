@@ -78,11 +78,7 @@ export default function IntelligenceWorkflowsSection() {
           {workflowCards.map((card) => (
             <div
               key={card.title}
-              className={`group bg-white rounded-2xl p-5 flex flex-col gap-4 w-[290px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] transition-colors duration-200 border ${
-                card.highlighted
-                  ? "border-[#1a9948]"
-                  : "border-[#e5e7eb] hover:border-primary active:border-primary"
-              }`}
+              className="group bg-white rounded-2xl p-5 flex flex-col gap-4 w-[290px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] transition-colors duration-200 border border-[#e5e7eb] hover:border-[#1a9948] active:border-[#1a9948]"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#e9fbf0] flex items-center justify-center shrink-0">
                 <img src={card.icon} alt="" className="w-[26px] h-[26px]" />
@@ -91,13 +87,7 @@ export default function IntelligenceWorkflowsSection() {
                 <p className="text-base font-semibold text-black capitalize">
                   {card.title}
                 </p>
-                <div
-                  className={`w-[65px] h-px transition-colors duration-200 ${
-                    card.highlighted
-                      ? "bg-[#1a9948]"
-                      : "bg-[#CED4DA] group-hover:bg-primary group-active:bg-primary"
-                  }`}
-                />
+                <div className="w-[65px] h-px transition-colors duration-200 bg-[#CED4DA] group-hover:bg-[#1a9948] group-active:bg-[#1a9948]" />
                 <p className="text-sm text-black/60 leading-[1.5] tracking-[-0.28px]">
                   {card.description}
                 </p>
