@@ -25,7 +25,7 @@ export default function CTASection() {
                 Start Testing
               </a>
               <a
-                href="https://docs.idto.ai"
+                href="https://idtoai.readme.io/reference/idtoai-verification-apis"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-medium lg:font-semibold tracking-[0.36px] lg:tracking-[-0.32px] hover:bg-primary/5 transition-colors whitespace-nowrap"
