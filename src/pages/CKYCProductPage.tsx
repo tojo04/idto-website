@@ -6,6 +6,7 @@ import GoLiveSection from "../components/CKYCPage/GoLiveSection";
 import ImpactMetricsSection from "../components/CKYCPage/ImpactMetricsSection";
 import FAQSection from "../components/CKYCPage/FAQSection";
 import CTASection from "../components/CKYCPage/CTASection";
+import SEOHead from "../components/SEOHead";
 
 export default function CKYCProductPage() {
   const bookDemo = () => {
@@ -14,6 +15,11 @@ export default function CKYCProductPage() {
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
+      <SEOHead
+        title="CKYC API — Central KYC Registry Integration | idto.ai"
+        description="Pull and push CKYC records via a single API. Instant customer onboarding for fintechs, NBFCs, and banks in India. RBI-aligned, DPDP-compliant."
+        path="/products/CKYC"
+      />
       <Header />
 
       <main>
