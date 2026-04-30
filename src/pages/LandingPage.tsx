@@ -10,6 +10,7 @@ import BlogSection from "../components/LandingPage/BlogSection";
 import FAQSection from "../components/LandingPage/FAQSection";
 import CTASection from "../components/LandingPage/CTASection";
 import FooterSection from "../components/LandingPage/FooterSection";
+import SEOHead from "../components/SEOHead";
 
 export default function LandingPage() {
   const [_demoOpen, setDemoOpen] = useState(false);
@@ -22,6 +23,11 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
+      <SEOHead
+        title="Identity Verification Platform — KYC, KYB & Fraud API | idto.ai"
+        description="One API for KYC, KYB, and employee verification. AI-powered fraud prevention with global orchestration. DPDP-compliant. Book a demo with idto.ai today."
+        path="/"
+      />
       <Header />
 
       <main>

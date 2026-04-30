@@ -1,5 +1,6 @@
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
+import SEOHead from "../components/SEOHead";
 
 export default function PrivacyPolicy() {
   const bookDemo = () => {
@@ -8,6 +9,11 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
+      <SEOHead
+        title="Privacy Policy | idto.ai"
+        description="How idto.ai (Payvriz Technologies) collects, uses, and protects personal data under the DPDP Act 2023 and IT Act 2000."
+        path="/privacy"
+      />
       <Header />
 
       <main className="max-w-[900px] mx-auto px-6 lg:px-8 py-16 lg:py-24">
@@ -258,7 +264,6 @@ export default function PrivacyPolicy() {
               For concerns, queries, or to exercise your rights under this
               policy, you may contact our Grievance Officer:
             </p>
-            <p>Name: Mr. XYZ</p>
             <p>Email: privacy@idto.ai</p>
             <p>
               Address: Payvriz Technologies Pvt Ltd, 3rd Floor, Orchid Centre,

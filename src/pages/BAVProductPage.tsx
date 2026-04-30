@@ -10,6 +10,7 @@ import ImpactMetricsSection from "../components/BAVPage/ImpactMetricsSection";
 import HighImpactSection from "../components/BAVPage/HighImpactSection";
 import FAQSection from "../components/BAVPage/FAQSection";
 import CTASection from "../components/BAVPage/CTASection";
+import SEOHead from "../components/SEOHead";
 
 export default function BAVProductPage() {
   const bookDemo = () => {
@@ -18,6 +19,11 @@ export default function BAVProductPage() {
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
+      <SEOHead
+        title="Bank Account Verification API (Penny Drop & Pennyless) | idto.ai"
+        description="Verify any Indian bank account in seconds. Penny-drop and pennyless BAV API with NPCI coverage, low TAT, and audit-ready logs. INR 1 per check."
+        path="/products/BAV"
+      />
       <Header />
       <main>
         <HeroSection />

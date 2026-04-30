@@ -248,12 +248,12 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
             >
               {[...Array(4)].map((_, setIdx) => (
                 <div key={setIdx} className="flex items-center gap-6 shrink-0">
-                  <img src={partner1} alt="Partner" className="h-[18px] w-auto object-contain" />
-                  <img src={partner2} alt="Partner" className="h-[14px] w-auto object-contain" />
-                  <img src={partner3} alt="Partner" className="h-[12px] w-auto object-contain" />
-                  <img src={partner4} alt="Partner" className="h-[18px] w-auto object-contain" />
-                  <img src={partner5} alt="Partner" className="h-[16px] w-auto object-contain" />
-                  <img src={partner6} alt="Partner" className="h-[10px] w-auto object-contain" />
+                  <img src={partner1} alt="idto.ai customer logo" loading="lazy" decoding="async" className="h-[18px] w-auto object-contain" />
+                  <img src={partner2} alt="idto.ai customer logo" loading="lazy" decoding="async" className="h-[14px] w-auto object-contain" />
+                  <img src={partner3} alt="idto.ai customer logo" loading="lazy" decoding="async" className="h-[12px] w-auto object-contain" />
+                  <img src={partner4} alt="idto.ai customer logo" loading="lazy" decoding="async" className="h-[18px] w-auto object-contain" />
+                  <img src={partner5} alt="idto.ai customer logo" loading="lazy" decoding="async" className="h-[16px] w-auto object-contain" />
+                  <img src={partner6} alt="idto.ai customer logo" loading="lazy" decoding="async" className="h-[10px] w-auto object-contain" />
                 </div>
               ))}
             </div>
@@ -264,12 +264,12 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
             <div className="flex items-center gap-16 animate-marquee w-max">
               {[...Array(3)].map((_, setIdx) => (
                 <div key={setIdx} className="flex items-center gap-16 shrink-0">
-                  <img src={partner1} alt="Partner" style={{ height: 45 }} className="w-auto object-contain" />
-                  <img src={partner2} alt="Partner" style={{ height: 28 }} className="w-auto object-contain" />
-                  <img src={partner3} alt="Partner" style={{ height: 29 }} className="w-auto object-contain" />
-                  <img src={partner4} alt="Partner" style={{ height: 53 }} className="w-auto object-contain" />
-                  <img src={partner5} alt="Partner" style={{ height: 53 }} className="w-auto object-contain" />
-                  <img src={partner6} alt="Partner" style={{ height: 34 }} className="w-auto object-contain" />
+                  <img src={partner1} alt="idto.ai customer logo" loading="lazy" decoding="async" style={{ height: 45 }} className="w-auto object-contain" />
+                  <img src={partner2} alt="idto.ai customer logo" loading="lazy" decoding="async" style={{ height: 28 }} className="w-auto object-contain" />
+                  <img src={partner3} alt="idto.ai customer logo" loading="lazy" decoding="async" style={{ height: 29 }} className="w-auto object-contain" />
+                  <img src={partner4} alt="idto.ai customer logo" loading="lazy" decoding="async" style={{ height: 53 }} className="w-auto object-contain" />
+                  <img src={partner5} alt="idto.ai customer logo" loading="lazy" decoding="async" style={{ height: 53 }} className="w-auto object-contain" />
+                  <img src={partner6} alt="idto.ai customer logo" loading="lazy" decoding="async" style={{ height: 34 }} className="w-auto object-contain" />
                 </div>
               ))}
             </div>

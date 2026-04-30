@@ -8,6 +8,7 @@ import CustomerWorkflowsSection from "../components/MobileIntelligencePage/Custo
 import ImpactMetricsSection from "../components/MobileIntelligencePage/ImpactMetricsSection";
 import FAQSection from "../components/MobileIntelligencePage/FAQSection";
 import CTASection from "../components/MobileIntelligencePage/CTASection";
+import SEOHead from "../components/SEOHead";
 
 export default function MobileIntelligenceProductPage() {
   const bookDemo = () => {
@@ -16,6 +17,11 @@ export default function MobileIntelligenceProductPage() {
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
+      <SEOHead
+        title="Mobile Intelligence API — Identity &amp; Fraud Signals | idto.ai"
+        description="Verify identity and detect fraud using mobile-derived signals. Network, device, and behavioural intelligence in one API for fintech onboarding."
+        path="/products/mobile-intelligence"
+      />
       <Header />
       <main>
         <HeroSection />
