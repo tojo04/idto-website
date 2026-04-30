@@ -21,7 +21,7 @@ export default function TermsAndConditions() {
           Terms And Conditions
         </h1>
         <p className="text-sm text-gray-500 mb-8">
-          Last updated: 30 April 2026 · Draft pending final legal review.
+          Last updated: 30 April 2026
         </p>
 
         <div className="text-gray-600 text-base leading-[1.7] space-y-6">
