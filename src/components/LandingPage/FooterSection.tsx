@@ -13,6 +13,7 @@ const productLinks = [
 ];
 
 const resourceLinks = [
+  { label: "Blog", href: "/blog", internal: true },
   { label: "API Documentation", href: "https://idtoai.readme.io/reference/idtoai-verification-apis" },
   { label: "Dashboard Login", href: "https://dashboard.idto.ai/login/" },
   { label: "Dashboard Signup", href: "https://dashboard.idto.ai/signup/" },
@@ -107,17 +108,27 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                     Resources
                   </p>
                   <div className="flex flex-col gap-3">
-                    {resourceLinks.map((link) => (
-                      <a
-                        key={link.label}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
+                    {resourceLinks.map((link) =>
+                      link.internal ? (
+                        <Link
+                          key={link.label}
+                          to={link.href}
+                          className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

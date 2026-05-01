@@ -74,3 +74,919 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+@layer components {
+  .blog-post-content {
+    color: #52525b;
+  }
+
+  .blog-post-content-inner > section {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-post-content h2 {
+    margin: 56px 0 16px;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .blog-post-content section:first-of-type h2 {
+    margin-top: 0;
+  }
+
+  .blog-post-content h3 {
+    margin: 32px 0 12px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .blog-post-content p {
+    margin-bottom: 22px;
+    font-size: 17px;
+    line-height: 1.85;
+    color: #52525b;
+  }
+
+  .blog-post-content strong {
+    font-weight: 700;
+    color: #0f1117;
+  }
+
+  .blog-post-content em {
+    color: #0f1117;
+  }
+
+  .blog-post-content code {
+    border-radius: 6px;
+    background: rgba(15, 17, 23, 0.06);
+    padding: 2px 5px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.9em;
+    color: inherit;
+  }
+
+  .blog-hero-visual {
+    max-width: 780px;
+    margin: 0 auto 56px;
+  }
+
+  .blog-pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #e2e6ef;
+    border-radius: 20px;
+    background: #e2e6ef;
+  }
+
+  .blog-pain-cell {
+    min-height: 150px;
+    background: #ffffff;
+    padding: 28px 20px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .blog-pain-cell:hover {
+    background: #f7f8fb;
+  }
+
+  .blog-pain-number {
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1;
+    color: #c0392b;
+  }
+
+  .blog-pain-label {
+    margin: 0 auto;
+    max-width: 190px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #4a4f5e;
+  }
+
+  .blog-callout {
+    max-width: 680px;
+    margin: 32px auto;
+    border-left: 3px solid #1d4ed8;
+    border-radius: 0 16px 16px 0;
+    background: #ffffff;
+    padding: 22px 26px;
+    box-shadow: 0 16px 48px rgba(15, 17, 23, 0.06);
+  }
+
+  .blog-callout p {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.75;
+    color: #52525b;
+  }
+
+  .blog-divider {
+    width: 48px;
+    height: 2px;
+    margin: 20px auto 0;
+    background: #1d4ed8;
+  }
+
+  .blog-compare-block {
+    max-width: 680px;
+    margin: 32px auto;
+    overflow-x: auto;
+    border: 1px solid #e2e6ef;
+    border-radius: 18px;
+    background: #ffffff;
+  }
+
+  .blog-compare-header,
+  .blog-compare-row {
+    display: grid;
+    min-width: 560px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .blog-compare-header {
+    border-bottom: 1px solid #e2e6ef;
+    background: #f7f8fb;
+  }
+
+  .blog-compare-row {
+    border-bottom: 1px solid #e2e6ef;
+  }
+
+  .blog-compare-row:last-child {
+    border-bottom: 0;
+  }
+
+  .blog-compare-col-head {
+    padding: 13px 20px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0b6e4f;
+  }
+
+  .blog-compare-col-head:first-child {
+    border-right: 1px solid #e2e6ef;
+    color: #c0392b;
+  }
+
+  .blog-compare-cell {
+    padding: 15px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .blog-compare-cell:first-child {
+    border-right: 1px solid #e2e6ef;
+    background: #fde8e8;
+    color: #c0392b;
+  }
+
+  .blog-compare-cell:last-child {
+    background: #d1fae5;
+    font-weight: 700;
+    color: #0b6e4f;
+  }
+
+  .blog-steps {
+    position: relative;
+    max-width: 680px;
+    margin: 32px auto;
+  }
+
+  .blog-steps::before {
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 19px;
+    width: 2px;
+    background: #e2e6ef;
+    content: "";
+  }
+
+  .blog-step {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 16px 0;
+  }
+
+  .blog-step-num {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #1d4ed8;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .blog-step-body {
+    padding-top: 7px;
+  }
+
+  .blog-step-body strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #0f1117;
+  }
+
+  .blog-step-body span {
+    display: block;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #52525b;
+  }
+
+  .blog-benefits-grid {
+    display: grid;
+    max-width: 680px;
+    margin: 32px auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .blog-benefit-card {
+    border: 1px solid #e2e6ef;
+    border-radius: 18px;
+    background: #ffffff;
+    padding: 22px 20px;
+    box-shadow: 0 14px 44px rgba(15, 17, 23, 0.04);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .blog-benefit-card:hover {
+    transform: translateY(-2px);
+    border-color: #6b8ee8;
+  }
+
+  .blog-benefit-icon {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .blog-benefit-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #0f1117;
+  }
+
+  .blog-benefit-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #52525b;
+  }
+
+  .blog-post-content .blog-post-cta {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .blog-post-content .blog-post-cta h2 {
+    margin: 0;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  .blog-post-content .blog-post-cta p {
+    margin: 16px 0 0;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .blog-post-content .blog-post-cta a,
+  .blog-post-content .blog-post-cta button {
+    margin-top: 0;
+  }
+
+  .aadhaar-map {
+    display: grid;
+    max-width: 900px;
+    margin: 0 auto 56px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .aadhaar-map-copy {
+    border-radius: 28px;
+    background: #ffffff;
+    padding: 34px;
+    box-shadow: inset 0 0 0 1px #e2e6ef;
+  }
+
+  .aadhaar-kicker,
+  .aadhaar-map-rail span,
+  .aadhaar-principle span,
+  .aadhaar-era-strip span,
+  .aadhaar-journey-card span,
+  .aadhaar-stack span {
+    display: inline-flex;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+  }
+
+  .aadhaar-map-copy h2,
+  .aadhaar-source-panel h2 {
+    margin: 0 0 18px;
+    font-weight: 400;
+  }
+
+  .aadhaar-map-copy p,
+  .aadhaar-source-panel p {
+    margin-bottom: 0;
+  }
+
+  .aadhaar-map-rail {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .aadhaar-map-rail > div {
+    background: #0f1117;
+    padding: 24px;
+  }
+
+  .aadhaar-map-rail span {
+    color: #93c5fd;
+  }
+
+  .aadhaar-map-rail strong {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+  }
+
+  .aadhaar-map-rail p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .aadhaar-principle {
+    max-width: 760px;
+    margin: 36px auto 56px;
+    border-left: 3px solid #00e59e;
+    border-radius: 0 24px 24px 0;
+    background: #ffffff;
+    padding: 26px 30px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.06);
+  }
+
+  .aadhaar-principle p {
+    margin-bottom: 0;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .aadhaar-era-strip {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .aadhaar-era-strip > div {
+    min-height: 220px;
+    background: #ffffff;
+    padding: 26px;
+  }
+
+  .aadhaar-era-strip strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .aadhaar-era-strip p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-source-panel {
+    display: grid;
+    max-width: 900px;
+    margin: 48px auto 56px;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+    gap: 24px;
+    align-items: start;
+    border-radius: 30px;
+    background: #ffffff;
+    padding: 32px;
+    box-shadow: inset 0 0 0 1px #e2e6ef, 0 20px 70px rgba(15, 17, 23, 0.05);
+  }
+
+  .aadhaar-signal-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .aadhaar-signal-list > div {
+    border-left: 2px solid #1d4ed8;
+    padding-left: 18px;
+  }
+
+  .aadhaar-signal-list strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1117;
+  }
+
+  .aadhaar-signal-list p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .aadhaar-journey-board {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .aadhaar-journey-card {
+    position: relative;
+    min-height: 230px;
+    border: 1px solid #e2e6ef;
+    border-radius: 24px;
+    background: #ffffff;
+    padding: 24px;
+  }
+
+  .aadhaar-journey-card::after {
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    width: 16px;
+    height: 1px;
+    background: #c8cacf;
+    content: "";
+  }
+
+  .aadhaar-journey-card:last-child::after {
+    display: none;
+  }
+
+  .aadhaar-journey-card strong {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .aadhaar-journey-card p {
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .aadhaar-stack {
+    display: grid;
+    max-width: 820px;
+    margin: 40px auto 56px;
+    gap: 12px;
+  }
+
+  .aadhaar-stack > div {
+    display: grid;
+    grid-template-columns: 110px minmax(160px, 0.4fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    border-bottom: 1px solid #e2e6ef;
+    padding: 20px 0;
+  }
+
+  .aadhaar-stack span {
+    margin: 4px 0 0;
+  }
+
+  .aadhaar-stack strong {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .aadhaar-stack p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-outcomes {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .aadhaar-outcomes > div {
+    border-radius: 24px;
+    background: #0f1117;
+    padding: 26px;
+  }
+
+  .aadhaar-outcomes strong {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+  }
+
+  .aadhaar-outcomes p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .ckyc-brief {
+    display: grid;
+    max-width: 900px;
+    margin: 0 auto 56px;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .ckyc-kicker,
+  .ckyc-brief-panel span,
+  .ckyc-decision-card span,
+  .ckyc-pathway-label,
+  .ckyc-scoreboard span {
+    display: inline-flex;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+  }
+
+  .ckyc-brief h2,
+  .ckyc-rulebook h2 {
+    margin-top: 0;
+  }
+
+  .ckyc-brief p {
+    margin-bottom: 0;
+  }
+
+  .ckyc-brief-panel {
+    border: 1px solid #d7e0e9;
+    border-radius: 24px;
+    background: #0f1117;
+    padding: 24px;
+    color: #ffffff;
+  }
+
+  .ckyc-brief-panel span {
+    color: #93c5fd;
+  }
+
+  .ckyc-brief-panel strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+  }
+
+  .ckyc-brief-panel p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .ckyc-decision-grid {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .ckyc-decision-card {
+    border: 1px solid #e2e6ef;
+    border-radius: 24px;
+    background: #ffffff;
+    padding: 26px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+  }
+
+  .ckyc-decision-card ul {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ckyc-decision-card li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #52525b;
+  }
+
+  .ckyc-decision-card li::before {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #00e59e;
+    content: "";
+  }
+
+  .ckyc-pathways {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .ckyc-pathway {
+    min-height: 230px;
+    padding: 26px;
+    border-right: 1px solid #e2e6ef;
+  }
+
+  .ckyc-pathway:last-child {
+    border-right: 0;
+  }
+
+  .ckyc-pathway strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .ckyc-pathway p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .ckyc-scoreboard {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .ckyc-scoreboard > div {
+    background: #ffffff;
+    padding: 24px;
+  }
+
+  .ckyc-scoreboard strong {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #0f1117;
+  }
+
+  .ckyc-scoreboard p {
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .ckyc-rulebook {
+    max-width: 820px;
+    margin: 48px auto 56px;
+    border-radius: 30px;
+    background: #ffffff;
+    padding: 32px;
+    box-shadow: inset 0 0 0 1px #e2e6ef, 0 20px 70px rgba(15, 17, 23, 0.06);
+  }
+
+  .ckyc-rule {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid #e2e6ef;
+  }
+
+  .ckyc-rule span {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .ckyc-rule p {
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 1280px) {
+    .blog-post-content h2 {
+      font-size: 42px;
+    }
+
+    .blog-post-content h3 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .blog-post-content p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .blog-pain-grid,
+    .blog-benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-pain-cell {
+      min-height: auto;
+    }
+
+    .blog-callout {
+      padding: 20px;
+    }
+
+    .ckyc-brief,
+    .ckyc-decision-grid,
+    .ckyc-pathways,
+    .ckyc-scoreboard,
+    .aadhaar-map,
+    .aadhaar-era-strip,
+    .aadhaar-source-panel,
+    .aadhaar-journey-board,
+    .aadhaar-outcomes {
+      grid-template-columns: 1fr;
+    }
+
+    .ckyc-brief-panel,
+    .ckyc-decision-card,
+    .ckyc-pathway,
+    .ckyc-scoreboard > div,
+    .ckyc-rulebook,
+    .aadhaar-map-copy,
+    .aadhaar-source-panel,
+    .aadhaar-era-strip > div,
+    .aadhaar-journey-card,
+    .aadhaar-outcomes > div {
+      padding: 22px;
+    }
+
+    .ckyc-pathway {
+      min-height: auto;
+      border-right: 0;
+      border-bottom: 1px solid #e2e6ef;
+    }
+
+    .ckyc-pathway:last-child {
+      border-bottom: 0;
+    }
+
+    .ckyc-rule {
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .ckyc-rule span {
+      width: 36px;
+      height: 36px;
+    }
+
+    .aadhaar-principle {
+      padding: 22px;
+    }
+
+    .aadhaar-principle p {
+      font-size: 19px;
+    }
+
+    .aadhaar-journey-card {
+      min-height: auto;
+    }
+
+    .aadhaar-journey-card::after {
+      display: none;
+    }
+
+    .aadhaar-stack > div {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+}
