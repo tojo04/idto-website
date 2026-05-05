@@ -21,7 +21,7 @@ export default function BlogPage() {
       <main className="max-w-[1100px] mx-auto px-5 py-16 lg:py-24">
         <section className="mx-auto max-w-3xl text-center">
           <span className="inline-flex rounded-full bg-[#dbeafe] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#1d4ed8]">
-            Blog
+            idto | Academy
           </span>
           <h1 className="mt-6 font-heading text-[20px] font-normal lg:text-[42px] leading-[1.3] tracking-tight text-[#0f1117]">
             Ideas, product updates, and operational thinking from idto.
