@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
 import globeBackgroundDesktop from "../../assets/Background Images.png";
-import globeBackgroundMobile from "../../assets/Background Images (1).png";
 
 interface CTASectionProps {
   bookDemo: () => void;
@@ -16,20 +15,11 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
         whileInView="show"
         viewport={viewportOnce}
         variants={createFadeInUp()}
-        className="max-w-[1440px] mx-auto bg-white rounded-[40px] lg:rounded-[45px] overflow-hidden relative min-h-[493px] lg:min-h-107.5"
+        className="max-w-[1440px] mx-auto bg-white rounded-[40px] min-[700px]:rounded-[45px] overflow-hidden relative min-[700px]:min-h-107.5"
       >
-        {/* Mobile uses the original oversized Figma asset with fixed offsets */}
-        <div className="absolute left-[-100%] top-[10px] w-[225.2%] max-w-none pointer-events-none lg:hidden">
-          <img
-            src={globeBackgroundMobile}
-            alt=""
-            className="block w-full h-auto"
-          />
-        </div>
-
-        {/* Desktop background scales down on narrower desktops to preserve text-image breathing room */}
+        {/* Desktop globe (700px+): scales down on narrower screens */}
         <div
-          className="hidden lg:block absolute inset-y-0 pointer-events-none"
+          className="hidden min-[700px]:block absolute inset-y-0 pointer-events-none"
           style={{
             right: "clamp(-24px, -1.2vw, 0px)",
             width: "clamp(420px, 45vw, 1005px)",
@@ -44,19 +34,19 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 px-7 pt-10 pb-[214px] lg:px-22.5 lg:py-[clamp(40px,3.5vw,64px)] lg:pr-[clamp(360px,38vw,640px)]">
-          <div className="flex flex-col gap-5 lg:gap-15 max-w-[342px] lg:max-w-[clamp(430px,35vw,600px)]">
-            <div className="flex flex-col gap-2.5 lg:gap-6">
-              <h2 className="font-heading text-[20px] lg:text-[42px] leading-[1.1] tracking-[-0.02em] lg:tracking-[-0.96px] text-black">
+        <div className="relative z-10 px-[25px] py-10 min-[700px]:px-22.5 min-[700px]:py-[clamp(40px,3.5vw,64px)] min-[700px]:pr-[clamp(360px,38vw,640px)]">
+          <div className="flex flex-col gap-[45px] items-center text-center max-w-[342px] mx-auto min-[700px]:mx-0 min-[700px]:items-start min-[700px]:text-left min-[700px]:gap-15 min-[700px]:max-w-[clamp(430px,35vw,600px)]">
+            <div className="flex flex-col gap-[18px] min-[700px]:gap-6">
+              <h2 className="font-heading text-[20px] min-[700px]:text-[42px] leading-[1.1] tracking-[-0.02em] min-[700px]:tracking-[-0.96px] text-black">
                 Identity onboarding, without the{" "}
                 <span className="text-primary">complexity.</span>
               </h2>
-              <p className="text-[12px] lg:text-[18px] text-black/60 leading-[150%]">
+              <p className="text-[12px] min-[700px]:text-[18px] text-black/60 leading-[150%]">
                 Build on idto and focus on your product, not identity overhead.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-[15px] lg:gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-[15px] min-[700px]:justify-start min-[700px]:gap-4">
               <Button
                 title="Sign-up"
                 href="https://dashboard.idto.ai/signup/"

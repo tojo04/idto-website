@@ -23,17 +23,14 @@ interface HeroSectionProps {
 export default function HeroSection({ bookDemo }: HeroSectionProps) {
   const desktopGlobeWidth = "clamp(320px, 32vw, 560px)";
   const mobileVideoRef = useRef<HTMLVideoElement | null>(null);
-  const [showMobileVideo, setShowMobileVideo] = useState(true);
+  const [showMobileVideo, setShowMobileVideo] = useState(() => {
+    if (typeof document === "undefined") return true;
+    return document.createElement("video").canPlayType("video/mp4") !== "";
+  });
 
   useEffect(() => {
     const video = mobileVideoRef.current;
     if (!video) return;
-
-    // If MP4 playback isn't supported, fall back to GIF.
-    if (video.canPlayType("video/mp4") === "") {
-      setShowMobileVideo(false);
-      return;
-    }
 
     const handleError = () => setShowMobileVideo(false);
     video.addEventListener("error", handleError);

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Header from "../components/LandingPage/Header";
 import HeroSection from "../components/LandingPage/HeroSection";
 import ProblemsSection from "../components/LandingPage/ProblemsSection";
@@ -13,11 +12,7 @@ import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
 
 export default function LandingPage() {
-  const [_demoOpen, setDemoOpen] = useState(false);
-
   const bookDemo = () => {
-    // For now, open Calendly or toggle a modal
-    setDemoOpen(true);
     window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
@@ -14,11 +13,9 @@ const defaultCta: BlogPostCta = {
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [_demoOpen, setDemoOpen] = useState(false);
   const post = getBlogPostBySlug(slug || "");
 
   const bookDemo = () => {
-    setDemoOpen(true);
     window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 

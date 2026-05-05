@@ -894,6 +894,1033 @@
     line-height: 1.7;
   }
 
+  .aadhaar-verify-hero {
+    display: grid;
+    max-width: 900px;
+    margin: 0 auto 56px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .aadhaar-verify-hero-copy {
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #ffffff;
+    padding: 34px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+  }
+
+  .aadhaar-verify-kicker,
+  .aadhaar-verify-principle span,
+  .aadhaar-verify-data-points span,
+  .aadhaar-verify-mode span,
+  .aadhaar-verify-impact-grid span {
+    display: inline-flex;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+  }
+
+  .aadhaar-verify-hero-copy h2 {
+    margin: 0 0 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .aadhaar-verify-hero-copy p {
+    margin-bottom: 0;
+  }
+
+  .aadhaar-verify-split {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .aadhaar-verify-split > div {
+    display: flex;
+    min-height: 210px;
+    flex-direction: column;
+    justify-content: center;
+    background: #0f1117;
+    padding: 28px;
+  }
+
+  .aadhaar-verify-split > div:last-child {
+    background: #0b3b65;
+  }
+
+  .aadhaar-verify-split span {
+    display: inline-flex;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #93c5fd;
+  }
+
+  .aadhaar-verify-split strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #ffffff;
+  }
+
+  .aadhaar-verify-split p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.74);
+  }
+
+  .aadhaar-verify-principle {
+    max-width: 760px;
+    margin: 36px auto 56px;
+    border-left: 3px solid #00e59e;
+    border-radius: 0 24px 24px 0;
+    background: #ffffff;
+    padding: 26px 30px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.06);
+  }
+
+  .aadhaar-verify-principle p {
+    margin-bottom: 0;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-data-points {
+    display: grid;
+    max-width: 900px;
+    margin: 32px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .aadhaar-verify-data-points > div {
+    min-height: 180px;
+    background: #ffffff;
+    padding: 26px;
+  }
+
+  .aadhaar-verify-data-points strong {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-data-points p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-verify-list {
+    display: grid;
+    gap: 12px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .aadhaar-verify-list li {
+    position: relative;
+    border: 1px solid #e2e6ef;
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 14px 18px 14px 44px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #52525b;
+  }
+
+  .aadhaar-verify-list li::before {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #00e59e;
+    content: "";
+  }
+
+  .aadhaar-verify-modes {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .aadhaar-verify-mode {
+    border: 1px solid #e2e6ef;
+    border-radius: 24px;
+    background: #ffffff;
+    padding: 28px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+  }
+
+  .aadhaar-verify-mode:last-child {
+    border-color: #b9e6d3;
+    background: #f2fbf7;
+  }
+
+  .aadhaar-verify-mode strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-mode p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-verify-table-wrap {
+    max-width: 900px;
+    margin: 32px auto 56px;
+    overflow-x: auto;
+    border: 1px solid #d7e0e9;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+  }
+
+  .aadhaar-verify-table {
+    min-width: 720px;
+  }
+
+  .aadhaar-verify-table-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.8fr) minmax(200px, 1fr) minmax(220px, 1.15fr);
+    border-bottom: 1px solid #e2e6ef;
+  }
+
+  .aadhaar-verify-table-row:last-child {
+    border-bottom: 0;
+  }
+
+  .aadhaar-verify-table-row > div {
+    padding: 16px 20px;
+    border-right: 1px solid #e2e6ef;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #52525b;
+  }
+
+  .aadhaar-verify-table-row > div:last-child {
+    border-right: 0;
+  }
+
+  .aadhaar-verify-table-row > div:first-child {
+    font-weight: 800;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-table-head {
+    background: #0f1117;
+  }
+
+  .aadhaar-verify-table-head > div {
+    border-color: rgba(255, 255, 255, 0.12);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .aadhaar-verify-impact-grid {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .aadhaar-verify-impact-grid > div {
+    border: 1px solid #e2e6ef;
+    border-radius: 24px;
+    background: #ffffff;
+    padding: 26px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .aadhaar-verify-impact-grid > div:hover {
+    transform: translateY(-2px);
+    border-color: #6b8ee8;
+  }
+
+  .aadhaar-verify-impact-grid strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-impact-grid p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-verify-steps {
+    position: relative;
+    display: grid;
+    max-width: 780px;
+    margin: 32px auto 56px;
+    gap: 0;
+  }
+
+  .aadhaar-verify-steps::before {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 22px;
+    width: 2px;
+    background: #d7e0e9;
+    content: "";
+  }
+
+  .aadhaar-verify-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 18px;
+    padding: 16px 0;
+  }
+
+  .aadhaar-verify-step > span {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #1d4ed8;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .aadhaar-verify-step > div {
+    border: 1px solid #e2e6ef;
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 20px 22px;
+  }
+
+  .aadhaar-verify-step strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-step p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-verify-takeaways {
+    display: grid;
+    max-width: 900px;
+    margin: 32px auto 56px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .aadhaar-verify-takeaways > div {
+    min-height: 210px;
+    background: #0f1117;
+    padding: 22px;
+  }
+
+  .aadhaar-verify-takeaways > div:nth-child(even) {
+    background: #143d59;
+  }
+
+  .aadhaar-verify-takeaways strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #ffffff;
+  }
+
+  .aadhaar-verify-takeaways p {
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.74);
+  }
+
+  .aadhaar-verify-faq {
+    display: grid;
+    max-width: 780px;
+    margin: 32px auto 56px;
+    gap: 12px;
+  }
+
+  .aadhaar-verify-faq > div {
+    border: 1px solid #e2e6ef;
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 22px 24px;
+  }
+
+  .aadhaar-verify-faq strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-faq p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .aadhaar-verify-capabilities {
+    display: grid;
+    max-width: 820px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .aadhaar-verify-capabilities > div {
+    position: relative;
+    min-height: 96px;
+    border: 1px solid #b9e6d3;
+    border-radius: 20px;
+    background: #f2fbf7;
+    padding: 22px 22px 22px 52px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: #0f1117;
+  }
+
+  .aadhaar-verify-capabilities > div::before {
+    position: absolute;
+    top: 25px;
+    left: 24px;
+    display: flex;
+    width: 16px;
+    height: 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #00e59e;
+    content: "";
+  }
+
+  .bav-diagnostic {
+    display: grid;
+    max-width: 960px;
+    margin: 0 auto 56px;
+    gap: 18px;
+    border: 1px solid #d7e0e9;
+    border-radius: 30px;
+    background: #ffffff;
+    padding: 28px;
+    box-shadow: 0 20px 70px rgba(15, 17, 23, 0.06);
+  }
+
+  .bav-diagnostic-copy {
+    display: grid;
+    grid-template-columns: minmax(360px, 1fr) minmax(260px, 0.74fr);
+    gap: 32px;
+    align-items: center;
+    border-bottom: 1px solid #e2e6ef;
+    padding: 4px 0 20px;
+  }
+
+  .bav-diagnostic-copy span,
+  .bav-incident-item span,
+  .bav-trap-heading span,
+  .bav-switchboard span,
+  .bav-proof-strip span {
+    display: inline-flex;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #1d4ed8;
+  }
+
+  .bav-diagnostic-copy h2 {
+    margin: 0;
+    color: #0f1117;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .bav-diagnostic-copy p {
+    margin-bottom: 0;
+    color: #52525b;
+  }
+
+  .bav-diagnostic-console {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.58fr) minmax(270px, 1fr) minmax(240px, 0.82fr);
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  .bav-route-input {
+    position: relative;
+    display: flex;
+    min-height: 160px;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #d7e0e9;
+    border-radius: 22px;
+    background: #f8fafc;
+    padding: 20px;
+  }
+
+  .bav-route-input::after {
+    position: absolute;
+    top: 50%;
+    right: -17px;
+    width: 17px;
+    height: 2px;
+    background: #cbd5e1;
+    content: "";
+  }
+
+  .bav-route-input span {
+    display: inline-flex;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1d4ed8;
+  }
+
+  .bav-route-input strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #0f1117;
+  }
+
+  .bav-route-input em {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-style: normal;
+    color: #64748b;
+  }
+
+  .bav-route-results {
+    display: grid;
+    gap: 12px;
+  }
+
+  .bav-console-line {
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: 10px 16px;
+    align-items: center;
+    border: 1px solid #e2e6ef;
+    border-left-width: 4px;
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 16px;
+  }
+
+  .bav-console-fail {
+    border-left-color: #ef4444;
+    background: #fff1f2;
+  }
+
+  .bav-console-pass {
+    border-left-color: #10b981;
+    background: #ecfdf5;
+  }
+
+  .bav-console-line span {
+    font-size: 12px;
+    font-weight: 800;
+    color: #475569;
+  }
+
+  .bav-console-line strong {
+    color: #0f1117;
+    font-size: 15px;
+  }
+
+  .bav-console-line em {
+    grid-column: 2;
+    font-size: 13px;
+    font-style: normal;
+    color: #64748b;
+  }
+
+  .bav-console-signal {
+    display: flex;
+    min-height: 160px;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #d7e0e9;
+    border-left: 4px solid #1d4ed8;
+    border-radius: 22px;
+    background: #f8fbff;
+    padding: 20px;
+  }
+
+  .bav-console-signal span {
+    display: block;
+    margin-bottom: 8px;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .bav-console-signal p {
+    margin-bottom: 0;
+    color: #52525b;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .bav-founder-quote {
+    max-width: 720px;
+    margin: 30px auto 54px;
+    border-left: 3px solid #1d4ed8;
+    padding-left: 24px;
+  }
+
+  .bav-founder-quote p {
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .bav-founder-quote span {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    color: #64748b;
+  }
+
+  .bav-incident-map {
+    display: grid;
+    max-width: 860px;
+    margin: 40px auto 56px;
+    grid-template-columns: 66px minmax(0, 1fr);
+    gap: 0 22px;
+  }
+
+  .bav-incident-rail {
+    position: relative;
+    grid-row: 1 / span 3;
+    display: grid;
+    min-height: 360px;
+    align-content: space-around;
+    justify-items: center;
+  }
+
+  .bav-incident-rail::before {
+    position: absolute;
+    top: 42px;
+    bottom: 42px;
+    left: 50%;
+    width: 2px;
+    background: #cbd5e1;
+    content: "";
+  }
+
+  .bav-incident-rail span {
+    position: relative;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    border: 4px solid #ffffff;
+    border-radius: 999px;
+    background: #1d4ed8;
+    box-shadow: 0 0 0 1px #cbd5e1;
+  }
+
+  .bav-incident-item {
+    display: grid;
+    grid-template-columns: 110px minmax(160px, 0.4fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    border-bottom: 1px solid #d7e0e9;
+    padding: 24px 0;
+  }
+
+  .bav-incident-item span {
+    margin: 4px 0 0;
+    color: #1d4ed8;
+  }
+
+  .bav-incident-item strong {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .bav-incident-item p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .bav-trap-board {
+    max-width: 960px;
+    margin: 32px auto 56px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+  }
+
+  .bav-trap-heading {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    background: #0f1117;
+    padding: 26px 30px;
+  }
+
+  .bav-trap-heading span {
+    margin: 0;
+    color: #93c5fd;
+  }
+
+  .bav-trap-heading strong {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #ffffff;
+  }
+
+  .bav-trap-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.75fr) minmax(240px, 1.2fr) minmax(240px, 1.2fr);
+    border-bottom: 1px solid #e2e6ef;
+  }
+
+  .bav-trap-topic,
+  .bav-trap-reality,
+  .bav-trap-advantage {
+    padding: 20px 22px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .bav-trap-topic {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #e2e6ef;
+    font-weight: 800;
+    color: #0f1117;
+  }
+
+  .bav-trap-reality {
+    border-right: 1px solid #e2e6ef;
+    background: #fff7ed;
+    color: #7c2d12;
+  }
+
+  .bav-trap-advantage {
+    background: #f0fdf4;
+    color: #14532d;
+    font-weight: 700;
+  }
+
+  .bav-trap-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 16px 22px;
+    background: #f8fafc;
+  }
+
+  .bav-trap-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #475569;
+  }
+
+  .bav-trap-legend span::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #f97316;
+    content: "";
+  }
+
+  .bav-trap-legend span:last-child::before {
+    background: #10b981;
+  }
+
+  .bav-switchboard {
+    position: relative;
+    max-width: 920px;
+    min-height: 560px;
+    margin: 48px auto 56px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 30px;
+    background: #f8fafc;
+  }
+
+  .bav-switchboard::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    height: 420px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 999px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .bav-switchboard-hub,
+  .bav-switchboard-node {
+    position: absolute;
+    border: 1px solid #d7e0e9;
+    border-radius: 22px;
+    background: #ffffff;
+    padding: 22px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.06);
+  }
+
+  .bav-switchboard-hub {
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: 250px;
+    transform: translate(-50%, -50%);
+    background: #0f1117;
+    text-align: center;
+  }
+
+  .bav-switchboard-hub span {
+    color: #93c5fd;
+  }
+
+  .bav-switchboard-hub strong,
+  .bav-switchboard-node strong {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #0f1117;
+  }
+
+  .bav-switchboard-hub strong {
+    color: #ffffff;
+  }
+
+  .bav-switchboard-hub p,
+  .bav-switchboard-node p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .bav-switchboard-hub p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .bav-switchboard-node {
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 250px;
+    transform-origin: center;
+    will-change: transform;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .bav-switchboard-node span {
+    color: #1d4ed8;
+  }
+
+  .bav-switchboard-node-a {
+    transform: translate(-50%, -50%) rotate(240deg) translateX(210px) rotate(-240deg);
+    animation-name: bav-orbit-a;
+  }
+
+  .bav-switchboard-node-b {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(210px) rotate(0deg);
+    animation-name: bav-orbit-b;
+  }
+
+  .bav-switchboard-node-c {
+    transform: translate(-50%, -50%) rotate(120deg) translateX(210px) rotate(-120deg);
+    animation-name: bav-orbit-c;
+  }
+
+  .bav-switchboard:hover .bav-switchboard-node {
+    animation-play-state: paused;
+  }
+
+  .bav-switchboard-line {
+    display: none;
+  }
+
+  @keyframes bav-orbit-a {
+    0% {
+      transform: translate(-50%, -50%) rotate(240deg) translateX(210px) rotate(-240deg);
+    }
+
+    33.333% {
+      transform: translate(-50%, -50%) rotate(120deg) translateX(210px) rotate(-120deg);
+    }
+
+    66.666% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(210px) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(-120deg) translateX(210px) rotate(120deg);
+    }
+  }
+
+  @keyframes bav-orbit-b {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(210px) rotate(0deg);
+    }
+
+    33.333% {
+      transform: translate(-50%, -50%) rotate(-120deg) translateX(210px) rotate(120deg);
+    }
+
+    66.666% {
+      transform: translate(-50%, -50%) rotate(-240deg) translateX(210px) rotate(240deg);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg) translateX(210px) rotate(360deg);
+    }
+  }
+
+  @keyframes bav-orbit-c {
+    0% {
+      transform: translate(-50%, -50%) rotate(120deg) translateX(210px) rotate(-120deg);
+    }
+
+    33.333% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(210px) rotate(0deg);
+    }
+
+    66.666% {
+      transform: translate(-50%, -50%) rotate(-120deg) translateX(210px) rotate(120deg);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(-240deg) translateX(210px) rotate(240deg);
+    }
+  }
+
+  .bav-proof-strip {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid #d7e0e9;
+    border-bottom: 1px solid #d7e0e9;
+  }
+
+  .bav-proof-strip > div {
+    padding: 26px;
+    border-right: 1px solid #d7e0e9;
+  }
+
+  .bav-proof-strip > div:last-child {
+    border-right: 0;
+  }
+
+  .bav-proof-strip span {
+    color: #1d4ed8;
+  }
+
+  .bav-proof-strip p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
   @media (min-width: 1280px) {
     .blog-post-content h2 {
       font-size: 42px;
@@ -901,6 +1928,12 @@
 
     .blog-post-content h3 {
       font-size: 24px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bav-switchboard-node {
+      animation: none;
     }
   }
 
@@ -931,7 +1964,20 @@
     .aadhaar-era-strip,
     .aadhaar-source-panel,
     .aadhaar-journey-board,
-    .aadhaar-outcomes {
+    .aadhaar-outcomes,
+    .aadhaar-verify-hero,
+    .aadhaar-verify-data-points,
+    .aadhaar-verify-modes,
+    .aadhaar-verify-impact-grid,
+    .aadhaar-verify-takeaways,
+    .aadhaar-verify-capabilities,
+    .bav-diagnostic,
+    .bav-diagnostic-copy,
+    .bav-diagnostic-console,
+    .bav-incident-item,
+    .bav-trap-heading,
+    .bav-trap-row,
+    .bav-proof-strip {
       grid-template-columns: 1fr;
     }
 
@@ -944,7 +1990,16 @@
     .aadhaar-source-panel,
     .aadhaar-era-strip > div,
     .aadhaar-journey-card,
-    .aadhaar-outcomes > div {
+    .aadhaar-outcomes > div,
+    .aadhaar-verify-hero-copy,
+    .aadhaar-verify-split > div,
+    .aadhaar-verify-data-points > div,
+    .aadhaar-verify-mode,
+    .aadhaar-verify-impact-grid > div,
+    .aadhaar-verify-faq > div,
+    .bav-trap-heading,
+    .bav-switchboard-hub,
+    .bav-switchboard-node {
       padding: 22px;
     }
 
@@ -974,6 +2029,116 @@
 
     .aadhaar-principle p {
       font-size: 19px;
+    }
+
+    .aadhaar-verify-principle {
+      padding: 22px;
+    }
+
+    .aadhaar-verify-principle p {
+      font-size: 19px;
+    }
+
+    .aadhaar-verify-split > div,
+    .aadhaar-verify-data-points > div,
+    .aadhaar-verify-takeaways > div {
+      min-height: auto;
+    }
+
+    .bav-route-input,
+    .bav-console-signal {
+      min-height: auto;
+    }
+
+    .bav-route-input::after {
+      display: none;
+    }
+
+    .bav-console-line {
+      grid-template-columns: 1fr;
+    }
+
+    .bav-console-line em {
+      grid-column: 1;
+    }
+
+    .bav-founder-quote {
+      padding-left: 20px;
+    }
+
+    .bav-founder-quote p {
+      font-size: 19px;
+    }
+
+    .bav-incident-map {
+      grid-template-columns: 1fr;
+    }
+
+    .bav-incident-rail {
+      display: none;
+    }
+
+    .bav-incident-item {
+      gap: 8px;
+      padding: 20px 0;
+    }
+
+    .bav-trap-topic,
+    .bav-trap-reality,
+    .bav-trap-advantage {
+      border-right: 0;
+      padding: 18px 20px;
+    }
+
+    .bav-trap-topic {
+      border-bottom: 1px solid #e2e6ef;
+    }
+
+    .bav-switchboard {
+      display: grid;
+      min-height: auto;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .bav-switchboard::before {
+      display: none;
+    }
+
+    .bav-switchboard-hub,
+    .bav-switchboard-node {
+      position: static;
+      width: auto;
+      animation: none;
+      transform: none;
+    }
+
+    .bav-switchboard-line {
+      display: none;
+    }
+
+    .bav-proof-strip > div {
+      border-right: 0;
+      border-bottom: 1px solid #d7e0e9;
+      padding: 22px;
+    }
+
+    .bav-proof-strip > div:last-child {
+      border-bottom: 0;
+    }
+
+    .aadhaar-verify-step {
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .aadhaar-verify-step > span {
+      width: 40px;
+      height: 40px;
+    }
+
+    .aadhaar-verify-steps::before {
+      left: 19px;
     }
 
     .aadhaar-journey-card {

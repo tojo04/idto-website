@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
@@ -6,10 +5,7 @@ import SEOHead from "../components/SEOHead";
 import { blogPosts } from "../data/blogPosts";
 
 export default function BlogPage() {
-  const [_demoOpen, setDemoOpen] = useState(false);
-
   const bookDemo = () => {
-    setDemoOpen(true);
     window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 
