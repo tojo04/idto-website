@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
+import { Helmet } from "react-helmet-async";
 import Button from "../components/UI/Button";
 import { getBlogPostBySlug, type BlogPostCta } from "../data/blogPosts";
 
@@ -45,6 +46,30 @@ export default function BlogPostPage() {
         description={post.description}
         path={`/blog/${post.slug}`}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.description,
+          "datePublished": post.date,
+          "author": {
+            "@type": "Organization",
+            "name": post.author,
+            "url": "https://idto.ai"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "idto.ai",
+            "url": "https://idto.ai"
+          },
+          "url": `https://idto.ai/blog/${post.slug}`,
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://idto.ai/blog/${post.slug}`
+          }
+        })}</script>
+      </Helmet>
       <Header />
 
       <main className="max-w-275 mx-auto px-5 pb-32 pt-24">

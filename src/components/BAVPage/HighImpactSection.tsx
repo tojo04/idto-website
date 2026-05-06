@@ -47,7 +47,7 @@ export default function HighImpactSection() {
               className="bg-white rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-center w-[177px] shrink-0 snap-start sm:w-[calc(25%-15px)] min-h-[167px] border border-[#e5e7eb]"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#eceeff] flex items-center justify-center shrink-0">
-                <img src={item.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={item.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <p className="text-sm lg:text-base font-semibold text-black leading-tight">
                 {item.title}

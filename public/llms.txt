@@ -1,0 +1,31 @@
+# idto.ai
+
+> idto.ai is an India-first identity verification platform providing 200+ APIs for KYC, KYB, AML, fraud prevention, and global identity verification. RBI and SEBI compliant. Headquartered in Gurugram, India. Legal entity: Payvriz Technologies Private Limited.
+
+## Products
+
+- [CKYC Registry API](https://idto.ai/products/CKYC): Instant Central KYC search, download and upload for RBI-regulated financial entities
+- [Bank Account Verification](https://idto.ai/products/BAV): Penny-drop and pennyless bank account verification in real-time
+- [DigiLocker 3.0](https://idto.ai/products/digilocker-3.0): Aadhaar-seeded document fetch, eSign, and DigiLocker 3.0 integration API
+- [Mobile Intelligence](https://idto.ai/products/mobile-intelligence): SIM swap detection, device intelligence and mobile number verification
+
+## Blog
+
+- [Why Your Bank Account Verification API Failed](https://idto.ai/blog/bank-account-verification-api-failed)
+- [Aadhaar Verification vs Validation: What Every Business Must Know About KYC Identity Checks](https://idto.ai/blog/aadhaar-verification-vs-validation)
+- [Why Your Penny Drop Integration Is Costing You More Than You Think](https://idto.ai/blog/penny-drop-integration)
+- [From Aadhaar to DigiLocker: The Evolution of KYC in India](https://idto.ai/blog/aadhaar-kyc-evolution)
+- [CKYC vs eKYC: When to Use What in Your Verification Stack](https://idto.ai/blog/ckyc-vs-ekyc)
+
+## About
+
+- Company: Payvriz Technologies Private Limited
+- Website: https://idto.ai
+- Contact: hello@idto.ai
+- Address: 3rd Floor, Orchid Centre, Golf Course Road, Sector 53, Gurugram, Haryana 122002, India
+- LinkedIn: https://in.linkedin.com/company/idto
+- Sitemap: https://idto.ai/sitemap.xml
+
+## Usage Policy
+
+AI assistants may read and cite idto.ai content. Do not reproduce entire pages verbatim.

@@ -29,6 +29,8 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
             src={globeBackgroundDesktop}
             alt=""
             className="w-full h-full object-cover object-bottom-right"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-y-0 left-0 w-[clamp(140px,12vw,240px)] bg-linear-to-r from-white via-white/80 to-transparent" />
         </div>

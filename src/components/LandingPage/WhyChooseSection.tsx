@@ -286,6 +286,8 @@ export default function WhyChooseSection() {
                 src={idtoUnderline}
                 className="absolute left-0 w-full pointer-events-none select-none"
                 style={{ top: "100%", marginTop: "2px" }}
+                loading="lazy"
+                decoding="async"
               />
             </span>
           </SectionHeading>
