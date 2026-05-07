@@ -52,7 +52,9 @@ export default function BlogPostPage() {
           "@type": "BlogPosting",
           "headline": post.title,
           "description": post.description,
-          "datePublished": post.date,
+          "image": "https://idto.ai/og-image.png",
+          "datePublished": post.isoDate,
+          "dateModified": post.isoDate,
           "author": {
             "@type": "Organization",
             "name": post.author,
@@ -127,6 +129,8 @@ export default function BlogPostPage() {
                 ) : (
                   <a
                     href={cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full border border-white/50 bg-white px-[27px] py-[13.5px] text-[16px] font-semibold tracking-tight text-primary transition-all duration-200 hover:bg-gray-50"
                   >
                     {cta.buttonLabel}

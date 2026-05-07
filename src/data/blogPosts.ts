@@ -12,6 +12,7 @@ export interface BlogPost {
   description: string;
   category: string;
   date: string;
+  isoDate: string;
   readTime: number;
   author: string;
   excerpt: string;
@@ -28,6 +29,7 @@ export const blogPosts: BlogPost[] = [
       "Why the same bank account can fail with one provider and pass with another, and why building in-house orchestration becomes a costly trap.",
     category: "KYC Infrastructure \u00b7 Bank Verification",
     date: "May 2026",
+    isoDate: "2026-05-01",
     readTime: 5,
     author: "idto.ai",
     excerpt:
@@ -204,6 +206,7 @@ export const blogPosts: BlogPost[] = [
       "Confused between Aadhaar verification and validation? Learn the key differences, how each impacts KYC compliance, and which method your business actually needs.",
     category: "KYC Infrastructure \u00b7 Aadhaar Verification",
     date: "May 2026",
+    isoDate: "2026-05-07",
     readTime: 8,
     author: "idto.ai",
     excerpt:
@@ -510,6 +513,7 @@ export const blogPosts: BlogPost[] = [
       "Inconsistent outputs, cryptic error codes, and silent failures are quietly burning engineering hours across India's lending stack. There's a better way.",
     category: "KYC Infrastructure \u00b7 Bank Verification",
     date: "April 2026",
+    isoDate: "2026-04-01",
     readTime: 8,
     author: "idto.ai",
     excerpt:
@@ -695,6 +699,7 @@ export const blogPosts: BlogPost[] = [
       "Trace the journey of India's KYC infrastructure from centralized Aadhaar to decentralized digital lockers, and what it means for fintech integration.",
     category: "KYC Infrastructure \u00b7 Identity Verification",
     date: "March 2026",
+    isoDate: "2026-03-01",
     readTime: 9,
     author: "idto.ai",
     excerpt:
@@ -898,6 +903,7 @@ export const blogPosts: BlogPost[] = [
       "A practical guide to choosing between Centralized KYC and Electronic KYC based on your use case, regulatory requirements, and user experience goals.",
     category: "KYC Infrastructure \u00b7 Compliance",
     date: "January 2026",
+    isoDate: "2026-01-01",
     readTime: 10,
     author: "idto.ai",
     excerpt:

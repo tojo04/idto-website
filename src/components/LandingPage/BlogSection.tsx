@@ -4,37 +4,13 @@ import SectionHeading from "../UI/SectionHeading";
 import blogPost1Image from "../../assets/blog_post_1.jpg";
 import blogPost2Image from "../../assets/blog_post_2.png";
 import blogPost3Image from "../../assets/blog_post_3.png";
+import { blogPosts } from "../../data/blogPosts";
 
-interface BlogPost {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    title: "Business Verification Done Right.",
-    description:
-      "#Business #verification process is br…",
-    image: blogPost1Image,
-    link: "https://in.linkedin.com/company/idto",
-  },
-  {
-    title: "Cross-Border ≠ One Country",
-    description: "#Crossborder onboarding sounds simple 🌍  …",
-    image: blogPost2Image,
-    link: "https://in.linkedin.com/company/idto",
-  },
-  {
-    title: "Dashboard v2 live",
-    description: "#LaunchAlert 🚀\nDashboard v2 is live.🙏  …",
-    image: blogPost3Image,
-    link: "https://in.linkedin.com/company/idto",
-  },
-];
+const postImages = [blogPost1Image, blogPost2Image, blogPost3Image];
 
 export default function BlogSection() {
+  const displayPosts = blogPosts.slice(0, 3);
+
   return (
     <section className="bg-white px-6 lg:px-37.5 py-20 lg:py-37.5 rounded-[40px] lg:rounded-[112px]">
       <div className="max-w-[1440px] mx-auto flex flex-col gap-16 lg:gap-22.5">
@@ -46,7 +22,7 @@ export default function BlogSection() {
           variants={createFadeInUp()}
         >
           <SectionHeading align="center">
-            Our Recent <span className="text-primary">Social Post</span>
+            Latest <span className="text-primary">Insights</span>
           </SectionHeading>
         </motion.div>
 
@@ -58,16 +34,16 @@ export default function BlogSection() {
           variants={staggerContainer}
           className="flex overflow-x-auto scrollbar-hide gap-5 pb-2 snap-x snap-mandatory md:grid grid-cols-2 md:gap-9 md:overflow-visible md:pb-0 md:snap-none lg:grid-cols-3"
         >
-          {blogPosts.map((post) => (
+          {displayPosts.map((post, i) => (
             <motion.div
-              key={post.title}
+              key={post.id}
               variants={fadeItem}
               className="w-[86%] min-w-[86%] sm:w-[75%] sm:min-w-[75%] snap-start md:w-auto md:min-w-0 bg-white border-[1.5px] border-black/10 rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow"
             >
               {/* Image */}
               <div className="aspect-[4/3] overflow-hidden bg-[#fbf8f9]">
                 <img
-                  src={post.image}
+                  src={postImages[i]}
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
@@ -81,12 +57,10 @@ export default function BlogSection() {
                   {post.title}
                 </h3>
                 <p className="text-[14px] text-[#495057] leading-normal">
-                  {post.description}
+                  {post.excerpt}
                 </p>
                 <a
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/blog/${post.slug}`}
                   className="mt-auto flex items-center gap-2 text-[16px] font-medium text-[#212529] hover:text-primary transition-colors pt-4"
                 >
                   Read more

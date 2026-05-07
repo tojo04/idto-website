@@ -61,26 +61,31 @@ const ROUTES = {
     title: "Why Your Bank Account Verification API Failed | idto.ai",
     description:
       "Why the same bank account can fail with one provider and pass with another, and why building in-house orchestration becomes a costly trap.",
+    ogType: "article",
   },
   "/blog/aadhaar-verification-vs-validation": {
     title: "Aadhaar Verification vs Validation: What Every Business Must Know About KYC Identity Checks | idto.ai",
     description:
       "Confused between Aadhaar verification and validation? Learn the key differences, how each impacts KYC compliance, and which method your business actually needs.",
+    ogType: "article",
   },
   "/blog/penny-drop-integration": {
     title: "Why Your Penny Drop Integration Is Costing You More Than You Think | idto.ai",
     description:
       "Inconsistent outputs, cryptic error codes, and silent failures are quietly burning engineering hours across India's lending stack. There's a better way.",
+    ogType: "article",
   },
   "/blog/aadhaar-kyc-evolution": {
     title: "From Aadhaar to DigiLocker: The Evolution of KYC in India | idto.ai",
     description:
       "Trace the journey of India's KYC infrastructure from centralized Aadhaar to decentralized digital lockers, and what it means for fintech integration.",
+    ogType: "article",
   },
   "/blog/ckyc-vs-ekyc": {
     title: "CKYC vs eKYC: When to Use What in Your Verification Stack | idto.ai",
     description:
       "A practical guide to choosing between Centralized KYC and Electronic KYC based on your use case, regulatory requirements, and user experience goals.",
+    ogType: "article",
   },
 };
 
@@ -151,6 +156,14 @@ function injectMeta(template, route, meta) {
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`
   );
+
+  // og:type — only replace when explicitly set (e.g. "article" for blog posts)
+  if (meta.ogType) {
+    html = html.replace(
+      /(<meta property="og:type" content=")[^"]*(")/,
+      `$1${esc(meta.ogType)}$2`
+    );
+  }
 
   return html;
 }
