@@ -81,7 +81,7 @@ const steps = [
 function PartnerLogoPill({ src, alt, h, mw }: { src: string; alt: string; h: number; mw: number }) {
   return (
     <div className="bg-white border border-[rgba(224,228,235,0.6)] rounded-full flex items-center justify-center shadow-[0px_0.72px_1.44px_0px_rgba(0,0,0,0.05)]" style={{ height: 27, paddingInline: 9, paddingBlock: 5, width: 78, overflow: "hidden" }}>
-      <img src={src} alt={alt} className="object-contain" style={{ height: h, maxWidth: mw }} />
+      <img src={src} alt={alt} className="object-contain" style={{ height: h, maxWidth: mw }} loading="lazy" decoding="async" />
     </div>
   );
 }
@@ -138,6 +138,8 @@ function OrchestrationAgentCard({ clipLeft }: { clipLeft: number }) {
           alt=""
           className="absolute max-w-none"
           style={{ width: "474.76%", height: "332.65%", left: `${clipLeft}%`, top: "-104%" }}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="overflow-hidden" style={{ borderRadius: 4.4, padding: "7.1px 8.2px", backgroundImage: "linear-gradient(117deg, rgb(76, 218, 196) 48.37%, rgb(1, 26, 255) 97.48%)" }}>
@@ -177,13 +179,13 @@ function FlowIllustration() {
         <div className="absolute flex flex-col items-center" style={{ left: 161, top: 31, width: 120 }}>
           <div className="bg-white border border-[rgba(0,199,146,0.2)] flex flex-col items-center shadow-[0px_7.2px_10.8px_-2.16px_rgba(0,0,0,0.1),0px_2.88px_4.32px_-2.88px_rgba(0,0,0,0.1)]" style={{ borderRadius: 11.5, padding: 12.2 }}>
             <div className="bg-[#e0f3f0] flex items-center" style={{ borderRadius: 8.6, padding: "5.76px 11.5px" }}>
-              <img src={idtoLogo} alt="idto" style={{ height: 31 }} />
+              <img src={idtoLogo} alt="idto" style={{ height: 31 }} height="31" loading="lazy" decoding="async" />
             </div>
             <span className="text-[#00c792] font-bold uppercase whitespace-nowrap" style={{ fontSize: 6.5, letterSpacing: 0.65, marginTop: 5.76, lineHeight: "9.7px" }}>
               In-House Integrations
             </span>
           </div>
-          <img src={connectorLine} alt="" style={{ width: 15, height: 90 }} />
+          <img src={connectorLine} alt="" style={{ width: 15, height: 90 }} width="15" height="90" loading="lazy" decoding="async" />
         </div>
 
         {/* ── Partner logos grid ── */}
@@ -194,13 +196,13 @@ function FlowIllustration() {
         </div>
 
         {/* ── Arrow 1: Logos → AI ── */}
-        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 190, top: 234, width: 61, height: 24 }} />
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 190, top: 234, width: 61, height: 24 }} width="61" height="24" loading="lazy" decoding="async" />
 
         {/* ── AI Image ── */}
-        <img src={aiImage} alt="AI Orchestration" className="absolute object-contain" style={{ left: 220, top: 140, width: 320, height: 200 }} />
+        <img src={aiImage} alt="AI Orchestration" className="absolute object-contain" style={{ left: 220, top: 140, width: 320, height: 200 }} width="320" height="200" loading="lazy" decoding="async" />
 
         {/* ── Arrow 2: AI → ACME ── */}
-        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 506, top: 234, width: 61, height: 24 }} />
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 506, top: 234, width: 61, height: 24 }} width="61" height="24" loading="lazy" decoding="async" />
 
         {/* ── ACME Form Card ── */}
         <div className="absolute" style={{ left: 574, top: 137 }}>
@@ -208,7 +210,7 @@ function FlowIllustration() {
         </div>
 
         {/* ── Arrow 3: ACME → Orchestration ── */}
-        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 766, top: 234, width: 61, height: 24 }} />
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 766, top: 234, width: 61, height: 24 }} width="61" height="24" loading="lazy" decoding="async" />
 
         {/* ── Orchestration Agent Cards ── */}
         <div className="absolute flex flex-col" style={{ left: 834, top: 43, width: 200, gap: 22 }}>
@@ -217,10 +219,10 @@ function FlowIllustration() {
         </div>
 
         {/* ── Arrow 4: Orchestration → Verified ── */}
-        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 1038, top: 234, width: 61, height: 24 }} />
+        <img src={horizontalArrow} alt="" className="absolute" style={{ left: 1038, top: 234, width: 61, height: 24 }} width="61" height="24" loading="lazy" decoding="async" />
 
         {/* ── Bank Account Verified ── */}
-        <img src={bankVerified} alt="Bank Account Verified" className="absolute object-contain" style={{ left: 930, top: 1, width: 560, height: 420, maskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, black 20%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, black 20%, transparent 80%)" }} />
+        <img src={bankVerified} alt="Bank Account Verified" className="absolute object-contain" style={{ left: 930, top: 1, width: 560, height: 420, maskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, black 20%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, black 20%, transparent 80%)" }} width="560" height="420" loading="lazy" decoding="async" />
       </div>
     </div>
   );
@@ -267,6 +269,10 @@ export default function HowItWorksSection() {
                     src={step.icon}
                     alt=""
                     className="w-[26px] h-[26px]"
+                    width="26"
+                    height="26"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <span className="font-heading text-[32px] lg:text-[36px] text-[#1d212b] leading-[40px] font-normal">

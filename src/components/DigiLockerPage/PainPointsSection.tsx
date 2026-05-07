@@ -74,7 +74,7 @@ export default function PainPointsSection() {
               className="group bg-white rounded-2xl p-5 flex gap-4 items-center w-full sm:w-[calc(50%-10px)] sm:min-h-[148px] border border-[#e5e7eb] hover:border-[#dc2828] active:border-[#dc2828] transition-colors duration-200"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#fceded] flex items-center justify-center shrink-0">
-                <img src={item.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={item.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-[10px]">
                 <p className="text-base font-semibold text-black capitalize">

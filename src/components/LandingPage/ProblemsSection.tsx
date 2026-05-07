@@ -70,6 +70,8 @@ export default function ProblemsSection() {
                   src={hardUnderline}
                   className="absolute left-0 w-full pointer-events-none select-none"
                   style={{ top: "100%", marginTop: "2px" }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </span>
             </span>
@@ -93,7 +95,7 @@ export default function ProblemsSection() {
               <div
                 className={`${card.iconBg} w-[53px] h-[53px] rounded-full flex items-center justify-center shrink-0`}
               >
-                <img src={card.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={card.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-[10px]">
                 <h3 className="font-semibold text-[16px] lg:text-[16px] leading-[1.2] lg:leading-normal text-black capitalize">

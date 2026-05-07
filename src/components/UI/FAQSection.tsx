@@ -66,6 +66,8 @@ export default function FAQSection({
               src={questionMarkImage}
               alt=""
               className="relative w-[85%] lg:w-[135%] lg:max-w-[850px] h-auto object-contain -rotate-[0.26deg] lg:-translate-y-[50px]"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </motion.div>

@@ -20,7 +20,7 @@ export default function CTASection() {
             </div>
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center">
               <a
-                href="https://cal.com/idto-ai/30min"
+                href="https://cal.com/adityaskx-idto/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
@@ -47,9 +47,9 @@ export default function CTASection() {
               <div className="w-full h-px bg-black/10" />
             </div>
             <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-[80px] flex-wrap">
-              <img src={partner1} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" />
-              <img src={partner2} alt="Partner" className="h-[48px] sm:h-[60px] w-auto object-contain" />
-              <img src={partner3} alt="Partner" className="h-[28px] sm:h-[38px] w-auto object-contain" />
+              <img src={partner1} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" height="45" loading="lazy" decoding="async" />
+              <img src={partner2} alt="Partner" className="h-[48px] sm:h-[60px] w-auto object-contain" height="60" loading="lazy" decoding="async" />
+              <img src={partner3} alt="Partner" className="h-[28px] sm:h-[38px] w-auto object-contain" height="38" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

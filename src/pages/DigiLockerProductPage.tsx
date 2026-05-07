@@ -9,6 +9,7 @@ import ImpactMetricsSection from "../components/DigiLockerPage/ImpactMetricsSect
 import FAQSection from "../components/DigiLockerPage/FAQSection";
 import CTASection from "../components/DigiLockerPage/CTASection";
 import SEOHead from "../components/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 export default function DigiLockerProductPage() {
   const bookDemo = () => {
@@ -22,6 +23,45 @@ export default function DigiLockerProductPage() {
         description="Pull DigiLocker-issued documents and verify identities with one API. UIDAI-aligned, government-grade source-of-truth with audit logs."
         path="/products/digilocker-3.0"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://idto.ai"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Products"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "DigiLocker 3.0 Integration API",
+                  "item": "https://idto.ai/products/digilocker-3.0"
+                }
+              ]
+            },
+            {
+              "@type": "Product",
+              "name": "DigiLocker 3.0 Integration API",
+              "description": "Aadhaar-seeded document fetch, eSign, and DigiLocker 3.0 integration",
+              "url": "https://idto.ai/products/digilocker-3.0",
+              "brand": {
+                "@type": "Brand",
+                "name": "idto.ai"
+              }
+            }
+          ]
+        })}</script>
+      </Helmet>
       <Header />
 
       <main>

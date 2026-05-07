@@ -55,6 +55,9 @@ export default function GoLiveSection() {
                 src={idtoVector}
                 alt=""
                 className="absolute -bottom-1 left-0 w-full h-[11px] pointer-events-none"
+                height="11"
+                loading="lazy"
+                decoding="async"
               />
             </span>
           </h2>
@@ -74,7 +77,7 @@ export default function GoLiveSection() {
               className="group bg-white rounded-2xl p-5 pb-6 flex flex-col gap-4 w-[295px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] border border-[#e5e7eb] hover:border-[#1a9948] active:border-[#1a9948] transition-colors duration-200"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#e9fbf0] flex items-center justify-center shrink-0">
-                <img src={card.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={card.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-[10px]">
                 <p className="text-base font-semibold text-black capitalize">

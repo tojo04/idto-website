@@ -81,7 +81,7 @@ export default function IntelligenceWorkflowsSection() {
               className="group bg-white rounded-2xl p-5 flex flex-col gap-4 w-[290px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] transition-colors duration-200 border border-[#e5e7eb] hover:border-[#1a9948] active:border-[#1a9948]"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#e9fbf0] flex items-center justify-center shrink-0">
-                <img src={card.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={card.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-[10px]">
                 <p className="text-base font-semibold text-black capitalize">

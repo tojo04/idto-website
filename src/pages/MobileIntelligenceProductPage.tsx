@@ -9,10 +9,11 @@ import ImpactMetricsSection from "../components/MobileIntelligencePage/ImpactMet
 import FAQSection from "../components/MobileIntelligencePage/FAQSection";
 import CTASection from "../components/MobileIntelligencePage/CTASection";
 import SEOHead from "../components/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 export default function MobileIntelligenceProductPage() {
   const bookDemo = () => {
-    window.open("https://cal.com/idto-ai/30min", "_blank");
+    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 
   return (
@@ -22,6 +23,45 @@ export default function MobileIntelligenceProductPage() {
         description="Verify identity and detect fraud using mobile-derived signals. Network, device, and behavioural intelligence in one API for fintech onboarding."
         path="/products/mobile-intelligence"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://idto.ai"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Products"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Mobile Intelligence API",
+                  "item": "https://idto.ai/products/mobile-intelligence"
+                }
+              ]
+            },
+            {
+              "@type": "Product",
+              "name": "Mobile Intelligence API",
+              "description": "SIM swap detection, device intelligence and mobile number verification",
+              "url": "https://idto.ai/products/mobile-intelligence",
+              "brand": {
+                "@type": "Brand",
+                "name": "idto.ai"
+              }
+            }
+          ]
+        })}</script>
+      </Helmet>
       <Header />
       <main>
         <HeroSection />

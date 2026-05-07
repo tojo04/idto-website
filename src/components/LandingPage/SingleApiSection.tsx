@@ -291,6 +291,8 @@ export default function SingleApiSection() {
                 src={tabImages[current.name]}
                 alt={current.title}
                 className="w-full h-full object-cover rounded-2xl"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>

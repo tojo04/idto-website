@@ -10,6 +10,7 @@ import DigiLockerProductPage from "./pages/DigiLockerProductPage";
 import CKYCProductPage from "./pages/CKYCProductPage";
 import BAVProductPage from "./pages/BAVProductPage";
 import MobileIntelligenceProductPage from "./pages/MobileIntelligenceProductPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/demo" element={<Demo />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

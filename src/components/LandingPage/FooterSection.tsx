@@ -51,6 +51,9 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   src={footerLogo}
                   alt="idto"
                   className="h-11 w-auto object-contain object-left"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="flex flex-col gap-4">
                   <p className="font-heading text-lg lg:text-xl text-white leading-normal tracking-[-0.52px]">

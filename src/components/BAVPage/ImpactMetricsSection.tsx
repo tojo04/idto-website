@@ -68,7 +68,7 @@ export default function ImpactMetricsSection() {
               className="bg-[rgba(55,87,200,0.43)] border border-[#536bc9] rounded-xl p-5 flex flex-col gap-4 items-center justify-center text-center w-[295px] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-h-[219px]"
             >
               <div className="w-[53px] h-[53px] rounded-full bg-[#2747b8] border border-[#536bc9] flex items-center justify-center shrink-0">
-                <img src={metric.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={metric.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-1 items-center text-white">
                 <p className="text-[24px] lg:text-[32px] font-bold leading-tight">

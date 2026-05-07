@@ -11,6 +11,7 @@ import HighImpactSection from "../components/BAVPage/HighImpactSection";
 import FAQSection from "../components/BAVPage/FAQSection";
 import CTASection from "../components/BAVPage/CTASection";
 import SEOHead from "../components/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 export default function BAVProductPage() {
   const bookDemo = () => {
@@ -24,6 +25,45 @@ export default function BAVProductPage() {
         description="Verify any Indian bank account in seconds. Penny-drop and pennyless BAV API with NPCI coverage, low TAT, and audit-ready logs. INR 1 per check."
         path="/products/BAV"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://idto.ai"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Products"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Bank Account Verification",
+                  "item": "https://idto.ai/products/BAV"
+                }
+              ]
+            },
+            {
+              "@type": "Product",
+              "name": "Bank Account Verification",
+              "description": "Verify bank accounts via penny-drop and pennyless methods in real-time",
+              "url": "https://idto.ai/products/BAV",
+              "brand": {
+                "@type": "Brand",
+                "name": "idto.ai"
+              }
+            }
+          ]
+        })}</script>
+      </Helmet>
       <Header />
       <main>
         <HeroSection />

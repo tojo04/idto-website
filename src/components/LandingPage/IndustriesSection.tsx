@@ -243,6 +243,8 @@ export default function IndustriesSection() {
                 src={industryImages[activeIndex]}
                 alt={industries[activeIndex].title}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             </motion.div>

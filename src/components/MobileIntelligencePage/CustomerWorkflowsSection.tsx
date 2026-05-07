@@ -95,6 +95,10 @@ export default function CustomerWorkflowsSection() {
                     src={card.icon}
                     alt=""
                     className="w-[26px] h-[26px]"
+                    width="26"
+                    height="26"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <span className="font-['DM_Serif_Display',serif] text-[36px] leading-[40px] text-[#1d212b] font-normal">
@@ -126,7 +130,7 @@ export default function CustomerWorkflowsSection() {
               className="group bg-white rounded-2xl p-5 flex gap-4 items-center w-full border border-[#e5e7eb] hover:border-primary active:border-primary transition-colors duration-200 shadow-[8px_16px_24px_0px_rgba(0,0,0,0.03)]"
             >
               <div className="w-[53px] h-[53px] rounded-[30px] bg-[#e9eefc] flex items-center justify-center shrink-0">
-                <img src={card.icon} alt="" className="w-[26px] h-[26px]" />
+                <img src={card.icon} alt="" className="w-[26px] h-[26px]" width="26" height="26" loading="lazy" decoding="async" />
               </div>
               <div className="flex flex-col gap-[10px]">
                 <p className="text-base font-semibold text-black capitalize">

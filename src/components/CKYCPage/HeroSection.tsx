@@ -102,8 +102,8 @@ export default function HeroSection() {
             <div className="w-full h-px bg-black/10" />
           </div>
           <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-[80px] flex-wrap">
-            <img src={partner1} alt="Partner" className="h-[38px] sm:h-[48px] w-auto object-contain" />
-            <img src={partner2} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" />
+            <img src={partner1} alt="Partner" className="h-[38px] sm:h-[48px] w-auto object-contain" height="48" loading="lazy" decoding="async" />
+            <img src={partner2} alt="Partner" className="h-[35px] sm:h-[45px] w-auto object-contain" height="45" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
