@@ -41,8 +41,7 @@ export default function BAVProductPage() {
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Products",
-                  "item": "https://idto.ai/products"
+                  "name": "Products"
                 },
                 {
                   "@type": "ListItem",

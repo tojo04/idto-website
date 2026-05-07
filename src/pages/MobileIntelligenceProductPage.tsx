@@ -13,7 +13,7 @@ import { Helmet } from "react-helmet-async";
 
 export default function MobileIntelligenceProductPage() {
   const bookDemo = () => {
-    window.open("https://cal.com/idto-ai/30min", "_blank");
+    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
   };
 
   return (
@@ -39,8 +39,7 @@ export default function MobileIntelligenceProductPage() {
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Products",
-                  "item": "https://idto.ai/products"
+                  "name": "Products"
                 },
                 {
                   "@type": "ListItem",

@@ -39,8 +39,7 @@ export default function DigiLockerProductPage() {
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Products",
-                  "item": "https://idto.ai/products"
+                  "name": "Products"
                 },
                 {
                   "@type": "ListItem",
