@@ -2384,6 +2384,23 @@
     line-height: 1.6;
   }
 
+  @media (max-width: 980px) {
+    .dpdp-brief,
+    .dpdp-principles {
+      grid-template-columns: 1fr;
+    }
+
+    .dpdp-brief {
+      gap: 18px;
+    }
+
+    .blog-figure img {
+      min-width: auto;
+      width: 100%;
+      height: auto;
+    }
+  }
+
   @media (min-width: 1280px) {
     .blog-post-content h2 {
       font-size: 42px;
