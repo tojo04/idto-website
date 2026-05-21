@@ -57,6 +57,18 @@ const ROUTES = {
     title: "Terms and Conditions | idto.ai",
     description: "idto.ai terms and conditions of service.",
   },
+  "/blog/kyc-address-verification-digipin-dhruva": {
+    title: "The Most Broken Field in KYC Is Finally Getting Fixed: Address | idto.ai",
+    description:
+      "India's trust stack is getting a new location rail. Here is what DIGIPIN and DHRUVA could change for KYC, CKYC, lending, insurance, and logistics.",
+    ogType: "article",
+  },
+  "/blog/dpdp-is-here-compliance-ready-brands": {
+    title: "DPDP Is Here. If You're Already Doing Things Right, You're Already Ahead. | idto.ai",
+    description:
+      "How India's Data Protection framework rewards compliance-ready brands and what separates the prepared from the panicked.",
+    ogType: "article",
+  },
   "/blog/bank-account-verification-api-failed": {
     title: "Why Your Bank Account Verification API Failed | idto.ai",
     description:

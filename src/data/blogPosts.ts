@@ -22,6 +22,498 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "kyc-address-verification-digipin-dhruva",
+    slug: "kyc-address-verification-digipin-dhruva",
+    title: "The Most Broken Field in KYC Is Finally Getting Fixed: Address",
+    description:
+      "India's trust stack is getting a new location rail. Here is what DIGIPIN and DHRUVA could change for KYC, CKYC, lending, insurance, and logistics.",
+    category: "KYC Infrastructure \u00b7 Address Verification",
+    date: "May 2026",
+    isoDate: "2026-05-21",
+    readTime: 13,
+    author: "idto.ai",
+    excerpt:
+      "Address has always been the messiest field in KYC. DIGIPIN and DHRUVA point to a future where address becomes precise, consented, and machine-readable.",
+    content: `
+      <div class="ckyc-brief">
+        <div>
+          <span class="ckyc-kicker">Address verification</span>
+          <h2>India's trust stack just got a new rail.</h2>
+          <p>When you open a bank account, apply for a loan, order something online, sign up for a SIM card, or claim insurance, one field appears every single time: your address.</p>
+        </div>
+        <div class="ckyc-brief-panel">
+          <span>The broken field</span>
+          <strong>Address is still free text in a world of programmable identity rails.</strong>
+          <p>DIGIPIN and DHRUVA are designed to turn location and address sharing into precise, consented infrastructure.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>The field every KYC journey still struggles with</h2>
+        <p>A scanned utility bill. A photo of the back side of an Aadhaar card. A free-text box where the user types something like <strong>H. No. 4/B, near Sai Mandir, behind Hotel Sangam, Pune - 411014</strong>.</p>
+        <p>Then someone in operations parses it. Then a field agent may visit to verify it. Then a loan gets stuck because the address on Aadhaar does not quite match the address on an electricity bill.</p>
+        <p>This is not a small UX issue. Bad addressing creates failed deliveries, rejected mortgages, insurance claim delays, KYC drop-offs, field verification costs, and real-world service failures.</p>
+        <p>In May 2025, the Government of India quietly shipped the first half of the fix. In May 2026, the second half is still working through legal and policy approvals. Together, they point to a much larger shift in how India verifies location.</p>
+      </section>
+
+      <section>
+        <h2>What actually got launched?</h2>
+        <p>The fix has two parts, introduced in two stages. The simplest way to understand it is this: DIGIPIN turns a messy physical address into a precise location code, while DHRUVA is designed to make that address shareable through consent.</p>
+      </section>
+
+      <figure class="blog-figure blog-figure-wide">
+        <img src="/blog/kyc-address-verification/digipin-dhruva-address-rail.png" alt="Diagram explaining how a physical address is encoded as DIGIPIN and shared through DHRUVA" loading="lazy" />
+        <figcaption>DIGIPIN does precision. DHRUVA adds the consent and sharing layer.</figcaption>
+      </figure>
+
+      <div class="ckyc-decision-grid">
+        <div class="ckyc-decision-card">
+          <span>DIGIPIN</span>
+          <ul>
+            <li>Live as of May 2025.</li>
+            <li>Describes any roughly 4m x 4m square in India using a 10-character code.</li>
+            <li>Built by India Post with IIT Hyderabad and ISRO's satellite remote sensing team.</li>
+            <li>Open-source, free, and usable by anyone.</li>
+          </ul>
+        </div>
+        <div class="ckyc-decision-card">
+          <span>DHRUVA</span>
+          <ul>
+            <li>In policy hardening as of May 2026.</li>
+            <li>Proposes a username-style address handle such as username@domain.</li>
+            <li>Lets authorised parties resolve the handle to the underlying address.</li>
+            <li>Designed around consent, updates, revocation, and audit trails.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="aadhaar-verify-principle">
+        <span>The simple version</span>
+        <p>DIGIPIN is the precision layer. DHRUVA is the consent and address-sharing layer. One makes location machine-readable. The other makes address sharing governable.</p>
+      </div>
+
+      <section>
+        <h2>A brief look at India's DPI stack</h2>
+        <p>India has been quietly building a trust stack for more than a decade. Each public digital rail solved a specific expensive problem by turning a static, document-bound attribute into programmable infrastructure. Address was the last major unresolved field.</p>
+      </section>
+
+      <figure class="blog-figure blog-figure-wide">
+        <img src="/blog/kyc-address-verification/india-trust-stack-timeline.png" alt="Timeline of India's digital trust stack from Aadhaar to DIGIPIN and DHRUVA" loading="lazy" />
+        <figcaption>India's public digital rails have been turning identity, documents, money, consent, and now location into programmable infrastructure.</figcaption>
+      </figure>
+
+      <section>
+        <p>Aadhaar answers who you are. DigiLocker answers what verified documents you carry. CKYC answers whether your KYC record can travel across institutions. Account Aggregator answers whether financial data can move with consent. eSign answers whether you can sign digitally with legal validity. UPI answers how money moves.</p>
+        <p>Now look at the list and notice what is missing: <strong>where do you live?</strong></p>
+        <p>In 2026, the answer is still often a free-text field, a scanned utility bill, a photo of an Aadhaar back side, or a landmark string that a human has to interpret.</p>
+        <p>That is the gap DIGIPIN and DHRUVA are designed to close. The implications go far beyond delivery addresses.</p>
+      </section>
+
+      <section>
+        <h2>What is live and what is still policy?</h2>
+        <p>It is important to separate the working precision layer from the proposed handle layer.</p>
+      </section>
+
+      <div class="aadhaar-verify-table-wrap" aria-label="DIGIPIN and DHRUVA status timeline">
+        <div class="aadhaar-verify-table">
+          <div class="aadhaar-verify-table-row aadhaar-verify-table-head">
+            <div>Timeline</div>
+            <div>Status</div>
+            <div>What changed</div>
+          </div>
+          <div class="aadhaar-verify-table-row">
+            <div>March 2025</div>
+            <div>DIGIPIN technical document</div>
+            <div>Final technical document released.</div>
+          </div>
+          <div class="aadhaar-verify-table-row">
+            <div>27 May 2025</div>
+            <div>Public portals</div>
+            <div>India Post launched Know Your DIGIPIN and Know Your PIN Code portals.</div>
+          </div>
+          <div class="aadhaar-verify-table-row">
+            <div>30 May 2025</div>
+            <div>DHRUVA consultation</div>
+            <div>Policy document released for public consultation.</div>
+          </div>
+          <div class="aadhaar-verify-table-row">
+            <div>Early 2026</div>
+            <div>DIGIPIN apps</div>
+            <div>Mobile apps became available on Android and iOS.</div>
+          </div>
+          <div class="aadhaar-verify-table-row">
+            <div>May 2026</div>
+            <div>DHRUVA rollout</div>
+            <div>Broader rollout was still awaiting policy and approval progress.</div>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <p>DIGIPIN is live. The precision layer exists. Users can fetch a DIGIPIN from the official portal or app, and the source code is available under an open-source license.</p>
+        <p>DHRUVA is still in policy and legal hardening. The architecture, consultation papers, and actor model exist, but the production rail where every bank, NBFC, and quick-commerce app accepts a DHRUVA handle under consent is not yet live.</p>
+        <p>This matters because if teams build assuming it ships next quarter, they may be early in the wrong way. If they build assuming the direction of travel, they can be early in the right way.</p>
+
+        <h2>What DIGIPIN actually is</h2>
+        <p>DIGIPIN is an open-source, geo-coded, grid-based digital address system. It divides India's territory into roughly 4m x 4m grid cells and assigns each cell a unique 10-character alphanumeric code derived from latitude and longitude.</p>
+        <p>A code can look like <strong>4P3-JK8-52C9</strong>. The math is deterministic, which means encode and decode can work offline without a server lookup.</p>
+        <p>For context, a typical Indian pincode covers a very large area. DIGIPIN reduces that unit to a tiny location grid. That is not an incremental improvement. It is a fundamentally different unit of address.</p>
+      </section>
+
+      <div class="ckyc-rulebook">
+        <h2>Three things to know before getting too excited</h2>
+        <div class="ckyc-rule">
+          <span>1</span>
+          <p><strong>DIGIPIN is not identity.</strong> It is a pure function of location. Two people at the same physical spot get the same DIGIPIN.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>2</span>
+          <p><strong>Accuracy depends on device precision.</strong> Civilian GPS can drift, especially in dense urban areas.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>3</span>
+          <p><strong>It complements postal addresses.</strong> It does not automatically replace full human-readable addresses, flat numbers, or existing postal systems.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>What DHRUVA is trying to do</h2>
+        <p>DHRUVA is the governance and address-sharing layer. The policy describes a two-layer ecosystem: DIGIPIN below and a Digital Address layer above.</p>
+        <p>This Digital Address layer is where the UPI analogy comes from. The policy proposes labels like username@domain that represent a DIGIPIN plus a descriptive address, shareable through a unified, consent-based interface.</p>
+        <p>The important architectural idea is that DHRUVA is designed to be federated, not a single national database collecting every address in one place. Data sits with Address Information Providers. Access is consent-driven and time-bound. Audit trails align with India's data protection direction.</p>
+        <p>One honesty check matters: portability is the intent, but a permanent, unchanged handle across every move, provider, and governance change should not be treated as a guaranteed promise until the production framework says so clearly.</p>
+
+        <h2>What this means for CKYC</h2>
+        <p>The real value of DHRUVA is not postal. It is trust infrastructure.</p>
+        <p>Today, address is the messiest field in every KYC flow. Users move. Documents go stale. Utility bills are not always in the user's name. Address formats differ across documents. Landmarks are vague. CKYC inherits all of this mess.</p>
+        <p>CKYC's promise is reusability. A user completes KYC once, and eligible regulated entities can retrieve that record later. But address makes reuse harder because the schema is still largely free text: Line 1, Line 2, City, District, State, and Pincode.</p>
+        <p>The same physical address can show up in many string variants across banks. The CKYC problem is not only data quality. It is that the schema lacks a canonical address primitive.</p>
+      </section>
+
+      <figure class="blog-figure blog-figure-wide">
+        <img src="/blog/kyc-address-verification/ckyc-address-schema-paradox.png" alt="Diagram showing how CKYC free-text address fields prevent deterministic deduplication and how DIGIPIN and DHRUVA could improve it" loading="lazy" />
+        <figcaption>Adding precise and consented address fields could move CKYC address matching from fuzzy confidence scores toward deterministic context.</figcaption>
+      </figure>
+
+      <div class="ckyc-pathways">
+        <div class="ckyc-pathway">
+          <span class="ckyc-pathway-label">Canonical address</span>
+          <strong>Cleaner deduplication</strong>
+          <p>A DIGIPIN or DHRUVA-linked address field could make matching less dependent on messy free-text strings.</p>
+        </div>
+        <div class="ckyc-pathway">
+          <span class="ckyc-pathway-label">Re-KYC</span>
+          <strong>Address updates as events</strong>
+          <p>One consented address-change event could eventually update institutions holding the relevant record.</p>
+        </div>
+        <div class="ckyc-pathway">
+          <span class="ckyc-pathway-label">Video KYC</span>
+          <strong>Deterministic location checks</strong>
+          <p>Live geolocation can be compared with a submitted address layer instead of relying only on soft signals.</p>
+        </div>
+      </div>
+
+      <section>
+        <p>The takeaway is not that CKYC gets replaced. It is that CKYC gets context. Aadhaar gave identity. DigiLocker gave documents. DHRUVA could give precise, consented, machine-readable address intelligence.</p>
+        <p>That is the shift: from proof of address to programmable address.</p>
+
+        <h2>What this could move</h2>
+        <p>The DHRUVA policy cites a 2018 estimate that bad addressing costs India $10-14 billion annually, roughly 0.5% of GDP. The real value appears across many sectors.</p>
+      </section>
+
+      <div class="ckyc-scoreboard">
+        <div>
+          <span>KYC</span>
+          <strong>Higher completion</strong>
+          <p>Fewer proof-of-address rejections, mismatches, and re-KYC dead ends.</p>
+        </div>
+        <div>
+          <span>Field ops</span>
+          <strong>Lower visit cost</strong>
+          <p>Reduced address-not-found rates and lower manual verification dependency.</p>
+        </div>
+        <div>
+          <span>Logistics</span>
+          <strong>Better last mile</strong>
+          <p>Fewer failed deliveries, rider calls, and return-to-origin events.</p>
+        </div>
+        <div>
+          <span>Risk</span>
+          <strong>Sharper signals</strong>
+          <p>Address intelligence can support mortgage checks, claims validation, and fraud detection.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>The blind spots</h2>
+        <p>The direction is exciting, but the hard parts should be solved before any address rail becomes deeply embedded across essential services.</p>
+      </section>
+
+      <div class="ckyc-rulebook">
+        <h2>Six questions the ecosystem still needs to answer</h2>
+        <div class="ckyc-rule">
+          <span>1</span>
+          <p><strong>Floors are invisible.</strong> DIGIPIN can identify a building, but not a flat inside a dense apartment tower.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>2</span>
+          <p><strong>Precision can be misunderstood.</strong> The grid may be precise, but phone location can drift.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>3</span>
+          <p><strong>Assignment is difficult.</strong> Multi-tenant homes, shared households, and informal settlements create real-world edge cases.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>4</span>
+          <p><strong>Occupancy changes.</strong> A location code does not prove who lives there today.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>5</span>
+          <p><strong>Consent needs visible auditability.</strong> Citizens should be able to know who resolved their address, when, and why.</p>
+        </div>
+        <div class="ckyc-rule">
+          <span>6</span>
+          <p><strong>Voluntary rails can become default rails.</strong> Guardrails are easier to design before deep institutional adoption than after it.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>How the stack fits together</h2>
+        <p>Step back from DIGIPIN and DHRUVA and the larger pattern becomes clear. India's full digital trust stack is becoming more complete, with location sitting beside identity, documents, consent, data, payments, and user-controlled handles.</p>
+      </section>
+
+      <figure class="blog-figure blog-figure-wide">
+        <img src="/blog/kyc-address-verification/india-dpi-trust-stack-layers.png" alt="Layered diagram of India's digital public infrastructure trust stack with DIGIPIN and DHRUVA included" loading="lazy" />
+        <figcaption>DIGIPIN and DHRUVA fit into the broader trust stack as the missing location and address layer.</figcaption>
+      </figure>
+
+      <section>
+        <p>A fully stacked lending flow could eventually pull Account Aggregator data, DigiLocker documents, a CKYC record, and a DHRUVA-validated address, then run those inputs through a behaviour score with explicit consent and audit trails.</p>
+        <p>That is not five disconnected APIs. That is the trust stack working as a stack.</p>
+        <p>The unit cost of trust in India is about to drop again. Aadhaar dropped it once. UPI dropped it again. CKYC and Account Aggregator dropped it for specific surfaces. DIGIPIN and DHRUVA, when they land fully, could drop it for the largest remaining manual surface: address.</p>
+      </section>
+
+      <div class="aadhaar-verify-takeaways address-watchlist">
+        <div>
+          <strong>Watch regulators</strong>
+          <p>RBI, SEBI, and IRDAI references to DIGIPIN or DHRUVA would mark a real inflection point.</p>
+        </div>
+        <div>
+          <strong>Watch CKYC schema</strong>
+          <p>DIGIPIN or DHRUVA fields in CKYC would show the address layer moving into reusable KYC records.</p>
+        </div>
+        <div>
+          <strong>Watch BFSI adoption</strong>
+          <p>A major bank or NBFC accepting DHRUVA for re-KYC would be a strong production signal.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>The bottom line</h2>
+        <p>CKYC does not get replaced. It gets cleaner address intelligence. Aadhaar does not get replaced. It gets a location partner. Account Aggregator does not get replaced. It gets a sibling rail.</p>
+        <p>The real story is that India is methodically completing its trust stack one infrastructure rail at a time: identity, behaviour, documents, KYC, data, consent, payments, and now location.</p>
+        <p>When the address layer locks in, every other rail above it gets sharper. KYC becomes more deterministic. Lending becomes faster. Insurance becomes more accurate. Logistics becomes cheaper. Emergency services become smarter. Welfare becomes less leaky.</p>
+        <p>Boring infrastructure. Massive unlock.</p>
+
+        <h2>Where idto fits</h2>
+        <p>idto is the orchestration layer for KYC, KYB, address verification, and identity vendors. Identity infrastructure is fragmented: PAN, CKYC, BAV, face liveness, KYB, AML, global ID, DigiLocker, and address checks often come from different vendors with different APIs, error codes, and SLAs.</p>
+        <p>Most companies stitch multiple vendors together manually and rebuild fallback logic every time something breaks. idto gives teams one API, one dashboard, smart routing, standardised responses, and automatic fallbacks so onboarding can ship in days instead of quarters.</p>
+        <p>This is not official guidance. It is a field note on where identity infrastructure appears to be heading.</p>
+      </section>
+    `,
+    cta: {
+      title: "Build address-aware KYC flows",
+      description: "Use idto.ai to orchestrate KYC, CKYC, DigiLocker, address verification, and vendor fallbacks through one identity infrastructure layer.",
+      buttonLabel: "Book a Demo \u2192",
+    },
+  },
+  {
+    id: "dpdp-is-here-compliance-ready-brands",
+    slug: "dpdp-is-here-compliance-ready-brands",
+    title: "DPDP Is Here. If You're Already Doing Things Right, You're Already Ahead.",
+    description:
+      "How India's Data Protection framework rewards compliance-ready brands and what separates the prepared from the panicked.",
+    category: "Compliance \u00b7 DPDP",
+    date: "May 2026",
+    isoDate: "2026-05-21",
+    readTime: 6,
+    author: "idto.ai",
+    excerpt:
+      "The DPDP Act is not a threat to well-run organizations. It is a formal recognition that clean consent, data minimization, and transparent verification infrastructure now matter more than ever.",
+    content: `
+      <div class="dpdp-brief">
+        <div class="dpdp-brief-copy">
+          <span class="dpdp-kicker">DPDP readiness</span>
+          <h2>The anxiety is real. The crisis is not.</h2>
+          <p>Scroll through any compliance forum, Slack channel, or CXO WhatsApp group right now, and you will find the same phrase surfacing repeatedly: DPDP compliance.</p>
+        </div>
+        <div class="dpdp-readiness-panel">
+          <span>Strategic reframe</span>
+          <strong>The DPDP Act rewards organizations that have already been building correctly.</strong>
+          <p>Clean consent, modular data systems, and transparent verification flows are no longer just good practice. They are becoming business advantage.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>The anxiety is real. The crisis is not.</h2>
+        <p>India's Digital Personal Data Protection Act, and its draft Rules, have arrived with enough regulatory weight to make even seasoned legal teams pause.</p>
+        <p>The anxiety is understandable. New frameworks trigger old fears: fear of penalties, fear of workflow disruption, and fear of building something robust only to have the rules shift again.</p>
+        <p>But here is the reframe every growth-minded founder and compliance leader needs to internalize right now: the DPDP Act is not a threat to well-run organizations. It is a formal recognition that you have been building correctly all along.</p>
+        <p>The brands that will struggle are not the ones who care about compliance. They are the ones who quietly outsourced that care to rigid, static verification systems that cannot evolve. If you are reading this, you are likely not that company, and this piece will show you exactly why.</p>
+      </section>
+
+      <section>
+        <h2>What DPDP actually demands, in business language</h2>
+        <p>Strip away the legislative language and the DPDP framework resolves into four operating principles that any customer-obsessed organization already respects.</p>
+      </section>
+
+      <div class="dpdp-principles">
+        <div class="dpdp-principle-card">
+          <span>Explicit, itemized consent</span>
+          <ul>
+            <li>Users must know what data you are collecting.</li>
+            <li>Users must understand why you are collecting it.</li>
+            <li>Blanket consent checkboxes are out. Purposeful, granular consent flows are in.</li>
+          </ul>
+        </div>
+        <div class="dpdp-principle-card">
+          <span>Data minimization</span>
+          <ul>
+            <li>Collect only what is necessary for the stated purpose.</li>
+            <li>If six data points are enough, collecting twelve creates avoidable accountability.</li>
+            <li>Leaner data pipelines are also faster and cheaper.</li>
+          </ul>
+        </div>
+        <div class="dpdp-principle-card">
+          <span>Purpose limitation</span>
+          <ul>
+            <li>Data collected for identity verification cannot be quietly repurposed.</li>
+            <li>Marketing segmentation or risk profiling requires fresh consent where applicable.</li>
+            <li>Purpose boundaries must be technically enforced, not just promised in a privacy policy.</li>
+          </ul>
+        </div>
+        <div class="dpdp-principle-card">
+          <span>User data rights</span>
+          <ul>
+            <li>Individuals can access their personal data.</li>
+            <li>They can correct it when required.</li>
+            <li>In certain contexts, they can request erasure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dpdp-insight">
+        <span>Strategic implication</span>
+        <p>Every DPDP pillar rewards organizations that have already invested in clean, modular, and transparent data infrastructure. DPDP compliance does not invent new ethical standards. It legislates the ones that trustworthy brands already follow.</p>
+      </div>
+
+      <section>
+        <h2>The real threat is not the law. It is your legacy stack.</h2>
+        <p>Here is the uncomfortable truth that most DPDP compliance conversations avoid: the Digital Personal Data Protection Act itself is not what will cost you sleep or money. The real pressure sits inside the verification and onboarding infrastructure underneath your product.</p>
+        <p>Legacy KYC systems were designed to satisfy a single, static set of requirements. They are monolithic. They rely on manual workflows, siloed data stores, and brittle API integrations that require engineering cycles every time a regulation updates.</p>
+        <p>When the rules shift, and DPDP Rules will continue to be notified in phases, these systems do not adapt. They crack.</p>
+        <p>The organizations most exposed to DPDP penalties are not the ones who neglected compliance. They are the ones who built compliance into fixed, un-upgradeable infrastructure and assumed the rules would stay still.</p>
+      </section>
+
+      <div class="dpdp-warning-block">
+        <h2>Three warning signs your current stack is not DPDP-ready</h2>
+        <div class="dpdp-warning-item">
+          <span>1</span>
+          <p><strong>Consent capture is static</strong> with no version history or audit trail.</p>
+        </div>
+        <div class="dpdp-warning-item">
+          <span>2</span>
+          <p><strong>User-level data controls are missing</strong>, making it difficult to review, correct, or delete onboarding data.</p>
+        </div>
+        <div class="dpdp-warning-item">
+          <span>3</span>
+          <p><strong>KYC, KYB, and KYE processes are disconnected</strong>, leaving no unified consent record across verification workflows.</p>
+        </div>
+      </div>
+
+      <section>
+        <p>If any of these describe your current architecture, the urgency is not only legal. It is infrastructural.</p>
+
+        <h2>Why forward-looking brands are choosing idto.ai</h2>
+        <p>At idto.ai, we built our KYC API, KYB API, and KYE API infrastructure around a single conviction: regulatory frameworks will always evolve, and your compliance layer must evolve with them automatically, not reactively.</p>
+        <p>This is not a marketing claim. It is an architectural choice.</p>
+      </section>
+
+      <div class="dpdp-capability-grid">
+        <div class="dpdp-capability-card">
+          <span>Consent</span>
+          <strong>Designed, not bolted on</strong>
+          <p>Our onboarding flows support granular, itemized consent collection by default. Every consent event is timestamped, versioned, and auditable.</p>
+        </div>
+        <div class="dpdp-capability-card">
+          <span>Agility</span>
+          <strong>DPDP compliance for fast-moving startups</strong>
+          <p>Our identity verification APIs abstract compliance complexity so DPDP updates happen at the infrastructure layer, not in your sprint backlog.</p>
+        </div>
+        <div class="dpdp-capability-card">
+          <span>Scale</span>
+          <strong>Enterprise-grade data security</strong>
+          <p>For large brands, our infrastructure supports data minimization controls, purpose-binding mechanisms, and deletion workflows without rebuilding the entire data estate.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>One stack for KYC, KYB, and KYE</h2>
+        <p>Compliance fragmentation is a hidden liability. Organizations running separate verification pipelines for individual customers, business entities, and employees carry three times the regulatory surface area.</p>
+        <p>idto.ai unifies these workflows under a single, consent-aware, DPDP-aligned identity verification platform.</p>
+      </section>
+
+      <div class="dpdp-insight dpdp-insight-dark">
+        <span>The core promise</span>
+        <p>You should never have to choose between a frictionless user experience and a compliant one. With idto.ai, they are the same thing.</p>
+      </div>
+
+      <section>
+        <h2>DPDP compliance as competitive advantage</h2>
+        <p>The organizations that will dominate the next five years of Indian fintech, lending, insurance, and B2B SaaS are not just the fastest builders. They are the most trusted ones.</p>
+        <p>The DPDP Act creates a visible, meaningful signal that users and enterprise customers can use to evaluate who they share their data with.</p>
+        <p>The brands that emerge from this transition with clean consent architecture, transparent data practices, and demonstrable user rights will carry a trust premium that no marketing budget can replicate.</p>
+        <p>This is not a compliance deadline. It is a brand-building opportunity, available right now to every organization willing to invest in the right identity verification infrastructure.</p>
+      </section>
+
+      <div class="dpdp-scoreboard">
+        <div>
+          <span>Trust</span>
+          <strong>Clear consent</strong>
+          <p>Users know what is collected, why it is needed, and how it supports onboarding.</p>
+        </div>
+        <div>
+          <span>Control</span>
+          <strong>Cleaner data</strong>
+          <p>Purpose-bound data systems reduce excess collection and make rights management easier.</p>
+        </div>
+        <div>
+          <span>Speed</span>
+          <strong>Less rework</strong>
+          <p>Compliance updates happen in the verification layer instead of consuming product cycles.</p>
+        </div>
+        <div>
+          <span>Brand</span>
+          <strong>Visible readiness</strong>
+          <p>Prepared companies can turn DPDP readiness into a signal of reliability.</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>Let's build your DPDP-ready future, together</h2>
+        <p>If you are a founder, CXO, or compliance leader evaluating what the DPDP Act means for your verification stack, the clearest first step is a structured, honest conversation about where your current infrastructure stands and what it would take to make it future-proof.</p>
+        <p>Talk to idto.ai's compliance and onboarding architects. We will map your current KYC, KYB, and KYE workflows against DPDP compliance requirements, identify your actual risk surface, and show you exactly how our identity verification APIs close the gaps without disrupting your conversion rates or your users' experience.</p>
+        <p>Because the brands that thrive under DPDP will not be the ones who feared it most. They will be the ones who moved first.</p>
+        <p>idto.ai provides identity verification and onboarding APIs across KYC, KYB, and KYE, purpose-built for Indian compliance requirements. Trusted by high-growth startups and enterprise brands across fintech, lending, insurance, and B2B SaaS.</p>
+      </section>
+    `,
+    cta: {
+      title: "Schedule your DPDP readiness consultation",
+      description: "Map your KYC, KYB, and KYE workflows against DPDP requirements and identify the gaps in your verification stack.",
+      buttonLabel: "Book a Consultation \u2192",
+    },
+  },
+  {
     id: "bank-account-verification-api-failed",
     slug: "bank-account-verification-api-failed",
     title: "Why Your Bank Account Verification API Failed",

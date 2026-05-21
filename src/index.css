@@ -135,6 +135,33 @@
     color: inherit;
   }
 
+  .blog-figure {
+    width: min(980px, calc(100vw - 40px));
+    margin: 40px 0 56px 50%;
+    overflow-x: auto;
+    transform: translateX(-50%);
+  }
+
+  .blog-figure img {
+    display: block;
+    width: 100%;
+    min-width: 680px;
+    height: auto;
+    border: 1px solid #e2e6ef;
+    border-radius: 24px;
+    background: #f7f3ea;
+    box-shadow: 0 22px 80px rgba(15, 17, 23, 0.08);
+  }
+
+  .blog-figure figcaption {
+    max-width: 720px;
+    margin: 14px auto 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6b7280;
+  }
+
   .blog-hero-visual {
     max-width: 780px;
     margin: 0 auto 56px;
@@ -1302,6 +1329,41 @@
     color: rgba(255, 255, 255, 0.74);
   }
 
+  .aadhaar-verify-takeaways.address-watchlist {
+    max-width: 900px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .aadhaar-verify-takeaways.address-watchlist > div {
+    min-height: 190px;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.08);
+  }
+
+  .aadhaar-verify-takeaways.address-watchlist > div:nth-child(2) {
+    background: #143d59;
+  }
+
+  .aadhaar-verify-takeaways.address-watchlist > div:nth-child(3) {
+    background: #0f172a;
+  }
+
+  .aadhaar-verify-takeaways.address-watchlist strong {
+    font-size: 24px;
+    line-height: 1.18;
+  }
+
+  .aadhaar-verify-takeaways.address-watchlist p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
   .aadhaar-verify-faq {
     display: grid;
     max-width: 780px;
@@ -1921,6 +1983,407 @@
     line-height: 1.7;
   }
 
+  @keyframes dpdp-rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes dpdp-accent-scan {
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .dpdp-brief {
+    display: grid;
+    max-width: 900px;
+    margin: 0 auto 56px;
+    grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .dpdp-brief-copy,
+  .dpdp-readiness-panel,
+  .dpdp-principle-card,
+  .dpdp-warning-block,
+  .dpdp-capability-card,
+  .dpdp-scoreboard > div,
+  .dpdp-insight {
+    animation: dpdp-rise-in 520ms ease both;
+  }
+
+  .dpdp-brief-copy {
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #ffffff;
+    padding: 34px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+  }
+
+  .dpdp-kicker,
+  .dpdp-readiness-panel span,
+  .dpdp-principle-card span,
+  .dpdp-capability-card span,
+  .dpdp-scoreboard span,
+  .dpdp-insight span {
+    display: inline-flex;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+  }
+
+  .dpdp-brief h2 {
+    margin-top: 0;
+  }
+
+  .dpdp-brief p,
+  .dpdp-readiness-panel p,
+  .dpdp-principle-card p,
+  .dpdp-capability-card p,
+  .dpdp-scoreboard p,
+  .dpdp-insight p {
+    margin-bottom: 0;
+  }
+
+  .dpdp-readiness-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #172554;
+    border-radius: 28px;
+    background: #0f172a;
+    padding: 28px;
+    color: #ffffff;
+    animation-delay: 80ms;
+  }
+
+  .dpdp-readiness-panel::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e59e, #1d4ed8, #f97316);
+    content: "";
+    transform-origin: left;
+    animation: dpdp-accent-scan 900ms ease 260ms both;
+  }
+
+  .dpdp-readiness-panel span {
+    color: #93c5fd;
+  }
+
+  .dpdp-readiness-panel strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.22;
+    color: #ffffff;
+  }
+
+  .dpdp-readiness-panel p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .dpdp-principles {
+    display: grid;
+    max-width: 860px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .dpdp-principle-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #dbe6f4;
+    border-radius: 22px;
+    background: #ffffff;
+    padding: 28px;
+    box-shadow: 0 18px 60px rgba(15, 17, 23, 0.05);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .dpdp-principle-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background: #1d4ed8;
+    content: "";
+  }
+
+  .dpdp-principle-card:nth-child(2)::before {
+    background: #00a66f;
+  }
+
+  .dpdp-principle-card:nth-child(3)::before {
+    background: #f97316;
+  }
+
+  .dpdp-principle-card:nth-child(4)::before {
+    background: #0f1117;
+  }
+
+  .dpdp-principle-card:nth-child(2) {
+    animation-delay: 70ms;
+  }
+
+  .dpdp-principle-card:nth-child(3) {
+    animation-delay: 140ms;
+  }
+
+  .dpdp-principle-card:nth-child(4) {
+    animation-delay: 210ms;
+  }
+
+  .dpdp-principle-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 22px 70px rgba(29, 78, 216, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .dpdp-principle-card span {
+    max-width: 320px;
+    margin-bottom: 18px;
+    letter-spacing: 0.08em;
+    color: #0f1117;
+  }
+
+  .dpdp-principle-card ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .dpdp-principle-card li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 15px;
+    line-height: 1.58;
+    color: #52525b;
+  }
+
+  .dpdp-principle-card li::before {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: #1d4ed8;
+    content: "";
+  }
+
+  .dpdp-principle-card:nth-child(2) li::before {
+    background: #00a66f;
+  }
+
+  .dpdp-principle-card:nth-child(3) li::before {
+    background: #f97316;
+  }
+
+  .dpdp-principle-card:nth-child(4) li::before {
+    background: #0f1117;
+  }
+
+  .dpdp-insight {
+    max-width: 780px;
+    margin: 36px auto 56px;
+    border-left: 5px solid #00a66f;
+    border-radius: 0 24px 24px 0;
+    background: #ecfdf5;
+    padding: 28px 32px;
+    box-shadow: 0 20px 70px rgba(15, 17, 23, 0.05);
+  }
+
+  .dpdp-insight p {
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #064e3b;
+  }
+
+  .dpdp-insight-dark {
+    border-left-color: #00e59e;
+    background: #0f1117;
+  }
+
+  .dpdp-insight-dark span {
+    color: #93c5fd;
+  }
+
+  .dpdp-insight-dark p {
+    color: #ffffff;
+  }
+
+  .dpdp-warning-block {
+    max-width: 840px;
+    margin: 48px auto 56px;
+    border: 1px solid #fed7aa;
+    border-left: 7px solid #f97316;
+    border-radius: 0 30px 30px 0;
+    background: #fff7ed;
+    padding: 32px;
+    box-shadow: 0 22px 80px rgba(154, 52, 18, 0.12);
+  }
+
+  .blog-post-content .dpdp-warning-block h2 {
+    margin: 0 0 8px;
+    color: #9a3412;
+  }
+
+  .dpdp-warning-item {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(249, 115, 22, 0.24);
+  }
+
+  .dpdp-warning-item span {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #fed7aa;
+    color: #9a3412;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .dpdp-warning-item p {
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #7c2d12;
+  }
+
+  .dpdp-capability-grid {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .dpdp-capability-card {
+    min-height: 250px;
+    padding: 28px;
+    border-right: 1px solid #e2e6ef;
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .dpdp-capability-card:last-child {
+    border-right: 0;
+  }
+
+  .dpdp-capability-card:hover {
+    background: #f8fbff;
+    transform: translateY(-3px);
+  }
+
+  .dpdp-capability-card strong {
+    display: block;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.22;
+    color: #0f1117;
+  }
+
+  .dpdp-capability-card p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .dpdp-scoreboard {
+    display: grid;
+    max-width: 900px;
+    margin: 40px auto 56px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid #d7e0e9;
+    border-radius: 28px;
+    background: #d7e0e9;
+  }
+
+  .dpdp-scoreboard > div {
+    position: relative;
+    background: #ffffff;
+    padding: 28px 24px 24px;
+    transition: background-color 180ms ease;
+  }
+
+  .dpdp-scoreboard > div::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: #1d4ed8;
+    content: "";
+  }
+
+  .dpdp-scoreboard > div:nth-child(2)::before {
+    background: #00a66f;
+  }
+
+  .dpdp-scoreboard > div:nth-child(3)::before {
+    background: #f97316;
+  }
+
+  .dpdp-scoreboard > div:nth-child(4)::before {
+    background: #0f1117;
+  }
+
+  .dpdp-scoreboard > div:hover {
+    background: #f8fbff;
+  }
+
+  .dpdp-scoreboard strong {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.22;
+    color: #0f1117;
+  }
+
+  .dpdp-scoreboard p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
   @media (min-width: 1280px) {
     .blog-post-content h2 {
       font-size: 42px;
@@ -1932,8 +2395,22 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .bav-switchboard-node {
+    .bav-switchboard-node,
+    .dpdp-readiness-panel::after,
+    .dpdp-brief-copy,
+    .dpdp-readiness-panel,
+    .dpdp-principle-card,
+    .dpdp-warning-block,
+    .dpdp-capability-card,
+    .dpdp-scoreboard > div,
+    .dpdp-insight {
       animation: none;
+    }
+
+    .dpdp-principle-card,
+    .dpdp-capability-card,
+    .dpdp-scoreboard > div {
+      transition: none;
     }
   }
 
@@ -1956,10 +2433,30 @@
       padding: 20px;
     }
 
+    .blog-figure {
+      width: calc(100vw - 32px);
+      margin-top: 32px;
+      margin-bottom: 44px;
+    }
+
+    .blog-figure img {
+      min-width: 720px;
+      border-radius: 18px;
+    }
+
+    .blog-figure figcaption {
+      text-align: left;
+      font-size: 12px;
+    }
+
     .ckyc-brief,
     .ckyc-decision-grid,
     .ckyc-pathways,
     .ckyc-scoreboard,
+    .dpdp-brief,
+    .dpdp-principles,
+    .dpdp-capability-grid,
+    .dpdp-scoreboard,
     .aadhaar-map,
     .aadhaar-era-strip,
     .aadhaar-source-panel,
@@ -1986,6 +2483,13 @@
     .ckyc-pathway,
     .ckyc-scoreboard > div,
     .ckyc-rulebook,
+    .dpdp-brief-copy,
+    .dpdp-readiness-panel,
+    .dpdp-principle-card,
+    .dpdp-warning-block,
+    .dpdp-capability-card,
+    .dpdp-scoreboard > div,
+    .dpdp-insight,
     .aadhaar-map-copy,
     .aadhaar-source-panel,
     .aadhaar-era-strip > div,
@@ -2021,6 +2525,35 @@
     .ckyc-rule span {
       width: 36px;
       height: 36px;
+    }
+
+    .dpdp-principle-card:hover,
+    .dpdp-capability-card:hover {
+      transform: none;
+    }
+
+    .dpdp-warning-item {
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .dpdp-warning-item span {
+      width: 38px;
+      height: 38px;
+    }
+
+    .dpdp-capability-card {
+      min-height: auto;
+      border-right: 0;
+      border-bottom: 1px solid #e2e6ef;
+    }
+
+    .dpdp-capability-card:last-child {
+      border-bottom: 0;
+    }
+
+    .dpdp-insight p {
+      font-size: 19px;
     }
 
     .aadhaar-principle {
@@ -2135,6 +2668,16 @@
     .aadhaar-verify-step > span {
       width: 40px;
       height: 40px;
+    }
+
+    .aadhaar-verify-takeaways.address-watchlist {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .aadhaar-verify-takeaways.address-watchlist > div {
+      min-height: auto;
+      padding: 22px;
     }
 
     .aadhaar-verify-steps::before {
