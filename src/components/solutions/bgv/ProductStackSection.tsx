@@ -6,7 +6,7 @@ import docIcon from "../../../assets/solution_pages/fintech_and_lending/sections
 import faceMatchIcon from "../../../assets/solution_pages/fintech_and_lending/sections/product_stack/face_match.svg";
 import linesAccent from "../../../assets/solution_pages/fintech_and_lending/sections/product_stack/lines-01 (1).svg";
 import networkIcon from "../../../assets/solution_pages/fintech_and_lending/sections/product_stack/network.svg";
-import trendingIcon from "../../../assets/solution_pages/fintech_and_lending/sections/product_stack/trending.svg";
+import trendingIcon from "../../../assets/solution_pages/bgv/sections/product_stack/trending.svg";
 import verificationIcon from "../../../assets/solution_pages/fintech_and_lending/sections/product_stack/verification.svg";
 
 const stackItems = [
