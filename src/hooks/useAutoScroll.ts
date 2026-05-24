@@ -8,18 +8,31 @@ export function useAutoScroll(cardWidth: number, gap: number, interval = 3000) {
     if (!el) return;
 
     let idx = 0;
+    let atEnd = false;
     let paused = false;
     let resumeTimer: ReturnType<typeof setTimeout>;
 
     const tick = () => {
       if (paused || el.scrollWidth <= el.clientWidth) return;
+
+      if (atEnd) {
+        idx = 0;
+        atEnd = false;
+        el.scrollTo({ left: 0, behavior: "smooth" });
+        return;
+      }
+
       idx++;
       const maxScroll = el.scrollWidth - el.clientWidth;
       const target = idx * (cardWidth + gap);
-      if (target > maxScroll) {
-        idx = 0;
+
+      if (target >= maxScroll) {
+        atEnd = true;
+        el.scrollTo({ left: maxScroll, behavior: "smooth" });
+        return;
       }
-      el.scrollTo({ left: idx * (cardWidth + gap), behavior: "smooth" });
+
+      el.scrollTo({ left: target, behavior: "smooth" });
     };
 
     const id = setInterval(tick, interval);
@@ -29,7 +42,9 @@ export function useAutoScroll(cardWidth: number, gap: number, interval = 3000) {
       clearTimeout(resumeTimer);
       resumeTimer = setTimeout(() => {
         paused = false;
+        const maxScroll = el.scrollWidth - el.clientWidth;
         idx = Math.round(el.scrollLeft / (cardWidth + gap));
+        atEnd = el.scrollLeft >= maxScroll - 2;
       }, 5000);
     };
 

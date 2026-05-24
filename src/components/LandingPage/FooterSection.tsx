@@ -210,8 +210,3 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
     </footer>
   );
 }
-
-
-
-
-

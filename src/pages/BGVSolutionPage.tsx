@@ -1,0 +1,65 @@
+import { Helmet } from "react-helmet-async";
+import Header from "../components/LandingPage/Header";
+import FooterSection from "../components/LandingPage/FooterSection";
+import SEOHead from "../components/SEOHead";
+import HeroSection from "../components/solutions/bgv/HeroSection";
+import WhatThisSolvesSection from "../components/solutions/bgv/WhatThisSolvesSection";
+import ProductStackSection from "../components/solutions/bgv/ProductStackSection";
+import UseCasesSection from "../components/solutions/bgv/UseCasesSection";
+import CTASection from "../components/solutions/bgv/CTASection";
+
+export default function BGVSolutionPage() {
+  const bookDemo = () => {
+    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-bg font-body text-dark">
+      <SEOHead
+        title="Employment & Candidate Verification Workflows | idto.ai"
+        description="Verify candidates, documents, education records, bank accounts, and contactability with one configurable BGV stack from idto.ai."
+        path="/solutions/background-verification"
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://idto.ai"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Solutions"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Background Verification",
+                  "item": "https://idto.ai/solutions/background-verification"
+                }
+              ]
+            }
+          ]
+        })}</script>
+      </Helmet>
+      <Header />
+
+      <main>
+        <HeroSection />
+        <WhatThisSolvesSection />
+        <ProductStackSection />
+        <UseCasesSection />
+        <CTASection />
+      </main>
+
+      <FooterSection bookDemo={bookDemo} />
+    </div>
+  );
+}

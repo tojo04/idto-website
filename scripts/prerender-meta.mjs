@@ -38,6 +38,51 @@ const ROUTES = {
     description:
       "Verify identity and detect fraud using mobile-derived signals. Network, device, and behavioural intelligence in one API for fintech onboarding.",
   },
+  "/solutions/fintech-and-lending": {
+    title: "Fintech & Lending Identity Workflows | idto.ai",
+    description:
+      "Build fintech and lending onboarding, borrower risk, CKYC, DigiLocker, mobile intelligence, and account verification workflows with idto.ai.",
+  },
+  "/solutions/banking-and-nbfcs": {
+    title: "Banking & NBFC Identity Workflows | idto.ai",
+    description:
+      "Run KYC, CKYC, bank account verification, document checks, and customer intelligence workflows for banks and NBFCs with idto.ai.",
+  },
+  "/solutions/insurance": {
+    title: "Insurance Verification Workflows | idto.ai",
+    description:
+      "Build insurance verification workflows for policy onboarding, CKYC, claims payout validation, customer reachability, and renewals with idto.ai.",
+  },
+  "/solutions/crypto-and-web3": {
+    title: "Crypto & Web3 Verification Workflows | idto.ai",
+    description:
+      "Build safer crypto and Web3 onboarding, KYC, biometric checks, bank account validation, payout verification, and risk workflows with idto.ai.",
+  },
+  "/solutions/marketplaces": {
+    title: "Marketplace Trust & Verification Workflows | idto.ai",
+    description:
+      "Verify sellers, buyers, service providers, bank accounts, documents, and contactability for marketplace trust workflows with idto.ai.",
+  },
+  "/solutions/social-and-community-platforms": {
+    title: "Social & Community Trust Workflows | idto.ai",
+    description:
+      "Reduce fake accounts, duplicate profiles, abuse, unsafe payouts, and trust gaps across user-generated platforms with idto.ai.",
+  },
+  "/solutions/gig-economy": {
+    title: "Gig Economy Verification Workflows | idto.ai",
+    description:
+      "Verify gig workers, documents, bank accounts, face, and contactability quickly with idto.ai.",
+  },
+  "/solutions/background-verification": {
+    title: "Employment & Candidate Verification Workflows | idto.ai",
+    description:
+      "Verify candidates, documents, education records, bank accounts, and contactability with one configurable BGV stack from idto.ai.",
+  },
+  "/solutions/merchant-onboarding-kyb": {
+    title: "Merchant Onboarding & KYB Workflows | idto.ai",
+    description:
+      "Verify businesses, owners, bank accounts, documents, and risk signals faster with one configurable KYB and merchant onboarding layer.",
+  },
   "/blog": {
     title: "Blog | idto.ai",
     description:

@@ -23,6 +23,168 @@
   --animate-marquee-tags: marquee-tags 25s linear infinite;
 }
 
+.fintech-product-stack-grid,
+.fintech-problems-grid {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.fintech-product-stack-grid {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fintech-product-stack-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.marketplaces-hero-visual {
+  transform-origin: center;
+}
+
+.marketplaces-hero-image {
+  width: 100%;
+  max-width: none;
+}
+
+.social-community-hero-image {
+  transform-origin: center;
+}
+
+.solution-hero-visual {
+  width: min(100%, 330px);
+  height: 187px;
+  max-width: 330px;
+}
+
+.marketplaces-hero-image {
+  height: 100%;
+  object-fit: contain;
+}
+
+.fintech-problems-grid {
+  display: grid;
+  max-width: 451px;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .solution-hero-visual {
+    width: 440px;
+    height: 249px;
+    max-width: 440px;
+  }
+}
+
+@media (min-width: 980px) {
+  .fintech-problems-grid {
+    max-width: 924px;
+    grid-template-columns: repeat(2, 451px);
+  }
+}
+
+@media (min-width: 940px) {
+  .fintech-product-stack-grid {
+    display: grid;
+    max-width: 886px;
+    grid-template-columns: repeat(3, 282px);
+    justify-content: center;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .solution-hero-section {
+    height: 618px;
+  }
+
+  .solution-hero-inner {
+    max-width: 1300px;
+    height: 408px;
+  }
+
+  .solution-hero-visual {
+    left: 690px;
+    top: -24px;
+    width: 680px;
+    height: 386px;
+    max-width: none;
+  }
+
+  .solution-what-section {
+    height: 754px;
+  }
+
+  .solution-stack-section {
+    min-height: 860px;
+  }
+
+  .solution-usecases-section {
+    min-height: 745px;
+  }
+
+  .solution-cta-section {
+    min-height: 590px;
+  }
+
+  .marketplaces-hero-visual {
+    left: 690px;
+    top: -24px;
+    width: 680px;
+    height: 386px;
+    max-width: none;
+  }
+
+  .marketplaces-hero-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .social-community-hero-inner {
+    max-width: 1300px;
+    height: 408px;
+  }
+
+  .social-community-hero-visual {
+    left: 690px;
+    top: -24px;
+    width: 680px;
+    height: 386px;
+    max-width: none;
+  }
+
+  .social-community-hero-image {
+    transform: none;
+  }
+
+  .gig-hero-inner {
+    max-width: 1300px;
+    height: 408px;
+  }
+
+  .gig-hero-visual {
+    left: 690px;
+    top: -24px;
+    width: 680px;
+    height: 386px;
+    max-width: none;
+  }
+
+  .gig-hero-image {
+    left: -16.48%;
+    top: -2.9%;
+    width: 116.48%;
+    height: 102.9%;
+  }
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
