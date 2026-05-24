@@ -61,6 +61,55 @@
   max-width: 330px;
 }
 
+.solution-cta-logos {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+.solution-cta-logo-wide {
+  width: 86px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.solution-cta-logo-badge {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.solution-cta-logo-mid {
+  width: 82px;
+  height: 30px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .solution-cta-logos {
+    gap: 12px;
+  }
+
+  .solution-cta-logo-wide {
+    width: 90px;
+    height: 32px;
+  }
+
+  .solution-cta-logo-badge {
+    width: 34px;
+    height: 34px;
+  }
+
+  .solution-cta-logo-mid {
+    width: 86px;
+    height: 32px;
+  }
+}
+
 .marketplaces-hero-image {
   height: 100%;
   object-fit: contain;
@@ -78,6 +127,26 @@
     width: 440px;
     height: 249px;
     max-width: 440px;
+  }
+
+  .solution-cta-logos {
+    min-height: 76px;
+    gap: 48px;
+  }
+
+  .solution-cta-logo-wide {
+    width: 143px;
+    height: 50px;
+  }
+
+  .solution-cta-logo-badge {
+    width: 72px;
+    height: 72px;
+  }
+
+  .solution-cta-logo-mid {
+    width: 112px;
+    height: 50px;
   }
 }
 
@@ -132,6 +201,10 @@
 
   .solution-cta-section {
     min-height: 590px;
+  }
+
+  .solution-cta-logos {
+    gap: 92px;
   }
 
   .marketplaces-hero-visual {
