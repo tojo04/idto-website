@@ -47,12 +47,12 @@ export default function CTASection() {
               </p>
               <div className="w-full h-px bg-black/10" />
             </div>
-            <div className="flex h-auto flex-wrap items-center justify-center gap-10 sm:min-h-[76px] sm:flex-nowrap sm:gap-[92px]">
-              <img src={partner2} alt="Trusted partner" className="h-[50px] w-[143px] object-contain" width="143" height="50" loading="lazy" decoding="async" />
-              <span className="flex h-[72px] w-[72px] items-center justify-center">
-                <img src={partner1} alt="Trusted partner" className="h-full w-full object-contain" width="72" height="72" loading="lazy" decoding="async" />
+            <div className="solution-cta-logos">
+              <img src={partner2} alt="Trusted partner" className="solution-cta-logo-wide" width="143" height="50" loading="lazy" decoding="async" />
+              <span className="flex items-center justify-center">
+                <img src={partner1} alt="Trusted partner" className="solution-cta-logo-badge" width="72" height="72" loading="lazy" decoding="async" />
               </span>
-              <img src={partner3} alt="Trusted partner" className="h-[50px] w-[112px] object-contain" width="112" height="50" loading="lazy" decoding="async" />
+              <img src={partner3} alt="Trusted partner" className="solution-cta-logo-mid" width="112" height="50" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
