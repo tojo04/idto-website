@@ -434,9 +434,9 @@ export default function Header() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain"
             >
-              <nav className="flex flex-col gap-4 pt-6 pb-4">
+              <nav className="flex flex-col gap-3 pt-5 pb-4">
                 {navItems.map((item) =>
                   item.dropdown ? (
                     <div key={item.label}>
@@ -475,7 +475,7 @@ export default function Header() {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex flex-col gap-3 pt-4">
+                            <div className="flex flex-col gap-2 pt-3">
                               {getDropdownItems(item.dropdown).map((product) => (
                                 <Link
                                   key={product.href}
@@ -485,18 +485,18 @@ export default function Header() {
                                     setMobileProductsOpen(false);
                                     setMobileSolutionsOpen(false);
                                   }}
-                                  className="flex items-center justify-between gap-3 rounded-2xl px-5 py-4 transition-colors active:bg-[#F6F6F0]"
+                                  className="flex items-center justify-between gap-3 rounded-xl px-4 py-2.5 transition-colors active:bg-[#F6F6F0]"
                                 >
-                                  <span className="flex min-w-0 items-center gap-3">
+                                  <span className="flex min-w-0 items-center gap-2.5">
                                     <span
-                                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_8px_18px_rgba(0,25,255,0.16)]"
+                                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_6px_14px_rgba(0,25,255,0.14)]"
                                     >
-                                      <DropdownIcon name={product.icon} className="h-7 w-7" />
+                                      <DropdownIcon name={product.icon} className="h-5 w-5" />
                                     </span>
-                                    <span className="text-base font-medium text-[#353535]">{product.label}</span>
+                                    <span className="text-[14px] font-medium leading-[20px] text-[#353535]">{product.label}</span>
                                   </span>
-                                  <svg width="15" height="14" viewBox="0 0 15 14" fill="none" className="shrink-0">
-                                    <path d="M1 7H14M14 7L8 1M14 7L8 13" stroke="#5B5FC7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <svg width="13" height="12" viewBox="0 0 15 14" fill="none" className="shrink-0">
+                                    <path d="M1 7H14M14 7L8 1M14 7L8 13" stroke="#0019FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                   </svg>
                                 </Link>
                               ))}
