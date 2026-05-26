@@ -102,6 +102,18 @@ const ROUTES = {
     title: "Terms and Conditions | idto.ai",
     description: "idto.ai terms and conditions of service.",
   },
+  "/blog/loan-fraud-india-identity-checks": {
+    title: "Loan Fraud Is Winning in India Until You Check Who's Actually Applying | idto.ai",
+    description:
+      "Indian lenders are losing money to stolen and synthetic identities. Here is why document-centric KYC fails, and how live identity checks close the gap.",
+    ogType: "article",
+  },
+  "/blog/payment-identity-orchestration-global-expansion": {
+    title: "Why Payment & Identity Orchestration Is No Longer Optional for Global Business Expansion | idto.ai",
+    description:
+      "Global expansion exposes payment, identity, compliance, and fraud gaps quickly. Here is why orchestration has become core infrastructure for scaling businesses.",
+    ogType: "article",
+  },
   "/blog/kyc-address-verification-digipin-dhruva": {
     title: "The Most Broken Field in KYC Is Finally Getting Fixed: Address | idto.ai",
     description:

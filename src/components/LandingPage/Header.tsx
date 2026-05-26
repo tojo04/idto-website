@@ -125,6 +125,7 @@ type DropdownItem = {
   label: string;
   href: string;
   icon: DropdownIconName;
+  description?: string;
 };
 
 function DropdownIcon({
@@ -154,24 +155,32 @@ function DropdownIcon({
 
 const productItems: DropdownItem[] = [
   {
-    label: "CKYC",
+    label: "CKYC 2.0",
     href: "/products/CKYC",
     icon: "ckyc",
+    description:
+      "Search, Download, Create and Update CKYC records through one integration - with real-time logs, audit trails and complete operational visibility",
   },
   {
-    label: "Bank Account Verification",
+    label: "Intelli Bank Account Verification",
     href: "/products/BAV",
     icon: "bav",
+    description:
+      "A single orchestration layer for bank account verification - built for higher coverage, better uptime, lower cost and consistent API respons",
   },
   {
-    label: "DigiLocker",
+    label: "DigiLocker 3.0",
     href: "/products/digilocker-3.0",
     icon: "digilocker",
+    description:
+      "Unlock Higher Conversions with Digilocker 3.0 Adaptive. Compliant. AI-powered.",
   },
   {
     label: "Mobile Intelligence",
     href: "/products/mobile-intelligence",
     icon: "mobileIntelligence",
+    description:
+      "Streamline sign-ups, auto-fill user details, and protect against fraud",
   },
 ];
 
@@ -180,46 +189,55 @@ const solutionItems: DropdownItem[] = [
     label: "Fintech & Lending",
     href: "/solutions/fintech-and-lending",
     icon: "fintechLending",
+    description: "Verify users, reduce onboarding drop-offs, enrich risk signals, and support collections.",
   },
   {
     label: "Banking & NBFCs",
     href: "/solutions/banking-and-nbfcs",
     icon: "bankingNbfcs",
+    description: "Run compliant KYC, CKYC, bank verification, and customer intelligence workflows.",
   },
   {
     label: "Insurance",
     href: "/solutions/insurance",
     icon: "insurance",
+    description: "Simplify policy onboarding, CKYC checks, payout validation, and customer personalization.",
   },
   {
     label: "Crypto & Web3",
     href: "/solutions/crypto-and-web3",
     icon: "cryptoWeb3",
+    description: "Build safer onboarding, wallet-linked compliance, user verification, and payout checks.",
   },
   {
     label: "Marketplaces",
     href: "/solutions/marketplaces",
     icon: "marketplaces",
+    description: "Verify buyers, sellers, service providers, and payouts with one trust stack.",
   },
   {
     label: "Social & Community",
     href: "/solutions/social-and-community-platforms",
     icon: "socialCommunity",
+    description: "Reduce fake users, duplicate accounts, abuse, and unsafe payouts across communities.",
   },
   {
     label: "Gig Economy",
     href: "/solutions/gig-economy",
     icon: "gigEconomy",
+    description: "Verify gig workers, bank accounts, documents, and contactability in under 10 minutes.",
   },
   {
-    label: "Background Verification",
+    label: "Employment & BGV",
     href: "/solutions/background-verification",
     icon: "backgroundVerification",
+    description: "Verify candidates, documents, bank accounts, and contactability faster.",
   },
   {
-    label: "Merchant Onboarding & KYB",
+    label: "Merchant Onboarding / KYB",
     href: "/solutions/merchant-onboarding-kyb",
     icon: "merchantKyb",
+    description: "Onboard merchants, verify businesses, validate bank accounts, and reduce manual ops.",
   },
 ];
 
@@ -235,6 +253,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [activeProductHref, setActiveProductHref] = useState(productItems[0].href);
+  const [activeSolutionHref, setActiveSolutionHref] = useState(solutionItems[0].href);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const productsDropdownRef = useRef<HTMLDivElement>(null);
@@ -273,6 +293,12 @@ export default function Header() {
   const getDropdownRef = (dropdown: string) =>
     dropdown === "products" ? productsDropdownRef : solutionsDropdownRef;
 
+  const activeProduct =
+    productItems.find((product) => product.href === activeProductHref) || productItems[0];
+
+  const activeSolution =
+    solutionItems.find((solution) => solution.href === activeSolutionHref) || solutionItems[0];
+
   return (
     <header className="bg-white px-5 lg:px-[112.5px] py-4 lg:py-[27px] sticky top-0 z-50">
       <motion.div
@@ -302,7 +328,13 @@ export default function Header() {
             <div className="flex items-center backdrop-blur-[11.25px] bg-white/80 border-[1.125px] border-white rounded-full">
               {navItems.map((item) =>
                 item.dropdown ? (
-                  <div key={item.label} className="relative" ref={getDropdownRef(item.dropdown)}>
+                  <div
+                    key={item.label}
+                    className="relative"
+                    ref={getDropdownRef(item.dropdown)}
+                    onMouseEnter={() => setDropdownOpen(item.dropdown, true)}
+                    onMouseLeave={() => setDropdownOpen(item.dropdown, false)}
+                  >
                     <button
                       type="button"
                       onClick={() => setDropdownOpen(item.dropdown, !isDropdownOpen(item.dropdown))}
@@ -340,45 +372,151 @@ export default function Header() {
                             />
                           </div>
                           {/* Dropdown body */}
-                          <div className={`rounded-[12px] bg-white p-[30px] shadow-[0px_8px_32px_rgba(0,0,0,0.12)] ${item.dropdown === "products" ? "w-[760px]" : "w-[1080px]"}`}>
-                            <div className={`grid gap-x-[30px] gap-y-4 ${item.dropdown === "products" ? "grid-cols-2" : "grid-cols-3"}`}>
-                              {getDropdownItems(item.dropdown).map((product) => (
-                                <Link
-                                  key={product.href}
-                                  to={product.href}
-                                  onClick={() => setDropdownOpen(item.dropdown, false)}
-                                  className="group flex min-h-[54px] items-center gap-[12px] rounded-[10px] pr-2 transition-colors duration-200 hover:bg-[#F7FAFF]"
-                                >
-                                  <div className="w-[4px] h-[42px] rounded-r-[6px] bg-transparent group-hover:bg-[#1d68f4] transition-colors duration-200 shrink-0" />
-                                  <span
-                                    className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-[0_8px_18px_rgba(0,25,255,0.16)] transition-transform duration-200 group-hover:scale-105"
-                                  >
-                                    <DropdownIcon name={product.icon} />
-                                  </span>
-                                  <div className="flex min-w-0 flex-1 items-center justify-between gap-3">
-                                    <span className="text-[16px] font-semibold text-[#353535] tracking-[-0.16px] whitespace-nowrap">
-                                      {product.label}
-                                    </span>
-                                    <svg
-                                      width="15"
-                                      height="14"
-                                      viewBox="0 0 15 14"
-                                      fill="none"
-                                      className="shrink-0 ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                          {item.dropdown === "solutions" ? (
+                            <div className="translate-x-[150px] flex w-[1301px] max-w-[calc(100vw-32px)] flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                              <div className="flex w-[1281px] shrink-0 items-center gap-[12px]">
+                                <div className="grid h-[339px] w-[789px] shrink-0 grid-cols-3 grid-rows-3 gap-[12px]">
+                                {solutionItems.map((solution) => {
+                                  const isActive = solution.href === activeSolution.href;
+
+                                  return (
+                                    <Link
+                                      key={solution.href}
+                                      to={solution.href}
+                                      onMouseEnter={() => setActiveSolutionHref(solution.href)}
+                                      onFocus={() => setActiveSolutionHref(solution.href)}
+                                      onClick={() => setDropdownOpen(item.dropdown, false)}
+                                      className={`group flex items-center gap-[12px] rounded-[18px] px-[16px] py-[29px] transition-all duration-200 ${
+                                        isActive
+                                          ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                          : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                      }`}
                                     >
-                                      <path
-                                        d="M1 7H14M14 7L8 1M14 7L8 13"
-                                        stroke="#1D68F4"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      />
-                                    </svg>
+                                      <span
+                                        className={`flex size-[44px] shrink-0 items-center justify-center rounded-[30px] transition-all duration-200 ${
+                                          isActive
+                                            ? "bg-[#1d68f4] text-white shadow-[0px_8px_20px_-6px_rgba(48,97,239,0.6)]"
+                                            : "bg-[#ebf2ff] text-[#1d68f4] group-hover:bg-[#1d68f4] group-hover:text-white group-hover:shadow-[0px_8px_20px_-6px_rgba(48,97,239,0.6)]"
+                                        }`}
+                                      >
+                                        <DropdownIcon name={solution.icon} className="size-[20px]" />
+                                      </span>
+                                      <span className="min-w-0 truncate text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
+                                        {solution.label}
+                                      </span>
+                                    </Link>
+                                  );
+                                })}
+                                </div>
+
+                                <div className="relative flex h-[338px] w-[480px] shrink-0 flex-col justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                <div className="absolute -right-[96px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff]/30 blur-[32px]" />
+                                <div className="absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4]/25 blur-[32px]" />
+                                <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(159,95,255,0.42)_0%,rgba(159,95,255,0)_50%,rgba(0,177,195,0.42)_100%)] opacity-80" />
+
+                                <div className="relative flex flex-col items-start gap-[28px]">
+                                  <span className="relative flex size-[64px] items-center justify-center rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] text-white shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]">
+                                    <span className="absolute inset-0 rounded-[36px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
+                                    <DropdownIcon name={activeSolution.icon} className="relative size-[28px]" />
+                                  </span>
+
+                                  <div className="flex flex-col gap-[20px]">
+                                    <h3 className="m-0 text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
+                                      {activeSolution.label}
+                                    </h3>
+                                    <p className="m-0 max-w-[360px] text-[15px] font-normal leading-[24.38px] text-[#404858]">
+                                      {activeSolution.description}
+                                    </p>
                                   </div>
-                                </Link>
-                              ))}
+
+                                  <Link
+                                    to={activeSolution.href}
+                                    onClick={() => setDropdownOpen(item.dropdown, false)}
+                                    className="relative inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
+                                  >
+                                    Explore product
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                      <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                  </Link>
+                                </div>
+                                </div>
+                              </div>
                             </div>
-                          </div>
+                          ) : (
+                            <div className="flex w-[1301px] max-w-[calc(100vw-32px)] flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                              <div className="flex w-[1281px] shrink-0 items-center gap-[12px]">
+                                <div className="grid h-[264px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
+                                  {productItems.map((product) => {
+                                    const isActive = product.href === activeProduct.href;
+
+                                    return (
+                                      <Link
+                                        key={product.href}
+                                        to={product.href}
+                                        onMouseEnter={() => setActiveProductHref(product.href)}
+                                        onFocus={() => setActiveProductHref(product.href)}
+                                        onClick={() => setDropdownOpen(item.dropdown, false)}
+                                        className={`group flex items-center gap-[12px] rounded-[18px] px-[16px] py-[29px] transition-all duration-200 ${
+                                          isActive
+                                            ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                            : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                        }`}
+                                      >
+                                        <span
+                                          className={`flex size-[44px] shrink-0 items-center justify-center rounded-[30px] transition-all duration-200 ${
+                                            isActive
+                                              ? "bg-[#1d68f4] text-white shadow-[0px_8px_20px_-6px_rgba(48,97,239,0.6)]"
+                                              : "bg-[#ebf2ff] text-[#1d68f4] group-hover:bg-[#1d68f4] group-hover:text-white group-hover:shadow-[0px_8px_20px_-6px_rgba(48,97,239,0.6)]"
+                                          }`}
+                                        >
+                                          <DropdownIcon name={product.icon} className="size-[20px]" />
+                                        </span>
+                                        <span className="min-w-0 truncate text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
+                                          {product.label}
+                                        </span>
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+
+                                <div className="relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                  <div className="absolute -right-[96px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff]/30 blur-[32px]" />
+                                  <div className="absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4]/25 blur-[32px]" />
+                                  <div className="absolute inset-0 bg-[linear-gradient(151deg,rgba(159,95,255,0.42)_0%,rgba(159,95,255,0)_50%,rgba(0,177,195,0.42)_100%)] opacity-80" />
+
+                                  <div className="relative w-[398px]">
+                                    <div className="flex flex-col items-start gap-[12px]">
+                                      <div className="flex items-center gap-[10px]">
+                                        <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] text-white shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]">
+                                          <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
+                                          <DropdownIcon name={activeProduct.icon} className="relative size-[32px]" />
+                                        </span>
+                                        <h3 className="m-0 whitespace-nowrap text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
+                                          {activeProduct.label}
+                                        </h3>
+                                      </div>
+
+                                      <p className="m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
+                                        {activeProduct.description}
+                                      </p>
+
+                                      <Link
+                                        to={activeProduct.href}
+                                        onClick={() => setDropdownOpen(item.dropdown, false)}
+                                        className="relative inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
+                                      >
+                                        Explore product
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                          <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>

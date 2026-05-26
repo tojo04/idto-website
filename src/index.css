@@ -1488,12 +1488,35 @@
     color: #ffffff;
   }
 
+  .aadhaar-verify-table-head > div:first-child {
+    color: #ffffff;
+  }
+
+  .loan-fraud-signal-table .aadhaar-verify-table {
+    min-width: 680px;
+  }
+
+  .loan-fraud-signal-table .aadhaar-verify-table-row {
+    grid-template-columns: minmax(220px, 0.95fr) minmax(360px, 1.35fr);
+  }
+
+  .loan-fraud-signal-table .aadhaar-verify-table-row:not(.aadhaar-verify-table-head) > div:first-child {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #15803d;
+  }
+
   .aadhaar-verify-impact-grid {
     display: grid;
     max-width: 900px;
     margin: 40px auto 56px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+  }
+
+  .aadhaar-verify-impact-grid.loan-fraud-use-cases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .aadhaar-verify-impact-grid > div {
@@ -1625,6 +1648,16 @@
     font-size: 13px;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.74);
+  }
+
+  .aadhaar-verify-takeaways.orchestration-takeaways {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @media (max-width: 640px) {
+    .aadhaar-verify-takeaways.orchestration-takeaways {
+      grid-template-columns: 1fr;
+    }
   }
 
   .aadhaar-verify-takeaways.address-watchlist {
@@ -3060,6 +3093,10 @@
     .aadhaar-stack > div {
       grid-template-columns: 1fr;
       gap: 8px;
+    }
+
+    .aadhaar-verify-impact-grid.loan-fraud-use-cases {
+      grid-template-columns: 1fr;
     }
   }
 }

@@ -3,7 +3,6 @@ import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
 import { Helmet } from "react-helmet-async";
-import Button from "../components/UI/Button";
 import { getBlogPostBySlug, type BlogPostCta } from "../data/blogPosts";
 
 const defaultCta: BlogPostCta = {
@@ -137,12 +136,13 @@ export default function BlogPostPage() {
                   </a>
                 )
               ) : (
-                <Button
-                  title={cta.buttonLabel}
+                <button
+                  type="button"
                   onClick={bookDemo}
-                  variant="white"
-                  className="rounded-full"
-                />
+                  className="inline-flex max-w-full items-center justify-center rounded-full border border-white/50 bg-white px-6 py-3 text-center text-sm font-semibold leading-tight tracking-tight text-primary transition-all duration-200 hover:bg-gray-50 sm:px-[27px] sm:py-[13.5px] sm:text-[16px]"
+                >
+                  {cta.buttonLabel}
+                </button>
               )}
             </div>
           </div>
