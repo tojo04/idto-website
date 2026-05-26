@@ -5,7 +5,7 @@ import heroVisual from "../../../assets/solution_pages/fintech_and_lending/secti
 export default function HeroSection() {
   return (
     <section className="solution-hero-section bg-white rounded-b-[40px] lg:rounded-b-[112px] px-5 lg:px-10 min-[1440px]:px-[111px] pt-8 lg:pt-[95px] pb-10 lg:pb-[95px] overflow-hidden">
-      <div className="solution-hero-inner relative isolate mx-auto flex max-w-[1213px] flex-col lg:block lg:h-[349px]">
+      <div className="solution-hero-inner fintech-hero-inner relative isolate mx-auto flex max-w-[1213px] flex-col lg:block lg:h-[349px]">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -13,11 +13,11 @@ export default function HeroSection() {
           variants={createFadeInUp(0)}
           className="order-1 relative z-20 text-center lg:absolute lg:left-0 lg:top-[43px] lg:w-[723px] lg:text-left"
         >
-          <h1 className="font-heading text-[20px] md:text-[42px] lg:w-[807px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.84px] text-black">
-            Identity and risk workflows for modern
+          <h1 className="font-heading text-[20px] md:text-[42px] lg:w-[640px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.84px] text-black">
+            Identity and risk workflows for
             <br className="hidden lg:block" />
             <span className="lg:hidden"> </span>
-            fintech and lending.
+            modern fintech and lending.
           </h1>
           <p className="mt-[18px] max-w-[329px] lg:max-w-[594px] mx-auto lg:mx-0 text-[12px] lg:text-[18px] leading-[1.5] tracking-[-0.24px] lg:tracking-[-0.36px] text-black/60">
             Verify users, reduce onboarding drop-offs, enrich borrower profiles, and improve collections with one integrated verification stack.
@@ -29,12 +29,12 @@ export default function HeroSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={scaleIn}
-          className="solution-hero-visual order-2 relative z-0 mx-auto mt-5 h-[230px] w-full max-w-[330px] overflow-hidden sm:h-[300px] sm:max-w-[430px] lg:absolute lg:left-[697px] lg:top-0 lg:mx-0 lg:mt-0 lg:h-[349px] lg:w-[516px] lg:max-w-none"
+          className="solution-hero-visual fintech-hero-visual order-2 relative z-0 mx-auto mt-5 h-[230px] w-full max-w-[330px] overflow-hidden sm:h-[300px] sm:max-w-[430px] lg:absolute lg:left-[730px] lg:top-0 lg:mx-0 lg:mt-0 lg:h-[349px] lg:w-[570px] lg:max-w-none"
         >
           <img
             src={heroVisual}
             alt="Fintech identity verification workflow"
-            className="absolute left-[-58.84%] top-0 z-0 h-full w-[158.84%] max-w-none object-cover"
+            className="fintech-hero-image absolute left-[-45%] top-0 z-0 h-full w-[145%] max-w-none object-cover"
             loading="eager"
             decoding="async"
           />

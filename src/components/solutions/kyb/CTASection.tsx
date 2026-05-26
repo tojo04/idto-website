@@ -16,7 +16,7 @@ export default function CTASection() {
       >
         <div className="max-w-[1072px] mx-auto flex flex-col gap-[50px] items-center">
           <div className="flex flex-col gap-[45px] items-center justify-center w-full">
-            <h2 className="max-w-[1069px] font-heading text-[24px] md:text-[42px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-0.84px] text-black text-center">
+            <h2 className="max-w-[1069px] font-heading text-[20px] md:text-[42px] leading-[1.1] tracking-[-0.4px] lg:tracking-[-0.84px] text-black text-center">
               Onboard merchants faster with one KYB stack.
             </h2>
 

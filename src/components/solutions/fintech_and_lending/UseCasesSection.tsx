@@ -36,7 +36,7 @@ export default function UseCasesSection() {
             <img src={questionMarkIcon} alt="" className="h-[14px] w-[14px]" width="14" height="14" loading="lazy" decoding="async" />
             Use cases
           </div>
-          <h2 className="mt-4 font-heading text-[30px] md:text-[42px] leading-[1.3] text-black lg:w-[582.75px]">
+          <h2 className="mt-4 font-heading text-[20px] md:text-[42px] leading-[1.3] text-black lg:w-[582.75px]">
             What you can <span className="text-primary">build</span>
           </h2>
           <p className="mt-4 max-w-[481px] mx-auto lg:mx-0 text-[13px] md:text-[16px] lg:text-[18px] leading-[1.5] tracking-[-0.36px] text-black/60">

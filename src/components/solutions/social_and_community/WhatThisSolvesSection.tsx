@@ -37,7 +37,7 @@ export default function WhatThisSolvesSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="font-heading text-[28px] md:text-[42px] leading-[1.3] text-black text-center"
+          className="font-heading text-[20px] md:text-[42px] leading-[1.3] text-black text-center"
         >
           What this solves
         </motion.h2>

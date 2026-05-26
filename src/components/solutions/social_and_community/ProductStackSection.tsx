@@ -55,7 +55,7 @@ export default function ProductStackSection() {
           variants={createFadeInUp(0)}
           className="relative text-center"
         >
-          <h2 className="font-heading text-[28px] md:text-[42px] leading-[1.3] text-white">
+          <h2 className="font-heading text-[20px] md:text-[42px] leading-[1.3] text-white">
             idto stack for gig verification
           </h2>
           <img

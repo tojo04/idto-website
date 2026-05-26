@@ -61,6 +61,12 @@
   max-width: 330px;
 }
 
+.marketplaces-hero-visual {
+  width: min(390px, calc(100vw - 10px));
+  height: 225px;
+  max-width: 410px;
+}
+
 .solution-cta-logos {
   display: flex;
   width: 100%;
@@ -113,6 +119,7 @@
 .marketplaces-hero-image {
   height: 100%;
   object-fit: contain;
+  transform: translateX(-18px);
 }
 
 .fintech-problems-grid {
@@ -122,11 +129,28 @@
   justify-content: center;
 }
 
+@media (max-width: 639px) {
+  .solution-what-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .solution-what-section > div {
+    gap: 28px;
+  }
+}
+
 @media (min-width: 640px) {
   .solution-hero-visual {
-    width: 440px;
-    height: 249px;
-    max-width: 440px;
+    width: 530px;
+    height: 300px;
+    max-width: 530px;
+  }
+
+  .marketplaces-hero-visual {
+    width: 620px;
+    height: 340px;
+    max-width: 620px;
   }
 
   .solution-cta-logos {
@@ -180,11 +204,29 @@
   }
 
   .solution-hero-visual {
-    left: 690px;
+    left: 670px;
     top: -5px;
-    width: 617px;
-    height: 350px;
+    width: 667px;
+    height: 380px;
     max-width: none;
+  }
+
+  .fintech-hero-inner {
+    max-width: 1300px;
+    height: 408px;
+  }
+
+  .fintech-hero-visual {
+    left: 625px;
+    top: -24px;
+    width: 760px;
+    height: 430px;
+    max-width: none;
+  }
+
+  .fintech-hero-image {
+    left: -34%;
+    width: 134%;
   }
 
   .solution-what-section {
@@ -208,15 +250,36 @@
   }
 
   .marketplaces-hero-visual {
-    left: 690px;
-    top: -24px;
-    width: 680px;
-    height: 386px;
+    left: 585px;
+    top: -46px;
+    width: 820px;
+    height: 450px;
     max-width: none;
   }
 
   .marketplaces-hero-image {
+    transform: none;
     width: 100%;
+    height: 100%;
+  }
+
+  .bgv-hero-inner {
+    max-width: 1300px;
+    height: 408px;
+  }
+
+  .bgv-hero-visual {
+    left: 610px;
+    top: -16px;
+    width: 690px;
+    height: 380px;
+    max-width: none;
+  }
+
+  .bgv-hero-image {
+    left: -16.54%;
+    top: 0;
+    width: 116.54%;
     height: 100%;
   }
 

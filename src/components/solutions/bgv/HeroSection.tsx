@@ -5,13 +5,13 @@ import heroVisual from "../../../assets/solution_pages/bgv/sections/hero/37a739c
 export default function HeroSection() {
   return (
     <section className="solution-hero-section bg-white rounded-b-[40px] lg:rounded-b-[112px] px-5 lg:px-10 min-[1440px]:px-[111px] pt-8 lg:pt-[95px] pb-10 lg:pb-[95px] overflow-hidden">
-      <div className="solution-hero-inner relative isolate mx-auto flex max-w-[1300px] flex-col lg:block lg:h-[408px]">
+      <div className="solution-hero-inner bgv-hero-inner relative isolate mx-auto flex max-w-[1300px] flex-col lg:block lg:h-[408px]">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0)}
-          className="order-1 relative z-20 text-center lg:absolute lg:left-0 lg:top-[56px] lg:w-[723px] lg:text-left"
+          className="order-1 relative z-20 text-center lg:absolute lg:left-0 lg:top-[34px] lg:w-[723px] lg:text-left"
         >
           <h1 className="font-heading text-[20px] md:text-[42px] lg:w-[807px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.84px] text-black">
             Faster employment and candidate verification workflows.
@@ -26,12 +26,12 @@ export default function HeroSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={scaleIn}
-          className="solution-hero-visual order-2 relative z-0 mx-auto mt-5 h-[230px] w-full max-w-[330px] overflow-hidden sm:h-[300px] sm:max-w-[440px] lg:absolute lg:left-[690px] lg:top-[-24px] lg:mx-0 lg:mt-0 lg:h-[386px] lg:w-[680px] lg:max-w-none"
+          className="solution-hero-visual bgv-hero-visual order-2 relative z-0 mx-auto mt-5 h-[230px] w-full max-w-[330px] overflow-hidden sm:h-[300px] sm:max-w-[440px] lg:absolute lg:left-[690px] lg:top-[-24px] lg:mx-0 lg:mt-0 lg:h-[386px] lg:w-[680px] lg:max-w-none"
         >
           <img
             src={heroVisual}
             alt="Employment and candidate verification workflow"
-            className="absolute left-[-16.54%] top-0 h-full w-[116.54%] max-w-none object-cover"
+            className="bgv-hero-image absolute left-[-16.54%] top-0 h-full w-[116.54%] max-w-none object-cover"
             loading="eager"
             decoding="async"
           />
@@ -42,7 +42,7 @@ export default function HeroSection() {
           whileInView="show"
           viewport={viewportOnce}
           variants={createFadeInUp(0.15)}
-          className="order-3 relative z-20 mt-6 flex flex-col gap-[18px] items-center lg:absolute lg:left-0 lg:top-[271px] lg:mt-0 lg:items-start"
+          className="order-3 relative z-20 mt-6 flex flex-col gap-[18px] items-center lg:absolute lg:left-0 lg:top-[249px] lg:mt-0 lg:items-start"
         >
           <div className="flex flex-wrap gap-[15px] items-center justify-center lg:gap-[13.5px] lg:justify-start">
             <a
