@@ -330,6 +330,7 @@ export default function Header() {
   const headerInnerRef = useRef<HTMLDivElement>(null);
   const productsDropdownRef = useRef<HTMLDivElement>(null);
   const solutionsDropdownRef = useRef<HTMLDivElement>(null);
+  const hoverCloseTimeoutRef = useRef<number | null>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -396,6 +397,29 @@ export default function Header() {
     setProductsOpen(false);
   };
 
+  const cancelHoverClose = () => {
+    if (hoverCloseTimeoutRef.current === null) return;
+
+    window.clearTimeout(hoverCloseTimeoutRef.current);
+    hoverCloseTimeoutRef.current = null;
+  };
+
+  const openDropdownOnHover = (dropdown: string) => {
+    cancelHoverClose();
+    setDropdownOpen(dropdown, true);
+  };
+
+  const closeDropdownOnHover = () => {
+    cancelHoverClose();
+
+    hoverCloseTimeoutRef.current = window.setTimeout(() => {
+      setProductsOpen(false);
+      setSolutionsOpen(false);
+      setDropdownPlacement(null);
+      hoverCloseTimeoutRef.current = null;
+    }, 150);
+  };
+
   const updateDropdownPlacement = useCallback(() => {
     const openDropdown = productsOpen ? "products" : solutionsOpen ? "solutions" : null;
     if (!openDropdown) {
@@ -417,6 +441,15 @@ export default function Header() {
       window.removeEventListener("scroll", updateDropdownPlacement, true);
     };
   }, [productsOpen, solutionsOpen, updateDropdownPlacement]);
+
+  useEffect(
+    () => () => {
+      if (hoverCloseTimeoutRef.current !== null) {
+        window.clearTimeout(hoverCloseTimeoutRef.current);
+      }
+    },
+    []
+  );
 
   const activeProduct =
     productItems.find((product) => product.href === activeProductHref) || productItems[0];
@@ -457,6 +490,8 @@ export default function Header() {
                     key={item.label}
                     className="relative"
                     ref={getDropdownRef(item.dropdown)}
+                    onMouseEnter={() => openDropdownOnHover(item.dropdown)}
+                    onMouseLeave={closeDropdownOnHover}
                   >
                     <button
                       type="button"
