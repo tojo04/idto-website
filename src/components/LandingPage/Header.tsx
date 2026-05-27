@@ -1,10 +1,42 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createFadeInDown } from "../../utils/animations";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import logoIcon from "../../assets/logo_icon.svg";
 import logoText from "../../assets/logo_text.svg";
+import ckycIcon from "../../assets/header/productDropdowns/CKYC_2.0.svg?raw";
+import digilockerIcon from "../../assets/header/productDropdowns/Digilocker_3.0.svg?raw";
+import bavIcon from "../../assets/header/productDropdowns/Intelli BAV.svg?raw";
+import mobileIntelligenceIcon from "../../assets/header/productDropdowns/mobile_intelligence.svg?raw";
+import bankingNbfcsIcon from "../../assets/header/solutionsDropdowns/Banking_and_NBFCs.svg?raw";
+import cryptoWeb3Icon from "../../assets/header/solutionsDropdowns/Crypto_and_Web3.svg?raw";
+import employmentBgvIcon from "../../assets/header/solutionsDropdowns/employment_and_bgv.svg?raw";
+import fintechLendingIcon from "../../assets/header/solutionsDropdowns/fintech_and_lending.svg?raw";
+import gigEconomyIcon from "../../assets/header/solutionsDropdowns/gig_economy.svg?raw";
+import insuranceIcon from "../../assets/header/solutionsDropdowns/Insurance.svg?raw";
+import marketplacesIcon from "../../assets/header/solutionsDropdowns/MarketPlaces.svg?raw";
+import merchantOnboardingIcon from "../../assets/header/solutionsDropdowns/merchant_onboarding.svg?raw";
+import socialCommunityIcon from "../../assets/header/solutionsDropdowns/social_and_community.svg?raw";
+
+const withCurrentColor = (svg: string) =>
+  svg.replace(/(stroke|fill)="(?:#1D68F4|white)"/g, '$1="currentColor"');
+
+const dropdownIconAssets = {
+  ckyc: withCurrentColor(ckycIcon),
+  bav: withCurrentColor(bavIcon),
+  digilocker: withCurrentColor(digilockerIcon),
+  mobileIntelligence: withCurrentColor(mobileIntelligenceIcon),
+  fintechLending: withCurrentColor(fintechLendingIcon),
+  bankingNbfcs: withCurrentColor(bankingNbfcsIcon),
+  insurance: withCurrentColor(insuranceIcon),
+  cryptoWeb3: withCurrentColor(cryptoWeb3Icon),
+  marketplaces: withCurrentColor(marketplacesIcon),
+  socialCommunity: withCurrentColor(socialCommunityIcon),
+  gigEconomy: withCurrentColor(gigEconomyIcon),
+  backgroundVerification: withCurrentColor(employmentBgvIcon),
+  merchantKyb: withCurrentColor(merchantOnboardingIcon),
+} as const;
 
 const dropdownIconPaths = {
   ckyc: [
@@ -119,13 +151,25 @@ const dropdownIconPaths = {
   ],
 } as const;
 
-type DropdownIconName = keyof typeof dropdownIconPaths;
+type AssetDropdownIconName = keyof typeof dropdownIconAssets;
+type PathDropdownIconName = keyof typeof dropdownIconPaths;
+type DropdownIconName = AssetDropdownIconName | PathDropdownIconName;
 
 type DropdownItem = {
   label: string;
   href: string;
   icon: DropdownIconName;
+  eyebrow: string;
   description?: string;
+};
+
+const DESKTOP_DROPDOWN_MAX_WIDTH = 1301;
+const DESKTOP_DROPDOWN_GUTTER = 16;
+
+type DropdownPlacement = {
+  left: number;
+  top: number;
+  width: number;
 };
 
 function DropdownIcon({
@@ -135,6 +179,18 @@ function DropdownIcon({
   name: DropdownIconName;
   className?: string;
 }) {
+  if (name in dropdownIconAssets) {
+    const iconSvg = dropdownIconAssets[name as AssetDropdownIconName];
+
+    return (
+      <span
+        aria-hidden="true"
+        className={`inline-flex items-center justify-center ${className} [&>svg]:h-full [&>svg]:w-full`}
+        dangerouslySetInnerHTML={{ __html: iconSvg }}
+      />
+    );
+  }
+
   return (
     <svg
       aria-hidden="true"
@@ -146,7 +202,7 @@ function DropdownIcon({
       strokeLinejoin="round"
       className={className}
     >
-      {dropdownIconPaths[name].map((path) => (
+      {dropdownIconPaths[name as PathDropdownIconName].map((path) => (
         <path key={path} d={path} />
       ))}
     </svg>
@@ -158,29 +214,33 @@ const productItems: DropdownItem[] = [
     label: "CKYC 2.0",
     href: "/products/CKYC",
     icon: "ckyc",
+    eyebrow: "Compliance, reimagined",
     description:
-      "Search, Download, Create and Update CKYC records through one integration - with real-time logs, audit trails and complete operational visibility",
-  },
-  {
-    label: "Intelli Bank Account Verification",
-    href: "/products/BAV",
-    icon: "bav",
-    description:
-      "A single orchestration layer for bank account verification - built for higher coverage, better uptime, lower cost and consistent API respons",
+      "Search, download, update, and create CKYC records through a single intelligent flow tuned for high success rates.",
   },
   {
     label: "DigiLocker 3.0",
     href: "/products/digilocker-3.0",
     icon: "digilocker",
+    eyebrow: "Government docs in one tap",
     description:
-      "Unlock Higher Conversions with Digilocker 3.0 Adaptive. Compliant. AI-powered.",
+      "Unlock higher conversions with DigiLocker 3.0: adaptive, compliant, and AI-powered.",
+  },
+  {
+    label: "Intelli Bank Account Verification",
+    href: "/products/BAV",
+    icon: "bav",
+    eyebrow: "Smarter penny-less checks",
+    description:
+      "Verify bank accounts with higher coverage, better uptime, and consistent API response.",
   },
   {
     label: "Mobile Intelligence",
     href: "/products/mobile-intelligence",
     icon: "mobileIntelligence",
+    eyebrow: "Know the number behind the user",
     description:
-      "Streamline sign-ups, auto-fill user details, and protect against fraud",
+      "Streamline sign-ups, auto-fill user details, and protect against fraud.",
   },
 ];
 
@@ -189,54 +249,63 @@ const solutionItems: DropdownItem[] = [
     label: "Fintech & Lending",
     href: "/solutions/fintech-and-lending",
     icon: "fintechLending",
+    eyebrow: "Lending",
     description: "Verify users, reduce onboarding drop-offs, enrich risk signals, and support collections.",
   },
   {
     label: "Banking & NBFCs",
     href: "/solutions/banking-and-nbfcs",
     icon: "bankingNbfcs",
+    eyebrow: "Banking",
     description: "Run compliant KYC, CKYC, bank verification, and customer intelligence workflows.",
   },
   {
     label: "Insurance",
     href: "/solutions/insurance",
     icon: "insurance",
+    eyebrow: "Insurance",
     description: "Simplify policy onboarding, CKYC checks, payout validation, and customer personalization.",
   },
   {
     label: "Crypto & Web3",
     href: "/solutions/crypto-and-web3",
     icon: "cryptoWeb3",
+    eyebrow: "Web3",
     description: "Build safer onboarding, wallet-linked compliance, user verification, and payout checks.",
   },
   {
     label: "Marketplaces",
     href: "/solutions/marketplaces",
     icon: "marketplaces",
+    eyebrow: "Marketplace",
     description: "Verify buyers, sellers, service providers, and payouts with one trust stack.",
   },
   {
     label: "Social & Community",
     href: "/solutions/social-and-community-platforms",
     icon: "socialCommunity",
+    eyebrow: "Community",
     description: "Reduce fake users, duplicate accounts, abuse, and unsafe payouts across communities.",
   },
   {
     label: "Gig Economy",
     href: "/solutions/gig-economy",
     icon: "gigEconomy",
+    eyebrow: "Gig",
     description: "Verify gig workers, bank accounts, documents, and contactability in under 10 minutes.",
   },
   {
     label: "Employment & BGV",
     href: "/solutions/background-verification",
     icon: "backgroundVerification",
+    eyebrow: "BGV",
     description: "Verify candidates, documents, bank accounts, and contactability faster.",
   },
   {
     label: "Merchant Onboarding / KYB",
     href: "/solutions/merchant-onboarding-kyb",
     icon: "merchantKyb",
+    eyebrow: "KYB",
     description: "Onboard merchants, verify businesses, validate bank accounts, and reduce manual ops.",
   },
 ];
@@ -257,6 +326,8 @@ export default function Header() {
   const [activeSolutionHref, setActiveSolutionHref] = useState(solutionItems[0].href);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [dropdownPlacement, setDropdownPlacement] = useState<DropdownPlacement | null>(null);
+  const headerInnerRef = useRef<HTMLDivElement>(null);
   const productsDropdownRef = useRef<HTMLDivElement>(null);
   const solutionsDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -265,9 +336,11 @@ export default function Header() {
     function handleClick(e: MouseEvent) {
       if (productsDropdownRef.current && !productsDropdownRef.current.contains(e.target as Node)) {
         setProductsOpen(false);
+        setDropdownPlacement(null);
       }
       if (solutionsDropdownRef.current && !solutionsDropdownRef.current.contains(e.target as Node)) {
         setSolutionsOpen(false);
+        setDropdownPlacement(null);
       }
     }
     document.addEventListener("mousedown", handleClick);
@@ -280,7 +353,39 @@ export default function Header() {
   const isDropdownOpen = (dropdown: string) =>
     dropdown === "products" ? productsOpen : solutionsOpen;
 
+  const getDropdownRef = (dropdown: string) =>
+    dropdown === "products" ? productsDropdownRef : solutionsDropdownRef;
+
+  const measureDropdownPlacement = useCallback((dropdown: string): DropdownPlacement | null => {
+    if (typeof window === "undefined") return null;
+
+    const trigger = dropdown === "products" ? productsDropdownRef.current : solutionsDropdownRef.current;
+    if (!trigger) return null;
+
+    const triggerRect = trigger.getBoundingClientRect();
+    const width = Math.min(
+      DESKTOP_DROPDOWN_MAX_WIDTH,
+      window.innerWidth - DESKTOP_DROPDOWN_GUTTER * 2
+    );
+    const headerRect = headerInnerRef.current?.getBoundingClientRect();
+    const dropdownCenter = headerRect
+      ? headerRect.left + headerRect.width / 2
+      : window.innerWidth / 2;
+    const viewportLeft = Math.min(
+      Math.max(dropdownCenter - width / 2, DESKTOP_DROPDOWN_GUTTER),
+      window.innerWidth - width - DESKTOP_DROPDOWN_GUTTER
+    );
+
+    return {
+      left: viewportLeft - triggerRect.left,
+      top: trigger.offsetHeight + 18,
+      width,
+    };
+  }, []);
+
   const setDropdownOpen = (dropdown: string, value: boolean) => {
+    setDropdownPlacement(value ? measureDropdownPlacement(dropdown) : null);
+
     if (dropdown === "products") {
       setProductsOpen(value);
       setSolutionsOpen(false);
@@ -290,8 +395,27 @@ export default function Header() {
     setProductsOpen(false);
   };
 
-  const getDropdownRef = (dropdown: string) =>
-    dropdown === "products" ? productsDropdownRef : solutionsDropdownRef;
+  const updateDropdownPlacement = useCallback(() => {
+    const openDropdown = productsOpen ? "products" : solutionsOpen ? "solutions" : null;
+    if (!openDropdown) {
+      setDropdownPlacement(null);
+      return;
+    }
+
+    const nextPlacement = measureDropdownPlacement(openDropdown);
+    if (nextPlacement) setDropdownPlacement(nextPlacement);
+  }, [measureDropdownPlacement, productsOpen, solutionsOpen]);
+
+  useEffect(() => {
+    if (!productsOpen && !solutionsOpen) return;
+
+    window.addEventListener("resize", updateDropdownPlacement);
+    window.addEventListener("scroll", updateDropdownPlacement, true);
+    return () => {
+      window.removeEventListener("resize", updateDropdownPlacement);
+      window.removeEventListener("scroll", updateDropdownPlacement, true);
+    };
+  }, [productsOpen, solutionsOpen, updateDropdownPlacement]);
 
   const activeProduct =
     productItems.find((product) => product.href === activeProductHref) || productItems[0];
@@ -306,7 +430,7 @@ export default function Header() {
         animate="show"
         variants={createFadeInDown(0.05)}
       >
-        <div className="max-w-[1215px] mx-auto flex items-center justify-between lg:border-0 border-[0.4px] border-[#10dda8] rounded-full lg:rounded-none h-[40px] lg:h-auto px-3 lg:px-0">
+        <div ref={headerInnerRef} className="max-w-[1215px] mx-auto flex items-center justify-between lg:border-0 border-[0.4px] border-[#10dda8] rounded-full lg:rounded-none h-[40px] lg:h-auto px-3 lg:px-0">
           {/* Logo */}
           <a href="/" className="flex items-center gap-1 shrink-0">
             <div className="relative w-13 h-7 lg:w-[61.367px] lg:h-[33.072px]">
@@ -358,22 +482,17 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50"
+                          className="absolute z-50"
+                          style={{
+                            left: dropdownPlacement?.left ?? 0,
+                            top: dropdownPlacement?.top ?? 0,
+                            width: dropdownPlacement?.width ?? 0,
+                            visibility: dropdownPlacement ? "visible" : "hidden",
+                          }}
                         >
-                          {/* Triangle caret */}
-                          <div className="flex justify-center">
-                            <div
-                              className="w-0 h-0"
-                              style={{
-                                borderLeft: "18px solid transparent",
-                                borderRight: "18px solid transparent",
-                                borderBottom: "17.7px solid white",
-                              }}
-                            />
-                          </div>
                           {/* Dropdown body */}
                           {item.dropdown === "solutions" ? (
-                            <div className="translate-x-[150px] flex w-[1301px] max-w-[calc(100vw-32px)] flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
                               <div className="flex w-[1281px] shrink-0 items-center gap-[12px]">
                                 <div className="grid h-[339px] w-[789px] shrink-0 grid-cols-3 grid-rows-3 gap-[12px]">
                                 {solutionItems.map((solution) => {
@@ -386,10 +505,10 @@ export default function Header() {
                                       onMouseEnter={() => setActiveSolutionHref(solution.href)}
                                       onFocus={() => setActiveSolutionHref(solution.href)}
                                       onClick={() => setDropdownOpen(item.dropdown, false)}
-                                      className={`group flex items-center gap-[12px] rounded-[18px] px-[16px] py-[29px] transition-all duration-200 ${
+                                      className={`group flex items-center gap-[12px] rounded-[18px] py-[30.4px] pl-[17px] pr-[17px] transition-all duration-200 ${
                                         isActive
                                           ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
-                                          : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                          : "border border-[rgba(226,232,240,0.6)] bg-white/50 hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
                                       }`}
                                     >
                                       <span
@@ -401,40 +520,48 @@ export default function Header() {
                                       >
                                         <DropdownIcon name={solution.icon} className="size-[20px]" />
                                       </span>
-                                      <span className="min-w-0 truncate text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
-                                        {solution.label}
+                                      <span className="flex min-w-0 flex-col items-start gap-px">
+                                        <span className="whitespace-nowrap text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
+                                          {solution.label}
+                                        </span>
+                                        <span className="whitespace-nowrap text-[11px] font-normal uppercase leading-[16.5px] tracking-[0.55px] text-[#62748e]">
+                                          {solution.eyebrow}
+                                        </span>
                                       </span>
                                     </Link>
                                   );
                                 })}
                                 </div>
 
-                                <div className="relative flex h-[338px] w-[480px] shrink-0 flex-col justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
-                                <div className="absolute -right-[96px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff]/30 blur-[32px]" />
-                                <div className="absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4]/25 blur-[32px]" />
-                                <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(159,95,255,0.42)_0%,rgba(159,95,255,0)_50%,rgba(0,177,195,0.42)_100%)] opacity-80" />
+                                <div className="relative flex h-[339px] w-[478.4px] shrink-0 flex-col items-start overflow-hidden rounded-[22px] bg-[#1f44be] p-[32px] text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+                                <div className="absolute -right-[64px] -top-[64px] size-[256px] rounded-full bg-white/10 blur-[32px]" />
 
-                                <div className="relative flex flex-col items-start gap-[28px]">
-                                  <span className="relative flex size-[64px] items-center justify-center rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] text-white shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]">
-                                    <span className="absolute inset-0 rounded-[36px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
-                                    <DropdownIcon name={activeSolution.icon} className="relative size-[28px]" />
+                                <div className="relative flex w-full flex-col items-start gap-[8px]">
+                                  <span className="flex size-[56px] shrink-0 items-center justify-center rounded-[30px] bg-white/15 text-white backdrop-blur-[4px]">
+                                    <DropdownIcon name={activeSolution.icon} className="size-[28px]" />
                                   </span>
 
-                                  <div className="flex flex-col gap-[20px]">
-                                    <h3 className="m-0 text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
+                                  <span className="pt-[16px] text-[12px] font-normal uppercase leading-[16px] tracking-[0.6px] text-white/60">
+                                    {activeSolution.eyebrow}
+                                  </span>
+
+                                  <div className="flex w-full flex-col items-start">
+                                    <h3 className="m-0 text-[24px] font-normal leading-[32px] tracking-[-0.6px] text-white">
                                       {activeSolution.label}
                                     </h3>
-                                    <p className="m-0 max-w-[360px] text-[15px] font-normal leading-[24.38px] text-[#404858]">
+                                    <p className="m-0 w-full pb-[24px] pt-[7.4px] text-[14px] font-normal leading-[22.75px] text-white/80">
                                       {activeSolution.description}
                                     </p>
                                   </div>
 
+                                  <div className="h-px w-full bg-white/10" />
+
                                   <Link
                                     to={activeSolution.href}
                                     onClick={() => setDropdownOpen(item.dropdown, false)}
-                                    className="relative inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
+                                    className="inline-flex items-center gap-[6px] pt-[16px] text-center text-[14px] font-normal leading-[20px] text-white/90"
                                   >
-                                    Explore product
+                                    Explore
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                       <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
@@ -444,9 +571,9 @@ export default function Header() {
                               </div>
                             </div>
                           ) : (
-                            <div className="flex w-[1301px] max-w-[calc(100vw-32px)] flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
-                              <div className="flex w-[1281px] shrink-0 items-center gap-[12px]">
-                                <div className="grid h-[264px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
+                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                              <div className="flex h-[222px] w-[1281px] shrink-0 items-start justify-center gap-[12px]">
+                                <div className="grid h-[222px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
                                   {productItems.map((product) => {
                                     const isActive = product.href === activeProduct.href;
 
@@ -457,10 +584,10 @@ export default function Header() {
                                         onMouseEnter={() => setActiveProductHref(product.href)}
                                         onFocus={() => setActiveProductHref(product.href)}
                                         onClick={() => setDropdownOpen(item.dropdown, false)}
-                                        className={`group flex items-center gap-[12px] rounded-[18px] px-[16px] py-[29px] transition-all duration-200 ${
+                                        className={`group flex items-center gap-[12px] rounded-[18px] py-[30.4px] pl-[17px] pr-[17px] transition-all duration-200 ${
                                           isActive
                                             ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
-                                            : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                            : "border border-[rgba(226,232,240,0.6)] bg-white/50 hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
                                         }`}
                                       >
                                         <span
@@ -472,47 +599,54 @@ export default function Header() {
                                         >
                                           <DropdownIcon name={product.icon} className="size-[20px]" />
                                         </span>
-                                        <span className="min-w-0 truncate text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
-                                          {product.label}
+                                        <span className="flex min-w-0 flex-col items-start gap-px">
+                                          <span className="whitespace-nowrap text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
+                                            {product.label}
+                                          </span>
+                                          <span className="whitespace-nowrap text-[11px] font-normal uppercase leading-[16.5px] tracking-[0.55px] text-[#62748e]">
+                                            {product.eyebrow}
+                                          </span>
                                         </span>
                                       </Link>
                                     );
                                   })}
                                 </div>
 
-                                <div className="relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
-                                  <div className="absolute -right-[96px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff]/30 blur-[32px]" />
-                                  <div className="absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4]/25 blur-[32px]" />
-                                  <div className="absolute inset-0 bg-[linear-gradient(151deg,rgba(159,95,255,0.42)_0%,rgba(159,95,255,0)_50%,rgba(0,177,195,0.42)_100%)] opacity-80" />
+                                <div className="relative flex h-[222px] w-[479px] shrink-0 flex-col items-start overflow-hidden rounded-[22px] bg-[#1f44be] p-[32px] text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+                                  <div className="absolute -right-[64px] -top-[64px] size-[256px] rounded-full bg-white/10 blur-[32px]" />
 
-                                  <div className="relative w-[398px]">
-                                    <div className="flex flex-col items-start gap-[12px]">
-                                      <div className="flex items-center gap-[10px]">
-                                        <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] text-white shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]">
-                                          <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
-                                          <DropdownIcon name={activeProduct.icon} className="relative size-[32px]" />
+                                  <div className="relative flex w-full flex-col items-start gap-[10px]">
+                                      <div className="flex w-full items-center gap-[10px]">
+                                        <span className="flex size-[56px] shrink-0 items-center justify-center rounded-[30px] bg-white/15 text-white backdrop-blur-[4px]">
+                                          <DropdownIcon name={activeProduct.icon} className="size-[32px]" />
                                         </span>
-                                        <h3 className="m-0 whitespace-nowrap text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
-                                          {activeProduct.label}
-                                        </h3>
+                                        <span className="flex min-w-0 flex-col items-start gap-[4px]">
+                                          <h3 className="m-0 min-w-0 text-[24px] font-normal leading-[32px] tracking-[-0.6px] text-white">
+                                            {activeProduct.label}
+                                          </h3>
+                                          <span className="text-[12px] font-normal uppercase leading-[16px] tracking-[0.6px] text-white/60">
+                                            {activeProduct.eyebrow}
+                                          </span>
+                                        </span>
                                       </div>
 
-                                      <p className="m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
+                                      <p className="m-0 w-full text-[14px] font-normal leading-[22.75px] text-white/80">
                                         {activeProduct.description}
                                       </p>
+
+                                      <div className="h-px w-full bg-white/10" />
 
                                       <Link
                                         to={activeProduct.href}
                                         onClick={() => setDropdownOpen(item.dropdown, false)}
-                                        className="relative inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
+                                        className="inline-flex items-center gap-[6px] pt-[16px] text-center text-[14px] font-normal leading-[20px] text-white/90"
                                       >
-                                        Explore product
+                                        Explore
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                           <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                       </Link>
                                     </div>
-                                  </div>
                                 </div>
                               </div>
                             </div>
