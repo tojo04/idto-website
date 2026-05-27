@@ -246,7 +246,7 @@ function DefaultPreviewGraphic({
 
       <div
         className={`relative flex h-full items-center ${
-          variant === "products" ? "justify-between px-[24px]" : "justify-between px-[18px]"
+          variant === "products" ? "justify-between px-[16px]" : "justify-between px-[18px]"
         }`}
       >
         {icons.map((icon, index) => (
@@ -729,12 +729,12 @@ export default function Header() {
                                   })}
                                 </div>
 
-                                <div className="relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] py-[31px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                <div className={`relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px] ${activeProduct ? "py-[31px]" : "py-[22px]"}`}>
                                     <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(151deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
                                     <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
                                     <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
 
-                                    <div className="relative flex h-[202px] w-full flex-col items-start">
+                                    <div className={`relative flex w-full flex-col items-start ${activeProduct ? "h-[202px]" : "h-[220px]"}`}>
                                         {activeProduct ? (
                                           <div className="flex w-full items-center gap-[10px]">
                                             <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
@@ -749,17 +749,17 @@ export default function Header() {
                                             </span>
                                           </div>
                                         ) : (
-                                          <h3 className="m-0 w-full text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
+                                          <h3 className="m-0 w-full text-[30px] font-normal leading-[34px] tracking-[-0.75px] text-[#040a1c]">
                                             {productPreview.label}
                                           </h3>
                                         )}
 
-                                        <p className={`m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858] ${activeProduct ? "mt-[12px]" : "mt-[20px]"}`}>
+                                        <p className={`m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858] ${activeProduct ? "mt-[12px]" : "mt-[22px]"}`}>
                                           {productPreview.description}
                                         </p>
 
                                         {!activeProduct && (
-                                          <DefaultPreviewGraphic variant="products" className="mt-auto h-[74px]" />
+                                          <DefaultPreviewGraphic variant="products" className="mt-[22px] h-[58px] shrink-0" />
                                         )}
 
                                         {activeProduct && (
