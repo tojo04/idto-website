@@ -239,9 +239,6 @@ function DefaultPreviewGraphic({
           strokeDasharray="7 8"
           opacity="0.45"
         />
-        <circle cx="199" cy="50" r="38" fill="white" opacity="0.12" />
-        <circle cx="73" cy="32" r="24" fill="white" opacity="0.16" />
-        <circle cx="330" cy="70" r="28" fill="#1D68F4" opacity="0.08" />
       </svg>
 
       <div
@@ -252,7 +249,7 @@ function DefaultPreviewGraphic({
         {icons.map((icon, index) => (
           <span
             key={icon}
-            className={`flex shrink-0 items-center justify-center rounded-[24px] bg-white/65 text-[#1d68f4] shadow-[0px_10px_24px_-16px_rgba(4,10,28,0.55)] ${
+            className={`flex shrink-0 items-center justify-center rounded-[24px] bg-white text-[#1d68f4] opacity-100 shadow-[0px_10px_24px_-16px_rgba(4,10,28,0.55)] ${
               variant === "products"
                 ? index % 2 === 0
                   ? "size-[42px] translate-y-[4px]"
@@ -262,7 +259,10 @@ function DefaultPreviewGraphic({
                   : "size-[48px] translate-y-[8px]"
             }`}
           >
-            <DropdownIcon name={icon} className={variant === "products" ? "size-[20px]" : "size-[22px]"} />
+            <DropdownIcon
+              name={icon}
+              className={`${variant === "products" ? "size-[20px]" : "size-[22px]"} opacity-100`}
+            />
           </span>
         ))}
       </div>
