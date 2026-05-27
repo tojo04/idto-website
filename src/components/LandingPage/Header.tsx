@@ -159,11 +159,11 @@ type DropdownItem = {
   label: string;
   href: string;
   icon: DropdownIconName;
-  eyebrow: string;
+  
   description?: string;
 };
 
-const DESKTOP_DROPDOWN_MAX_WIDTH = 1301;
+const DESKTOP_DROPDOWN_MAX_WIDTH = 1313;
 const DESKTOP_DROPDOWN_GUTTER = 16;
 
 type DropdownPlacement = {
@@ -214,7 +214,7 @@ const productItems: DropdownItem[] = [
     label: "CKYC 2.0",
     href: "/products/CKYC",
     icon: "ckyc",
-    eyebrow: "Compliance, reimagined",
+    
     description:
       "Search, download, update, and create CKYC records through a single intelligent flow tuned for high success rates.",
   },
@@ -222,7 +222,7 @@ const productItems: DropdownItem[] = [
     label: "DigiLocker 3.0",
     href: "/products/digilocker-3.0",
     icon: "digilocker",
-    eyebrow: "Government docs in one tap",
+    
     description:
       "Unlock higher conversions with DigiLocker 3.0: adaptive, compliant, and AI-powered.",
   },
@@ -230,7 +230,7 @@ const productItems: DropdownItem[] = [
     label: "Intelli Bank Account Verification",
     href: "/products/BAV",
     icon: "bav",
-    eyebrow: "Smarter penny-less checks",
+    
     description:
       "Verify bank accounts with higher coverage, better uptime, and consistent API response.",
   },
@@ -238,7 +238,7 @@ const productItems: DropdownItem[] = [
     label: "Mobile Intelligence",
     href: "/products/mobile-intelligence",
     icon: "mobileIntelligence",
-    eyebrow: "Know the number behind the user",
+    
     description:
       "Streamline sign-ups, auto-fill user details, and protect against fraud.",
   },
@@ -249,63 +249,63 @@ const solutionItems: DropdownItem[] = [
     label: "Fintech & Lending",
     href: "/solutions/fintech-and-lending",
     icon: "fintechLending",
-    eyebrow: "Lending",
+   
     description: "Verify users, reduce onboarding drop-offs, enrich risk signals, and support collections.",
   },
   {
     label: "Banking & NBFCs",
     href: "/solutions/banking-and-nbfcs",
     icon: "bankingNbfcs",
-    eyebrow: "Banking",
+    
     description: "Run compliant KYC, CKYC, bank verification, and customer intelligence workflows.",
   },
   {
     label: "Insurance",
     href: "/solutions/insurance",
     icon: "insurance",
-    eyebrow: "Insurance",
+    
     description: "Simplify policy onboarding, CKYC checks, payout validation, and customer personalization.",
   },
   {
     label: "Crypto & Web3",
     href: "/solutions/crypto-and-web3",
     icon: "cryptoWeb3",
-    eyebrow: "Web3",
+    
     description: "Build safer onboarding, wallet-linked compliance, user verification, and payout checks.",
   },
   {
     label: "Marketplaces",
     href: "/solutions/marketplaces",
     icon: "marketplaces",
-    eyebrow: "Marketplace",
+    
     description: "Verify buyers, sellers, service providers, and payouts with one trust stack.",
   },
   {
     label: "Social & Community",
     href: "/solutions/social-and-community-platforms",
     icon: "socialCommunity",
-    eyebrow: "Community",
+    
     description: "Reduce fake users, duplicate accounts, abuse, and unsafe payouts across communities.",
   },
   {
     label: "Gig Economy",
     href: "/solutions/gig-economy",
     icon: "gigEconomy",
-    eyebrow: "Gig",
+    
     description: "Verify gig workers, bank accounts, documents, and contactability in under 10 minutes.",
   },
   {
     label: "Employment & BGV",
     href: "/solutions/background-verification",
     icon: "backgroundVerification",
-    eyebrow: "BGV",
+    
     description: "Verify candidates, documents, bank accounts, and contactability faster.",
   },
   {
     label: "Merchant Onboarding / KYB",
     href: "/solutions/merchant-onboarding-kyb",
     icon: "merchantKyb",
-    eyebrow: "KYB",
+    
     description: "Onboard merchants, verify businesses, validate bank accounts, and reduce manual ops.",
   },
 ];
@@ -334,14 +334,15 @@ export default function Header() {
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (productsDropdownRef.current && !productsDropdownRef.current.contains(e.target as Node)) {
-        setProductsOpen(false);
-        setDropdownPlacement(null);
-      }
-      if (solutionsDropdownRef.current && !solutionsDropdownRef.current.contains(e.target as Node)) {
-        setSolutionsOpen(false);
-        setDropdownPlacement(null);
-      }
+      const target = e.target as Node;
+      const clickedProductsDropdown = productsDropdownRef.current?.contains(target) ?? false;
+      const clickedSolutionsDropdown = solutionsDropdownRef.current?.contains(target) ?? false;
+
+      if (clickedProductsDropdown || clickedSolutionsDropdown) return;
+
+      setProductsOpen(false);
+      setSolutionsOpen(false);
+      setDropdownPlacement(null);
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -456,11 +457,10 @@ export default function Header() {
                     key={item.label}
                     className="relative"
                     ref={getDropdownRef(item.dropdown)}
-                    onMouseEnter={() => setDropdownOpen(item.dropdown, true)}
-                    onMouseLeave={() => setDropdownOpen(item.dropdown, false)}
                   >
                     <button
                       type="button"
+                      onMouseDown={(event) => event.stopPropagation()}
                       onClick={() => setDropdownOpen(item.dropdown, !isDropdownOpen(item.dropdown))}
                       className="px-[27px] py-[9px] text-[16px] text-black/70 hover:text-black transition-colors rounded-full cursor-pointer flex items-center gap-1"
                     >
@@ -492,7 +492,7 @@ export default function Header() {
                         >
                           {/* Dropdown body */}
                           {item.dropdown === "solutions" ? (
-                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[16px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
                               <div className="flex w-[1281px] shrink-0 items-center gap-[12px]">
                                 <div className="grid h-[339px] w-[789px] shrink-0 grid-cols-3 grid-rows-3 gap-[12px]">
                                 {solutionItems.map((solution) => {
@@ -504,11 +504,12 @@ export default function Header() {
                                       to={solution.href}
                                       onMouseEnter={() => setActiveSolutionHref(solution.href)}
                                       onFocus={() => setActiveSolutionHref(solution.href)}
+                                      onMouseDown={(event) => event.stopPropagation()}
                                       onClick={() => setDropdownOpen(item.dropdown, false)}
                                       className={`group flex items-center gap-[12px] rounded-[18px] py-[30.4px] pl-[17px] pr-[17px] transition-all duration-200 ${
                                         isActive
                                           ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
-                                          : "border border-[rgba(226,232,240,0.6)] bg-white/50 hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                          : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
                                       }`}
                                     >
                                       <span
@@ -524,44 +525,41 @@ export default function Header() {
                                         <span className="whitespace-nowrap text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
                                           {solution.label}
                                         </span>
-                                        <span className="whitespace-nowrap text-[11px] font-normal uppercase leading-[16.5px] tracking-[0.55px] text-[#62748e]">
-                                          {solution.eyebrow}
-                                        </span>
+                                        
                                       </span>
                                     </Link>
                                   );
                                 })}
                                 </div>
 
-                                <div className="relative flex h-[339px] w-[478.4px] shrink-0 flex-col items-start overflow-hidden rounded-[22px] bg-[#1f44be] p-[32px] text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
-                                <div className="absolute -right-[64px] -top-[64px] size-[256px] rounded-full bg-white/10 blur-[32px]" />
+                                <div className="relative flex h-[338px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(145deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
+                                <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
+                                <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
 
-                                <div className="relative flex w-full flex-col items-start gap-[8px]">
-                                  <span className="flex size-[56px] shrink-0 items-center justify-center rounded-[30px] bg-white/15 text-white backdrop-blur-[4px]">
-                                    <DropdownIcon name={activeSolution.icon} className="size-[28px]" />
+                                <div className="relative flex h-[265px] w-full flex-col items-start">
+                                  <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
+                                    <span className="absolute inset-0 rounded-[36px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
+                                    <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]" />
+                                    <DropdownIcon name={activeSolution.icon} className="relative size-[28px]" />
                                   </span>
 
-                                  <span className="pt-[16px] text-[12px] font-normal uppercase leading-[16px] tracking-[0.6px] text-white/60">
-                                    {activeSolution.eyebrow}
-                                  </span>
-
-                                  <div className="flex w-full flex-col items-start">
-                                    <h3 className="m-0 text-[24px] font-normal leading-[32px] tracking-[-0.6px] text-white">
+                                  <div className="mt-[28px] flex w-full flex-col items-start gap-[20px]">
+                                    <h3 className="m-0 w-full text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
                                       {activeSolution.label}
                                     </h3>
-                                    <p className="m-0 w-full pb-[24px] pt-[7.4px] text-[14px] font-normal leading-[22.75px] text-white/80">
+                                    <p className="m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
                                       {activeSolution.description}
                                     </p>
                                   </div>
 
-                                  <div className="h-px w-full bg-white/10" />
-
                                   <Link
                                     to={activeSolution.href}
+                                    onMouseDown={(event) => event.stopPropagation()}
                                     onClick={() => setDropdownOpen(item.dropdown, false)}
-                                    className="inline-flex items-center gap-[6px] pt-[16px] text-center text-[14px] font-normal leading-[20px] text-white/90"
+                                    className="absolute bottom-0 left-0 z-10 inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-center text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
                                   >
-                                    Explore
+                                    Explore product
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                       <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
@@ -571,9 +569,9 @@ export default function Header() {
                               </div>
                             </div>
                           ) : (
-                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[10px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
-                              <div className="flex h-[222px] w-[1281px] shrink-0 items-start justify-center gap-[12px]">
-                                <div className="grid h-[222px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
+                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[16px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                              <div className="flex h-[264px] w-[1281px] shrink-0 items-start justify-center gap-[12px]">
+                                <div className="grid h-[264px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
                                   {productItems.map((product) => {
                                     const isActive = product.href === activeProduct.href;
 
@@ -583,11 +581,12 @@ export default function Header() {
                                         to={product.href}
                                         onMouseEnter={() => setActiveProductHref(product.href)}
                                         onFocus={() => setActiveProductHref(product.href)}
+                                        onMouseDown={(event) => event.stopPropagation()}
                                         onClick={() => setDropdownOpen(item.dropdown, false)}
-                                        className={`group flex items-center gap-[12px] rounded-[18px] py-[30.4px] pl-[17px] pr-[17px] transition-all duration-200 ${
+                                        className={`group flex items-center gap-[12px] rounded-[18px] py-[40.4px] pl-[17px] pr-[17px] transition-all duration-200 ${
                                           isActive
                                             ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
-                                            : "border border-[rgba(226,232,240,0.6)] bg-white/50 hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
+                                            : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
                                         }`}
                                       >
                                         <span
@@ -603,45 +602,43 @@ export default function Header() {
                                           <span className="whitespace-nowrap text-[14px] font-normal leading-[20px] tracking-[-0.35px] text-[#020618]">
                                             {product.label}
                                           </span>
-                                          <span className="whitespace-nowrap text-[11px] font-normal uppercase leading-[16.5px] tracking-[0.55px] text-[#62748e]">
-                                            {product.eyebrow}
-                                          </span>
+                                          
                                         </span>
                                       </Link>
                                     );
                                   })}
                                 </div>
 
-                                <div className="relative flex h-[222px] w-[479px] shrink-0 flex-col items-start overflow-hidden rounded-[22px] bg-[#1f44be] p-[32px] text-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
-                                  <div className="absolute -right-[64px] -top-[64px] size-[256px] rounded-full bg-white/10 blur-[32px]" />
+                                <div className="relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] py-[31px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                  <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(151deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
+                                  <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
+                                  <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
 
-                                  <div className="relative flex w-full flex-col items-start gap-[10px]">
+                                  <div className="relative flex h-[202px] w-full flex-col items-start">
                                       <div className="flex w-full items-center gap-[10px]">
-                                        <span className="flex size-[56px] shrink-0 items-center justify-center rounded-[30px] bg-white/15 text-white backdrop-blur-[4px]">
-                                          <DropdownIcon name={activeProduct.icon} className="size-[32px]" />
+                                        <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
+                                          <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
+                                          <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]" />
+                                          <DropdownIcon name={activeProduct.icon} className="relative size-[32px]" />
                                         </span>
-                                        <span className="flex min-w-0 flex-col items-start gap-[4px]">
-                                          <h3 className="m-0 min-w-0 text-[24px] font-normal leading-[32px] tracking-[-0.6px] text-white">
+                                        <span className="flex min-w-0 flex-col items-start">
+                                          <h3 className="m-0 min-w-0 text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
                                             {activeProduct.label}
                                           </h3>
-                                          <span className="text-[12px] font-normal uppercase leading-[16px] tracking-[0.6px] text-white/60">
-                                            {activeProduct.eyebrow}
-                                          </span>
                                         </span>
                                       </div>
 
-                                      <p className="m-0 w-full text-[14px] font-normal leading-[22.75px] text-white/80">
+                                      <p className="m-0 mt-[12px] w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
                                         {activeProduct.description}
                                       </p>
 
-                                      <div className="h-px w-full bg-white/10" />
-
                                       <Link
                                         to={activeProduct.href}
+                                        onMouseDown={(event) => event.stopPropagation()}
                                         onClick={() => setDropdownOpen(item.dropdown, false)}
-                                        className="inline-flex items-center gap-[6px] pt-[16px] text-center text-[14px] font-normal leading-[20px] text-white/90"
+                                        className="absolute bottom-0 left-0 z-10 inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-center text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
                                       >
-                                        Explore
+                                        Explore product
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                           <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
