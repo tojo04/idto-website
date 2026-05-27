@@ -322,8 +322,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [activeProductHref, setActiveProductHref] = useState(productItems[0].href);
-  const [activeSolutionHref, setActiveSolutionHref] = useState(solutionItems[0].href);
+  const [activeProductHref, setActiveProductHref] = useState<string | null>(null);
+  const [activeSolutionHref, setActiveSolutionHref] = useState<string | null>(null);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [dropdownPlacement, setDropdownPlacement] = useState<DropdownPlacement | null>(null);
@@ -389,10 +389,12 @@ export default function Header() {
     setDropdownPlacement(value ? measureDropdownPlacement(dropdown) : null);
 
     if (dropdown === "products") {
+      if (value) setActiveProductHref(null);
       setProductsOpen(value);
       setSolutionsOpen(false);
       return;
     }
+    if (value) setActiveSolutionHref(null);
     setSolutionsOpen(value);
     setProductsOpen(false);
   };
@@ -452,10 +454,10 @@ export default function Header() {
   );
 
   const activeProduct =
-    productItems.find((product) => product.href === activeProductHref) || productItems[0];
+    productItems.find((product) => product.href === activeProductHref);
 
   const activeSolution =
-    solutionItems.find((solution) => solution.href === activeSolutionHref) || solutionItems[0];
+    solutionItems.find((solution) => solution.href === activeSolutionHref);
 
   return (
     <header className="bg-white px-5 lg:px-[112.5px] py-4 lg:py-[27px] sticky top-0 z-50">
@@ -521,17 +523,24 @@ export default function Header() {
                           style={{
                             left: dropdownPlacement?.left ?? 0,
                             top: dropdownPlacement?.top ?? 0,
-                            width: dropdownPlacement?.width ?? 0,
+                            width:
+                              item.dropdown === "solutions"
+                                ? activeSolution
+                                  ? dropdownPlacement?.width ?? 0
+                                  : "max-content"
+                                : activeProduct
+                                  ? dropdownPlacement?.width ?? 0
+                                  : "max-content",
                             visibility: dropdownPlacement ? "visible" : "hidden",
                           }}
                         >
                           {/* Dropdown body */}
                           {item.dropdown === "solutions" ? (
                             <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[16px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
-                              <div className="flex w-[1281px] shrink-0 items-center gap-[12px]">
+                              <div className={`flex shrink-0 items-center gap-[12px] ${activeSolution ? "w-[1281px]" : "w-[789px]"}`}>
                                 <div className="grid h-[339px] w-[789px] shrink-0 grid-cols-3 grid-rows-3 gap-[12px]">
                                 {solutionItems.map((solution) => {
-                                  const isActive = solution.href === activeSolution.href;
+                                  const isActive = solution.href === activeSolution?.href;
 
                                   return (
                                     <Link
@@ -567,48 +576,50 @@ export default function Header() {
                                 })}
                                 </div>
 
-                                <div className="relative flex h-[338px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
-                                <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(145deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
-                                <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
-                                <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
+                                {activeSolution && (
+                                  <div className="relative flex h-[338px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 p-[41px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                  <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(145deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
+                                  <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
+                                  <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
 
-                                <div className="relative flex h-[265px] w-full flex-col items-start">
-                                  <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
-                                    <span className="absolute inset-0 rounded-[36px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
-                                    <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]" />
-                                    <DropdownIcon name={activeSolution.icon} className="relative size-[28px]" />
-                                  </span>
+                                  <div className="relative flex h-[265px] w-full flex-col items-start">
+                                    <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
+                                      <span className="absolute inset-0 rounded-[36px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
+                                      <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]" />
+                                      <DropdownIcon name={activeSolution.icon} className="relative size-[28px]" />
+                                    </span>
 
-                                  <div className="mt-[28px] flex w-full flex-col items-start gap-[20px]">
-                                    <h3 className="m-0 w-full text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
-                                      {activeSolution.label}
-                                    </h3>
-                                    <p className="m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
-                                      {activeSolution.description}
-                                    </p>
+                                    <div className="mt-[28px] flex w-full flex-col items-start gap-[20px]">
+                                      <h3 className="m-0 w-full text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
+                                        {activeSolution.label}
+                                      </h3>
+                                      <p className="m-0 w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
+                                        {activeSolution.description}
+                                      </p>
+                                    </div>
+
+                                    <Link
+                                      to={activeSolution.href}
+                                      onMouseDown={(event) => event.stopPropagation()}
+                                      onClick={() => setDropdownOpen(item.dropdown, false)}
+                                      className="absolute bottom-0 left-0 z-10 inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-center text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
+                                    >
+                                      Explore product
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                        <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                      </svg>
+                                    </Link>
                                   </div>
-
-                                  <Link
-                                    to={activeSolution.href}
-                                    onMouseDown={(event) => event.stopPropagation()}
-                                    onClick={() => setDropdownOpen(item.dropdown, false)}
-                                    className="absolute bottom-0 left-0 z-10 inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-center text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
-                                  >
-                                    Explore product
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                                      <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                  </Link>
-                                </div>
-                                </div>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           ) : (
                             <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[16px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
-                              <div className="flex h-[264px] w-[1281px] shrink-0 items-start justify-center gap-[12px]">
+                              <div className={`flex h-[264px] shrink-0 items-start gap-[12px] ${activeProduct ? "w-[1281px]" : "w-[784px]"}`}>
                                 <div className="grid h-[264px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
                                   {productItems.map((product) => {
-                                    const isActive = product.href === activeProduct.href;
+                                    const isActive = product.href === activeProduct?.href;
 
                                     return (
                                       <Link
@@ -644,42 +655,44 @@ export default function Header() {
                                   })}
                                 </div>
 
-                                <div className="relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] py-[31px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
-                                  <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(151deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
-                                  <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
-                                  <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
+                                {activeProduct && (
+                                  <div className="relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] py-[31px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px]">
+                                    <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(151deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
+                                    <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
+                                    <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
 
-                                  <div className="relative flex h-[202px] w-full flex-col items-start">
-                                      <div className="flex w-full items-center gap-[10px]">
-                                        <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
-                                          <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
-                                          <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]" />
-                                          <DropdownIcon name={activeProduct.icon} className="relative size-[32px]" />
-                                        </span>
-                                        <span className="flex min-w-0 flex-col items-start">
-                                          <h3 className="m-0 min-w-0 text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
-                                            {activeProduct.label}
-                                          </h3>
-                                        </span>
+                                    <div className="relative flex h-[202px] w-full flex-col items-start">
+                                        <div className="flex w-full items-center gap-[10px]">
+                                          <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">
+                                            <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#ae70ff_0%,#3d72ff_100%)] opacity-50 blur-[6px]" />
+                                            <span className="absolute inset-0 rounded-[30px] bg-[linear-gradient(135deg,#914dff_0%,#2351de_100%)] shadow-[0px_10px_40px_-10px_rgba(134,37,254,0.7)]" />
+                                            <DropdownIcon name={activeProduct.icon} className="relative size-[32px]" />
+                                          </span>
+                                          <span className="flex min-w-0 flex-col items-start">
+                                            <h3 className="m-0 min-w-0 text-[30px] font-normal leading-[36px] tracking-[-0.75px] text-[#040a1c]">
+                                              {activeProduct.label}
+                                            </h3>
+                                          </span>
+                                        </div>
+
+                                        <p className="m-0 mt-[12px] w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
+                                          {activeProduct.description}
+                                        </p>
+
+                                        <Link
+                                          to={activeProduct.href}
+                                          onMouseDown={(event) => event.stopPropagation()}
+                                          onClick={() => setDropdownOpen(item.dropdown, false)}
+                                          className="absolute bottom-0 left-0 z-10 inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-center text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
+                                        >
+                                          Explore product
+                                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                            <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                          </svg>
+                                        </Link>
                                       </div>
-
-                                      <p className="m-0 mt-[12px] w-full text-[15px] font-normal leading-[24.38px] text-[#404858]">
-                                        {activeProduct.description}
-                                      </p>
-
-                                      <Link
-                                        to={activeProduct.href}
-                                        onMouseDown={(event) => event.stopPropagation()}
-                                        onClick={() => setDropdownOpen(item.dropdown, false)}
-                                        className="absolute bottom-0 left-0 z-10 inline-flex items-center gap-[8px] rounded-full bg-[linear-gradient(167deg,#744ef6_0%,#0019ff_100%)] px-[20px] py-[10px] text-center text-[14px] font-normal leading-[20px] text-white shadow-[0px_8px_24px_-8px_rgba(11,21,44,0.5)]"
-                                      >
-                                        Explore product
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                                          <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                      </Link>
-                                    </div>
-                                </div>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           )}
