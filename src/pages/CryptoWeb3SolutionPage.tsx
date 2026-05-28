@@ -10,7 +10,7 @@ import CTASection from "../components/solutions/crypto_and_web3/CTASection";
 
 export default function CryptoWeb3SolutionPage() {
   const bookDemo = () => {
-    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+    window.dispatchEvent(new Event("idto:open-demo-request-modal"));
   };
 
   return (

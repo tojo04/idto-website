@@ -1,9 +1,14 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import {
+  BrowserRouter,
+  Navigate,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
 import LandingPage from "./pages/LandingPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import Demo from "./pages/Demo";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import DigiLockerProductPage from "./pages/DigiLockerProductPage";
@@ -20,6 +25,9 @@ import GigEconomySolutionPage from "./pages/GigEconomySolutionPage";
 import BGVSolutionPage from "./pages/BGVSolutionPage";
 import KYBSolutionPage from "./pages/KYBSolutionPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import DemoRequestModal, {
+  DEMO_REQUEST_MODAL_EVENT,
+} from "./components/DemoRequestModal";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,9 +37,56 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
+function OpenDemoModalRoute({ onOpen }: { onOpen: () => void }) {
+  useEffect(() => {
+    onOpen();
+  }, [onOpen]);
+
+  return <Navigate to="/" replace />;
+}
+
+function AppShell() {
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+
+  const openDemoModal = useCallback(() => {
+    setIsDemoModalOpen(true);
+  }, []);
+
+  const closeDemoModal = useCallback(() => {
+    setIsDemoModalOpen(false);
+  }, []);
+
+  useEffect(() => {
+    function handleOpenDemoModal() {
+      openDemoModal();
+    }
+
+    function handleDocumentClick(event: MouseEvent) {
+      if (!(event.target instanceof Element)) return;
+
+      const anchor = event.target.closest("a");
+
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      const href = anchor.getAttribute("href");
+
+      if (href !== "/contact-us" && href !== "/demo") return;
+
+      event.preventDefault();
+      openDemoModal();
+    }
+
+    window.addEventListener(DEMO_REQUEST_MODAL_EVENT, handleOpenDemoModal);
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      window.removeEventListener(DEMO_REQUEST_MODAL_EVENT, handleOpenDemoModal);
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [openDemoModal]);
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -52,9 +107,25 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
-        <Route path="/demo" element={<Demo />} />
+        <Route
+          path="/contact-us"
+          element={<OpenDemoModalRoute onOpen={openDemoModal} />}
+        />
+        <Route
+          path="/demo"
+          element={<OpenDemoModalRoute onOpen={openDemoModal} />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <DemoRequestModal isOpen={isDemoModalOpen} onClose={closeDemoModal} />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }

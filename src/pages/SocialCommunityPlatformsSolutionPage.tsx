@@ -10,7 +10,7 @@ import CTASection from "../components/solutions/social_and_community/CTASection"
 
 export default function SocialCommunityPlatformsSolutionPage() {
   const bookDemo = () => {
-    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+    window.dispatchEvent(new Event("idto:open-demo-request-modal"));
   };
 
   return (

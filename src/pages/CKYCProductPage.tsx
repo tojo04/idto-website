@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 
 export default function CKYCProductPage() {
   const bookDemo = () => {
-    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+    window.dispatchEvent(new Event("idto:open-demo-request-modal"));
   };
 
   return (

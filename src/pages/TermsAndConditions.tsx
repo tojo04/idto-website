@@ -4,7 +4,7 @@ import SEOHead from "../components/SEOHead";
 
 export default function TermsAndConditions() {
   const bookDemo = () => {
-    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+    window.dispatchEvent(new Event("idto:open-demo-request-modal"));
   };
 
   return (

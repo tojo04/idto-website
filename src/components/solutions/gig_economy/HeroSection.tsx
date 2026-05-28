@@ -46,9 +46,7 @@ export default function HeroSection() {
         >
           <div className="flex flex-wrap gap-[15px] items-center justify-center lg:gap-[13.5px] lg:justify-start">
             <a
-              href="https://cal.com/adityaskx-idto/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact-us"
               className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-12 lg:px-[27px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
             >
               Talk to us

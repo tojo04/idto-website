@@ -9,7 +9,7 @@ const productLinks = [
   { label: "Business Verification (KYB)", href: "/products/BAV" },
   { label: "DigiLocker 3.0", href: "/products/digilocker-3.0" },
   { label: "Mobile Intelligence", href: "/products/mobile-intelligence" },
-  { label: "Book a Demo", href: "/demo" },
+  { label: "Book a Demo", href: "/contact-us" },
 ];
 
 const resourceLinks = [

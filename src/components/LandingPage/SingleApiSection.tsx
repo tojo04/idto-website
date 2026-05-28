@@ -71,7 +71,7 @@ const tabs: TabContent[] = [
       "Upgrade to API integration anytime",
       "Exportable reports & audit-ready logs",
     ],
-    footerLink: { text: "idto.ai/demo", href: "https://idto.ai/demo" },
+    footerLink: { text: "idto.ai/contact-us", href: "/contact-us" },
   },
   {
     name: "Fraud & Intelligence Suite",
@@ -273,12 +273,10 @@ export default function SingleApiSection() {
                   <ArrowRight size={20} className="hidden lg:block" strokeWidth={2.5} />
                 </a>
                 <a
-                  href="https://idto.ai/demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact-us"
                   className="inline-flex items-center gap-2 px-0 lg:px-5 py-2 lg:py-2.5 rounded-md text-sm lg:text-[14px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
                 >
-                  <span className="underline underline-offset-4">View Demo Workflow</span>
+                  <span className="underline underline-offset-4">Request Demo Workflow</span>
                   <ArrowRight size={16} className="lg:hidden" strokeWidth={2.5} />
                   <ArrowRight size={20} className="hidden lg:block" strokeWidth={2.5} />
                 </a>

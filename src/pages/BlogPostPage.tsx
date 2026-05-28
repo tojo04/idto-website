@@ -16,7 +16,7 @@ export default function BlogPostPage() {
   const post = getBlogPostBySlug(slug || "");
 
   const bookDemo = () => {
-    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+    window.dispatchEvent(new Event("idto:open-demo-request-modal"));
   };
 
   if (!post) {

@@ -6,7 +6,7 @@ import { blogPosts } from "../data/blogPosts";
 
 export default function BlogPage() {
   const bookDemo = () => {
-    window.open("https://cal.com/adityaskx-idto/30min", "_blank");
+    window.dispatchEvent(new Event("idto:open-demo-request-modal"));
   };
 
   return (
