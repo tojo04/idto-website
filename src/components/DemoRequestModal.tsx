@@ -1,5 +1,6 @@
 import {
   type ChangeEvent,
+  type FocusEvent,
   type FormEvent,
   useCallback,
   useEffect,
@@ -75,8 +76,76 @@ export default function DemoRequestModal({
 }: DemoRequestModalProps) {
   const [formData, setFormData] =
     useState<DemoRequestPayload>(initialFormData);
+  const [formErrors, setFormErrors] =
+    useState<Partial<Record<keyof DemoRequestPayload, string>>>({});
+  const [touchedFields, setTouchedFields] =
+    useState<Partial<Record<keyof DemoRequestPayload, boolean>>>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [statusMessage, setStatusMessage] = useState("");
+
+  const formatPhoneValue = (phoneDigits: string) =>
+    phoneDigits ? `+91 ${phoneDigits}` : "+91";
+
+  const normalizePhoneValue = (value: string) => {
+    const raw = value.trim();
+
+    if (
+      raw === "" ||
+      raw === "+" ||
+      raw === "+9" ||
+      raw === "+91" ||
+      raw === "+91 "
+    ) {
+      return "";
+    }
+
+    let digits = raw.replace(/^\+?91[\s-]*/, "").replace(/\D/g, "");
+
+    if (digits.length > 10) {
+      digits = digits.slice(0, 10);
+    }
+
+    return digits;
+  };
+
+  const validateField = (
+    field: keyof DemoRequestPayload,
+    value: string | boolean
+  ) => {
+    if (field === "workEmail") {
+      const email = String(value).trim();
+      if (!email) {
+        return "Work email is required.";
+      }
+      if (!isWorkEmail(email)) {
+        return "Enter a valid work email address, not a personal email.";
+      }
+      return "";
+    }
+
+    if (field === "phone") {
+      const digits = String(value).replace(/\D/g, "");
+      if (!digits) {
+        return "Phone number is required.";
+      }
+      if (digits.length !== 10) {
+        return "Enter a 10-digit phone number.";
+      }
+      return "";
+    }
+
+    if (field === "consentToContact") {
+      return value === true
+        ? ""
+        : "Please confirm that our team can contact you.";
+    }
+
+    if (field === "fullName" || field === "companyName") {
+      return String(value).trim() ? "" : "This field is required.";
+    }
+
+    return "";
+  };
 
   const handleClose = useCallback(() => {
     setFormData(initialFormData);
@@ -107,33 +176,91 @@ export default function DemoRequestModal({
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const field = event.target.name as keyof DemoRequestPayload;
+    const value =
+      field === "phone"
+        ? normalizePhoneValue(event.target.value)
+        : event.target.value;
+
     setFormData((current) => ({
       ...current,
-      [field]: event.target.value,
+      [field]: value,
+    }));
+
+    if (touchedFields[field]) {
+      setFormErrors((current) => ({
+        ...current,
+        [field]: validateField(field, value),
+      }));
+    }
+  };
+
+  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+    const field = event.target.name as keyof DemoRequestPayload;
+    const value =
+      field === "phone"
+        ? normalizePhoneValue(event.target.value)
+        : event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+
+    setTouchedFields((current) => ({
+      ...current,
+      [field]: true,
+    }));
+
+    setFormErrors((current) => ({
+      ...current,
+      [field]: validateField(field, value),
     }));
   };
 
   const handleConsentChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const consentToContact = event.target.checked;
+
     setFormData((current) => ({
       ...current,
-      consentToContact: event.target.checked,
+      consentToContact,
     }));
+
+    if (touchedFields.consentToContact) {
+      setFormErrors((current) => ({
+        ...current,
+        consentToContact: validateField("consentToContact", consentToContact),
+      }));
+    }
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!isWorkEmail(formData.workEmail)) {
-      setSubmitState("error");
-      setStatusMessage(
-        "Please enter a valid work email address, not a personal email."
-      );
-      return;
-    }
+    const fieldsToValidate: Array<keyof DemoRequestPayload> = [
+      "fullName",
+      "companyName",
+      "workEmail",
+      "phone",
+      "consentToContact",
+    ];
 
-    if (!formData.consentToContact) {
+    const nextErrors: Partial<Record<keyof DemoRequestPayload, string>> = {};
+
+    fieldsToValidate.forEach((field) => {
+      nextErrors[field] = validateField(field, formData[field]);
+    });
+
+    const hasErrors = Object.values(nextErrors).some(Boolean);
+
+    setFormErrors(nextErrors);
+    setTouchedFields({
+      fullName: true,
+      companyName: true,
+      workEmail: true,
+      phone: true,
+      consentToContact: true,
+    });
+
+    if (hasErrors) {
       setSubmitState("error");
-      setStatusMessage("Please confirm that our team can contact you.");
+      setStatusMessage("");
       return;
     }
 
@@ -238,9 +365,15 @@ export default function DemoRequestModal({
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleTextChange}
+                      onBlur={handleBlur}
                       className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] px-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
                       placeholder="Full name"
                     />
+                    {formErrors.fullName && (
+                      <p className="text-red-700 text-[13px] mt-1">
+                        {formErrors.fullName}
+                      </p>
+                    )}
                   </label>
 
                   <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
@@ -256,10 +389,16 @@ export default function DemoRequestModal({
                         name="companyName"
                         value={formData.companyName}
                         onChange={handleTextChange}
+                        onBlur={handleBlur}
                         className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
                         placeholder="Company Pvt Ltd"
                       />
                     </span>
+                    {formErrors.companyName && (
+                      <p className="text-red-700 text-[13px] mt-1">
+                        {formErrors.companyName}
+                      </p>
+                    )}
                   </label>
 
                   <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
@@ -276,10 +415,16 @@ export default function DemoRequestModal({
                         name="workEmail"
                         value={formData.workEmail}
                         onChange={handleTextChange}
+                        onBlur={handleBlur}
                         className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
                         placeholder="name@company.com"
                       />
                     </span>
+                    {formErrors.workEmail && (
+                      <p className="text-red-700 text-[13px] mt-1">
+                        {formErrors.workEmail}
+                      </p>
+                    )}
                   </label>
 
                   <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
@@ -293,13 +438,20 @@ export default function DemoRequestModal({
                       <input
                         required
                         name="phone"
-                        value={formData.phone}
+                        type="tel"
+                        value={formatPhoneValue(formData.phone)}
                         onChange={handleTextChange}
+                        onBlur={handleBlur}
                         className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
                         placeholder="+91 98765 43210"
                         inputMode="tel"
                       />
                     </span>
+                    {formErrors.phone && (
+                      <p className="text-red-700 text-[13px] mt-1">
+                        {formErrors.phone}
+                      </p>
+                    )}
                   </label>
                 </div>
 
@@ -309,12 +461,18 @@ export default function DemoRequestModal({
                     type="checkbox"
                     checked={formData.consentToContact}
                     onChange={handleConsentChange}
+                    onBlur={handleBlur}
                     className="mt-1 size-4 shrink-0 accent-primary"
                   />
                   <span>
                     I agree that idto.ai may contact me about this request.
                   </span>
                 </label>
+                {formErrors.consentToContact && (
+                  <p className="text-red-700 text-[13px] mt-2">
+                    {formErrors.consentToContact}
+                  </p>
+                )}
 
                 {statusMessage && (
                   <p
