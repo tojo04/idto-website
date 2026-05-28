@@ -175,7 +175,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
 
           <button
             onClick={bookDemo}
-            className="flex items-center justify-center font-body font-medium lg:font-semibold rounded-full transition-opacity hover:opacity-70 w-[130px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[16px] whitespace-nowrap"
+            className="flex items-center justify-center font-body font-medium lg:font-semibold rounded-full transition-opacity hover:opacity-70 w-[130px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[16px] whitespace-nowrap cursor-pointer"
             style={{
               letterSpacing: "0.36px",
               border: "1.125px solid #0019FF",

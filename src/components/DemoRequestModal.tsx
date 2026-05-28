@@ -187,7 +187,7 @@ export default function DemoRequestModal({
             <button
               type="button"
               onClick={handleClose}
-              className="absolute right-4 top-4 flex size-10 items-center justify-center rounded-full border border-black/10 bg-white text-black/60 transition hover:bg-black/5 hover:text-black"
+              className="absolute right-4 top-4 flex size-10 items-center justify-center rounded-full border border-black/10 bg-white text-black/60 transition hover:bg-black/5 hover:text-black cursor-pointer"
               aria-label="Close demo form"
             >
               <X size={18} aria-hidden="true" />
@@ -211,7 +211,7 @@ export default function DemoRequestModal({
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-[15px] font-semibold text-white transition hover:bg-primary-dark"
+                  className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-[15px] font-semibold text-white transition hover:bg-primary-dark cursor-pointer"
                 >
                   Close
                 </button>
@@ -331,7 +331,7 @@ export default function DemoRequestModal({
                 <button
                   type="submit"
                   disabled={submitState === "submitting"}
-                  className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-6 text-[15px] font-semibold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                  className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-6 text-[15px] font-semibold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto cursor-pointer"
                 >
                   {submitState === "submitting" ? (
                     <Loader2
