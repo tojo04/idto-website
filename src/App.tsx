@@ -112,7 +112,7 @@ function AppShell() {
           element={<OpenDemoModalRoute onOpen={openDemoModal} />}
         />
         <Route
-          path="/demo"
+          path="/demoform"
           element={<OpenDemoModalRoute onOpen={openDemoModal} />}
         />
         <Route path="*" element={<NotFoundPage />} />
