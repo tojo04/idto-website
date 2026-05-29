@@ -28,6 +28,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import DemoRequestModal, {
   DEMO_REQUEST_MODAL_EVENT,
 } from "./components/DemoRequestModal";
+import Demo from "./pages/Demo";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -94,6 +95,7 @@ function AppShell() {
         <Route path="/products/CKYC" element={<CKYCProductPage />} />
         <Route path="/products/BAV" element={<BAVProductPage />} />
         <Route path="/products/mobile-intelligence" element={<MobileIntelligenceProductPage />} />
+         <Route path="/demo" element={<Demo />} />
         <Route path="/solutions/fintech-and-lending" element={<FintechLendingSolutionPage />} />
         <Route path="/solutions/banking-and-nbfcs" element={<BankingNbfcsSolutionPage />} />
         <Route path="/solutions/insurance" element={<InsuranceSolutionPage />} />
