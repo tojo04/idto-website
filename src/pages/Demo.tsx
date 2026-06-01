@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SEOHead from "../components/SEOHead";
+import { trackEvent } from "../lib/analytics";
+
+const DEMO_IFRAME_URL = "https://v2-demo.idto.ai";
 
 const Demo: React.FC = () => {
+  useEffect(() => {
+    trackEvent("Live Demo Opened", {
+      demo_url: DEMO_IFRAME_URL,
+    });
+  }, []);
+
   return (
     <div style={{ width: "100%", height: "100vh" }}>
       <SEOHead
@@ -11,12 +20,17 @@ const Demo: React.FC = () => {
         noindex
       />
       <iframe
-        src="https://v2-demo.idto.ai"
+        src={DEMO_IFRAME_URL}
         title="IDTO Demo"
         style={{ width: "100%", height: "100%", border: "none" }}
         allow="clipboard-read; clipboard-write; fullscreen; autoplay; encrypted-media;"
         referrerPolicy="no-referrer-when-downgrade"
         sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
+        onLoad={() => {
+          trackEvent("Live Demo Iframe Loaded", {
+            demo_url: DEMO_IFRAME_URL,
+          });
+        }}
       />
     </div>
   );
