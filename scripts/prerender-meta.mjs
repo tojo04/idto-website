@@ -93,6 +93,16 @@ const ROUTES = {
     description:
       "See how idto.ai can streamline your identity verification and onboarding. Book a 30-minute demo with our team.",
   },
+  "/contact_us": {
+    title: "Contact Us | Book a Demo | idto.ai",
+    description:
+      "Contact idto.ai to book a product demo, discuss KYC, KYB, fraud prevention, onboarding workflows, APIs, pricing, and compliance.",
+  },
+  "/contact-us": {
+    title: "Contact Us | Book a Demo | idto.ai",
+    description:
+      "Contact idto.ai to book a product demo, discuss KYC, KYB, fraud prevention, onboarding workflows, APIs, pricing, and compliance.",
+  },
   "/privacy": {
     title: "Privacy Policy | idto.ai",
     description:

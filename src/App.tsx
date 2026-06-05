@@ -29,6 +29,7 @@ import DemoRequestModal, {
   DEMO_REQUEST_MODAL_EVENT,
 } from "./components/DemoRequestModal";
 import Demo from "./pages/Demo";
+import ContactUs from "./pages/ContactUs";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -44,6 +45,36 @@ function OpenDemoModalRoute({ onOpen }: { onOpen: () => void }) {
   }, [onOpen]);
 
   return <Navigate to="/" replace />;
+}
+
+const DEMO_CTA_HREFS = new Set(["/contact-us", "/contact_us", "/demo"]);
+
+function shouldOpenDemoModal(anchor: HTMLAnchorElement) {
+  const href = anchor.getAttribute("href");
+
+  if (!href || !DEMO_CTA_HREFS.has(href)) {
+    return false;
+  }
+
+  const label = [
+    anchor.textContent,
+    anchor.getAttribute("title"),
+    anchor.getAttribute("aria-label"),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .trim()
+    .toLowerCase();
+
+  if (href === "/demo") {
+    return label.includes("book") || label.includes("request");
+  }
+
+  if (label.includes("contact")) {
+    return false;
+  }
+
+  return true;
 }
 
 function AppShell() {
@@ -69,9 +100,7 @@ function AppShell() {
 
       if (!(anchor instanceof HTMLAnchorElement)) return;
 
-      const href = anchor.getAttribute("href");
-
-      if (href !== "/contact-us" && href !== "/demo") return;
+      if (!shouldOpenDemoModal(anchor)) return;
 
       event.preventDefault();
       openDemoModal();
@@ -109,10 +138,8 @@ function AppShell() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
-        <Route
-          path="/contact-us"
-          element={<OpenDemoModalRoute onOpen={openDemoModal} />}
-        />
+        <Route path="/contact_us" element={<ContactUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         <Route
           path="/demoform"
           element={<OpenDemoModalRoute onOpen={openDemoModal} />}

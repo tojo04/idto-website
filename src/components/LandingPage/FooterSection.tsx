@@ -21,7 +21,7 @@ const resourceLinks = [
 ];
 
 const companyLinks = [
-  { label: "Contact", href: "mailto:hello@idto.ai" },
+  { label: "Contact", href: "/contact_us", internal: true },
   { label: "Careers", href: "mailto:careers@idto.ai" },
 ];
 
@@ -75,15 +75,25 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                     Company
                   </p>
                   <div className="flex flex-col gap-3">
-                    {companyLinks.map((link) => (
-                      <a
-                        key={link.label}
-                        href={link.href}
-                      className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                    {companyLinks.map((link) =>
+                      link.internal ? (
+                        <Link
+                          key={link.label}
+                          to={link.href}
+                          className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      )
+                    )}
                 </div>
                 </div>
 

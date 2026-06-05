@@ -387,6 +387,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "#", dropdown: "products" },
   { label: "Solutions", href: "#", dropdown: "solutions" },
+  { label: "Contact Us", href: "/contact_us" },
   { label: "Documentation", href: "https://idtoai.readme.io/reference/idtoai-verification-apis", external: true },
   { label: "LinkedIn", href: "https://in.linkedin.com/company/idto", external: true },
 ];

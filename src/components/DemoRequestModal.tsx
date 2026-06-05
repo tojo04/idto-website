@@ -58,6 +58,12 @@ type DemoRequestModalProps = {
   onClose: () => void;
 };
 
+type DemoRequestFormProps = {
+  idPrefix?: string;
+  onSuccessAction?: () => void;
+  successActionLabel?: string;
+};
+
 function isWorkEmail(email: string) {
   const trimmedEmail = email.trim().toLowerCase();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,10 +76,11 @@ function isWorkEmail(email: string) {
   return Boolean(domain && !PERSONAL_EMAIL_DOMAINS.has(domain));
 }
 
-export default function DemoRequestModal({
-  isOpen,
-  onClose,
-}: DemoRequestModalProps) {
+export function DemoRequestForm({
+  idPrefix = "demo-request",
+  onSuccessAction,
+  successActionLabel = "Send another request",
+}: DemoRequestFormProps) {
   const [formData, setFormData] =
     useState<DemoRequestPayload>(initialFormData);
   const [formErrors, setFormErrors] =
@@ -85,6 +92,8 @@ export default function DemoRequestModal({
 
   const formatPhoneValue = (phoneDigits: string) =>
     phoneDigits ? `+91 ${phoneDigits}` : "+91";
+
+  const titleId = `${idPrefix}-title`;
 
   const normalizePhoneValue = (value: string) => {
     const raw = value.trim();
@@ -147,32 +156,13 @@ export default function DemoRequestModal({
     return "";
   };
 
-  const handleClose = useCallback(() => {
+  const resetForm = useCallback(() => {
     setFormData(initialFormData);
+    setFormErrors({});
+    setTouchedFields({});
     setSubmitState("idle");
     setStatusMessage("");
-    onClose();
-  }, [onClose]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        handleClose();
-      }
-    }
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleClose, isOpen]);
+  }, []);
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const field = event.target.name as keyof DemoRequestPayload;
@@ -291,6 +281,219 @@ export default function DemoRequestModal({
   };
 
   return (
+    <>
+      {submitState === "success" ? (
+        <div className="flex min-h-[360px] flex-col items-center justify-center px-2 py-12 text-center">
+          <span className="flex size-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+            <CheckCircle2 size={34} aria-hidden="true" />
+          </span>
+          <h2
+            id={titleId}
+            className="mt-6 font-heading text-[30px] leading-[1.15] text-black md:text-[42px]"
+          >
+            Request received.
+          </h2>
+          <p className="mt-4 max-w-[460px] text-[15px] leading-[1.7] text-black/60 md:text-[17px]">
+            Thanks for sharing your details. Our team will get back to you with
+            the next steps.
+          </p>
+          <button
+            type="button"
+            onClick={onSuccessAction ?? resetForm}
+            className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-[15px] font-semibold text-white transition hover:bg-primary-dark cursor-pointer"
+          >
+            {successActionLabel}
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <div className="flex max-w-[620px] flex-col gap-2 pr-0 sm:pr-12">
+            <h2
+              id={titleId}
+              className="font-heading text-[28px] leading-[1.15] text-black md:text-[40px]"
+            >
+              Book a demo
+            </h2>
+            <p className="text-[14px] leading-[1.7] text-black/60 md:text-[16px]">
+              Share a few details and our team will get back to you.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 min-[1024px]:grid-cols-2">
+            <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
+              Name
+              <input
+                required
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleTextChange}
+                onBlur={handleBlur}
+                className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] px-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
+                placeholder="Full name"
+              />
+              {formErrors.fullName && (
+                <p className="text-red-700 text-[13px] mt-1">
+                  {formErrors.fullName}
+                </p>
+              )}
+            </label>
+
+            <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
+              Company name
+              <span className="relative">
+                <Building2
+                  className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/35"
+                  size={18}
+                  aria-hidden="true"
+                />
+                <input
+                  required
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleTextChange}
+                  onBlur={handleBlur}
+                  className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
+                  placeholder="Company Pvt Ltd"
+                />
+              </span>
+              {formErrors.companyName && (
+                <p className="text-red-700 text-[13px] mt-1">
+                  {formErrors.companyName}
+                </p>
+              )}
+            </label>
+
+            <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
+              Work email
+              <span className="relative">
+                <Mail
+                  className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/35"
+                  size={18}
+                  aria-hidden="true"
+                />
+                <input
+                  required
+                  type="email"
+                  name="workEmail"
+                  value={formData.workEmail}
+                  onChange={handleTextChange}
+                  onBlur={handleBlur}
+                  className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
+                  placeholder="name@company.com"
+                />
+              </span>
+              {formErrors.workEmail && (
+                <p className="text-red-700 text-[13px] mt-1">
+                  {formErrors.workEmail}
+                </p>
+              )}
+            </label>
+
+            <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
+              Phone number
+              <span className="relative">
+                <Phone
+                  className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/35"
+                  size={18}
+                  aria-hidden="true"
+                />
+                <input
+                  required
+                  name="phone"
+                  type="tel"
+                  value={formatPhoneValue(formData.phone)}
+                  onChange={handleTextChange}
+                  onBlur={handleBlur}
+                  className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
+                  placeholder="+91 98765 43210"
+                  inputMode="tel"
+                />
+              </span>
+              {formErrors.phone && (
+                <p className="text-red-700 text-[13px] mt-1">
+                  {formErrors.phone}
+                </p>
+              )}
+            </label>
+          </div>
+
+          <label className="mt-6 flex items-start gap-3 text-[13px] leading-[1.6] text-black/65">
+            <input
+              required
+              type="checkbox"
+              name="consentToContact"
+              checked={formData.consentToContact}
+              onChange={handleConsentChange}
+              onBlur={handleBlur}
+              className="mt-1 size-4 shrink-0 accent-primary"
+            />
+            <span>I agree that idto.ai may contact me about this request.</span>
+          </label>
+          {formErrors.consentToContact && (
+            <p className="text-red-700 text-[13px] mt-2">
+              {formErrors.consentToContact}
+            </p>
+          )}
+
+          {statusMessage && (
+            <p
+              className={`mt-5 rounded-[14px] px-4 py-3 text-[13px] leading-[1.6] ${
+                submitState === "error"
+                  ? "bg-red-50 text-red-700"
+                  : "bg-amber-50 text-amber-700"
+              }`}
+            >
+              {statusMessage}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={submitState === "submitting"}
+            className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-6 text-[15px] font-semibold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto cursor-pointer"
+          >
+            {submitState === "submitting" ? (
+              <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+            ) : (
+              <ArrowRight size={18} aria-hidden="true" />
+            )}
+            Submit request
+          </button>
+        </form>
+      )}
+    </>
+  );
+}
+
+export default function DemoRequestModal({
+  isOpen,
+  onClose,
+}: DemoRequestModalProps) {
+  const handleClose = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleClose, isOpen]);
+
+  return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -320,190 +523,11 @@ export default function DemoRequestModal({
               <X size={18} aria-hidden="true" />
             </button>
 
-            {submitState === "success" ? (
-              <div className="flex min-h-[360px] flex-col items-center justify-center px-2 py-12 text-center">
-                <span className="flex size-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
-                  <CheckCircle2 size={34} aria-hidden="true" />
-                </span>
-                <h2
-                  id="demo-request-title"
-                  className="mt-6 font-heading text-[30px] leading-[1.15] text-black md:text-[42px]"
-                >
-                  Request received.
-                </h2>
-                <p className="mt-4 max-w-[460px] text-[15px] leading-[1.7] text-black/60 md:text-[17px]">
-                  Thanks for sharing your details. Our team will get back to
-                  you with the next steps.
-                </p>
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-[15px] font-semibold text-white transition hover:bg-primary-dark cursor-pointer"
-                >
-                  Close
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="flex max-w-[620px] flex-col gap-2 pr-12">
-                  <h2
-                    id="demo-request-title"
-                    className="font-heading text-[28px] leading-[1.15] text-black md:text-[40px]"
-                  >
-                    Book a demo
-                  </h2>
-                  <p className="text-[14px] leading-[1.7] text-black/60 md:text-[16px]">
-                    Share a few details and our team will get back to you.
-                  </p>
-                </div>
-
-                <div className="mt-8 grid gap-5 md:grid-cols-2">
-                  <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
-                    Name
-                    <input
-                      required
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleTextChange}
-                      onBlur={handleBlur}
-                      className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] px-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
-                      placeholder="Full name"
-                    />
-                    {formErrors.fullName && (
-                      <p className="text-red-700 text-[13px] mt-1">
-                        {formErrors.fullName}
-                      </p>
-                    )}
-                  </label>
-
-                  <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
-                    Company name
-                    <span className="relative">
-                      <Building2
-                        className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/35"
-                        size={18}
-                        aria-hidden="true"
-                      />
-                      <input
-                        required
-                        name="companyName"
-                        value={formData.companyName}
-                        onChange={handleTextChange}
-                        onBlur={handleBlur}
-                        className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
-                        placeholder="Company Pvt Ltd"
-                      />
-                    </span>
-                    {formErrors.companyName && (
-                      <p className="text-red-700 text-[13px] mt-1">
-                        {formErrors.companyName}
-                      </p>
-                    )}
-                  </label>
-
-                  <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
-                    Work email
-                    <span className="relative">
-                      <Mail
-                        className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/35"
-                        size={18}
-                        aria-hidden="true"
-                      />
-                      <input
-                        required
-                        type="email"
-                        name="workEmail"
-                        value={formData.workEmail}
-                        onChange={handleTextChange}
-                        onBlur={handleBlur}
-                        className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
-                        placeholder="name@company.com"
-                      />
-                    </span>
-                    {formErrors.workEmail && (
-                      <p className="text-red-700 text-[13px] mt-1">
-                        {formErrors.workEmail}
-                      </p>
-                    )}
-                  </label>
-
-                  <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
-                    Phone number
-                    <span className="relative">
-                      <Phone
-                        className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/35"
-                        size={18}
-                        aria-hidden="true"
-                      />
-                      <input
-                        required
-                        name="phone"
-                        type="tel"
-                        value={formatPhoneValue(formData.phone)}
-                        onChange={handleTextChange}
-                        onBlur={handleBlur}
-                        className="h-12 w-full rounded-[14px] border border-black/10 bg-[#f8fafc] pl-11 pr-4 text-[15px] font-normal text-black outline-none transition focus:border-primary focus:bg-white"
-                        placeholder="+91 98765 43210"
-                        inputMode="tel"
-                      />
-                    </span>
-                    {formErrors.phone && (
-                      <p className="text-red-700 text-[13px] mt-1">
-                        {formErrors.phone}
-                      </p>
-                    )}
-                  </label>
-                </div>
-
-                <label className="mt-6 flex items-start gap-3 text-[13px] leading-[1.6] text-black/65">
-                  <input
-                    required
-                    type="checkbox"
-                    checked={formData.consentToContact}
-                    onChange={handleConsentChange}
-                    onBlur={handleBlur}
-                    className="mt-1 size-4 shrink-0 accent-primary"
-                  />
-                  <span>
-                    I agree that idto.ai may contact me about this request.
-                  </span>
-                </label>
-                {formErrors.consentToContact && (
-                  <p className="text-red-700 text-[13px] mt-2">
-                    {formErrors.consentToContact}
-                  </p>
-                )}
-
-                {statusMessage && (
-                  <p
-                    className={`mt-5 rounded-[14px] px-4 py-3 text-[13px] leading-[1.6] ${
-                      submitState === "error"
-                        ? "bg-red-50 text-red-700"
-                        : "bg-amber-50 text-amber-700"
-                    }`}
-                  >
-                    {statusMessage}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={submitState === "submitting"}
-                  className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-6 text-[15px] font-semibold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto cursor-pointer"
-                >
-                  {submitState === "submitting" ? (
-                    <Loader2
-                      size={18}
-                      className="animate-spin"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <ArrowRight size={18} aria-hidden="true" />
-                  )}
-                  Submit request
-                </button>
-              </form>
-            )}
+            <DemoRequestForm
+              idPrefix="demo-request"
+              onSuccessAction={handleClose}
+              successActionLabel="Close"
+            />
           </motion.div>
         </motion.div>
       )}
