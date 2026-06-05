@@ -20,6 +20,7 @@ import {
   submitDemoRequest,
   type DemoRequestPayload,
 } from "../services/demoRequestService";
+import { trackEvent } from "../lib/analytics";
 
 export const DEMO_REQUEST_MODAL_EVENT = "idto:open-demo-request-modal";
 
@@ -238,6 +239,15 @@ export function DemoRequestForm({
     });
 
     const hasErrors = Object.values(nextErrors).some(Boolean);
+    const errorFields = fieldsToValidate.filter((field) =>
+      Boolean(nextErrors[field])
+    );
+
+    trackEvent("Demo Request Submit Attempted", {
+      form_name: "demo_request",
+      validation_passed: !hasErrors,
+      error_fields: errorFields.length ? errorFields.join(",") : undefined,
+    });
 
     setFormErrors(nextErrors);
     setTouchedFields({
@@ -261,18 +271,30 @@ export function DemoRequestForm({
       const result = await submitDemoRequest(formData);
 
       if (result.delivery === "sent") {
+        trackEvent("Demo Request Submitted", {
+          delivery: result.delivery,
+          form_name: "demo_request",
+        });
         setSubmitState("success");
         setStatusMessage("");
         setFormData(initialFormData);
         return;
       }
 
+      trackEvent("Demo Request Submitted", {
+        delivery: result.delivery,
+        form_name: "demo_request",
+      });
       setSubmitState("pending");
       setStatusMessage(
         "Thanks. The form is ready, and delivery will connect once the Google Sheet and team email are added."
       );
     } catch (error) {
       console.error("Demo request submission failed", error);
+      trackEvent("Demo Request Failed", {
+        error_type: error instanceof Error ? error.name : "UnknownError",
+        form_name: "demo_request",
+      });
       setSubmitState("error");
       setStatusMessage(
         "We could not submit the request right now. Please try again in a moment."

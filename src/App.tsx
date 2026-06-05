@@ -5,7 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import LandingPage from "./pages/LandingPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -30,6 +30,7 @@ import DemoRequestModal, {
 } from "./components/DemoRequestModal";
 import Demo from "./pages/Demo";
 import ContactUs from "./pages/ContactUs";
+import { trackEvent, trackPageView } from "./lib/analytics";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,10 +40,28 @@ function ScrollToTop() {
   return null;
 }
 
-function OpenDemoModalRoute({ onOpen }: { onOpen: () => void }) {
+function PageViewTracker() {
+  const location = useLocation();
+
   useEffect(() => {
-    onOpen();
-  }, [onOpen]);
+    trackPageView({
+      route_path: location.pathname,
+    });
+  }, [location.hash, location.pathname, location.search]);
+
+  return null;
+}
+
+function OpenDemoModalRoute({
+  onOpen,
+}: {
+  onOpen: (triggerSource: string, triggerHref?: string) => void;
+}) {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    onOpen("route_redirect", pathname);
+  }, [onOpen, pathname]);
 
   return <Navigate to="/" replace />;
 }
@@ -79,18 +98,31 @@ function shouldOpenDemoModal(anchor: HTMLAnchorElement) {
 
 function AppShell() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const isDemoModalOpenRef = useRef(false);
 
-  const openDemoModal = useCallback(() => {
-    setIsDemoModalOpen(true);
-  }, []);
+  const openDemoModal = useCallback(
+    (triggerSource = "custom_event", triggerHref?: string) => {
+      if (!isDemoModalOpenRef.current) {
+        trackEvent("Demo Modal Opened", {
+          trigger_source: triggerSource,
+          trigger_href: triggerHref,
+        });
+      }
+
+      isDemoModalOpenRef.current = true;
+      setIsDemoModalOpen(true);
+    },
+    []
+  );
 
   const closeDemoModal = useCallback(() => {
+    isDemoModalOpenRef.current = false;
     setIsDemoModalOpen(false);
   }, []);
 
   useEffect(() => {
     function handleOpenDemoModal() {
-      openDemoModal();
+      openDemoModal("custom_event");
     }
 
     function handleDocumentClick(event: MouseEvent) {
@@ -103,7 +135,20 @@ function AppShell() {
       if (!shouldOpenDemoModal(anchor)) return;
 
       event.preventDefault();
-      openDemoModal();
+
+      const ctaText =
+        anchor.textContent?.trim().replace(/\s+/g, " ").slice(0, 100) ||
+        anchor.getAttribute("aria-label") ||
+        undefined;
+
+      trackEvent("CTA Clicked", {
+        cta_href: href,
+        cta_text: ctaText,
+        cta_source: "demo_request_link",
+        source_path: window.location.pathname,
+      });
+
+      openDemoModal("link_click", href);
     }
 
     window.addEventListener(DEMO_REQUEST_MODAL_EVENT, handleOpenDemoModal);
@@ -118,6 +163,7 @@ function AppShell() {
   return (
     <>
       <ScrollToTop />
+      <PageViewTracker />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/products/digilocker-3.0" element={<DigiLockerProductPage />} />
