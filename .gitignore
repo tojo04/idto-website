@@ -29,3 +29,5 @@ src/assets/cta-globe-mobile-cropped.png
 .gstack/
 .playwright-mcp/
 seo-reports/
+
+.env
