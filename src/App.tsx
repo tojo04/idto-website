@@ -132,7 +132,9 @@ function AppShell() {
 
       if (!(anchor instanceof HTMLAnchorElement)) return;
 
-      if (!shouldOpenDemoModal(anchor)) return;
+      const href = anchor.getAttribute("href");
+
+      if (!href || !shouldOpenDemoModal(anchor)) return;
 
       event.preventDefault();
 
