@@ -3,6 +3,7 @@ export type DemoRequestPayload = {
   fullName: string;
   workEmail: string;
   phone: string;
+  queriesAndRequirements: string;
   consentToContact: boolean;
 };
 

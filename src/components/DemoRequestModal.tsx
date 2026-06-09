@@ -29,6 +29,7 @@ const initialFormData: DemoRequestPayload = {
   fullName: "",
   workEmail: "",
   phone: "",
+  queriesAndRequirements: "",
   consentToContact: false,
 };
 
@@ -62,6 +63,8 @@ type DemoRequestModalProps = {
 type DemoRequestFormProps = {
   idPrefix?: string;
   onSuccessAction?: () => void;
+  showHeader?: boolean;
+  showRequirementsField?: boolean;
   successActionLabel?: string;
 };
 
@@ -80,6 +83,8 @@ function isWorkEmail(email: string) {
 export function DemoRequestForm({
   idPrefix = "demo-request",
   onSuccessAction,
+  showHeader = true,
+  showRequirementsField = false,
   successActionLabel = "Send another request",
 }: DemoRequestFormProps) {
   const [formData, setFormData] =
@@ -154,6 +159,10 @@ export function DemoRequestForm({
       return String(value).trim() ? "" : "This field is required.";
     }
 
+    if (field === "queriesAndRequirements") {
+      return String(value).trim() ? "" : "This field is required.";
+    }
+
     return "";
   };
 
@@ -165,7 +174,9 @@ export function DemoRequestForm({
     setStatusMessage("");
   }, []);
 
-  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleTextChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const field = event.target.name as keyof DemoRequestPayload;
     const value =
       field === "phone"
@@ -185,12 +196,15 @@ export function DemoRequestForm({
     }
   };
 
-  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+  const handleBlur = (
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const field = event.target.name as keyof DemoRequestPayload;
     const value =
       field === "phone"
         ? normalizePhoneValue(event.target.value)
-        : event.target.type === "checkbox"
+        : event.target instanceof HTMLInputElement &&
+          event.target.type === "checkbox"
         ? event.target.checked
         : event.target.value;
 
@@ -229,6 +243,9 @@ export function DemoRequestForm({
       "companyName",
       "workEmail",
       "phone",
+      ...(showRequirementsField
+        ? (["queriesAndRequirements"] as Array<keyof DemoRequestPayload>)
+        : []),
       "consentToContact",
     ];
 
@@ -255,6 +272,7 @@ export function DemoRequestForm({
       companyName: true,
       workEmail: true,
       phone: true,
+      ...(showRequirementsField ? { queriesAndRequirements: true } : {}),
       consentToContact: true,
     });
 
@@ -329,19 +347,25 @@ export function DemoRequestForm({
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div className="flex max-w-[620px] flex-col gap-2 pr-0 sm:pr-12">
-            <h2
-              id={titleId}
-              className="font-heading text-[28px] leading-[1.15] text-black md:text-[40px]"
-            >
-              Book a demo
-            </h2>
-            <p className="text-[14px] leading-[1.7] text-black/60 md:text-[16px]">
-              Share a few details and our team will get back to you.
-            </p>
-          </div>
+          {showHeader && (
+            <div className="flex max-w-[620px] flex-col gap-2 pr-0 sm:pr-12">
+              <h2
+                id={titleId}
+                className="font-heading text-[28px] leading-[1.15] text-black md:text-[40px]"
+              >
+                Book a demo
+              </h2>
+              <p className="text-[14px] leading-[1.7] text-black/60 md:text-[16px]">
+                Share a few details and our team will get back to you.
+              </p>
+            </div>
+          )}
 
-          <div className="mt-8 grid gap-5 min-[1024px]:grid-cols-2">
+          <div
+            className={`grid gap-5 min-[1024px]:grid-cols-2 ${
+              showHeader ? "mt-8" : "mt-0"
+            }`}
+          >
             <label className="flex flex-col gap-2 text-[13px] font-semibold text-black">
               Name
               <input
@@ -437,6 +461,26 @@ export function DemoRequestForm({
                 </p>
               )}
             </label>
+
+            {showRequirementsField && (
+              <label className="flex flex-col gap-2 text-[13px] font-semibold text-black min-[1024px]:col-span-2">
+                Queries or Requirements
+                <textarea
+                  required
+                  name="queriesAndRequirements"
+                  value={formData.queriesAndRequirements}
+                  onChange={handleTextChange}
+                  onBlur={handleBlur}
+                  className="min-h-[112px] w-full resize-y rounded-[14px] border border-black/10 bg-[#f8fafc] px-4 py-3 text-[15px] font-normal leading-[1.5] text-black outline-none transition focus:border-primary focus:bg-white"
+                  placeholder="Tell us about your queries or requirements"
+                />
+                {formErrors.queriesAndRequirements && (
+                  <p className="text-red-700 text-[13px] mt-1">
+                    {formErrors.queriesAndRequirements}
+                  </p>
+                )}
+              </label>
+            )}
           </div>
 
           <label className="mt-6 flex items-start gap-3 text-[13px] leading-[1.6] text-black/65">
