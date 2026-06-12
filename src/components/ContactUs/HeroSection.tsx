@@ -17,7 +17,7 @@ const contactRoutes = [
 
 export default function HeroSection() {
   return (
-    <section className="bg-white px-5 pt-12 pb-14 sm:px-8 sm:pt-16 min-[1024px]:px-10 lg:pb-20 xl:px-[112.5px]">
+    <section className="bg-white px-5 pt-10 pb-14 sm:px-8 sm:pt-12 min-[1024px]:px-10 lg:pb-20 xl:px-[112.5px]">
       <div className="mx-auto max-w-[1365px]">
         <ContactIntro />
 
