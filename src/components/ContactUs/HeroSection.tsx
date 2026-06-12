@@ -27,12 +27,12 @@ export default function HeroSection() {
           <aside className="grid content-start gap-10 pt-1 sm:grid-cols-2 lg:grid-cols-1">
             {contactRoutes.map((route) => (
               <section key={route.email}>
-                <h2 className="text-[22px] font-bold leading-[1.2] text-black sm:text-[24px]">
+                <h2 className="text-[18px] font-bold leading-[1.25] text-black sm:text-[20px]">
                   {route.title}
                 </h2>
                 <a
                   href={`mailto:${route.email}`}
-                  className="mt-1 block text-[20px] leading-[1.25] text-black transition hover:text-primary sm:text-[22px]"
+                  className="mt-1 block text-[17px] leading-[1.35] text-black transition hover:text-primary sm:text-[19px]"
                   aria-label={`${route.email} ${route.description}`}
                 >
                   {route.email}
@@ -41,10 +41,10 @@ export default function HeroSection() {
             ))}
 
             <section className="sm:col-span-2 lg:col-span-1">
-              <h2 className="text-[22px] font-bold leading-[1.2] text-black sm:text-[24px]">
+              <h2 className="text-[18px] font-bold leading-[1.25] text-black sm:text-[20px]">
                 Official Address:
               </h2>
-              <p className="mt-1 max-w-[440px] text-[20px] leading-[1.35] text-black sm:text-[22px]">
+              <p className="mt-1 max-w-[440px] text-[17px] leading-[1.5] text-black sm:text-[19px]">
                 3rd Floor, Orchid Centre, Golf Course Road, Sector 53,
                 Gurugram, Haryana, India - 122002.
               </p>
