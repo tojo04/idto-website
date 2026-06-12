@@ -2,7 +2,15 @@ import { DemoRequestForm } from "../DemoRequestModal";
 
 export const CONTACT_DEMO_FORM_ID = "contact-demo-form";
 
-export default function ContactFormCard() {
+type ContactFormCardProps = {
+  onReset?: () => void;
+  onSubmitSuccess?: () => void;
+};
+
+export default function ContactFormCard({
+  onReset,
+  onSubmitSuccess,
+}: ContactFormCardProps) {
   return (
     <div
       id={CONTACT_DEMO_FORM_ID}
@@ -10,6 +18,8 @@ export default function ContactFormCard() {
     >
       <DemoRequestForm
         idPrefix="contact-demo-request"
+        onReset={onReset}
+        onSubmitSuccess={onSubmitSuccess}
         showHeader={false}
         showRequirementsField
       />

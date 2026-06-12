@@ -62,7 +62,9 @@ type DemoRequestModalProps = {
 
 type DemoRequestFormProps = {
   idPrefix?: string;
+  onReset?: () => void;
   onSuccessAction?: () => void;
+  onSubmitSuccess?: () => void;
   showHeader?: boolean;
   showRequirementsField?: boolean;
   successActionLabel?: string;
@@ -82,7 +84,9 @@ function isWorkEmail(email: string) {
 
 export function DemoRequestForm({
   idPrefix = "demo-request",
+  onReset,
   onSuccessAction,
+  onSubmitSuccess,
   showHeader = true,
   showRequirementsField = false,
   successActionLabel = "Send another request",
@@ -172,7 +176,8 @@ export function DemoRequestForm({
     setTouchedFields({});
     setSubmitState("idle");
     setStatusMessage("");
-  }, []);
+    onReset?.();
+  }, [onReset]);
 
   const handleTextChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -296,6 +301,7 @@ export function DemoRequestForm({
         setSubmitState("success");
         setStatusMessage("");
         setFormData(initialFormData);
+        onSubmitSuccess?.();
         return;
       }
 

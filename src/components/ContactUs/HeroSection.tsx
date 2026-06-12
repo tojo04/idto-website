@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ContactFormCard from "./ContactFormCard";
 import ContactIntro from "./ContactIntro";
 
@@ -16,13 +17,18 @@ const contactRoutes = [
 ];
 
 export default function HeroSection() {
+  const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+
   return (
     <section className="bg-white px-5 pt-10 pb-14 sm:px-8 sm:pt-12 min-[1024px]:px-10 lg:pb-20 xl:px-[112.5px]">
       <div className="mx-auto max-w-[1365px]">
-        <ContactIntro />
+        <ContactIntro showDescription={!hasSubmittedForm} />
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(520px,0.95fr)_minmax(360px,0.9fr)] lg:gap-16 xl:gap-24">
-          <ContactFormCard />
+          <ContactFormCard
+            onReset={() => setHasSubmittedForm(false)}
+            onSubmitSuccess={() => setHasSubmittedForm(true)}
+          />
 
           <aside className="grid content-start gap-10 pt-1 sm:grid-cols-2 lg:grid-cols-1">
             {contactRoutes.map((route) => (
