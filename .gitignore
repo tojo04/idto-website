@@ -31,3 +31,4 @@ src/assets/cta-globe-mobile-cropped.png
 seo-reports/
 
 .env
+*.md
