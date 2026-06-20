@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
         <p>The borrower-facing document list is familiar to anyone in lending. What deserves attention is how each requirement maps to a verifiable signal.</p>
       </section>
 
-      <div class="aadhaar-verify-table-wrap" aria-label="Home loan KYC document and data stack">
+      <div class="aadhaar-verify-table-wrap home-loan-table" aria-label="Home loan KYC document and data stack">
         <div class="aadhaar-verify-table">
           <div class="aadhaar-verify-table-row aadhaar-verify-table-head">
             <div>Requirement</div>
@@ -189,7 +189,7 @@ export const blogPosts: BlogPost[] = [
         <p>Each of these is recoverable with the right design and unrecoverable without it. The discipline is to treat fallback as a per-check property, not a global one.</p>
       </section>
 
-      <div class="aadhaar-verify-table-wrap" aria-label="Home loan KYC fallback paths">
+      <div class="aadhaar-verify-table-wrap home-loan-table" aria-label="Home loan KYC fallback paths">
         <div class="aadhaar-verify-table">
           <div class="aadhaar-verify-table-row aadhaar-verify-table-head">
             <div>Verification</div>
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
         <p>An orchestration layer changes the shape of the problem. Instead of your application code knowing about fifteen providers, the orchestration layer decides which provider to route to based on success rate, latency, cost, and availability. When a provider starts failing, traffic shifts automatically to a secondary. The application never notices.</p>
       </section>
 
-      <div class="aadhaar-verify-table-wrap" aria-label="Home loan KYC build versus vendor versus orchestration comparison">
+      <div class="aadhaar-verify-table-wrap home-loan-table" aria-label="Home loan KYC build versus vendor versus orchestration comparison">
         <div class="aadhaar-verify-table">
           <div class="aadhaar-verify-table-row aadhaar-verify-table-head">
             <div>Dimension</div>
