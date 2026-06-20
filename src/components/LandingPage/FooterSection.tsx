@@ -12,6 +12,18 @@ const productLinks = [
   { label: "Book a Demo", href: "/contact-us" },
 ];
 
+const solutionLinks = [
+  { label: "Fintech & Lending", href: "/solutions/fintech-and-lending" },
+  { label: "Banking & NBFCs", href: "/solutions/banking-and-nbfcs" },
+  { label: "Insurance", href: "/solutions/insurance" },
+  { label: "Crypto & Web3", href: "/solutions/crypto-and-web3" },
+  { label: "Marketplaces", href: "/solutions/marketplaces" },
+  { label: "Social & Community", href: "/solutions/social-and-community-platforms" },
+  { label: "Gig Economy", href: "/solutions/gig-economy" },
+  { label: "Employment & BGV", href: "/solutions/background-verification" },
+  { label: "Merchant Onboarding / KYB", href: "/solutions/merchant-onboarding-kyb" },
+];
+
 const resourceLinks = [
   { label: "Blog", href: "/blog", internal: true },
   { label: "API Documentation", href: "https://idtoai.readme.io/reference/idtoai-verification-apis" },
@@ -68,7 +80,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               </div>
 
               {/* Links Columns */}
-              <div className="flex flex-1 flex-col lg:flex-row gap-6 lg:gap-8 min-w-0">
+              <div className="grid flex-1 min-w-0 grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 min-[1024px]:max-w-[660px] min-[1024px]:grid-cols-[minmax(150px,0.75fr)_minmax(260px,1fr)] min-[1024px]:gap-x-20 min-[1024px]:gap-y-11">
                 {/* Company */}
                 <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-auto lg:min-w-[100px]">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
@@ -94,11 +106,11 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                         </a>
                       )
                     )}
-                </div>
+                  </div>
                 </div>
 
                 {/* Products */}
-                <div className="flex flex-col gap-4 lg:gap-6 w-full lg:flex-1">
+                <div className="flex flex-col gap-4 lg:gap-6 w-full">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Products
                   </p>
@@ -115,8 +127,26 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   </div>
                 </div>
 
+                {/* Solutions */}
+                <div className="flex flex-col gap-4 lg:gap-6 w-full">
+                  <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
+                    Solutions
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {solutionLinks.map((link) => (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Resources */}
-                <div className="flex flex-col gap-4 lg:gap-6 flex-1">
+                <div className="flex flex-col gap-4 lg:gap-6 w-full">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Resources
                   </p>
