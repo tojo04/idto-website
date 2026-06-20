@@ -56,7 +56,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
           }}
         >
           <div className="bg-blue-section rounded-[21px] px-5 lg:px-10 py-8 lg:py-10 overflow-hidden">
-            <div className="flex flex-col gap-8 lg:gap-8 lg:flex-row items-start">
+            <div className="grid gap-8 sm:grid-cols-[minmax(220px,260px)_minmax(0,1fr)] sm:items-start lg:flex lg:flex-row">
               {/* Logo & Tagline */}
               <div className="flex flex-col gap-5 w-full lg:w-[260px] shrink-0">
                 <img
@@ -80,7 +80,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               </div>
 
               {/* Links Columns */}
-              <div className="grid flex-1 min-w-0 grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 min-[1024px]:max-w-[660px] min-[1024px]:grid-cols-[minmax(150px,0.75fr)_minmax(260px,1fr)] min-[1024px]:gap-x-20 min-[1024px]:gap-y-11">
+              <div className="grid flex-1 min-w-0 grid-cols-1 gap-x-12 gap-y-8 sm:col-start-2 sm:row-span-2 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8 min-[1024px]:max-w-[660px] min-[1024px]:grid-cols-[minmax(150px,0.75fr)_minmax(260px,1fr)] min-[1024px]:gap-x-20 min-[1024px]:gap-y-11 lg:col-span-1">
                 {/* Company */}
                 <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-auto lg:min-w-[100px]">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
@@ -177,7 +177,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-row lg:flex-col gap-[15px] lg:gap-4 shrink-0 lg:ml-auto">
+              <div className="flex flex-row gap-[15px] self-start sm:col-start-1 sm:row-start-2 sm:flex-col sm:justify-self-start lg:flex-col lg:gap-4 shrink-0 lg:ml-auto">
                 <Button
                   title="Sign-up"
                   href="https://dashboard.idto.ai/signup/"
