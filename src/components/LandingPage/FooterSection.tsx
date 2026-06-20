@@ -55,10 +55,10 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               "linear-gradient(250deg, #0019ff 18%, #4edfc3 31%, #54eebe 49%, #4edfc3 64%, #0019ff 115%)",
           }}
         >
-          <div className="bg-blue-section rounded-[21px] px-5 lg:px-10 py-8 lg:py-10 overflow-hidden">
-            <div className="grid gap-8 sm:grid-cols-[minmax(220px,260px)_minmax(0,1fr)] sm:items-start lg:flex lg:flex-row">
+          <div className="bg-blue-section rounded-[21px] px-5 py-8 overflow-hidden sm:px-8 sm:py-10 lg:px-10 xl:py-14">
+            <div className="grid gap-9 md:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] md:gap-10 xl:grid-cols-[minmax(280px,0.86fr)_minmax(0,2.35fr)] xl:items-start xl:gap-16">
               {/* Logo & Tagline */}
-              <div className="flex flex-col gap-5 w-full lg:w-[260px] shrink-0">
+              <div className="flex flex-col gap-6 w-full">
                 <img
                   src={footerLogo}
                   alt="idto"
@@ -68,19 +68,35 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   decoding="async"
                 />
                 <div className="flex flex-col gap-4">
-                  <p className="font-heading text-lg lg:text-xl text-white leading-normal tracking-[-0.52px]">
-                    Your partner for onboarding,
+                  <p className="font-heading text-[24px] text-white leading-[1.12] tracking-[-0.52px] sm:text-[28px] xl:text-[38px]">
+                    Verification
                     <br />
-                    verification & trust.
+                    infrastructure for teams
+                    <br />
+                    that move fast.
                   </p>
-                  <p className="text-[12px] text-white font-light leading-[1.4]">
-                    We handle the complexity so you can focus on growth.
+                  <p className="max-w-[360px] text-[14px] text-white/70 font-light leading-[1.55] sm:text-[15px]">
+                    One orchestration layer for onboarding, verification, and trust across customers, businesses, and workforces.
                   </p>
+                </div>
+                <div className="flex flex-row flex-wrap gap-[15px] pt-2">
+                  <Button
+                    title="Sign-up"
+                    href="https://dashboard.idto.ai/signup/"
+                    variant="white"
+                    size="md"
+                  />
+                  <Button
+                    title="Book a demo"
+                    onClick={bookDemo}
+                    variant="outline-white"
+                    size="md"
+                  />
                 </div>
               </div>
 
               {/* Links Columns */}
-              <div className="grid flex-1 min-w-0 grid-cols-1 gap-x-12 gap-y-8 sm:col-start-2 sm:row-span-2 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8 min-[1024px]:max-w-[660px] min-[1024px]:grid-cols-[minmax(150px,0.75fr)_minmax(260px,1fr)] min-[1024px]:gap-x-20 min-[1024px]:gap-y-11 lg:col-span-1">
+              <div className="grid min-w-0 grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2 lg:gap-x-12 xl:grid-cols-[minmax(90px,0.55fr)_minmax(190px,0.95fr)_minmax(220px,1.1fr)_minmax(170px,0.8fr)] xl:gap-x-14 xl:gap-y-0">
                 {/* Company */}
                 <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-auto lg:min-w-[100px]">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
@@ -174,22 +190,6 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                     )}
                   </div>
                 </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-row gap-[15px] self-start sm:col-start-1 sm:row-start-2 sm:flex-col sm:justify-self-start lg:flex-col lg:gap-4 shrink-0 lg:ml-auto">
-                <Button
-                  title="Sign-up"
-                  href="https://dashboard.idto.ai/signup/"
-                  variant="white"
-                  size="md"
-                />
-                <Button
-                  title="Book a demo"
-                  onClick={bookDemo}
-                  variant="outline-white"
-                  size="md"
-                />
               </div>
             </div>
           </div>
