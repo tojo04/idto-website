@@ -11,6 +11,7 @@
 
 ## Blog
 
+- [KYC Requirements for Home Loans in India: Regulations, Verification Process, Service Providers and How Modern Lenders Can Improve Onboarding](https://idto.ai/blog/kyc-home-loans-india)
 - [The Most Broken Field in KYC Is Finally Getting Fixed: Address](https://idto.ai/blog/kyc-address-verification-digipin-dhruva)
 - [DPDP Is Here. If You're Already Doing Things Right, You're Already Ahead.](https://idto.ai/blog/dpdp-is-here-compliance-ready-brands)
 - [Why Your Bank Account Verification API Failed](https://idto.ai/blog/bank-account-verification-api-failed)

@@ -112,6 +112,12 @@ const ROUTES = {
     title: "Terms and Conditions | idto.ai",
     description: "idto.ai terms and conditions of service.",
   },
+  "/blog/kyc-home-loans-india": {
+    title: "KYC Requirements for Home Loans in India: Regulations, Verification Process, Service Providers and How Modern Lenders Can Improve Onboarding | idto.ai",
+    description:
+      "Home loan KYC exposes every weakness in a lender's identity stack. Here is how regulations, verification workflows, fallbacks, and orchestration should work for mortgage onboarding.",
+    ogType: "article",
+  },
   "/blog/loan-fraud-india-identity-checks": {
     title: "Loan Fraud Is Winning in India Until You Check Who's Actually Applying | idto.ai",
     description:
