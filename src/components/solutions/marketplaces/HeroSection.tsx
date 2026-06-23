@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, scaleIn, viewportOnce } from "../../../utils/animations";
-import heroVisual from "../../../assets/solution_pages/marketplaces/sections/hero/508c812f3d9585fc559095e9156caa1df27b2220.png";
+import heroVisual from "../../../assets/solution_pages/marketplaces/sections/hero/508c812f3d9585fc559095e9156caa1df27b2220.webp";
 
 export default function HeroSection() {
   return (
@@ -49,7 +49,7 @@ export default function HeroSection() {
         >
           <div className="flex flex-wrap gap-[15px] items-center justify-center lg:gap-[13.5px] lg:justify-start">
             <a
-              href="/contact-us"
+              href="/contact-us/"
               className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-12 lg:px-[27px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
             >
               Talk to us

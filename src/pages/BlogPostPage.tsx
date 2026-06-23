@@ -25,7 +25,7 @@ export default function BlogPostPage() {
         <main className="max-w-[1100px] mx-auto px-5 py-24 text-center">
           <h1 className="font-heading text-[48px] text-[#0f1117]">Post not found</h1>
           <p className="mt-4 text-[#52525b]">
-            <Link to="/blog" className="text-[#1d4ed8] hover:underline">
+            <Link to="/blog/" className="text-[#1d4ed8] hover:underline">
               {"\u2190"} Back to blog
             </Link>
           </p>
@@ -73,7 +73,7 @@ export default function BlogPostPage() {
               </div>
             </div>
             <Link
-              to="/blog"
+              to="/blog/"
               className="inline-flex items-center rounded-full border border-[#E5E7EB] bg-white px-4 py-2 text-sm font-semibold text-[#0f1117] transition hover:border-[#cbd5e1] hover:bg-[#f8fafc]"
             >
               {"\u2190"} Back to blog list

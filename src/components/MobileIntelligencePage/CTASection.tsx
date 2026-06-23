@@ -1,6 +1,7 @@
-import partner1 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_1.png";
+import partner1 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_1.webp";
 import partner2 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_2.png";
-import partner3 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_3.png";
+import partner3 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_3.webp";
+import { DASHBOARD_SIGNUP_URL } from "../../config/externalLinks";
 
 export default function CTASection() {
   return (
@@ -20,13 +21,13 @@ export default function CTASection() {
             </div>
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center">
               <a
-                href="/contact-us"
+                href="/contact-us/"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to us
               </a>
               <a
-                href="https://dashboard.idto.ai/signup/"
+                href={DASHBOARD_SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-medium lg:font-semibold tracking-[0.36px] lg:tracking-[-0.32px] hover:bg-primary/5 transition-colors whitespace-nowrap"

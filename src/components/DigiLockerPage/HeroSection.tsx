@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
-import heroVisual from "../../assets/product_pages/DIGILOCKER/Hero_Image.png";
-import partner1 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_1.png";
+import heroVisual from "../../assets/product_pages/DIGILOCKER/Hero_Image.webp";
+import partner1 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_1.webp";
 import partner2 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_2.png";
-import partner3 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_3.png";
+import partner3 from "../../assets/product_pages/DIGILOCKER/partner_logos/hero_partner_3.webp";
+import { DASHBOARD_SIGNUP_URL } from "../../config/externalLinks";
 
 export default function HeroSection() {
   return (
@@ -56,13 +57,13 @@ export default function HeroSection() {
           >
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center lg:justify-start">
               <a
-                href="/contact-us"
+                href="/contact-us/"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white px-[27px] py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to sales
               </a>
               <a
-                href="https://dashboard.idto.ai/signup/"
+                href={DASHBOARD_SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary px-[27px] py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary/5 transition-colors w-[144px]"

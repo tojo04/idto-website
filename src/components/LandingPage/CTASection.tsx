@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
-import globeBackgroundDesktop from "../../assets/Background Images.png";
+import globeBackgroundDesktop from "../../assets/Background Images.webp";
+import { DASHBOARD_SIGNUP_URL } from "../../config/externalLinks";
 
 interface CTASectionProps {
   bookDemo: () => void;
@@ -51,7 +52,7 @@ export default function CTASection({ bookDemo }: CTASectionProps) {
             <div className="flex flex-wrap items-center justify-center gap-[15px] min-[700px]:justify-start min-[700px]:gap-4">
               <Button
                 title="Sign-up"
-                href="https://dashboard.idto.ai/signup/"
+                href={DASHBOARD_SIGNUP_URL}
                 variant="primary"
                 size="lg"
               />

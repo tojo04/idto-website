@@ -1,5 +1,5 @@
 import FAQSection from "../UI/FAQSection";
-import questionMarkImage from "../../assets/product_pages/DIGILOCKER/question_mark_faq_section.png";
+import questionMarkImage from "../../assets/product_pages/DIGILOCKER/question_mark_faq_section.webp";
 
 const faqs = [
   {

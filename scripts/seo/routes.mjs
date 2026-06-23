@@ -146,7 +146,7 @@ const STATIC_ROUTES = [
     lastmod: "2026-06-20",
     title: "Gig Economy Verification Workflows | idto.ai",
     description:
-      "Verify gig workers, documents, bank accounts, face, and contactability quickly with idto.ai.",
+      "Verify gig workers fast with idto.ai — document checks, bank account verification, face match, and contactability in one configurable onboarding API.",
     llms: {
       section: "Solutions",
       label: "Gig Economy",
@@ -182,7 +182,7 @@ const STATIC_ROUTES = [
     lastmod: "2026-06-20",
     title: "Identity & KYC Blog — Verification Insights | idto.ai",
     description:
-      "Insights on identity verification, KYC, KYB, and fraud prevention for Indian fintechs and enterprises.",
+      "Insights on identity verification, KYC, KYB, fraud prevention, and compliance for Indian fintechs, banks, and enterprises — practical guides from idto.ai.",
   },
   {
     path: "/demo",

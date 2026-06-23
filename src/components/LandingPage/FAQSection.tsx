@@ -1,5 +1,5 @@
 import FAQSection from "../UI/FAQSection";
-import questionMarkImage from "../../assets/question_mark.png";
+import questionMarkImage from "../../assets/question_mark.webp";
 
 const faqs = [
   {

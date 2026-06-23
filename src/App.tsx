@@ -66,10 +66,13 @@ function OpenDemoModalRoute({
   return <Navigate to="/" replace />;
 }
 
-const DEMO_CTA_HREFS = new Set(["/contact-us", "/contact_us", "/demo"]);
+const DEMO_CTA_HREFS = new Set(["/contact-us", "/demo"]);
+
+const stripTrailingSlash = (path: string) =>
+  path !== "/" && path.endsWith("/") ? path.slice(0, -1) : path;
 
 function shouldOpenDemoModal(anchor: HTMLAnchorElement) {
-  const href = anchor.getAttribute("href");
+  const href = stripTrailingSlash(anchor.getAttribute("href") ?? "");
 
   if (!href || !DEMO_CTA_HREFS.has(href)) {
     return false;
@@ -186,7 +189,7 @@ export function AppShell() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
-        <Route path="/contact_us" element={<ContactUs />} />
+        <Route path="/contact_us" element={<Navigate to="/contact-us/" replace />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route
           path="/demoform"

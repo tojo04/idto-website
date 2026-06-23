@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
-import heroImage from "../../assets/product_pages/Mobile_intelligence/hero_image.png";
+import heroImage from "../../assets/product_pages/Mobile_intelligence/hero_image.webp";
 
 export default function HeroSection() {
   return (
@@ -60,7 +60,7 @@ export default function HeroSection() {
           >
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center lg:justify-start">
               <a
-                href="/contact-us"
+                href="/contact-us/"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to us

@@ -3,37 +3,38 @@ import { Link } from "react-router-dom";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import Button from "../UI/Button";
 import footerLogo from "../../assets/Footer_Logo.png";
+import { DASHBOARD_SIGNUP_URL, DASHBOARD_LOGIN_URL } from "../../config/externalLinks";
 
 const productLinks = [
-  { label: "User Verification (KYC)", href: "/products/CKYC" },
-  { label: "Business Verification (KYB)", href: "/products/BAV" },
-  { label: "DigiLocker 3.0", href: "/products/digilocker-3.0" },
-  { label: "Mobile Intelligence", href: "/products/mobile-intelligence" },
-  { label: "Book a Demo", href: "/contact-us" },
+  { label: "User Verification (KYC)", href: "/products/CKYC/" },
+  { label: "Business Verification (KYB)", href: "/products/BAV/" },
+  { label: "DigiLocker 3.0", href: "/products/digilocker-3.0/" },
+  { label: "Mobile Intelligence", href: "/products/mobile-intelligence/" },
+  { label: "Book a Demo", href: "/contact-us/" },
 ];
 
 const solutionLinks = [
-  { label: "Fintech & Lending", href: "/solutions/fintech-and-lending" },
-  { label: "Banking & NBFCs", href: "/solutions/banking-and-nbfcs" },
-  { label: "Insurance", href: "/solutions/insurance" },
-  { label: "Crypto & Web3", href: "/solutions/crypto-and-web3" },
-  { label: "Marketplaces", href: "/solutions/marketplaces" },
-  { label: "Social & Community", href: "/solutions/social-and-community-platforms" },
-  { label: "Gig Economy", href: "/solutions/gig-economy" },
-  { label: "Employment & BGV", href: "/solutions/background-verification" },
-  { label: "Merchant Onboarding / KYB", href: "/solutions/merchant-onboarding-kyb" },
+  { label: "Fintech & Lending", href: "/solutions/fintech-and-lending/" },
+  { label: "Banking & NBFCs", href: "/solutions/banking-and-nbfcs/" },
+  { label: "Insurance", href: "/solutions/insurance/" },
+  { label: "Crypto & Web3", href: "/solutions/crypto-and-web3/" },
+  { label: "Marketplaces", href: "/solutions/marketplaces/" },
+  { label: "Social & Community", href: "/solutions/social-and-community-platforms/" },
+  { label: "Gig Economy", href: "/solutions/gig-economy/" },
+  { label: "Employment & BGV", href: "/solutions/background-verification/" },
+  { label: "Merchant Onboarding / KYB", href: "/solutions/merchant-onboarding-kyb/" },
 ];
 
 const resourceLinks = [
-  { label: "Blog", href: "/blog", internal: true },
+  { label: "Blog", href: "/blog/", internal: true },
   { label: "API Documentation", href: "https://idtoai.readme.io/reference/idtoai-verification-apis" },
-  { label: "Dashboard Login", href: "https://dashboard.idto.ai/login/" },
-  { label: "Dashboard Signup", href: "https://dashboard.idto.ai/signup/" },
+  { label: "Dashboard Login", href: DASHBOARD_LOGIN_URL },
+  { label: "Dashboard Signup", href: DASHBOARD_SIGNUP_URL },
   { label: "LinkedIn", href: "https://in.linkedin.com/company/idto" },
 ];
 
 const companyLinks = [
-  { label: "Contact", href: "/contact_us", internal: true },
+  { label: "Contact", href: "/contact-us/", internal: true },
   { label: "Careers", href: "mailto:careers@idto.ai" },
 ];
 
@@ -82,7 +83,7 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                 <div className="flex flex-row flex-wrap gap-[15px] pt-2">
                   <Button
                     title="Sign-up"
-                    href="https://dashboard.idto.ai/signup/"
+                    href={DASHBOARD_SIGNUP_URL}
                     variant="white"
                     size="md"
                   />
@@ -235,11 +236,11 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
             </p>
           </div>
           <div className="flex gap-12 text-right">
-            <Link to="/privacy" className="hover:text-white/80 transition-colors">
+            <Link to="/privacy/" className="hover:text-white/80 transition-colors">
               Privacy
             </Link>
             <Link
-              to="/terms"
+              to="/terms/"
               className="hover:text-white/80 transition-colors"
             >
               Terms & Conditions
