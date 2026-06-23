@@ -77,16 +77,35 @@ test("contact route is deduplicated to /contact-us", () => {
   assert.ok(!paths.includes("/contact_us"));
 });
 
-test("every prerendered route carries title and description", () => {
+test("every route carries title and description", () => {
   for (const r of getAllRoutes()) {
-    if (r.path === "/") continue;
     assert.ok(r.title, `no title for ${r.path}`);
     assert.ok(r.description, `no description for ${r.path}`);
   }
 });
 
-test("home is excluded from prerendering", () => {
+test("home is prerendered with content", () => {
   const home = getAllRoutes().find((r) => r.path === "/");
   assert.ok(home);
-  assert.equal(home.prerender, false);
+  assert.equal(home.prerender, true);
+  assert.ok(home.title);
+  assert.ok(home.description);
+});
+
+test("every route title is within 30-60 chars", () => {
+  for (const r of getAllRoutes()) {
+    assert.ok(
+      r.title.length >= 30 && r.title.length <= 60,
+      `title length ${r.title.length} out of bounds for ${r.path}: ${r.title}`
+    );
+  }
+});
+
+test("every route description is within 70-160 chars", () => {
+  for (const r of getAllRoutes()) {
+    assert.ok(
+      r.description.length >= 70 && r.description.length <= 160,
+      `description length ${r.description.length} out of bounds for ${r.path}`
+    );
+  }
 });

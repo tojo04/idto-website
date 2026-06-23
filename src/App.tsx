@@ -96,7 +96,7 @@ function shouldOpenDemoModal(anchor: HTMLAnchorElement) {
   return true;
 }
 
-function AppShell() {
+export function AppShell() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const isDemoModalOpenRef = useRef(false);
 

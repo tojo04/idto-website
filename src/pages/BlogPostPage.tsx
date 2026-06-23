@@ -2,7 +2,6 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
-import { Helmet } from "react-helmet-async";
 import { getBlogPostBySlug, type BlogPostCta } from "../data/blogPosts";
 
 const defaultCta: BlogPostCta = {
@@ -37,44 +36,17 @@ export default function BlogPostPage() {
   }
 
   const cta = post.cta || defaultCta;
-  const canonicalUrl = `https://idto.ai/blog/${post.slug}/`;
   const ogImage = post.ogImage ?? "https://idto.ai/og-image.png";
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
       <SEOHead
-        title={`${post.title} | idto.ai`}
-        description={post.description}
+        title={`${post.metaTitle ?? post.title} | idto.ai`}
+        description={post.metaDescription ?? post.description}
         path={`/blog/${post.slug}`}
         ogImage={ogImage}
         ogType="article"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": post.title,
-          "description": post.description,
-          "image": ogImage,
-          "datePublished": post.isoDate,
-          "dateModified": post.isoDate,
-          "author": {
-            "@type": "Organization",
-            "name": post.author,
-            "url": "https://idto.ai"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "idto.ai",
-            "url": "https://idto.ai"
-          },
-          "url": canonicalUrl,
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": canonicalUrl
-          }
-        })}</script>
-      </Helmet>
       <Header />
 
       <main className="max-w-275 mx-auto px-5 pb-32 pt-24">

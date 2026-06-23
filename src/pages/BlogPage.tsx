@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
       <SEOHead
-        title="Blog | idto.ai"
+        title="Identity & KYC Blog — Verification Insights | idto.ai"
         description="Insights from India's KYC infrastructure experts. Explore posts on penny drop verification, identity systems, and modern fintech integration."
         path="/blog"
       />

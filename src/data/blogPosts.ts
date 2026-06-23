@@ -9,6 +9,8 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   description: string;
   category: string;
   date: string;
@@ -25,6 +27,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: "kyc-personal-loans-india",
     slug: "kyc-personal-loans-india",
+    metaTitle: "KYC for Personal Loans in India",
+    metaDescription: "A practical guide to personal loan KYC in India: required IDs, PAN, Aadhaar, CKYC, bank verification, income checks, and DPDP-aware journeys.",
     title: "KYC for Personal Loans in India: What IDs Are Needed and How to Configure the Journey",
     description:
       "A practical guide to personal loan KYC in India, including required IDs, PAN, Aadhaar, CKYC, bank verification, income checks, fraud controls, and DPDP-aware journey design.",
@@ -261,6 +265,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: "business-loan-journeys-india",
     slug: "business-loan-journeys-india",
+    metaTitle: "Business Loan KYC & KYB Journeys in India",
+    metaDescription: "A practical guide to business loan onboarding in India: KYB, KYC, ownership and entity verification, bank checks, cashflow, and DPDP-aware workflows.",
     title: "How to Build Business Loan Journeys in India: IDs, Documents, KYB Checks and Configuration",
     description:
       "A practical guide to business loan onboarding in India, covering KYB, KYC, ownership verification, entity documents, bank checks, cashflow, fraud controls, and DPDP-aware workflows.",
@@ -530,6 +536,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: "kyc-home-loans-india",
     slug: "kyc-home-loans-india",
+    metaTitle: "KYC for Home Loans in India",
+    metaDescription: "How regulations, verification workflows, fallbacks, and orchestration should work for home loan KYC and mortgage onboarding in India.",
     title: "KYC Requirements for Home Loans in India: Regulations, Verification Process, Service Providers and How Modern Lenders Can Improve Onboarding",
     description:
       "Home loan KYC exposes every weakness in a lender's identity stack. Here is how regulations, verification workflows, fallbacks, and orchestration should work for mortgage onboarding.",
@@ -839,6 +847,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "loan-fraud-india-identity-checks",
     slug: "loan-fraud-india-identity-checks",
+    metaTitle: "Loan Fraud Prevention with Identity Checks",
     title: "Loan Fraud Is Winning in India Until You Check Who's Actually Applying",
     description:
       "Indian lenders are losing money to stolen and synthetic identities. Here is why document-centric KYC fails, and how live identity checks close the gap.",
@@ -1013,6 +1022,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "payment-identity-orchestration-global-expansion",
     slug: "payment-identity-orchestration-global-expansion",
+    metaTitle: "Payment Identity Orchestration for Global Scale",
     title: "Why Payment & Identity Orchestration Is No Longer Optional for Global Business Expansion",
     description:
       "Global expansion exposes payment, identity, compliance, and fraud gaps quickly. Here is why orchestration has become core infrastructure for scaling businesses.",
@@ -1217,6 +1227,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "kyc-address-verification-digipin-dhruva",
     slug: "kyc-address-verification-digipin-dhruva",
+    metaTitle: "Address Verification: DIGIPIN & DHRUVA",
     title: "The Most Broken Field in KYC Is Finally Getting Fixed: Address",
     description:
       "India's trust stack is getting a new location rail. Here is what DIGIPIN and DHRUVA could change for KYC, CKYC, lending, insurance, and logistics.",
@@ -1525,6 +1536,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "dpdp-is-here-compliance-ready-brands",
     slug: "dpdp-is-here-compliance-ready-brands",
+    metaTitle: "DPDP Compliance Guide for Brands",
     title: "DPDP Is Here. If You're Already Doing Things Right, You're Already Ahead.",
     description:
       "How India's Data Protection framework rewards compliance-ready brands and what separates the prepared from the panicked.",
@@ -1888,6 +1900,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "aadhaar-verification-vs-validation",
     slug: "aadhaar-verification-vs-validation",
+    metaTitle: "Aadhaar Verification vs Validation",
     title: "Aadhaar Verification vs Validation: What Every Business Must Know About KYC Identity Checks",
     description:
       "Confused between Aadhaar verification and validation? Learn the key differences, how each impacts KYC compliance, and which method your business actually needs.",
@@ -2195,6 +2208,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "penny-drop-integration",
     slug: "penny-drop-integration",
+    metaTitle: "Penny Drop Integration Guide",
     title: "Why Your Penny Drop Integration Is Costing You More Than You Think",
     description:
       "Inconsistent outputs, cryptic error codes, and silent failures are quietly burning engineering hours across India's lending stack. There's a better way.",
@@ -2381,6 +2395,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "aadhaar-kyc-evolution",
     slug: "aadhaar-kyc-evolution",
+    metaTitle: "The Evolution of Aadhaar KYC",
     title: "From Aadhaar to DigiLocker: The Evolution of KYC in India",
     description:
       "Trace the journey of India's KYC infrastructure from centralized Aadhaar to decentralized digital lockers, and what it means for fintech integration.",
@@ -2585,6 +2600,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: "ckyc-vs-ekyc",
     slug: "ckyc-vs-ekyc",
+    metaTitle: "CKYC vs eKYC: When to Use Each",
     title: "CKYC vs eKYC: When to Use What in Your Verification Stack",
     description:
       "A practical guide to choosing between Centralized KYC and Electronic KYC based on your use case, regulatory requirements, and user experience goals.",

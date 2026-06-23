@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
@@ -20,35 +19,6 @@ export default function SocialCommunityPlatformsSolutionPage() {
         description="Reduce fake accounts, duplicate profiles, abuse, unsafe payouts, and trust gaps across user-generated platforms with idto.ai."
         path="/solutions/social-and-community-platforms"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://idto.ai"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Solutions"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Social & Community Platforms",
-                  "item": "https://idto.ai/solutions/social-and-community-platforms"
-                }
-              ]
-            }
-          ]
-        })}</script>
-      </Helmet>
       <Header />
 
       <main>

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/seo-build.mjs",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/seo-build.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:seo": "node --test scripts/seo/"

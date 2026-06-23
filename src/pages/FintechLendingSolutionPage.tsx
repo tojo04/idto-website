@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
@@ -20,35 +19,6 @@ export default function FintechLendingSolutionPage() {
         description="Build fintech and lending onboarding, borrower risk, CKYC, DigiLocker, mobile intelligence, and account verification workflows with idto.ai."
         path="/solutions/fintech-and-lending"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://idto.ai"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Solutions"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Fintech & Lending",
-                  "item": "https://idto.ai/solutions/fintech-and-lending"
-                }
-              ]
-            }
-          ]
-        })}</script>
-      </Helmet>
       <Header />
 
       <main>

@@ -14,7 +14,13 @@ export const withTrailingSlash = (path) =>
 export const canonicalFor = (path) => `${SITE_URL}${withTrailingSlash(path)}`;
 
 const STATIC_ROUTES = [
-  { path: "/", lastmod: "2026-06-20", prerender: false },
+  {
+    path: "/",
+    lastmod: "2026-06-20",
+    title: "Identity Verification Platform — KYC, KYB & Fraud | idto.ai",
+    description:
+      "One API for KYC, KYB, and employee verification with AI-powered fraud prevention and global orchestration. DPDP-compliant. Book a demo with idto.ai.",
+  },
   {
     path: "/products/CKYC",
     lastmod: "2026-04-30",
@@ -30,7 +36,7 @@ const STATIC_ROUTES = [
   {
     path: "/products/BAV",
     lastmod: "2026-04-30",
-    title: "Bank Account Verification API (Penny Drop & Pennyless) | idto.ai",
+    title: "Bank Account Verification API — Penny Drop | idto.ai",
     description:
       "Verify any Indian bank account in seconds. Penny-drop and pennyless BAV API with NPCI coverage, low TAT, and audit-ready logs. INR 1 per check.",
     llms: {
@@ -174,16 +180,17 @@ const STATIC_ROUTES = [
   {
     path: "/blog",
     lastmod: "2026-06-20",
-    title: "Blog | idto.ai",
+    title: "Identity & KYC Blog — Verification Insights | idto.ai",
     description:
       "Insights on identity verification, KYC, KYB, and fraud prevention for Indian fintechs and enterprises.",
   },
   {
     path: "/demo",
     lastmod: "2026-04-30",
-    title: "Book a Demo | idto.ai",
+    title: "Live Demo — Try idto.ai Identity Verification",
     description:
-      "See how idto.ai can streamline your identity verification and onboarding. Book a 30-minute demo with our team.",
+      "Try the idto.ai identity platform live: KYC, KYB, BAV and DigiLocker workflows in a real sandbox. No card required, no signup needed.",
+    noindex: true,
   },
   {
     path: "/contact-us",
@@ -195,15 +202,16 @@ const STATIC_ROUTES = [
   {
     path: "/privacy",
     lastmod: "2026-04-30",
-    title: "Privacy Policy | idto.ai",
+    title: "Privacy Policy — Data Protection & DPDP | idto.ai",
     description:
-      "idto.ai privacy policy — how we collect, use, and protect your data.",
+      "idto.ai privacy policy explaining how we collect, use, store, and protect your personal data in line with India's DPDP Act.",
   },
   {
     path: "/terms",
     lastmod: "2026-04-30",
     title: "Terms and Conditions | idto.ai",
-    description: "idto.ai terms and conditions of service.",
+    description:
+      "idto.ai terms and conditions of service — your rights, acceptable use, liability, and obligations when using our platform and APIs.",
   },
 ];
 
@@ -224,11 +232,13 @@ export function getBlogRoutes() {
       index + 1 < matches.length ? matches[index + 1].index : source.length;
     const block = source.slice(match.index, blockEnd);
     const ogImage = block.match(/ogImage:\s*"([^"]+)"/);
+    const metaTitle = block.match(/metaTitle:\s*"((?:[^"\\]|\\.)*)"/);
+    const metaDescription = block.match(/metaDescription:\s*"((?:[^"\\]|\\.)*)"/);
     return {
       path: `/blog/${slug}`,
       lastmod: isoDate,
-      title: `${decode(title)} | idto.ai`,
-      description: decode(description),
+      title: `${decode(metaTitle ? metaTitle[1] : title)} | idto.ai`,
+      description: decode(metaDescription ? metaDescription[1] : description),
       ogType: "article",
       ...(ogImage ? { ogImage: decode(ogImage[1]) } : {}),
       llms: { section: "Blog", label: decode(title) },
@@ -238,7 +248,7 @@ export function getBlogRoutes() {
 
 export function getAllRoutes() {
   return [...STATIC_ROUTES, ...getBlogRoutes()].map((route) => ({
-    prerender: route.path !== "/",
+    prerender: true,
     ...route,
   }));
 }

@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
@@ -20,35 +19,6 @@ export default function BankingNbfcsSolutionPage() {
         description="Run KYC, CKYC, bank account verification, document checks, and customer intelligence workflows for banks and NBFCs with idto.ai."
         path="/solutions/banking-and-nbfcs"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://idto.ai"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Solutions"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Banking & NBFCs",
-                  "item": "https://idto.ai/solutions/banking-and-nbfcs"
-                }
-              ]
-            }
-          ]
-        })}</script>
-      </Helmet>
       <Header />
 
       <main>

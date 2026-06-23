@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
@@ -20,35 +19,6 @@ export default function KYBSolutionPage() {
         description="Verify businesses, owners, bank accounts, documents, and risk signals faster with one configurable KYB and merchant onboarding layer."
         path="/solutions/merchant-onboarding-kyb"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://idto.ai"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Solutions"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Merchant Onboarding & KYB",
-                  "item": "https://idto.ai/solutions/merchant-onboarding-kyb"
-                }
-              ]
-            }
-          ]
-        })}</script>
-      </Helmet>
       <Header />
 
       <main>

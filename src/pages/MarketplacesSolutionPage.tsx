@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Header from "../components/LandingPage/Header";
 import FooterSection from "../components/LandingPage/FooterSection";
 import SEOHead from "../components/SEOHead";
@@ -20,35 +19,6 @@ export default function MarketplacesSolutionPage() {
         description="Verify sellers, buyers, service providers, bank accounts, documents, and contactability for marketplace trust workflows with idto.ai."
         path="/solutions/marketplaces"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://idto.ai"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Solutions"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Marketplaces",
-                  "item": "https://idto.ai/solutions/marketplaces"
-                }
-              ]
-            }
-          ]
-        })}</script>
-      </Helmet>
       <Header />
 
       <main>

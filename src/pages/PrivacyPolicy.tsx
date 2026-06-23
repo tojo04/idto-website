@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
       <SEOHead
-        title="Privacy Policy | idto.ai"
+        title="Privacy Policy — Data Protection & DPDP | idto.ai"
         description="How idto.ai (Payvriz Technologies) collects, uses, and protects personal data under the DPDP Act 2023 and IT Act 2000."
         path="/privacy"
       />

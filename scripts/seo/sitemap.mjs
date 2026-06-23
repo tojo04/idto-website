@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { canonicalFor, getAllRoutes } from "./routes.mjs";
 
 export function generateSitemap(dist) {
-  const routes = getAllRoutes();
+  const routes = getAllRoutes().filter((route) => !route.noindex);
   const entries = routes
     .map(
       (route) =>
