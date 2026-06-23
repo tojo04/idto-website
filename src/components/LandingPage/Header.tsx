@@ -18,6 +18,7 @@ import insuranceIcon from "../../assets/header/solutionsDropdowns/Insurance.svg?
 import marketplacesIcon from "../../assets/header/solutionsDropdowns/MarketPlaces.svg?raw";
 import merchantOnboardingIcon from "../../assets/header/solutionsDropdowns/merchant_onboarding.svg?raw";
 import socialCommunityIcon from "../../assets/header/solutionsDropdowns/social_and_community.svg?raw";
+import { DASHBOARD_SIGNUP_URL, DASHBOARD_LOGIN_URL } from "../../config/externalLinks";
 
 const withCurrentColor = (svg: string) =>
   svg.replace(/(stroke|fill)="(?:#1D68F4|white)"/g, '$1="currentColor"');
@@ -273,7 +274,7 @@ function DefaultPreviewGraphic({
 const productItems: DropdownItem[] = [
   {
     label: "CKYC 2.0",
-    href: "/products/CKYC",
+    href: "/products/CKYC/",
     icon: "ckyc",
     
     description:
@@ -281,7 +282,7 @@ const productItems: DropdownItem[] = [
   },
   {
     label: "DigiLocker 3.0",
-    href: "/products/digilocker-3.0",
+    href: "/products/digilocker-3.0/",
     icon: "digilocker",
     
     description:
@@ -289,7 +290,7 @@ const productItems: DropdownItem[] = [
   },
   {
     label: "Intelli Bank Account Verification",
-    href: "/products/BAV",
+    href: "/products/BAV/",
     icon: "bav",
     
     description:
@@ -297,7 +298,7 @@ const productItems: DropdownItem[] = [
   },
   {
     label: "Mobile Intelligence",
-    href: "/products/mobile-intelligence",
+    href: "/products/mobile-intelligence/",
     icon: "mobileIntelligence",
     
     description:
@@ -308,63 +309,63 @@ const productItems: DropdownItem[] = [
 const solutionItems: DropdownItem[] = [
   {
     label: "Fintech & Lending",
-    href: "/solutions/fintech-and-lending",
+    href: "/solutions/fintech-and-lending/",
     icon: "fintechLending",
    
     description: "Verify users, reduce onboarding drop-offs, enrich risk signals, and support collections.",
   },
   {
     label: "Banking & NBFCs",
-    href: "/solutions/banking-and-nbfcs",
+    href: "/solutions/banking-and-nbfcs/",
     icon: "bankingNbfcs",
     
     description: "Run compliant KYC, CKYC, bank verification, and customer intelligence workflows.",
   },
   {
     label: "Insurance",
-    href: "/solutions/insurance",
+    href: "/solutions/insurance/",
     icon: "insurance",
     
     description: "Simplify policy onboarding, CKYC checks, payout validation, and customer personalization.",
   },
   {
     label: "Crypto & Web3",
-    href: "/solutions/crypto-and-web3",
+    href: "/solutions/crypto-and-web3/",
     icon: "cryptoWeb3",
     
     description: "Build safer onboarding, wallet-linked compliance, user verification, and payout checks.",
   },
   {
     label: "Marketplaces",
-    href: "/solutions/marketplaces",
+    href: "/solutions/marketplaces/",
     icon: "marketplaces",
     
     description: "Verify buyers, sellers, service providers, and payouts with one trust stack.",
   },
   {
     label: "Social & Community",
-    href: "/solutions/social-and-community-platforms",
+    href: "/solutions/social-and-community-platforms/",
     icon: "socialCommunity",
     
     description: "Reduce fake users, duplicate accounts, abuse, and unsafe payouts across communities.",
   },
   {
     label: "Gig Economy",
-    href: "/solutions/gig-economy",
+    href: "/solutions/gig-economy/",
     icon: "gigEconomy",
     
     description: "Verify gig workers, bank accounts, documents, and contactability in under 10 minutes.",
   },
   {
     label: "Employment & BGV",
-    href: "/solutions/background-verification",
+    href: "/solutions/background-verification/",
     icon: "backgroundVerification",
     
     description: "Verify candidates, documents, bank accounts, and contactability faster.",
   },
   {
     label: "Merchant Onboarding / KYB",
-    href: "/solutions/merchant-onboarding-kyb",
+    href: "/solutions/merchant-onboarding-kyb/",
     icon: "merchantKyb",
     
     description: "Onboard merchants, verify businesses, validate bank accounts, and reduce manual ops.",
@@ -387,7 +388,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "#", dropdown: "products" },
   { label: "Solutions", href: "#", dropdown: "solutions" },
-  { label: "Contact Us", href: "/contact_us" },
+  { label: "Contact Us", href: "/contact-us/" },
   { label: "Documentation", href: "https://idtoai.readme.io/reference/idtoai-verification-apis", external: true },
   { label: "LinkedIn", href: "https://in.linkedin.com/company/idto", external: true },
 ];
@@ -804,13 +805,13 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-2.5">
             <Button
               title="Sign-up"
-              href="https://dashboard.idto.ai/signup/"
+              href={DASHBOARD_SIGNUP_URL}
               variant="primary"
               size="md"
             />
             <Button
               title="Login"
-              href="https://dashboard.idto.ai/login/"
+              href={DASHBOARD_LOGIN_URL}
               variant="outline"
               size="md"
             />
@@ -923,13 +924,13 @@ export default function Header() {
                 <div className="flex gap-3 pt-2">
                   <Button
                     title="Sign-up"
-                    href="https://dashboard.idto.ai/signup/"
+                    href={DASHBOARD_SIGNUP_URL}
                     variant="primary"
                     size="sm"
                   />
                   <Button
                     title="Login"
-                    href="https://dashboard.idto.ai/login/"
+                    href={DASHBOARD_LOGIN_URL}
                     variant="outline"
                     size="sm"
                   />

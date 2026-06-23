@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, staggerContainer, fadeItem, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
-import blogPost1Image from "../../assets/blog_post_1.jpg";
+import blogPost1Image from "../../assets/blog_post_1.webp";
 import blogPost2Image from "../../assets/blog_post_2.png";
-import blogPost3Image from "../../assets/blog_post_3.png";
+import blogPost3Image from "../../assets/blog_post_3.webp";
 import { blogPosts } from "../../data/blogPosts";
 
 const postImages = [blogPost1Image, blogPost2Image, blogPost3Image];
@@ -60,7 +60,7 @@ export default function BlogSection() {
                   {post.excerpt}
                 </p>
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.slug}/`}
                   className="mt-auto flex items-center gap-2 text-[16px] font-medium text-[#212529] hover:text-primary transition-colors pt-4"
                 >
                   Read more

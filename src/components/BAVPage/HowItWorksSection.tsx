@@ -10,11 +10,11 @@ import monitorIcon from "../../assets/product_pages/BAV/sections/how_it_works/ca
 
 // Illustration assets
 import idtoLogo from "../../assets/product_pages/BAV/sections/how_it_works/idto_Logo.svg";
-import aiImage from "../../assets/product_pages/BAV/sections/how_it_works/AI_image.png";
+import aiImage from "../../assets/product_pages/BAV/sections/how_it_works/AI_image.webp";
 import horizontalArrow from "../../assets/product_pages/BAV/sections/how_it_works/Horizontal_arrow.svg";
 import connectorLine from "../../assets/product_pages/BAV/sections/how_it_works/Connector line.svg";
-import orchestrationAgentSprite from "../../assets/product_pages/BAV/sections/how_it_works/orchestration_agent_1.png";
-import bankVerified from "../../assets/product_pages/BAV/sections/how_it_works/bank_account_verfication.png";
+import orchestrationAgentSprite from "../../assets/product_pages/BAV/sections/how_it_works/orchestration_agent_1.webp";
+import bankVerified from "../../assets/product_pages/BAV/sections/how_it_works/bank_account_verfication.webp";
 
 // Partner logos
 import kotak from "../../assets/product_pages/BAV/sections/how_it_works/kotak.png";

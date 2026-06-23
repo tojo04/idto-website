@@ -5,12 +5,12 @@ import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
 
-import singleApiImg1 from "../../assets/singleAPIsection_images/Image 0.png";
-import singleApiImg2 from "../../assets/singleAPIsection_images/Image 1.png";
-import singleApiImg3 from "../../assets/singleAPIsection_images/Image 2.png";
-import singleApiImg4 from "../../assets/singleAPIsection_images/Image 3.png";
-import singleApiImg5 from "../../assets/singleAPIsection_images/Image 4.png";
-import singleApiImg6 from "../../assets/singleAPIsection_images/Image 5.png";
+import singleApiImg1 from "../../assets/singleAPIsection_images/Image 0.webp";
+import singleApiImg2 from "../../assets/singleAPIsection_images/Image 1.webp";
+import singleApiImg3 from "../../assets/singleAPIsection_images/Image 2.webp";
+import singleApiImg4 from "../../assets/singleAPIsection_images/Image 3.webp";
+import singleApiImg5 from "../../assets/singleAPIsection_images/Image 4.webp";
+import singleApiImg6 from "../../assets/singleAPIsection_images/Image 5.webp";
 
 const tabImages: Record<string, string> = {
   "Powerful REST API": singleApiImg1,
@@ -71,7 +71,7 @@ const tabs: TabContent[] = [
       "Upgrade to API integration anytime",
       "Exportable reports & audit-ready logs",
     ],
-    footerLink: { text: "idto.ai/contact-us", href: "/contact-us" },
+    footerLink: { text: "idto.ai/contact-us", href: "/contact-us/" },
   },
   {
     name: "Fraud & Intelligence Suite",
@@ -273,7 +273,7 @@ export default function SingleApiSection() {
                   <ArrowRight size={20} className="hidden lg:block" strokeWidth={2.5} />
                 </a>
                 <a
-                  href="/contact-us"
+                  href="/contact-us/"
                   className="inline-flex items-center gap-2 px-0 lg:px-5 py-2 lg:py-2.5 rounded-md text-sm lg:text-[14px] font-semibold leading-[27px] tracking-[-0.02em] text-primary hover:opacity-80 transition-opacity"
                 >
                   <span className="underline underline-offset-4">Request Demo Workflow</span>

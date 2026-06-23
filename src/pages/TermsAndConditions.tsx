@@ -120,7 +120,7 @@ export default function TermsAndConditions() {
             </h2>
             <p>
               Your use of the Services is also governed by our{" "}
-              <a className="text-blue-600 underline" href="/privacy">
+              <a className="text-blue-600 underline" href="/privacy/">
                 Privacy Policy
               </a>
               , which describes how we process personal data. As between the

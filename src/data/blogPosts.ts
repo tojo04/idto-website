@@ -1894,7 +1894,7 @@ export const blogPosts: BlogPost[] = [
       title: "Stop losing users to false negatives",
       description: "Use idto.ai's orchestrated Bank Account Verification API to route intelligently, fall back instantly, and return clearer outcomes.",
       buttonLabel: "Explore Bank Verification \u2192",
-      href: "/products/BAV",
+      href: "/products/BAV/",
     },
   },
   {
@@ -2389,7 +2389,7 @@ export const blogPosts: BlogPost[] = [
       title: "Start verifying with idto.ai",
       description: "One integration. Best-in-class success rates. Zero provider chaos.",
       buttonLabel: "Explore idto Penny Drop \u2192",
-      href: "/products/BAV",
+      href: "/products/BAV/",
     },
   },
   {
@@ -2594,7 +2594,7 @@ export const blogPosts: BlogPost[] = [
       title: "Build smoother DigiLocker journeys",
       description: "Move from upload-heavy KYC to consent-led document verification with idto.ai.",
       buttonLabel: "Explore DigiLocker 3.0 \u2192",
-      href: "/products/digilocker-3.0",
+      href: "/products/digilocker-3.0/",
     },
   },
   {
@@ -2758,7 +2758,7 @@ export const blogPosts: BlogPost[] = [
       title: "Build a smarter CKYC flow",
       description: "Use CKYC, eKYC, and fallback journeys together instead of forcing every user through one rigid path.",
       buttonLabel: "Explore CKYC \u2192",
-      href: "/products/CKYC",
+      href: "/products/CKYC/",
     },
   },
 ];

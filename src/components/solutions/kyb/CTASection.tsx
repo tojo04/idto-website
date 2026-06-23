@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../../utils/animations";
 import partner1 from "../../../assets/solution_pages/trust_partner/2279e26af44ce4966be21960219ca4e40dc8bcb8.png";
-import partner2 from "../../../assets/solution_pages/trust_partner/c085f2d06d11f7587b1b367e1dde3bbff9df2b5c.png";
-import partner3 from "../../../assets/solution_pages/trust_partner/c32420383094e102fb8b27a55fafa52b3a5abb73.png";
+import partner2 from "../../../assets/solution_pages/trust_partner/c085f2d06d11f7587b1b367e1dde3bbff9df2b5c.webp";
+import partner3 from "../../../assets/solution_pages/trust_partner/c32420383094e102fb8b27a55fafa52b3a5abb73.webp";
+import { DASHBOARD_SIGNUP_URL } from "../../../config/externalLinks";
 
 export default function CTASection() {
   return (
@@ -22,13 +23,13 @@ export default function CTASection() {
 
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center">
               <a
-                href="/contact-us"
+                href="/contact-us/"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"
               >
                 Talk to us
               </a>
               <a
-                href="https://dashboard.idto.ai/signup/"
+                href={DASHBOARD_SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-primary text-primary w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-medium lg:font-semibold tracking-[0.36px] lg:tracking-[-0.32px] hover:bg-primary/5 transition-colors whitespace-nowrap"

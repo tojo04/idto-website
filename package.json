@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/seo-build.mjs",
+    "build": "npm run check:links && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/seo-build.mjs",
+    "check:links": "node scripts/seo/check-internal-links.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:seo": "node --test scripts/seo/"
@@ -31,8 +32,11 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "sharp": "^0.35.2",
+    "svgo": "^4.0.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vite-plugin-image-optimizer": "^2.0.3"
   }
 }

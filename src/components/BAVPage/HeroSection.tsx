@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { createFadeInUp, viewportOnce } from "../../utils/animations";
-import heroVisual from "../../assets/product_pages/BAV/Hero_image.png";
-import heroVisualDesktop from "../../assets/product_pages/BAV/bav_hero_desktop.png";
+import heroVisual from "../../assets/product_pages/BAV/Hero_image.webp";
+import heroVisualDesktop from "../../assets/product_pages/BAV/bav_hero_desktop.webp";
+import { DASHBOARD_SIGNUP_URL } from "../../config/externalLinks";
 
 
 export default function HeroSection() {
@@ -58,7 +59,7 @@ export default function HeroSection() {
           >
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center lg:justify-start">
               <a
-                href="https://dashboard.idto.ai/signup/"
+                href={DASHBOARD_SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border-[1.125px] border-transparent bg-primary text-white w-[110px] h-[36px] lg:w-auto lg:h-auto lg:px-[27px] lg:py-[13.5px] text-[12px] lg:text-base font-semibold tracking-[-0.32px] hover:bg-primary-dark transition-colors whitespace-nowrap"

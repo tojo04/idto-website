@@ -4,12 +4,12 @@ import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import SectionHeading from "../UI/SectionHeading";
 import PillTag from "../UI/PillTag";
 
-import industryImg0 from "../../assets/industriesSection_images/Image 0.png";
-import industryImg1 from "../../assets/industriesSection_images/Image 1.png";
-import industryImg2 from "../../assets/industriesSection_images/Image 2.png";
-import industryImg3 from "../../assets/industriesSection_images/Image 3.png";
-import industryImg4 from "../../assets/industriesSection_images/Image 4.png";
-import industryImg5 from "../../assets/industriesSection_images/Image 5.png";
+import industryImg0 from "../../assets/industriesSection_images/Image 0.webp";
+import industryImg1 from "../../assets/industriesSection_images/Image 1.webp";
+import industryImg2 from "../../assets/industriesSection_images/Image 2.webp";
+import industryImg3 from "../../assets/industriesSection_images/Image 3.webp";
+import industryImg4 from "../../assets/industriesSection_images/Image 4.webp";
+import industryImg5 from "../../assets/industriesSection_images/Image 5.webp";
 
 const industryImages = [industryImg0, industryImg1, industryImg2, industryImg3, industryImg4, industryImg5];
 

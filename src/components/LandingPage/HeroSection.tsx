@@ -4,17 +4,17 @@ import { createFadeInUp, viewportOnce } from "../../utils/animations";
 
 // Globe assets
 import globeVideoMp4 from "../../assets/globe-hq.mp4";
-import globeGif from "../../assets/GIF.gif";
-import globe1 from "../../assets/globe/globe=1.svg";
+import globePoster from "../../assets/globe/globe-poster.webp";
 import circleDecoration from "../../assets/circleDecoration.svg";
 
 // Partner logos
 import partner1 from "../../assets/partner1 (1).png";
 import partner2 from "../../assets/partner2 (2).png";
 import partner3 from "../../assets/partner3 (3).png";
-import partner4 from "../../assets/partner4(4).png";
+import partner4 from "../../assets/partner4(4).webp";
 import partner5 from "../../assets/partner5 (5).png";
 import partner6 from "../../assets/partner6(6).png";
+import { DASHBOARD_SIGNUP_URL } from "../../config/externalLinks";
 
 interface HeroSectionProps {
   bookDemo: () => void;
@@ -68,7 +68,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
             loop
             playsInline
             preload="metadata"
-            poster={globe1}
+            poster={globePoster}
             aria-label="Earth Globe animation"
           >
             <source src={globeVideoMp4} type="video/mp4" />
@@ -163,7 +163,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
           }}
         >
           <a
-            href="https://dashboard.idto.ai/signup/"
+            href={DASHBOARD_SIGNUP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center font-body font-medium lg:font-semibold text-white bg-primary rounded-full transition-opacity hover:opacity-90 w-[108px] h-[34px] text-[12px] lg:w-auto lg:h-auto lg:min-w-[clamp(170px,12vw,217px)] lg:px-[clamp(24px,2.2vw,40px)] lg:py-[clamp(13px,1vw,16px)] lg:text-[16px] whitespace-nowrap"
@@ -202,14 +202,14 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
               loop
               playsInline
               preload="metadata"
-              poster={globe1}
+              poster={globePoster}
               aria-label="Earth Globe animation"
             >
               <source src={globeVideoMp4} type="video/mp4" />
             </video>
           ) : (
             <img
-              src={globeGif}
+              src={globePoster}
               alt="Earth Globe animation"
               width={272}
               height={299}
