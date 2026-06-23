@@ -12,6 +12,18 @@ const productLinks = [
   { label: "Book a Demo", href: "/contact-us" },
 ];
 
+const solutionLinks = [
+  { label: "Fintech & Lending", href: "/solutions/fintech-and-lending" },
+  { label: "Banking & NBFCs", href: "/solutions/banking-and-nbfcs" },
+  { label: "Insurance", href: "/solutions/insurance" },
+  { label: "Crypto & Web3", href: "/solutions/crypto-and-web3" },
+  { label: "Marketplaces", href: "/solutions/marketplaces" },
+  { label: "Social & Community", href: "/solutions/social-and-community-platforms" },
+  { label: "Gig Economy", href: "/solutions/gig-economy" },
+  { label: "Employment & BGV", href: "/solutions/background-verification" },
+  { label: "Merchant Onboarding / KYB", href: "/solutions/merchant-onboarding-kyb" },
+];
+
 const resourceLinks = [
   { label: "Blog", href: "/blog", internal: true },
   { label: "API Documentation", href: "https://idtoai.readme.io/reference/idtoai-verification-apis" },
@@ -43,10 +55,10 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
               "linear-gradient(250deg, #0019ff 18%, #4edfc3 31%, #54eebe 49%, #4edfc3 64%, #0019ff 115%)",
           }}
         >
-          <div className="bg-blue-section rounded-[21px] px-5 lg:px-10 py-8 lg:py-10 overflow-hidden">
-            <div className="flex flex-col gap-8 lg:gap-8 lg:flex-row items-start">
+          <div className="bg-blue-section rounded-[21px] px-5 py-8 overflow-hidden sm:px-8 sm:py-10 lg:px-10 xl:py-14">
+            <div className="grid gap-9 md:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] md:gap-10 xl:grid-cols-[minmax(280px,0.86fr)_minmax(0,2.35fr)] xl:items-start xl:gap-16">
               {/* Logo & Tagline */}
-              <div className="flex flex-col gap-5 w-full lg:w-[260px] shrink-0">
+              <div className="flex flex-col gap-6 w-full">
                 <img
                   src={footerLogo}
                   alt="idto"
@@ -56,19 +68,35 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   decoding="async"
                 />
                 <div className="flex flex-col gap-4">
-                  <p className="font-heading text-lg lg:text-xl text-white leading-normal tracking-[-0.52px]">
-                    Your partner for onboarding,
+                  <p className="font-heading text-[24px] text-white leading-[1.12] tracking-[-0.52px] sm:text-[28px] xl:text-[38px]">
+                    Verification
                     <br />
-                    verification & trust.
+                    infrastructure for teams
+                    <br />
+                    that move fast.
                   </p>
-                  <p className="text-[12px] text-white font-light leading-[1.4]">
-                    We handle the complexity so you can focus on growth.
+                  <p className="max-w-[360px] text-[14px] text-white/70 font-light leading-[1.55] sm:text-[15px]">
+                    One orchestration layer for onboarding, verification, and trust across customers, businesses, and workforces.
                   </p>
+                </div>
+                <div className="flex flex-row flex-wrap gap-[15px] pt-2">
+                  <Button
+                    title="Sign-up"
+                    href="https://dashboard.idto.ai/signup/"
+                    variant="white"
+                    size="md"
+                  />
+                  <Button
+                    title="Book a demo"
+                    onClick={bookDemo}
+                    variant="outline-white"
+                    size="md"
+                  />
                 </div>
               </div>
 
               {/* Links Columns */}
-              <div className="flex flex-1 flex-col lg:flex-row gap-6 lg:gap-8 min-w-0">
+              <div className="grid min-w-0 grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2 lg:gap-x-12 xl:grid-cols-[minmax(90px,0.55fr)_minmax(190px,0.95fr)_minmax(220px,1.1fr)_minmax(170px,0.8fr)] xl:gap-x-14 xl:gap-y-0">
                 {/* Company */}
                 <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-auto lg:min-w-[100px]">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
@@ -94,11 +122,11 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                         </a>
                       )
                     )}
-                </div>
+                  </div>
                 </div>
 
                 {/* Products */}
-                <div className="flex flex-col gap-4 lg:gap-6 w-full lg:flex-1">
+                <div className="flex flex-col gap-4 lg:gap-6 w-full">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Products
                   </p>
@@ -115,8 +143,26 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                   </div>
                 </div>
 
+                {/* Solutions */}
+                <div className="flex flex-col gap-4 lg:gap-6 w-full">
+                  <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
+                    Solutions
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {solutionLinks.map((link) => (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="text-[16px] text-white leading-[1.4] tracking-[-0.42px] hover:text-white/80 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Resources */}
-                <div className="flex flex-col gap-4 lg:gap-6 flex-1">
+                <div className="flex flex-col gap-4 lg:gap-6 w-full">
                   <p className="text-xs font-semibold text-white/50 uppercase tracking-[0.6px]">
                     Resources
                   </p>
@@ -144,22 +190,6 @@ export default function FooterSection({ bookDemo }: FooterSectionProps) {
                     )}
                   </div>
                 </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-row lg:flex-col gap-[15px] lg:gap-4 shrink-0 lg:ml-auto">
-                <Button
-                  title="Sign-up"
-                  href="https://dashboard.idto.ai/signup/"
-                  variant="white"
-                  size="md"
-                />
-                <Button
-                  title="Book a demo"
-                  onClick={bookDemo}
-                  variant="outline-white"
-                  size="md"
-                />
               </div>
             </div>
           </div>

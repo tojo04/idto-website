@@ -112,6 +112,24 @@ const ROUTES = {
     title: "Terms and Conditions | idto.ai",
     description: "idto.ai terms and conditions of service.",
   },
+  "/blog/kyc-personal-loans-india": {
+    title: "KYC for Personal Loans in India: What IDs Are Needed and How to Configure the Journey | idto.ai",
+    description:
+      "A practical guide to personal loan KYC in India, including required IDs, PAN, Aadhaar, CKYC, bank verification, income checks, fraud controls, and DPDP-aware journey design.",
+    ogType: "article",
+  },
+  "/blog/business-loan-journeys-india": {
+    title: "How to Build Business Loan Journeys in India: IDs, Documents, KYB Checks and Configuration | idto.ai",
+    description:
+      "A practical guide to business loan onboarding in India, covering KYB, KYC, ownership verification, entity documents, bank checks, cashflow, fraud controls, and DPDP-aware workflows.",
+    ogType: "article",
+  },
+  "/blog/kyc-home-loans-india": {
+    title: "KYC Requirements for Home Loans in India: Regulations, Verification Process, Service Providers and How Modern Lenders Can Improve Onboarding | idto.ai",
+    description:
+      "Home loan KYC exposes every weakness in a lender's identity stack. Here is how regulations, verification workflows, fallbacks, and orchestration should work for mortgage onboarding.",
+    ogType: "article",
+  },
   "/blog/loan-fraud-india-identity-checks": {
     title: "Loan Fraud Is Winning in India Until You Check Who's Actually Applying | idto.ai",
     description:

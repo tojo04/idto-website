@@ -1507,6 +1507,20 @@
     color: #15803d;
   }
 
+  .home-loan-table .aadhaar-verify-table {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .home-loan-table .aadhaar-verify-table-row {
+    grid-template-columns: minmax(180px, 0.38fr) minmax(0, 1fr);
+  }
+
+  .home-loan-table .aadhaar-verify-table-row > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
   .aadhaar-verify-impact-grid {
     display: grid;
     max-width: 900px;
@@ -2923,6 +2937,31 @@
     .ckyc-rule span {
       width: 36px;
       height: 36px;
+    }
+
+    .home-loan-table {
+      overflow-x: visible;
+    }
+
+    .home-loan-table .aadhaar-verify-table-row {
+      grid-template-columns: 1fr;
+    }
+
+    .home-loan-table .aadhaar-verify-table-row > div {
+      border-right: 0;
+    }
+
+    .home-loan-table .aadhaar-verify-table-row > div:first-child {
+      padding-bottom: 8px;
+    }
+
+    .home-loan-table .aadhaar-verify-table-row > div:last-child {
+      padding-top: 0;
+    }
+
+    .home-loan-table .aadhaar-verify-table-head > div {
+      padding-top: 14px;
+      padding-bottom: 14px;
     }
 
     .dpdp-principle-card:hover,

@@ -11,6 +11,9 @@
 
 ## Blog
 
+- [KYC for Personal Loans in India: What IDs Are Needed and How to Configure the Journey](https://idto.ai/blog/kyc-personal-loans-india)
+- [How to Build Business Loan Journeys in India: IDs, Documents, KYB Checks and Configuration](https://idto.ai/blog/business-loan-journeys-india)
+- [KYC Requirements for Home Loans in India: Regulations, Verification Process, Service Providers and How Modern Lenders Can Improve Onboarding](https://idto.ai/blog/kyc-home-loans-india)
 - [The Most Broken Field in KYC Is Finally Getting Fixed: Address](https://idto.ai/blog/kyc-address-verification-digipin-dhruva)
 - [DPDP Is Here. If You're Already Doing Things Right, You're Already Ahead.](https://idto.ai/blog/dpdp-is-here-compliance-ready-brands)
 - [Why Your Bank Account Verification API Failed](https://idto.ai/blog/bank-account-verification-api-failed)
