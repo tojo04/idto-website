@@ -18,6 +18,7 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   cta?: BlogPostCta;
+  ogImage?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -1224,6 +1225,8 @@ export const blogPosts: BlogPost[] = [
     isoDate: "2026-05-21",
     readTime: 13,
     author: "idto.ai",
+    ogImage:
+      "https://idto.ai/blog/kyc-address-verification/india-trust-stack-timeline.png",
     excerpt:
       "Address has always been the messiest field in KYC. DIGIPIN and DHRUVA point to a future where address becomes precise, consented, and machine-readable.",
     content: `

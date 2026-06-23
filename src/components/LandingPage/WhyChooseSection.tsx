@@ -283,6 +283,7 @@ export default function WhyChooseSection() {
               idto
               <img
                 aria-hidden="true"
+              alt=""
                 src={idtoUnderline}
                 className="absolute left-0 w-full pointer-events-none select-none"
                 style={{ top: "100%", marginTop: "2px" }}

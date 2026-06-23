@@ -27,6 +27,7 @@ export default function HeroSection() {
                 complexity.
                 <img
                   aria-hidden="true"
+              alt=""
                   src={complexityVector}
                   className="absolute pointer-events-none select-none w-[260%] h-[160%] lg:w-[310%] lg:h-[160%]"
                   style={{

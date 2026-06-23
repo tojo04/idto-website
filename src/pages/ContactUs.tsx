@@ -18,7 +18,7 @@ export default function ContactUs() {
       <SEOHead
         title="Contact Us | Book a Demo | idto.ai"
         description="Contact idto.ai to book a product demo, discuss KYC, KYB, fraud prevention, onboarding workflows, APIs, pricing, and compliance."
-        path="/contact_us"
+        path="/contact-us"
       />
       <Header />
 

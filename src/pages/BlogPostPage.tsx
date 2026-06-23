@@ -37,6 +37,8 @@ export default function BlogPostPage() {
   }
 
   const cta = post.cta || defaultCta;
+  const canonicalUrl = `https://idto.ai/blog/${post.slug}/`;
+  const ogImage = post.ogImage ?? "https://idto.ai/og-image.png";
 
   return (
     <div className="min-h-screen bg-gray-bg font-body text-dark">
@@ -44,6 +46,8 @@ export default function BlogPostPage() {
         title={`${post.title} | idto.ai`}
         description={post.description}
         path={`/blog/${post.slug}`}
+        ogImage={ogImage}
+        ogType="article"
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify({
@@ -51,7 +55,7 @@ export default function BlogPostPage() {
           "@type": "BlogPosting",
           "headline": post.title,
           "description": post.description,
-          "image": "https://idto.ai/og-image.png",
+          "image": ogImage,
           "datePublished": post.isoDate,
           "dateModified": post.isoDate,
           "author": {
@@ -64,10 +68,10 @@ export default function BlogPostPage() {
             "name": "idto.ai",
             "url": "https://idto.ai"
           },
-          "url": `https://idto.ai/blog/${post.slug}`,
+          "url": canonicalUrl,
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://idto.ai/blog/${post.slug}`
+            "@id": canonicalUrl
           }
         })}</script>
       </Helmet>

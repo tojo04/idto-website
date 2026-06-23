@@ -67,6 +67,7 @@ export default function ProblemsSection() {
                 hard.
                 <img
                   aria-hidden="true"
+              alt=""
                   src={hardUnderline}
                   className="absolute left-0 w-full pointer-events-none select-none"
                   style={{ top: "100%", marginTop: "2px" }}

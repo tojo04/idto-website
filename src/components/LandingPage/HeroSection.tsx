@@ -95,6 +95,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
             only
             <img
               aria-hidden="true"
+              alt=""
               src={circleDecoration}
               className="absolute pointer-events-none select-none"
               style={{
@@ -118,6 +119,7 @@ export default function HeroSection({ bookDemo }: HeroSectionProps) {
               only
               <img
                 aria-hidden="true"
+              alt=""
                 src={circleDecoration}
                 className="absolute pointer-events-none select-none"
                 style={{
