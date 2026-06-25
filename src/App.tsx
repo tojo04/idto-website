@@ -30,6 +30,7 @@ import DemoRequestModal, {
 } from "./components/DemoRequestModal";
 import Demo from "./pages/Demo";
 import ContactUs from "./pages/ContactUs";
+import Careers from "./pages/Careers";
 import { trackEvent, trackPageView } from "./lib/analytics";
 
 function ScrollToTop() {
@@ -191,6 +192,7 @@ export function AppShell() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/contact_us" element={<Navigate to="/contact-us/" replace />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/careers" element={<Careers />} />
         <Route
           path="/demoform"
           element={<OpenDemoModalRoute onOpen={openDemoModal} />}
