@@ -1,21 +1,22 @@
-import { motion } from "framer-motion";
-import { createFadeInUp, viewportOnce } from "../../utils/animations";
 import heroVisual from "../../assets/product_pages/BAV/Hero_image.webp";
 import heroVisualDesktop from "../../assets/product_pages/BAV/bav_hero_desktop.webp";
 import { DASHBOARD_SIGNUP_URL } from "../../config/externalLinks";
 
 
+const heroReveal = (delaySeconds = 0) => ({
+  animation: `idtoHeroReveal 0.5s ease-out ${delaySeconds}s both`,
+});
 export default function HeroSection() {
   return (
     <section className="bg-white rounded-b-[40px] lg:rounded-b-[112px] px-5 lg:px-10 xl:px-16 pt-8 lg:pt-12 pb-10 lg:pb-16 overflow-hidden">
+      <style>
+        {`@keyframes idtoHeroReveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }`}
+      </style>
       <div className="max-w-[1237px] mx-auto relative">
         <div className="flex flex-col lg:grid lg:grid-cols-1 lg:relative">
           {/* Title + subtitle */}
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            variants={createFadeInUp(0)}
+          <div
+            style={heroReveal(0)}
             className="order-1 relative z-10 lg:mt-16 lg:max-w-[699px]"
           >
             <h1 className="font-heading text-[20px] md:text-[42px] lg:text-[42px] leading-[1.3] tracking-[0.6px] lg:tracking-[-0.02em] text-black text-center lg:text-left">
@@ -27,14 +28,11 @@ export default function HeroSection() {
               disbursals — built for higher success rates, broader coverage,
               transparent outputs, and enterprise-grade reliability.
             </p>
-          </motion.div>
+          </div>
 
           {/* Hero image */}
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            variants={createFadeInUp(0.08)}
+          <div
+            style={heroReveal(0.08)}
             className="order-2 w-full max-w-[310px] mx-auto mt-5 lg:mt-0 lg:max-w-[580px] lg:absolute lg:right-0 lg:top-[40px] lg:w-[46%] lg:pointer-events-none"
           >
             <img
@@ -47,14 +45,11 @@ export default function HeroSection() {
               alt="Bank Account Verification product interface"
               className="hidden lg:block w-full h-auto object-cover"
             />
-          </motion.div>
+          </div>
 
           {/* Buttons + used-by text */}
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            variants={createFadeInUp(0.15)}
+          <div
+            style={heroReveal(0.15)}
             className="order-3 relative z-10 mt-6 lg:mt-10 flex flex-col gap-[18px] items-center lg:items-start"
           >
             <div className="flex flex-wrap gap-[13.5px] items-center justify-center lg:justify-start">
@@ -79,7 +74,7 @@ export default function HeroSection() {
               Used by digital-first lenders, fintechs, and payout-heavy
               platforms.
             </p>
-          </motion.div>
+          </div>
         </div>
 
 

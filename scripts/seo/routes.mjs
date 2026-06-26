@@ -70,6 +70,54 @@ const STATIC_ROUTES = [
     },
   },
   {
+    path: "/products/idto-flow",
+    lastmod: "2026-06-26",
+    title: "IDTO Flow - Identity Workflow SDK | idto.ai",
+    description:
+      "Launch branded KYC, KYB, employee, seller, driver, fraud and global identity workflows with one configurable SDK from idto.ai.",
+    llms: {
+      section: "Products",
+      label: "IDTO Flow",
+      note: "Configurable identity workflow SDK for branded onboarding journeys",
+    },
+  },
+  {
+    path: "/products/bank-statement-analysis",
+    lastmod: "2026-06-26",
+    title: "Bank Statement Analysis API - Underwriting Insights | idto.ai",
+    description:
+      "Convert bank statement PDFs into structured transaction data, cash-flow analysis, income insights, obligations and fraud signals for underwriting.",
+    llms: {
+      section: "Products",
+      label: "Bank Statement Analysis",
+      note: "Bank statement PDF analysis for underwriting-ready financial intelligence",
+    },
+  },
+  {
+    path: "/products/face-match-liveness",
+    lastmod: "2026-06-26",
+    title: "Face Match & Liveness Check API | idto.ai",
+    description:
+      "Compare a live selfie with an identity document photo and receive face match decisions, similarity scores, liveness checks and quality signals in real time.",
+    llms: {
+      section: "Products",
+      label: "Face Match & Liveness",
+      note: "Real-time face matching, liveness detection, image quality checks and verification reports",
+    },
+  },
+  {
+    path: "/products/digital-check-in",
+    lastmod: "2026-06-26",
+    title: "Digital Check-In for Hotels | idto.ai",
+    description:
+      "Let hotel guests complete DPDP-ready identity verification before arrival through WhatsApp, SMS, email, or QR code with idto.ai.",
+    llms: {
+      section: "Products",
+      label: "Digital Check-In",
+      note: "DPDP-ready hotel check-in workflows for guest identity verification before arrival",
+    },
+  },
+  {
     path: "/solutions/fintech-and-lending",
     lastmod: "2026-06-20",
     title: "Fintech & Lending Identity Workflows | idto.ai",

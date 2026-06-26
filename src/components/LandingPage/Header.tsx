@@ -73,6 +73,41 @@ const dropdownIconPaths = {
     "M7 8.25c-.9.85-1.35 1.95-1.35 3.25S6.1 13.9 7 14.75",
     "M17 8.25c.9.85 1.35 1.95 1.35 3.25S17.9 13.9 17 14.75",
   ],
+  idtoFlow: [
+    "M5.5 7.25h4.5v4.5H5.5v-4.5Z",
+    "M14 4.75h4.5v4.5H14v-4.5Z",
+    "M14 14.75h4.5v4.5H14v-4.5Z",
+    "M10 9.5h2.2c1.15 0 2.1-.95 2.1-2.1V7",
+    "M10 9.5h2.2c1.15 0 2.1.95 2.1 2.1v5.4",
+    "M7.75 11.75v2.75c0 1.15.95 2.1 2.1 2.1H14",
+  ],
+  bankStatementAnalysis: [
+    "M6.25 4.75h8.5l3 3v11.5H6.25V4.75Z",
+    "M14.75 4.75v3h3",
+    "M8.75 10.75h6.5",
+    "M8.75 13.25h6.5",
+    "M8.75 15.75h2.5",
+    "M12.75 17.75l1.2-1.35 1.3.8 1.95-2.7",
+  ],
+  faceMatchLiveness: [
+    "M12 5.25c3.95 0 6.9 2.5 8.25 6.75-1.35 4.25-4.3 6.75-8.25 6.75S5.1 16.25 3.75 12C5.1 7.75 8.05 5.25 12 5.25Z",
+    "M9.65 11.65a2.35 2.35 0 1 0 4.7 0 2.35 2.35 0 0 0-4.7 0Z",
+    "M7.7 18.15c.8-1.65 2.25-2.5 4.3-2.5s3.5.85 4.3 2.5",
+    "M17.75 5.25l1 1 2-2.25",
+    "M6.25 5.25l-1 1-2-2.25",
+  ],
+  digitalCheckIn: [
+    "M5.25 7.75h13.5v9.5H5.25v-9.5Z",
+    "M7.75 10.25h3.75",
+    "M7.75 12.5h2.5",
+    "M14.25 10.25h2",
+    "M14.25 12.5h2",
+    "M8.25 17.25v2",
+    "M15.75 17.25v2",
+    "M8.25 5.25v2.5",
+    "M15.75 5.25v2.5",
+    "M11.4 15.05l1.25 1.2 2.8-3.25",
+  ],
   fintechLending: [
     "M5.5 14.5h8.5v4H5.5v-4Z",
     "M7.25 12h8.5v2.5h-8.5V12Z",
@@ -219,7 +254,7 @@ function DefaultPreviewGraphic({
 }) {
   const icons: DropdownIconName[] =
     variant === "products"
-      ? ["ckyc", "digilocker", "bav", "mobileIntelligence"]
+      ? ["ckyc", "digilocker", "bav", "mobileIntelligence", "idtoFlow", "bankStatementAnalysis", "faceMatchLiveness", "digitalCheckIn"]
       : ["fintechLending", "bankingNbfcs", "merchantKyb", "backgroundVerification", "insurance"];
 
   return (
@@ -303,6 +338,38 @@ const productItems: DropdownItem[] = [
     
     description:
       "Streamline sign-ups, auto-fill user details, and protect against fraud.",
+  },
+  {
+    label: "IDTO Flow",
+    href: "/products/idto-flow/",
+    icon: "idtoFlow",
+
+    description:
+      "Launch branded KYC, KYB, employee, seller, driver, fraud, and global identity workflows with one SDK.",
+  },
+  {
+    label: "Bank Statement Analysis",
+    href: "/products/bank-statement-analysis/",
+    icon: "bankStatementAnalysis",
+
+    description:
+      "Convert bank statement PDFs into underwriting-ready transaction, cash-flow, income, and fraud insights.",
+  },
+  {
+    label: "Face Match & Liveness",
+    href: "/products/face-match-liveness/",
+    icon: "faceMatchLiveness",
+
+    description:
+      "Compare a live selfie with an identity document photo and return match, liveness, and quality signals.",
+  },
+  {
+    label: "Digital Check-In",
+    href: "/products/digital-check-in/",
+    icon: "digitalCheckIn",
+
+    description:
+      "Let hotel guests complete DPDP-ready identity verification before arrival through WhatsApp, SMS, email, or QR code.",
   },
 ];
 
@@ -691,9 +758,9 @@ export default function Header() {
                               </div>
                             </div>
                           ) : (
-                            <div className="flex w-full flex-col items-center justify-center overflow-x-auto rounded-[12px] bg-white px-[16px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
-                              <div className="flex h-[264px] w-[1281px] shrink-0 items-start gap-[12px]">
-                                <div className="grid h-[264px] w-[784px] shrink-0 grid-cols-2 grid-rows-2 gap-[12px]">
+                            <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-[12px] bg-white px-[16px] py-[20px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+                              <div className="flex h-[430px] w-[1281px] shrink-0 items-start gap-[12px]">
+                                <div className="grid h-[430px] w-[784px] shrink-0 grid-cols-2 auto-rows-fr gap-[12px]">
                                   {productItems.map((product) => {
                                     const isActive = product.href === activeProduct?.href;
 
@@ -705,7 +772,7 @@ export default function Header() {
                                         onFocus={() => setActiveProductHref(product.href)}
                                         onMouseDown={(event) => event.stopPropagation()}
                                         onClick={() => setDropdownOpen(item.dropdown, false)}
-                                        className={`group flex items-center gap-[12px] rounded-[18px] py-[40.4px] pl-[17px] pr-[17px] transition-all duration-200 ${
+                                        className={`group flex items-center gap-[12px] rounded-[18px] py-[18px] pl-[17px] pr-[17px] transition-all duration-200 ${
                                           isActive
                                             ? "border border-[#1d68f4] bg-white shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
                                             : "border border-transparent bg-[#f9fbff] hover:border-[#1d68f4] hover:bg-white hover:shadow-[0px_10px_40px_-15px_rgba(48,97,239,0.4)]"
@@ -731,12 +798,12 @@ export default function Header() {
                                   })}
                                 </div>
 
-                                <div className={`relative flex h-[264px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px] ${activeProduct ? "py-[31px]" : "py-[22px]"}`}>
+                                <div className={`relative flex h-[430px] w-[480px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[22px] border border-[#d7deec] bg-white/70 px-[41px] text-[#040a1c] shadow-[0px_30px_80px_-30px_rgba(128,71,225,0.25)] backdrop-blur-[12px] ${activeProduct ? "py-[31px]" : "py-[22px]"}`}>
                                     <div className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: "linear-gradient(151deg, rgba(159,95,255,0.6) 0%, rgba(159,95,255,0) 50%, rgba(0,177,195,0.6) 100%)" }} />
                                     <div className="pointer-events-none absolute -right-[95px] -top-[96px] size-[288px] rounded-full bg-[#bb89ff] opacity-30 blur-[32px]" />
                                     <div className="pointer-events-none absolute -bottom-[96px] -left-[64px] size-[256px] rounded-full bg-[#00d7e4] opacity-25 blur-[32px]" />
 
-                                    <div className={`relative flex w-full flex-col items-start ${activeProduct ? "h-[202px]" : "h-[220px]"}`}>
+                                    <div className={`relative flex w-full flex-col items-start ${activeProduct ? "h-[368px]" : "h-[386px]"}`}>
                                         {activeProduct ? (
                                           <div className="flex w-full items-center gap-[10px]">
                                             <span className="relative flex size-[64px] shrink-0 items-center justify-center rounded-[30px] text-white">

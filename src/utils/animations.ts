@@ -11,6 +11,15 @@ export const createFadeInUp = (delaySeconds: number = 0): Variants => ({
   },
 });
 
+export const createAboveFoldReveal = (delaySeconds: number = 0): Variants => ({
+  hidden: { opacity: 1, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut", delay: delaySeconds },
+  },
+});
+
 export const createFadeInDown = (delaySeconds: number = 0): Variants => ({
   hidden: { opacity: 0, y: -24 },
   show: {

@@ -10,6 +10,10 @@ const productLinks = [
   { label: "Business Verification (KYB)", href: "/products/BAV/" },
   { label: "DigiLocker 3.0", href: "/products/digilocker-3.0/" },
   { label: "Mobile Intelligence", href: "/products/mobile-intelligence/" },
+  { label: "IDTO Flow", href: "/products/idto-flow/" },
+  { label: "Bank Statement Analysis", href: "/products/bank-statement-analysis/" },
+  { label: "Face Match & Liveness", href: "/products/face-match-liveness/" },
+  { label: "Digital Check-In", href: "/products/digital-check-in/" },
   { label: "Book a Demo", href: "/contact-us/" },
 ];
 

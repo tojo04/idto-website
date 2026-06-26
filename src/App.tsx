@@ -15,6 +15,10 @@ import DigiLockerProductPage from "./pages/DigiLockerProductPage";
 import CKYCProductPage from "./pages/CKYCProductPage";
 import BAVProductPage from "./pages/BAVProductPage";
 import MobileIntelligenceProductPage from "./pages/MobileIntelligenceProductPage";
+import IDTOFlowProductPage from "./pages/IDTOFlowProductPage";
+import BankStatementAnalysisProductPage from "./pages/BankStatementAnalysisProductPage";
+import FaceMatchLivenessProductPage from "./pages/FaceMatchLivenessProductPage";
+import DigitalCheckInProductPage from "./pages/DigitalCheckInProductPage";
 import FintechLendingSolutionPage from "./pages/FintechLendingSolutionPage";
 import BankingNbfcsSolutionPage from "./pages/BankingNbfcsSolutionPage";
 import InsuranceSolutionPage from "./pages/InsuranceSolutionPage";
@@ -176,6 +180,10 @@ export function AppShell() {
         <Route path="/products/CKYC" element={<CKYCProductPage />} />
         <Route path="/products/BAV" element={<BAVProductPage />} />
         <Route path="/products/mobile-intelligence" element={<MobileIntelligenceProductPage />} />
+        <Route path="/products/idto-flow" element={<IDTOFlowProductPage />} />
+        <Route path="/products/bank-statement-analysis" element={<BankStatementAnalysisProductPage />} />
+        <Route path="/products/face-match-liveness" element={<FaceMatchLivenessProductPage />} />
+        <Route path="/products/digital-check-in" element={<DigitalCheckInProductPage />} />
          <Route path="/demo" element={<Demo />} />
         <Route path="/solutions/fintech-and-lending" element={<FintechLendingSolutionPage />} />
         <Route path="/solutions/banking-and-nbfcs" element={<BankingNbfcsSolutionPage />} />
