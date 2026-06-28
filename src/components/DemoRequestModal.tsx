@@ -67,6 +67,7 @@ type DemoRequestFormProps = {
   onSubmitSuccess?: () => void;
   showHeader?: boolean;
   showRequirementsField?: boolean;
+  requirementsRequired?: boolean;
   successActionLabel?: string;
 };
 
@@ -89,6 +90,7 @@ export function DemoRequestForm({
   onSubmitSuccess,
   showHeader = true,
   showRequirementsField = false,
+  requirementsRequired = true,
   successActionLabel = "Send another request",
 }: DemoRequestFormProps) {
   const [formData, setFormData] =
@@ -164,7 +166,9 @@ export function DemoRequestForm({
     }
 
     if (field === "queriesAndRequirements") {
-      return String(value).trim() ? "" : "This field is required.";
+      return requirementsRequired && !String(value).trim()
+        ? "This field is required."
+        : "";
     }
 
     return "";
@@ -248,7 +252,7 @@ export function DemoRequestForm({
       "companyName",
       "workEmail",
       "phone",
-      ...(showRequirementsField
+      ...(showRequirementsField && requirementsRequired
         ? (["queriesAndRequirements"] as Array<keyof DemoRequestPayload>)
         : []),
       "consentToContact",
@@ -277,7 +281,9 @@ export function DemoRequestForm({
       companyName: true,
       workEmail: true,
       phone: true,
-      ...(showRequirementsField ? { queriesAndRequirements: true } : {}),
+      ...(showRequirementsField && requirementsRequired
+        ? { queriesAndRequirements: true }
+        : {}),
       consentToContact: true,
     });
 
@@ -470,9 +476,16 @@ export function DemoRequestForm({
 
             {showRequirementsField && (
               <label className="flex flex-col gap-2 text-[13px] font-semibold text-black min-[1024px]:col-span-2">
-                Queries or Requirements
+                <span>
+                  Queries or Requirements
+                  {!requirementsRequired && (
+                    <span className="ml-1 font-normal text-black/45">
+                      (optional)
+                    </span>
+                  )}
+                </span>
                 <textarea
-                  required
+                  required={requirementsRequired}
                   name="queriesAndRequirements"
                   value={formData.queriesAndRequirements}
                   onChange={handleTextChange}

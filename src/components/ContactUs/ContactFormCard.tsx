@@ -22,6 +22,7 @@ export default function ContactFormCard({
         onSubmitSuccess={onSubmitSuccess}
         showHeader={false}
         showRequirementsField
+        requirementsRequired={false}
       />
     </div>
   );
